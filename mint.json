@@ -1,55 +1,57 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
-  "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
-  },
-  "favicon": "/favicon.svg",
-  "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
-    "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
-    }
-  },
-  "topbarLinks": [
-    {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
-    }
-  ],
-  "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
-  }
-  ],
-  "navigation": [
-    {
-      "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "development"
-      ]
+    "$schema": "https://mintlify.com/schema.json",
+    "name": "Starter Kit",
+    "logo": {
+      "dark": "/logo/dark.svg",
+      "light": "/logo/light.svg"
     },
-    {
-      "group": "Essentials",
-      "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
-      ]
+    "favicon": "/favicon.svg",
+    "colors": {
+      "primary": "#0D9373",
+      "light": "#07C983",
+      "dark": "#0D9373",
+      "anchors": {
+        "from": "#0D9373",
+        "to": "#07C983"
+      }
     },
-  ],
-  "footerSocials": {
-    "x": "https://x.com/semantiksai",
-    "github": "https://github.com/semantiks-ai",
-    "linkedin": "https://www.linkedin.com/company/semantiks/"
-  }
+    "topbarLinks": [
+      {
+        "name": "Contactanos",
+        "url": "mailto:adrian@semantiks.ai"
+      }
+    ],
+    "topbarCtaButton": {
+      "name": "Consola",
+      "url": "https://consola.semantiks.com"
+    },
+    "version": "1.0",
+    "lastUpdated": "2025-03-09",
+    "data": [],
+    "navigation": [
+      {
+        "group": "Inicio",
+        "pages": [
+          "introduction",
+          "quickstart",
+          "development"
+        ]
+      },
+      {
+        "group": "Essentials",
+        "pages": [
+          "essentials/markdown",
+          "essentials/code",
+          "essentials/images",
+          "essentials/settings",
+          "essentials/navigation",
+          "essentials/reusable-snippets"
+        ]
+      }
+    ],
+    "footerSocials": {
+      "x": "https://x.com/semantiksai",
+      "github": "https://github.com/semantiks-ai",
+      "linkedin": "https://www.linkedin.com/company/semantiks/"
+    }
 }
