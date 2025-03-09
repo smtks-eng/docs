@@ -32,18 +32,16 @@
       {
         "group": "Inicio",
         "pages": [
-          "introduction"
+          "introduccion"
         ]
       },
       {
-        "group": "Essentials",
+        "group": "agentes",
         "pages": [
-          "essentials/markdown",
-          "essentials/code",
-          "essentials/images",
-          "essentials/settings",
-          "essentials/navigation",
-          "essentials/reusable-snippets"
+          "agentes/acerca-de-agentes",
+          "agentes/agenda-del-workshop",
+            "agentes/preguntas-de-evaluacion",
+
         ]
       }
     ],
