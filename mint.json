@@ -36,11 +36,11 @@
         ]
       },
       {
-        "group": "agentes",
+        "group": "Agentes",
         "pages": [
           "agentes/acerca-de-agentes",
           "agentes/agenda-del-workshop",
-            "agentes/preguntas-de-evaluacion"
+          "agentes/preguntas-de-evaluacion"
         ]
       }
     ],
