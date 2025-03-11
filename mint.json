@@ -1,6 +1,6 @@
 {
     "$schema": "https://mintlify.com/schema.json",
-    "name": "Starter Kit",
+    "name": "Semantiks Pro-Services Workshops",
     "logo": {
       "dark": "/logo/dark.svg",
       "light": "/logo/pro-services-logo.png"
@@ -22,8 +22,8 @@
       }
     ],
     "topbarCtaButton": {
-      "name": "Consola",
-      "url": "https://consola.semantiks.com"
+      "name": "Pro-Services",
+      "url": "https://proservices.semantiks.com/"
     },
     "version": "1.0",
     "lastUpdated": "2025-03-09",
