@@ -42,7 +42,14 @@
           "workshop-ia/agenda-del-workshop",
           "workshop-ia/preguntas-de-evaluacion"
         ]
+      },
+      {
+        "group": "Workshop de Arquitectura de Datos",
+        "pages": [
+          "workshop-arquitectura/acerca-de-arquitectura"
+        ]
       }
+      
     ],
     "footerSocials": {
       "x": "https://x.com/semantiksai",
