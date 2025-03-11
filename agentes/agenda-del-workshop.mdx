@@ -1,59 +1,114 @@
 ---
-title: 'Images and Embeds'
-description: 'Add image, video, and other HTML elements'
-icon: 'image'
+title: 'Estructura del Workshop'
+description: 'Los detalles de nuestras tres sesiones'
+icon: 'ballot-check'
 ---
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="https://mintlify-assets.b-cdn.net/bigbend.jpg"
-/>
+Aquí tienes el documento traducido y adaptado al español latinoamericano:
 
-## Image
+---
 
-### Using Markdown
+# Workshop de Inteligencia Artificial (Agentes)
+### Duración: 3 días  
 
-The [markdown syntax](https://www.markdownguide.org/basic-syntax/#images) lets you add images using the following code
+Este taller está estructurado en tres sesiones con objetivos específicos para guiar al equipo consultor en entender claramente las necesidades del cliente, evaluar su arquitectura técnica actual y presentar finalmente una propuesta técnica detallada.
 
-```md
-![title](/path/image.jpg)
-```
+---
 
-Note that the image file size must be less than 5MB. Otherwise, we recommend hosting on a service like [Cloudinary](https://cloudinary.com/) or [S3](https://aws.amazon.com/s3/). You can then use that URL and embed.
+## Día 1: Entendiendo al Cliente y sus Objetivos
 
-### Using Embeds
+- **Objetivo:**  
+  Entender profundamente al cliente, su organización, desafíos actuales, arquitectura tecnológica y qué problemas específicos busca resolver con agentes de Inteligencia Artificial (IA).
 
-To get more customizability with images, you can also use [embeds](/writing-content/embed) to add images
+- **Temas a cubrir:**  
 
-```html
-<img height="200" src="/path/image.jpg" />
-```
+  ### Conociendo al Cliente:
+  - Introducción y presentación del cliente:
+    - ¿A qué se dedica la organización?
+    - Cultura organizacional
+    - Sector e industria específicos
+    - Metas estratégicas y operativas del negocio
 
-## Embeds and HTML elements
+  ### Retos actuales de la organización:
+  - Principales desafíos operativos, estratégicos o tecnológicos
+  - Obstáculos específicos que desean resolver con IA
+  
+  ### Introducción a los Agentes de IA:
+  - Definición y capacidades generales
+  - Ejemplos de casos de uso aplicados a su industria
+  - Marcos y tecnologías relevantes según la necesidad del cliente
 
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/4KzFe50RQkQ"
-  title="YouTube video player"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  style={{ width: '100%', borderRadius: '0.5rem' }}
-></iframe>
+  ### Arquitectura tecnológica actual:
+  - Infraestructura tecnológica existente
+  - Arquitectura en la nube actual
+  - Soluciones tecnológicas utilizadas actualmente
+  
+  ### Vinculando necesidades del cliente con soluciones tecnológicas:
+  - Análisis de por qué los agentes de IA representan una solución apropiada para los desafíos del cliente
+  - Primeras aproximaciones para integrar IA en su infraestructura existente
 
-<br />
+- **Entregables del Día 1:**  
+  - Documento con resumen de la organización, incluyendo desafíos clave y necesidades tecnológicas específicas.
+  - Notas detalladas sobre la arquitectura tecnológica actual y objetivos estratégicos del cliente.
+
+---
+
+## Día 2: Profundización Técnica
+
+- **Objetivo:**  
+  Realizar un análisis profundo de los aspectos técnicos de la organización y evaluar la viabilidad técnica para implementar agentes de IA.
+
+- **Temas a cubrir:**  
+
+  ### Exploración técnica detallada de la infraestructura actual:
+  - Fuentes y calidad de datos disponibles
+  - Estrategias actuales para gestión de datos
+  - Arquitectura de almacenamiento, seguridad y gobernanza
+
+  ### Estrategias actuales de implementación y despliegue:
+  - Métodos y procesos actuales de desarrollo e implementación tecnológica
+  - Plataformas o entornos utilizados para el despliegue de soluciones
+
+  ### Revisión y análisis de demostraciones o MVPs existentes:
+  - Evaluación técnica de proyectos previos relacionados con IA (si existen)
+  - Identificación de oportunidades de integración y mejora con agentes de IA
+  
+  ### Viabilidad e integración técnica:
+  - Evaluación profunda de puntos específicos donde los agentes de IA se integrarían de manera efectiva en la infraestructura actual del cliente
+
+- **Entregables del Día 2:**  
+  - Notas técnicas detalladas sobre gestión, calidad y almacenamiento de datos.
+  - Evaluación crítica sobre proyectos previos (MVPs) o pilotos existentes.
+  - Documento preliminar de viabilidad técnica para la implementación de agentes de IA.
+
+---
+
+## Día 3: Presentación del Documento de Diseño Técnico
+
+- **Objetivo:**  
+  Presentar un documento técnico detallado, proponiendo una estructura tecnológica integral y una ruta clara para implementar agentes de IA, ajustado según las observaciones del cliente.
+
+- **Temas a cubrir:**  
+
+  ### Presentación formal del Documento Técnico:
+  - Arquitectura técnica propuesta para implementar agentes de IA
+  - Descripción de componentes técnicos y tecnologías recomendadas
+  - Plan detallado (roadmap) para despliegue e integración
+  
+  ### Sesión interactiva de retroalimentación con el cliente:
+  - Discusión abierta para resolver dudas, inquietudes o sugerencias del cliente
+  - Alineación final del documento de diseño según comentarios recibidos
+  
+  ### Próximos pasos y recomendaciones finales:
+  - Definición clara de próximos pasos
+  - Recomendaciones específicas para implementación exitosa
+
+- **Entregables del Día 3:**  
+  - Documento Técnico Finalizado y validado con el cliente, que incluye arquitectura propuesta, roadmap de implementación y consideraciones técnicas específicas.
+
 
 <Tip>
 
 Mintlify supports [HTML tags in Markdown](https://www.markdownguide.org/basic-syntax/#html). This is helpful if you prefer HTML tags to Markdown syntax, and lets you create documentation with infinite flexibility.
 
 </Tip>
-
-### iFrames
-
-Loads another HTML page within the document. Most commonly used for embedding videos.
-
-```html
-<iframe src="https://www.youtube.com/embed/4KzFe50RQkQ"> </iframe>
-```
