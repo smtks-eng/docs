@@ -1,37 +1,45 @@
 ---
-title: 'Code Blocks'
+title: 'Acerca de Agentes de IA'
 description: 'Display inline code and code blocks'
 icon: 'code'
 ---
 
-## Basic
+## Comprendiendo los Agentes
 
-### Inline Code
+Entre finales de 2023 y principios de 2024, los entusiastas de la inteligencia artificial descubrieron que los modelos de lenguaje de gran tamaño (LLMs) no solo podían generar conocimiento, sino también planificar y optimizar acciones para alcanzar objetivos específicos. Al incorporar la capacidad de comprender y producir salidas estructuradas confiables—como código ejecutable para otros sistemas—se hizo posible que los sistemas llevaran a cabo acciones en representación de los humanos. Esta nueva capacidad es conocida como "agencia", y los sistemas que la poseen se denominan "agentes".
+Pero, ¿cómo definimos y limitamos la agencia en un sistema?
+Responder a esta pregunta es el objetivo central del desarrollo de agentes de IA. Desde su aparición en 2024, el panorama de los agentes ha evolucionado rápidamente, y en Semantiks hemos estado a la vanguardia en América Latina, escalando estos sofisticados sistemas basados en agentes, tanto internamente como para nuestros clientes.
 
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
+## Retrocediendo un Paso: ¿Qué hace que un sistema sea un Agente?
 
-```
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
-```
+Los LLMs tradicionales se limitan a producir conocimiento, sin interactuar directamente con el mundo digital o físico. Sin embargo, destacan en la planificación y en la toma óptima de decisiones. Los sistemas agénticos, o simplemente "agentes", amplían estas capacidades al permitir que los LLMs controlen acciones en el mundo real basándose en identidades, restricciones y objetivos claramente definidos.Para ejecutar acciones efectivamente, los agentes disponen de "herramientas"—funcionalidades especializadas que definen sus capacidades prácticas. Es el LLM quien decide cuándo y cómo utilizar estas herramientas en diferentes escenarios, permitiendo una toma de decisiones flexible e inteligente. Podría argumentarse que ciertos objetivos pueden lograrse mediante flujos de trabajo predeterminados; sin embargo, dichos enfoques rápidamente pierden eficiencia ante situaciones complejas, donde múltiples capas de lógica condicional resultan poco prácticas.
 
-### Code Block
+## Ejemplo: Un Agente para Optimización de Conversiones
 
-Use [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) by enclosing code in three backticks and follow the leading ticks with the programming language of your snippet to get syntax highlighting. Optionally, you can also write the name of your code after the programming language.
+Imagina un agente diseñado para ayudar en la conversión de clientes potenciales, alentándolos a adquirir un servicio específico. Este agente requiere más que simple conocimiento sobre el producto o servicio—necesita influir activamente en el proceso de conversión. Por ejemplo, podría utilizar herramientas para enviar cotizaciones personalizadas o programar reuniones entre clientes potenciales y representantes humanos, impulsando así la conversión. El componente crítico es la inteligencia del agente—su capacidad para elegir dinámicamente cuándo emplear su conocimiento interno y cuándo activar herramientas específicas, adaptándose en tiempo real según el contexto y objetivos. Esta toma de decisiones adaptativa diferencia claramente a los agentes de sistemas tradicionales con flujos rígidos. Anteriormente, los sistemas informáticos dependían en gran medida de procesos fijos y predeterminados, intentando manejar la complejidad mediante una acumulación de condiciones "si/entonces". La verdadera revolución de los sistemas agénticos radica precisamente en esta transición de flujos estáticos a procesos dinámicos controlados en tiempo real por LLMs, permitiendo una adaptación fluida e inteligente.
 
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
+## Los Agentes Hoy en Producción
 
-````md
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
-````
+Hoy en día, los agentes están siendo implementados en entornos productivos gracias a la madurez alcanzada por los LLMs, que les permite:
+- Comprender entradas complejas
+- Realizar razonamientos y planificación estratégica
+- Usar herramientas externas de forma fiable
+- Recuperarse eficientemente ante errores
+
+Generalmente, los agentes comienzan con instrucciones claras o interacciones directas con usuarios humanos. Una vez definido el objetivo, operan autónomamente, aunque pueden solicitar información adicional o validación por parte del usuario. Durante sus operaciones, los agentes validan sus acciones utilizando "verdades fundamentales" (ground truth) obtenidas en tiempo real de su entorno, herramientas externas o puntos de control establecidos con el usuario, asegurando precisión y eficacia. Las tareas concluyen al alcanzar los objetivos establecidos o al cumplir criterios predefinidos.
+
+## ¿Cuándo Utilizar Agentes?
+
+Los agentes son ideales para tareas abiertas donde el número de pasos o el camino exacto a seguir no puede ser fácilmente predefinido. Son especialmente útiles cuando:
+- Las tareas son inherentemente complejas o inciertas.
+- Se requiere flexibilidad en la toma de decisiones.
+- Existe confianza en la capacidad decisoria del LLM. 
+- La autonomía del agente los hace muy eficaces para gestionar tareas complejas en entornos dinámicos.
+
+## Nuestro enfoque en Semantiks
+
+El éxito en el ámbito de los LLMs y agentes no radica en desarrollar el sistema más sofisticado, sino en crear el sistema adecuado, adaptado exactamente a tus necesidades específicas. Aunque los agentes no son la solución universal para todos los problemas, amplían significativamente el potencial de la IA para enfrentar desafíos complejos en el mundo real.
+En Semantiks, hemos estado innovando y escalando tecnologías basadas en agentes desde 2024, convirtiéndonos probablemente en la primera empresa en América Latina en implementar estos sistemas a escala, tanto internamente como para clientes externos.
+Creemos firmemente que los agentes pronto serán universales en todas las organizaciones, optimizando significativamente la eficiencia y productividad interna, y dando lugar a un nuevo tipo de compañero de trabajo digital. Además, anticipamos que los agentes desempeñarán un papel cada vez más importante en la relación directa con el cliente final. En Semantiks, nuestro foco está en esta última visión: queremos convertirnos en la infraestructura tecnológica clave en América Latina, ayudando a organizaciones a mejorar sus relaciones con clientes, incrementando la calidad de las conversaciones, la participación y la retención.
+
+¿Interesado en saber más? Contáctanos para una consulta gratuita.
