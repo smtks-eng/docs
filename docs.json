@@ -17,8 +17,10 @@
             "group": "Get Started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "account",
+              "agent_creation",
+              "agent_types",
+              "quickstart"
             ]
           },
           {
