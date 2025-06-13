@@ -24,12 +24,12 @@
           {
             "group": "Essentials",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "essentials/capabilities",
+              "essentials/channels",
+              "essentials/conversations",
+              "essentials/indentity",
+              "essentials/knowledge",
+              "essentials/playground"
             ]
           }
         ]
