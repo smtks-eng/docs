@@ -24,14 +24,19 @@
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Agent",
             "pages": [
-              "essentials/capabilities",
-              "essentials/channels",
-              "essentials/conversations",
               "essentials/indentity",
               "essentials/knowledge",
+              "essentials/capabilities",
+              "essentials/channels",
               "essentials/playground"
+            ]
+          },
+          {
+            "group": "Boards",
+            "pages": [
+              "essentials/conversations"
             ]
           }
         ]
