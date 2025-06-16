@@ -20,14 +20,21 @@
           {
             "group": "Get Started",
             "pages": [
+              "index"
+            ]
+          },
+          
+          {
+            "group": "Platform",
+            "pages": [
               "home",
-              "index",
               "account",
               "agent_creation",
               "agent_types",
               "quickstart"
             ]
           },
+          
           {
             "group": "Agent",
             "pages": [
