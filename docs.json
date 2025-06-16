@@ -27,7 +27,14 @@
           {
             "group": "Platform",
             "pages": [
-              "home",
+              "home"
+            ]
+          },
+
+          {
+            "group": "Agent",
+            "pages": [
+              "identity_agent",
               "account",
               "agent_creation",
               "agent_types",
@@ -36,7 +43,7 @@
           },
           
           {
-            "group": "Agent",
+            "group": "Boards",
             "pages": [
               "essentials/identity",
               "essentials/knowledge",
@@ -46,13 +53,13 @@
             ]
           },
           {
-            "group": "Boards",
+            "group": "Schedule messages",
             "pages": [
-              "essentials/conversations"
+              "essentials/schedule_messages"
             ]
           },
           {
-            "group": "Settings",
+            "group": "Customers",
             "pages": [
               "essentials/schedule_messages"
             ]
