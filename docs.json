@@ -33,7 +33,7 @@
               "essentials/identity",
               "essentials/knowledge",
               "essentials/capabilities",
-              "essentials/channels2",
+              "essentials/channels",
               "essentials/playground"
             ]
           },
