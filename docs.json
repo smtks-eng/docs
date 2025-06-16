@@ -20,9 +20,8 @@
           {
             "group": "Get Started",
             "pages": [
-              "home",
-              "onboarding",
-              "knowledge",
+              "index",
+              "account",
               "agent_creation",
               "agent_types",
               "quickstart"
