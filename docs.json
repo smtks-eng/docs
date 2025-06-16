@@ -34,11 +34,11 @@
           {
             "group": "Agent",
             "pages": [
-              "identity_agent",
-              "account",
-              "agent_creation",
-              "agent_types",
-              "quickstart"
+              "agent/identity_agent",
+              "agent/account",
+              "agent/agent_creation",
+              "agent/agent_types",
+              "agent/quickstart"
             ]
           },
           
