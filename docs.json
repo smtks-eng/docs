@@ -45,9 +45,9 @@
           {
             "group": "Boards",
             "pages": [
-              "boards/identity",
-              "boards/knowledge",
-              "boards/capabilities"
+              "boards/conversations",
+              "boards/impacts",
+              "boards/insights"
             ]
           },
           {
