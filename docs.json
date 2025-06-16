@@ -18,7 +18,7 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "🚀 Get Started",
+            "group": "Get Started",
             "pages": [
               "index",
               "account",
@@ -28,7 +28,7 @@
             ]
           },
           {
-            "group": "🤖 Agent",
+            "group": "Agent",
             "pages": [
               "essentials/identity",
               "essentials/knowledge",
