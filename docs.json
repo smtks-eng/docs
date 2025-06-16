@@ -20,9 +20,10 @@
           {
             "group": "Get Started",
             "pages": [
-              "index",
-              "account",
-              "agent_creation",
+              "home",
+              "onboarding",
+              "knowledge",
+              "channels",
               "agent_types",
               "quickstart"
             ]
@@ -38,13 +39,13 @@
             ]
           },
           {
-            "group": "📊 Boards",
+            "group": "Boards",
             "pages": [
               "essentials/conversations"
             ]
           },
           {
-            "group": "⚙️ Settings",
+            "group": "Settings",
             "pages": [
               "essentials/schedule_messages"
             ]
@@ -55,13 +56,13 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "📘 API Documentation",
+            "group": "API Documentation",
             "pages": [
               "api-reference/introduction"
             ]
           },
           {
-            "group": "📡 Endpoint Examples",
+            "group": "Endpoint Examples",
             "pages": [
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
