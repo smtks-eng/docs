@@ -45,11 +45,9 @@
           {
             "group": "Boards",
             "pages": [
-              "essentials/identity",
-              "essentials/knowledge",
-              "essentials/capabilities",
-              "essentials/channels",
-              "essentials/playground"
+              "boards/identity",
+              "boards/knowledge",
+              "boards/capabilities"
             ]
           },
           {
