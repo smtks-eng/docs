@@ -20,10 +20,10 @@
           {
             "group": "Get Started",
             "pages": [
+              "home",
               "index",
               "account",
               "agent_creation",
-              "agent_types",
               "quickstart"
             ]
           },
