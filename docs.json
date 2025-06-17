@@ -20,14 +20,8 @@
           {
             "group": "Get Started",
             "pages": [
-              "index"
-            ]
-          },
-          
-          {
-            "group": "Platform",
-            "pages": [
-              "platform/home"
+              "index",
+              "home"
             ]
           },
 
