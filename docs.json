@@ -35,7 +35,7 @@
             "group": "Agent",
             "pages": [
               "agent/identity_agent",
-              "agent/account",
+              "agent/knowledge",
               "agent/agent_creation",
               "agent/agent_types",
               "agent/quickstart"
