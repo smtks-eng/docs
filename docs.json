@@ -12,7 +12,6 @@
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
   },
-
   "navigation": {
     "languages": [
       {
@@ -25,7 +24,7 @@
                 "group": "Get Started",
                 "pages": [
                   {
-                    "page": "en/en_creating",
+                    "page": "en_creating",
                     "name": "Creating your first Agent",
                     "icon": "rocket"
                   },
@@ -35,11 +34,11 @@
               {
                 "group": "Agent",
                 "pages": [
-                  "agent/identity_agent",
-                  "agent/knowledge",
-                  "agent/agent_creation",
-                  "agent/agent_types",
-                  "agent/quickstart"
+                  "agent/en_identity_agent",
+                  "agent/en_knowledge",
+                  "agent/en_agent_creation",
+                  "agent/en_agent_types",
+                  "agent/en_quickstart"
                 ]
               },
               {
@@ -63,30 +62,9 @@
                 ]
               }
             ]
-          },
-          {
-            "tab": "API Reference",
-            "groups": [
-              {
-                "group": "API Documentation",
-                "pages": [
-                  "api-reference/introduction"
-                ]
-              },
-              {
-                "group": "Endpoint Examples",
-                "pages": [
-                  "api-reference/endpoint/get",
-                  "api-reference/endpoint/create",
-                  "api-reference/endpoint/delete",
-                  "api-reference/endpoint/webhook"
-                ]
-              }
-            ]
           }
         ]
       },
-
       {
         "language": "es",
         "tabs": [
@@ -97,7 +75,7 @@
                 "group": "Primeros pasos",
                 "pages": [
                   {
-                    "page": "es/es_creating",
+                    "page": "es_creating",
                     "name": "Creando tu primer Agente",
                     "icon": "rocket"
                   }
@@ -108,7 +86,6 @@
         ]
       }
     ],
-
     "global": {
       "anchors": [
         {
@@ -119,7 +96,6 @@
       ]
     }
   },
-
   "navbar": {
     "links": [
       {
@@ -133,7 +109,6 @@
       "href": "https://consola.semantiks.com/"
     }
   },
-
   "footer": {
     "socials": {
       "x": "https://x.com/semantiksai",
