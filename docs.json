@@ -12,71 +12,95 @@
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
   },
+
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Guides",
-        "groups": [
+        "language": "en",
+        "tabs": [
           {
-            "group": "Get Started",
-            "pages": [
-              "index",
-              "platform/home"
+            "tab": "Guides",
+            "groups": [
+              {
+                "group": "Get Started",
+                "pages": [
+                  "en/en_creating",
+                  "platform/home"
+                ]
+              },
+              {
+                "group": "Agent",
+                "pages": [         
+                  "agent/identity_agent",
+                  "agent/knowledge",
+                  "agent/agent_creation",
+                  "agent/agent_types",
+                  "agent/quickstart"
+                ]
+              },
+              {
+                "group": "Boards",
+                "pages": [
+                  "boards/conversations",
+                  "boards/impacts",
+                  "boards/insights"
+                ]
+              },
+              {
+                "group": "Schedule messages",
+                "pages": [
+                  "essentials/schedule_messages"
+                ]
+              },
+              {
+                "group": "Customers",
+                "pages": [
+                  "essentials/schedule_messages"
+                ]
+              }
             ]
           },
           {
-            "group": "Agent",
-            "pages": [
-              "agent/identity_agent",
-              "agent/knowledge",
-              "agent/agent_creation",
-              "agent/agent_types",
-              "agent/quickstart"
-            ]
-          },
-          {
-            "group": "Boards",
-            "pages": [
-              "boards/conversations",
-              "boards/impacts",
-              "boards/insights"
-            ]
-          },
-          {
-            "group": "Schedule messages",
-            "pages": [
-              "essentials/schedule_messages"
-            ]
-          },
-          {
-            "group": "Customers",
-            "pages": [
-              "essentials/schedule_messages"
+            "tab": "API Reference",
+            "groups": [
+              {
+                "group": "API Documentation",
+                "pages": [
+                  "api-reference/introduction"
+                ]
+              },
+              {
+                "group": "Endpoint Examples",
+                "pages": [
+                  "api-reference/endpoint/get",
+                  "api-reference/endpoint/create",
+                  "api-reference/endpoint/delete",
+                  "api-reference/endpoint/webhook"
+                ]
+              }
             ]
           }
         ]
       },
+
       {
-        "tab": "API Reference",
-        "groups": [
+        "language": "es",
+        "tabs": [
           {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint Examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+            "tab": "Guías",
+            "groups": [
+              {
+                "group": "Primeros pasos",
+                "pages": [
+                  "es/es_creating"           
+                ]
+              }
             ]
           }
         ]
       }
     ],
+
     "global": {
       "anchors": [
         {
@@ -87,6 +111,7 @@
       ]
     }
   },
+
   "navbar": {
     "links": [
       {
@@ -100,6 +125,7 @@
       "href": "https://consola.semantiks.com/"
     }
   },
+
   "footer": {
     "socials": {
       "x": "https://x.com/semantiksai",
