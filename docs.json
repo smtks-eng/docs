@@ -13,74 +13,65 @@
     "dark": "/logo/dark.svg"
   },
   "navigation": {
-    "languages": [
+    "tabs": [
       {
-        "language": "en",
-        "tabs": [
+        "tab": "Guides",
+        "groups": [
           {
-            "tab": "Guides",
-            "groups": [
-              {
-                "group": "Get Started",
-                "pages": [
-                  {
-                    "page": "en_creating",
-                    "name": "Creating your first Agent",
-                    "icon": "rocket"
-                  },
-                  "platform/home"
-                ]
-              },
-              {
-                "group": "Agent",
-                "pages": [
-                  "agent/en_identity_agent",
-                  "agent/en_knowledge",
-                  "agent/en_agent_creation",
-                  "agent/en_agent_types",
-                  "agent/en_quickstart"
-                ]
-              },
-              {
-                "group": "Boards",
-                "pages": [
-                  "boards/conversations",
-                  "boards/impacts",
-                  "boards/insights"
-                ]
-              },
-              {
-                "group": "Schedule messages",
-                "pages": [
-                  "essentials/schedule_messages"
-                ]
-              },
-              {
-                "group": "Customers",
-                "pages": [
-                  "essentials/schedule_messages"
-                ]
-              }
+            "group": "Get Started",
+            "pages": [
+              "index",
+              "platform/home"
+            ]
+          },
+          {
+            "group": "Agent",
+            "pages": [
+              "agent/identity_agent",
+              "agent/knowledge",
+              "agent/agent_creation",
+              "agent/agent_types",
+              "agent/quickstart"
+            ]
+          },
+          {
+            "group": "Boards",
+            "pages": [
+              "boards/conversations",
+              "boards/impacts",
+              "boards/insights"
+            ]
+          },
+          {
+            "group": "Schedule messages",
+            "pages": [
+              "essentials/schedule_messages"
+            ]
+          },
+          {
+            "group": "Customers",
+            "pages": [
+              "essentials/schedule_messages"
             ]
           }
         ]
       },
       {
-        "language": "es",
-        "tabs": [
+        "tab": "API Reference",
+        "groups": [
           {
-            "tab": "Guías",
-            "groups": [
-              {
-                "group": "Primeros pasos",
-                "pages": [
-                  {
-                    "page": "es_creating",
-                    "name": "Creando tu primer Agente",
-                    "icon": "rocket"
-                  }
-                ]
-              }
+            "group": "API Documentation",
+            "pages": [
+              "api-reference/introduction"
+            ]
+          },
+          {
+            "group": "Endpoint Examples",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete",
+              "api-reference/endpoint/webhook"
             ]
           }
         ]
