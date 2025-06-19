@@ -24,13 +24,17 @@
               {
                 "group": "Get Started",
                 "pages": [
-                  "en/en_creating",
+                  {
+                    "page": "en/en_creating",
+                    "name": "Creating your first Agent",
+                    "icon": "rocket"
+                  },
                   "platform/home"
                 ]
               },
               {
                 "group": "Agent",
-                "pages": [         
+                "pages": [
                   "agent/identity_agent",
                   "agent/knowledge",
                   "agent/agent_creation",
@@ -92,7 +96,11 @@
               {
                 "group": "Primeros pasos",
                 "pages": [
-                  "es/es_creating"           
+                  {
+                    "page": "es/es_creating",
+                    "name": "Creando tu primer Agente",
+                    "icon": "rocket"
+                  }
                 ]
               }
             ]
