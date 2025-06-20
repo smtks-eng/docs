@@ -20,7 +20,7 @@
           {
             "group": "Get Started",
             "pages": [
-              "index",
+              "en_index",
               "platform/en/home"
             ]
           },
@@ -59,7 +59,7 @@
           {
             "group": "Empezar",
             "pages": [
-              "index",
+              "es_index",
               "platform/es/home"
             ]
           },
