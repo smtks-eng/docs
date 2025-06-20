@@ -13,65 +13,81 @@
     "dark": "/logo/dark.svg"
   },
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Guides",
+        "language": "en",
         "groups": [
           {
             "group": "Get Started",
             "pages": [
               "index",
-              "platform/home"
+              "platform/en/home"
             ]
           },
           {
             "group": "Agent",
             "pages": [
-              "agent/identity_agent",
-              "agent/knowledge",
-              "agent/agent_creation",
-              "agent/agent_types",
-              "agent/quickstart"
+              "agent/en/identity_agent",
+              "agent/en/knowledge",
+              "agent/en/agent_creation",
+              "agent/en/agent_types",
+              "agent/en/quickstart"
             ]
           },
           {
             "group": "Boards",
             "pages": [
-              "boards/conversations",
-              "boards/impacts",
-              "boards/insights"
+              "boards/en/capabilities",
+              "boards/en/identity",
+              "boards/en/knowledge"
             ]
           },
           {
-            "group": "Schedule messages",
+            "group": "Essentials",
             "pages": [
-              "essentials/schedule_messages"
-            ]
-          },
-          {
-            "group": "Customers",
-            "pages": [
-              "essentials/schedule_messages"
+              "essentials/en/channels",
+              "essentials/en/conversations",
+              "essentials/en/playground",
+              "essentials/en/schedule_messages"
             ]
           }
         ]
       },
       {
-        "tab": "API Reference",
+        "language": "es",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "Empezar",
             "pages": [
-              "api-reference/introduction"
+              "index",
+              "platform/es/home"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Agente",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "agent/es/identity_agent",
+              "agent/es/knowledge",
+              "agent/es/agent_creation",
+              "agent/es/agent_types",
+              "agent/es/quickstart"
+            ]
+          },
+          {
+            "group": "Tableros",
+            "pages": [
+              "boards/es/capabilities",
+              "boards/es/identity",
+              "boards/es/knowledge"
+            ]
+          },
+          {
+            "group": "Esenciales",
+            "pages": [
+              "essentials/es/channels",
+              "essentials/es/conversations",
+              "essentials/es/playground",
+              "essentials/es/schedule_messages"
             ]
           }
         ]

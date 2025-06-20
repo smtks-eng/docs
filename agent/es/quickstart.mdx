@@ -1,0 +1,98 @@
+---
+title: 'Inicio Rápido'
+language: es
+description: 'Comienza a construir documentación increíble en menos de 5 minutos'
+---
+
+## Configura tu desarrollo
+
+Aprende cómo actualizar tu documentación localmente y desplegarla al público.
+
+### Editar y previsualizar
+
+<AccordionGroup>
+  <Accordion icon="github" title="Clona tu documentación localmente">
+    Durante el proceso de incorporación, creamos un repositorio en tu Github con
+    el contenido de tu documentación. Puedes encontrar este repositorio en nuestro
+    [panel de control](https://dashboard.mintlify.com). Para clonar el repositorio
+    localmente, sigue estas
+    [instrucciones](https://docs.github.com/es/repositories/creating-and-managing-repositories/cloning-a-repository)
+    en tu terminal.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Previsualizar cambios">
+    La previsualización te ayuda a asegurarte de que tus cambios se vean como lo deseas. Construimos una
+    interfaz de línea de comandos para renderizar estos cambios localmente.
+    1. Instala el
+    [CLI de Mintlify](https://www.npmjs.com/package/mintlify) para previsualizar los
+    cambios en la documentación localmente con este comando: ``` npm i -g mintlify ```
+    2. Ejecuta el siguiente comando en la raíz de tu documentación (donde está
+    `docs.json`): ``` mintlify dev ```
+    <Note>
+      Si actualmente estás usando el archivo de configuración heredado ```mint.json```, por favor actualiza el CLI de Mintlify:
+
+
+      ```npm i -g mintlify@latest```
+      Y ejecuta el nuevo comando de actualización en tu repositorio de documentación:
+
+      ```mintlify upgrade```
+      Ahora deberías estar usando el nuevo archivo de configuración ```docs.json```. Puedes eliminar el archivo ```mint.json``` de tu repositorio.
+    </Note>
+  </Accordion>
+</AccordionGroup>
+
+### Despliega tus cambios
+
+<AccordionGroup>
+
+<Accordion icon="message-bot" title="Instala nuestra aplicación de Github">
+  Nuestra aplicación de Github despliega automáticamente tus cambios en tu sitio de documentación, así que
+  no necesitas gestionar los despliegues por ti mismo. Puedes encontrar el enlace para instalar en
+  tu [panel de control](https://dashboard.mintlify.com). Una vez que el bot ha sido
+  instalado exitosamente, debería haber una marca de verificación junto al hash del commit
+  del repositorio.
+</Accordion>
+<Accordion icon="rocket" title="Sube tus cambios">
+  [Confirma y sube tus cambios a
+  Git](https://docs.github.com/es/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
+  para que tus cambios se actualicen en tu sitio de documentación. Si subes y no ves que
+  la aplicación de Github haya desplegado exitosamente tus cambios, también puedes
+  actualizar tu documentación manualmente a través de nuestro [panel de control](https://dashboard.mintlify.com).
+</Accordion>
+
+</AccordionGroup>
+
+## Actualiza tu documentación
+
+Agrega contenido directamente en tus archivos con sintaxis MDX y componentes React. Puedes usar cualquiera de nuestros componentes, o incluso construir los tuyos propios.
+
+<CardGroup>
+
+<Card title="Agregar Contenido Con MDX" icon="file" href="/essentials/markdown">
+  Agrega contenido a tu documentación con sintaxis MDX.
+</Card>
+
+<Card
+  title="Agregar Bloques de Código"
+  icon="square-code"
+  href="/essentials/code"
+>
+  Agrega código directamente a tu documentación con resaltado de sintaxis.
+</Card>
+
+<Card
+  title="Agregar Imágenes"
+  icon="image"
+  href="/essentials/images"
+>
+  Agrega imágenes a tu documentación para hacerla más atractiva.
+</Card>
+
+<Card
+  title="Agregar Componentes Personalizados"
+  icon="puzzle-piece"
+  href="/essentials/reusable-snippets"
+>
+  Agrega plantillas a tu documentación para hacerla más reutilizable.
+</Card>
+
+</CardGroup>
