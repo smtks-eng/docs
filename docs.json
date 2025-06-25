@@ -27,11 +27,11 @@
           {
             "group": "Agent",
             "pages": [
-              "agent/en/identity_agent",
+              "agent/en/identity",
               "agent/en/knowledge",
-              "agent/en/agent_creation",
-              "agent/en/agent_types",
-              "agent/en/quickstart"
+              "agent/en/capabilities",
+              "agent/en/channels",
+              "agent/en/playground"
             ]
           },
           {
@@ -66,11 +66,11 @@
           {
             "group": "Agente",
             "pages": [
-              "agent/es/identity_agent",
-              "agent/es/knowledge",
-              "agent/es/agent_creation",
-              "agent/es/agent_types",
-              "agent/es/quickstart"
+              "agent/es/identidad",
+              "agent/es/conocimiento",
+              "agent/es/capacidades",
+              "agent/es/canales",
+              "agent/es/playground"
             ]
           },
           {
