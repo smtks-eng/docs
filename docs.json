@@ -37,8 +37,8 @@
           {
             "group": "Boards",
             "pages": [
-              "boards/en/capabilities",
-              "boards/en/identity",
+              "boards/en/conversations",
+              "boards/en/tool-usage",
               "boards/en/knowledge"
             ]
           },
@@ -76,9 +76,9 @@
           {
             "group": "Tableros",
             "pages": [
-              "boards/es/capabilities",
-              "boards/es/identity",
-              "boards/es/knowledge"
+              "boards/es/conversaciones",
+              "boards/es/uso-capacidades",
+              "boards/es/conocimiento"
             ]
           },
           {
