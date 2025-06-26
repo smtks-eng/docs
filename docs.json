@@ -20,7 +20,8 @@
           {
             "group": "Get Started",
             "pages": [
-              "en_index",
+              "get-started/en/welcome",
+              "get-started/en/onboarding-steps",
               "platform/en/home"
             ]
           },
@@ -72,7 +73,8 @@
           {
             "group": "Empezar",
             "pages": [
-              "es_index",
+              "get-started/es/bienvenida",
+              "get-started/es/pasos-de-inicio",
               "platform/es/home"
             ]
           },
