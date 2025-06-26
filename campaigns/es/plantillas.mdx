@@ -1,80 +1,78 @@
 ---
-title: "Boards Conversations "
-description: "Mintlify gives you complete control over the look and feel of your documentation using the docs.json file"
-icon: "gear"
+title: "Plantillas de Mensajes"
+description: "Mintlify te da control completo sobre la apariencia y sensación de tu documentación usando el archivo docs.json"
+icon: "file-lines"
 ---
 
-Every Mintlify site needs a `docs.json` file with the core configuration settings. Learn more about the [properties](#properties) below.
+Cada sitio de Mintlify necesita un archivo `docs.json` con la configuración básica. Aprende más sobre las [propiedades](#propiedades) a continuación.
 
-## Properties
+## Propiedades
 
 <ResponseField name="name" type="string" required>
-  Name of your project. Used for the global title.
+  Nombre de tu proyecto. Usado para el título global.
 
-  Example: `mintlify`
+  Ejemplo: `mintlify`
 </ResponseField>
 
 <ResponseField name="navigation" type="Navigation[]" required>
-  An array of groups with all the pages within that group
+  Un array de grupos con todas las páginas dentro de ese grupo
 
-  <Expandable title="Navigation">
+  <Expandable title="Navegación">
     <ResponseField name="group" type="string">
-      The name of the group.
+      El nombre del grupo.
 
-      Example: `Settings`
+      Ejemplo: `Configuración`
     </ResponseField>
     <ResponseField name="pages" type="string[]">
-      The relative paths to the markdown files that will serve as pages.
+      Las rutas relativas a los archivos markdown que servirán como páginas.
 
-      Example: `["customization", "page"]`
+      Ejemplo: `["personalizacion", "pagina"]`
     </ResponseField>
   </Expandable>
 </ResponseField>
 
 <ResponseField name="logo" type="string or object">
-  Path to logo image or object with path to "light" and "dark" mode logo images
+  Ruta a la imagen del logo u objeto con ruta al logo en modo "claro" y "oscuro"
 
   <Expandable title="Logo">
     <ResponseField name="light" type="string">
-      Path to the logo in light mode
+      Ruta al logo en modo claro
     </ResponseField>
     <ResponseField name="dark" type="string">
-      Path to the logo in dark mode
+      Ruta al logo en modo oscuro
     </ResponseField>
     <ResponseField name="href" type="string" default="/">
-      Where clicking on the logo links you to
+      A dónde te lleva el clic en el logo
     </ResponseField>
   </Expandable>
 </ResponseField>
 
 <ResponseField name="favicon" type="string">
-  Path to the favicon image
+  Ruta a la imagen del favicon
 </ResponseField>
 
 <ResponseField name="colors" type="Colors">
-  Hex color codes for your global theme
+  Códigos de color hexadecimal para tu tema global
 
-  <Expandable title="Colors">
+  <Expandable title="Colores">
     <ResponseField name="primary" type="string" required>
-      The primary color. Used for most often for highlighted content, section
-      headers, accents, in light mode
+      El color primario. Usado más frecuentemente para contenido resaltado, encabezados de sección, acentos, en modo claro
     </ResponseField>
     <ResponseField name="light" type="string">
-      The primary color for dark mode. Used for most often for highlighted
-      content, section headers, accents, in dark mode
+      El color primario para modo oscuro. Usado más frecuentemente para contenido resaltado, encabezados de sección, acentos, en modo oscuro
     </ResponseField>
     <ResponseField name="dark" type="string">
-      The primary color for important buttons
+      El color primario para botones importantes
     </ResponseField>
     <ResponseField name="background" type="object">
-      The color of the background in both light and dark mode
+      El color del fondo tanto en modo claro como oscuro
 
-      <Expandable title="Object">
+      <Expandable title="Objeto">
         <ResponseField name="light" type="string" required>
-          The hex color code of the background in light mode
+          El código de color hexadecimal del fondo en modo claro
         </ResponseField>
         <ResponseField name="dark" type="string" required>
-          The hex color code of the background in dark mode
+          El código de color hexadecimal del fondo en modo oscuro
         </ResponseField>
       </Expandable>
     </ResponseField>
@@ -82,169 +80,169 @@ Every Mintlify site needs a `docs.json` file with the core configuration setting
 </ResponseField>
 
 <ResponseField name="topbarLinks" type="TopbarLink[]">
-  Array of `name`s and `url`s of links you want to include in the topbar
+  Array de `nombre`s y `url`s de enlaces que quieres incluir en la barra superior
 
   <Expandable title="TopbarLink">
     <ResponseField name="name" type="string">
-      The name of the button.
+      El nombre del botón.
 
-      Example: `Contact us`
+      Ejemplo: `Contáctanos`
     </ResponseField>
     <ResponseField name="url" type="string">
-      The url once you click on the button. Example: `https://mintlify.com/docs`
+      La url cuando haces clic en el botón. Ejemplo: `https://mintlify.com/docs`
     </ResponseField>
   </Expandable>
 </ResponseField>
 
 <ResponseField name="topbarCtaButton" type="Call to Action">
-  <Expandable title="Topbar Call to Action">
+  <Expandable title="Llamada a la Acción de la Barra Superior">
     <ResponseField name="type" type={'"link" or "github"'} default="link">
-      Link shows a button. GitHub shows the repo information at the url provided including the number of GitHub stars.
+      Link muestra un botón. GitHub muestra la información del repositorio en la url proporcionada incluyendo el número de estrellas de GitHub.
     </ResponseField>
     <ResponseField name="url" type="string">
-      If `link`: What the button links to.
+      Si es `link`: A qué enlaza el botón.
 
-      If `github`: Link to the repository to load GitHub information from.
+      Si es `github`: Enlace al repositorio del que cargar la información de GitHub.
     </ResponseField>
     <ResponseField name="name" type="string">
-      Text inside the button. Only required if `type` is a `link`.
+      Texto dentro del botón. Solo requerido si `type` es `link`.
     </ResponseField>
   </Expandable>
 </ResponseField>
 
 <ResponseField name="versions" type="string[]">
-  Array of version names. Only use this if you want to show different versions
-  of docs with a dropdown in the navigation bar.
+  Array de nombres de versiones. Solo usa esto si quieres mostrar diferentes versiones
+  de documentación con un desplegable en la barra de navegación.
 </ResponseField>
 
 <ResponseField name="anchors" type="Anchor[]">
-  An array of the anchors, includes the `icon`, `color`, and `url`.
+  Un array de los anclajes, incluye el `icon`, `color`, y `url`.
 
-  <Expandable title="Anchor">
+  <Expandable title="Anclaje">
     <ResponseField name="icon" type="string">
-      The [Font Awesome](https://fontawesome.com/search?q=heart) icon used to feature the anchor.
+      El icono de [Font Awesome](https://fontawesome.com/search?q=heart) usado para destacar el anclaje.
 
-      Example: `comments`
+      Ejemplo: `comments`
     </ResponseField>
     <ResponseField name="name" type="string">
-      The name of the anchor label.
+      El nombre de la etiqueta del anclaje.
 
-      Example: `Community`
+      Ejemplo: `Comunidad`
     </ResponseField>
     <ResponseField name="url" type="string">
-      The start of the URL that marks what pages go in the anchor. Generally, this is the name of the folder you put your pages in.
+      El inicio de la URL que marca qué páginas van en el anclaje. Generalmente, este es el nombre de la carpeta donde pones tus páginas.
     </ResponseField>
     <ResponseField name="color" type="string">
-      The hex color of the anchor icon background. Can also be a gradient if you pass an object with the properties `from` and `to` that are each a hex color.
+      El color hexadecimal del fondo del icono del anclaje. También puede ser un gradiente si pasas un objeto con las propiedades `from` y `to` que son cada una un color hexadecimal.
     </ResponseField>
     <ResponseField name="version" type="string">
-      Used if you want to hide an anchor until the correct docs version is selected.
+      Usado si quieres ocultar un anclaje hasta que se seleccione la versión correcta de la documentación.
     </ResponseField>
     <ResponseField name="isDefaultHidden" type="boolean" default="false">
-      Pass `true` if you want to hide the anchor until you directly link someone to docs inside it.
+      Pasa `true` si quieres ocultar el anclaje hasta que enlaces directamente a alguien a la documentación dentro de él.
     </ResponseField>
     <ResponseField name="iconType" type="string" default="duotone">
-      One of: "brands", "duotone", "light", "sharp-solid", "solid", or "thin"
+      Uno de: "brands", "duotone", "light", "sharp-solid", "solid", o "thin"
     </ResponseField>
   </Expandable>
 </ResponseField>
 
 <ResponseField name="topAnchor" type="Object">
-  Override the default configurations for the top-most anchor.
+  Anula las configuraciones predeterminadas para el anclaje superior.
 
-  <Expandable title="Object">
+  <Expandable title="Objeto">
     <ResponseField name="name" type="string" default="Documentation">
-      The name of the top-most anchor
+      El nombre del anclaje superior
     </ResponseField>
     <ResponseField name="icon" type="string" default="book-open">
-      Font Awesome icon.
+      Icono de Font Awesome.
     </ResponseField>
     <ResponseField name="iconType" type="string" default="duotone">
-      One of: "brands", "duotone", "light", "sharp-solid", "solid", or "thin"
+      Uno de: "brands", "duotone", "light", "sharp-solid", "solid", o "thin"
     </ResponseField>
   </Expandable>
 </ResponseField>
 
 <ResponseField name="tabs" type="Tabs[]">
-  An array of navigational tabs.
+  Un array de pestañas de navegación.
 
-  <Expandable title="Tabs">
+  <Expandable title="Pestañas">
     <ResponseField name="name" type="string">
-      The name of the tab label.
+      El nombre de la etiqueta de la pestaña.
     </ResponseField>
     <ResponseField name="url" type="string">
-      The start of the URL that marks what pages go in the tab. Generally, this
-      is the name of the folder you put your pages in.
+      El inicio de la URL que marca qué páginas van en la pestaña. Generalmente, este
+      es el nombre de la carpeta donde pones tus páginas.
     </ResponseField>
   </Expandable>
 </ResponseField>
 
 <ResponseField name="api" type="API">
-  Configuration for API settings. Learn more about API pages at [API Components](/api-playground/demo).
+  Configuración para ajustes de API. Aprende más sobre las páginas de API en [Componentes de API](/api-playground/demo).
 
   <Expandable title="API">
     <ResponseField name="baseUrl" type="string">
-      The base url for all API endpoints. If `baseUrl` is an array, it will enable for multiple base url
-      options that the user can toggle.
+      La url base para todos los endpoints de API. Si `baseUrl` es un array, habilitará múltiples opciones
+      de url base que el usuario puede alternar.
     </ResponseField>
     <ResponseField name="auth" type="Auth">
       <Expandable title="Auth">
         <ResponseField name="method" type='"bearer" | "basic" | "key"'>
-          The authentication strategy used for all API endpoints.
+          La estrategia de autenticación usada para todos los endpoints de API.
         </ResponseField>
         <ResponseField name="name" type="string">
-          The name of the authentication parameter used in the API playground.
+          El nombre del parámetro de autenticación usado en el playground de API.
 
-          If method is `basic`, the format should be `[usernameName]:[passwordName]`
+          Si el método es `basic`, el formato debe ser `[nombreUsuario]:[nombreContraseña]`
         </ResponseField>
         <ResponseField name="inputPrefix" type="string">
-          The default value that's designed to be a prefix for the authentication input field.
+          El valor predeterminado que está diseñado para ser un prefijo para el campo de entrada de autenticación.
 
-          E.g. If an `inputPrefix` of `AuthKey` would inherit the default input result of the authentication field as `AuthKey`.
+          Por ejemplo, si un `inputPrefix` de `ClaveAuth` heredaría el resultado de entrada predeterminado del campo de autenticación como `ClaveAuth`.
         </ResponseField>
       </Expandable>
     </ResponseField>
     <ResponseField name="playground" type="Playground">
-      Configurations for the API playground
+      Configuraciones para el playground de API
 
       <Expandable title="Playground">
         <ResponseField name="mode" type='"show" | "simple" | "hide"' default="show">
-          Whether the playground is showing, hidden, or only displaying the endpoint with no added user interactivity `simple`
+          Si el playground se está mostrando, oculto, o solo mostrando el endpoint sin interactividad del usuario agregada `simple`
 
-          Learn more at the [playground guides](/api-playground/demo)
+          Aprende más en las [guías del playground](/api-playground/demo)
         </ResponseField>
       </Expandable>
     </ResponseField>
     <ResponseField name="maintainOrder" type="boolean">
-      Enabling this flag ensures that key ordering in OpenAPI pages matches the key ordering defined in the OpenAPI file.
+      Habilitar esta bandera asegura que el orden de las claves en las páginas de OpenAPI coincida con el orden de las claves definido en el archivo OpenAPI.
 
       <Warning>
-        This behavior will soon be enabled by default, at which point this field will be deprecated.
+        Este comportamiento pronto estará habilitado por defecto, momento en el cual este campo será obsoleto.
       </Warning>
     </ResponseField>
   </Expandable>
 </ResponseField>
 
 <ResponseField name="openapi" type="string | string[]">
-  A string or an array of strings of URL(s) or relative path(s) pointing to your
-  OpenAPI file.
+  Una cadena o un array de cadenas de URL(s) o ruta(s) relativa(s) que apuntan a tu
+  archivo OpenAPI.
 
-  Examples:
+  Ejemplos:
 
   <CodeGroup>
 
-  ```json Absolute
-  "openapi": "https://example.com/openapi.json"
+  ```json Absoluta
+  "openapi": "https://ejemplo.com/openapi.json"
   ```
 
   
-  ```json Relative
+  ```json Relativa
   "openapi": "/openapi.json"
   ```
 
   
-  ```json Multiple
-  "openapi": ["https://example.com/openapi1.json", "/openapi2.json", "/openapi3.json"]
+  ```json Múltiple
+  "openapi": ["https://ejemplo.com/openapi1.json", "/openapi2.json", "/openapi3.json"]
   ```
 
   </CodeGroup>
