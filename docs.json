@@ -90,7 +90,7 @@
             "group": "Tableros",
             "pages": [
               "dashboards/es/conversaciones",
-              "dashboards/es/uso-capacidades",
+              "dashboards/es/uso-de-capacidades",
               "dashboards/es/conocimiento"
             ]
           },
