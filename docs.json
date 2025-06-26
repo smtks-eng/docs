@@ -48,6 +48,13 @@
               "campaigns/en/camapañas",
               "campaigns/en/plantillas"
             ]
+          },
+          {
+            "group": "Contacts",
+            "pages": [
+              "contacts/en/external-contacts",
+              "contacts/en/channel-contacts"
+            ]
           }
         ]
       },
@@ -84,6 +91,13 @@
             "pages": [
               "campaigns/es/camapañas",
               "campaigns/es/plantillas"
+            ]
+          },
+          {
+            "group": "Contactos",
+            "pages": [
+              "contacts/es/contactos-externos",
+              "contacts/es/contactos-canales"
             ]
           }
         ]
