@@ -55,6 +55,14 @@
               "contacts/en/external-contacts",
               "contacts/en/channel-contacts"
             ]
+          },
+          {
+            "group": "Chat Live",
+            "pages": [
+              "chat-live/en/notifications",
+              "chat-live/en/conversations-panel", 
+              "chat-live/en/configuration"
+            ]
           }
         ]
       },
@@ -98,6 +106,14 @@
             "pages": [
               "contacts/es/contactos-externos",
               "contacts/es/contactos-canales"
+            ]
+          },
+          {
+            "group": "Chat en Vivo",
+            "pages": [
+              "chat-live/es/notificaciones",
+              "chat-live/es/panel-conversaciones",
+              "chat-live/es/configuracion"
             ]
           }
         ]
