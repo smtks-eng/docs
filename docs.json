@@ -43,12 +43,10 @@
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Campaigns",
             "pages": [
-              "essentials/en/channels",
-              "essentials/en/conversations",
-              "essentials/en/playground",
-              "essentials/en/schedule_messages"
+              "campaigns/en/camapañas",
+              "campaigns/en/plantillas"
             ]
           }
         ]
@@ -82,12 +80,10 @@
             ]
           },
           {
-            "group": "Esenciales",
+            "group": "Camapañas",
             "pages": [
-              "essentials/es/channels",
-              "essentials/es/conversations",
-              "essentials/es/playground",
-              "essentials/es/schedule_messages"
+              "campaigns/es/camapañas",
+              "campaigns/es/plantillas"
             ]
           }
         ]
