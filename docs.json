@@ -45,8 +45,8 @@
           {
             "group": "Campaigns",
             "pages": [
-              "campaigns/en/camapañas",
-              "campaigns/en/plantillas"
+              "campaigns/en/campaigns",
+              "campaigns/en/templates"
             ]
           },
           {
