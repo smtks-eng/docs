@@ -21,6 +21,7 @@
             "group": "Overview",
             "pages": [
               "overview/en/welcome",
+              "overview/en/customers", 
               "overview/en/console-tour",
               "platform/en/home"
             ]
@@ -81,8 +82,10 @@
             "group": "Panorama",
             "pages": [
               "overview/es/bienvenida",
+              "overview/es/clientes",
               "overview/es/tour-de-consola",
               "platform/es/home"
+              
             ]
           },
           {
@@ -138,9 +141,9 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Consola",
+          "anchor": "Consola Login",
           "href": "https://consola.semantiks.com/",
-          "icon": "terminal"
+          "icon": "arrow-right-to-arc"
         }
       ]
     }
