@@ -144,6 +144,11 @@
           "anchor": "Login",
           "href": "https://consola.semantiks.com/",
           "icon": "arrow-right-to-arc"
+        },
+        {
+          "anchor": "Slack",
+          "href": "https://semantiksai.slack.com",
+          "icon": "slack"
         }
       ]
     }
@@ -157,7 +162,7 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Console",
+      "label": "Login",
       "href": "https://consola.semantiks.com/"
     }
   },
