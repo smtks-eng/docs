@@ -146,14 +146,14 @@
           "icon": "arrow-right-to-arc"
         },
         {
-          "anchor": "Slack",
-          "href": "https://semantiksai.slack.com",
-          "icon": "slack"
-        },
-        {
           "anchor": "Chat",
           "href": "https://consola.semantiks.com/chat?agent_id=aa501bb4-37b2-409e-8530-8f1791471720&agent_type=customer_service",
           "icon": "user-bounty-hunter"
+        },
+        {
+          "anchor": "Slack",
+          "href": "https://semantiksai.slack.com",
+          "icon": "slack"
         }
       ]
     }
