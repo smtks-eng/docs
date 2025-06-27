@@ -141,7 +141,7 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Consola Login",
+          "anchor": "Login",
           "href": "https://consola.semantiks.com/",
           "icon": "arrow-right-to-arc"
         }
