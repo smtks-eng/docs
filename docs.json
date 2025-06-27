@@ -138,9 +138,9 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Our Customers",
-          "href": "https://www.semantiks.com/customers",
-          "icon": "users"
+          "anchor": "Consola",
+          "href": "https://consola.semantiks.com/",
+          "icon": "terminal"
         }
       ]
     }
@@ -154,7 +154,7 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
+      "label": "Console",
       "href": "https://consola.semantiks.com/"
     }
   },
