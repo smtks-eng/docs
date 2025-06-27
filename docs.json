@@ -9,8 +9,8 @@
   },
   "favicon": "/semantiks-favicon.png",
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/semantiks_light.svg",
+    "dark": "/logo/semantiks_dark.svg"
   },
   "navigation": {
     "languages": [
@@ -18,11 +18,18 @@
         "language": "en",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Overview",
             "pages": [
-              "get-started/en/welcome",
-              "get-started/en/onboarding-steps",
+              "overview/en/welcome",
+              "overview/en/console-tour",
               "platform/en/home"
+            ]
+          },
+          {
+            "group": "Onboarding",
+            "pages": [
+              "onboarding/en/create-first-agent",
+              "onboarding/en/invite-teammates"
             ]
           },
           {
@@ -71,11 +78,18 @@
         "language": "es",
         "groups": [
           {
-            "group": "Empezar",
+            "group": "Panorama",
             "pages": [
-              "get-started/es/bienvenida",
-              "get-started/es/pasos-de-inicio",
+              "overview/es/bienvenida",
+              "overview/es/tour-de-consola",
               "platform/es/home"
+            ]
+          },
+          {
+            "group": "Incorporación",
+            "pages": [
+              "onboarding/es/crear-primer-agente",
+              "onboarding/es/invitar-companeros"
             ]
           },
           {
