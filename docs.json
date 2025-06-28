@@ -76,7 +76,6 @@
           {
             "group": "Integration Guides",
             "pages": [
-              "integration-guides/en/integration-guides",
               "integration-guides/en/how-to-integrate-to-whatsapp",
               "integration-guides/en/how-to-manage-message-templates-whatsapp",
               "integration-guides/en/how-to-integrate-to-freshchat",
