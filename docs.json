@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Semantiks",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -21,7 +21,7 @@
             "group": "Overview",
             "pages": [
               "overview/en/welcome",
-              "overview/en/customers", 
+              "overview/en/customers",
               "overview/en/console-tour",
               "platform/en/home"
             ]
@@ -72,6 +72,16 @@
               "chat-live/en/conversations-panel", 
               "chat-live/en/configuration"
             ]
+          },
+          {
+            "group": "Integration Guides",
+            "pages": [
+              "integration-guides/en/integration-guides",
+              "integration-guides/en/how-to-integrate-to-whatsapp",
+              "integration-guides/en/how-to-manage-message-templates-whatsapp",
+              "integration-guides/en/how-to-integrate-to-freshchat",
+              "integration-guides/en/how-to-integrate-to-zendesk"
+            ]
           }
         ]
       },
@@ -85,7 +95,6 @@
               "overview/es/clientes",
               "overview/es/tour-de-consola",
               "platform/es/home"
-              
             ]
           },
           {
@@ -133,6 +142,15 @@
               "chat-live/es/notificaciones",
               "chat-live/es/panel-conversaciones",
               "chat-live/es/configuracion"
+            ]
+          },
+          {
+            "group": "Guías de Integración",
+            "pages": [
+              "integration-guides/es/como-integrar-whatsapp",
+              "integration-guides/es/como-gestionar-plantillas-whatsapp",
+              "integration-guides/es/como-integrar-freshchat",
+              "integration-guides/es/como-integrar-zendesk"
             ]
           }
         ]
