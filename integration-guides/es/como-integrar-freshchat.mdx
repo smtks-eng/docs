@@ -16,11 +16,12 @@ Esta integración conecta Freshchat (la plataforma de mensajería de Freshworks)
 
 <Steps>
   <Step title="Obtener el App ID">
-    ### <strong>1. Obtener el App ID</strong>
 
-    El App ID es un identificador único de tu configuración de Freshchat. Lo vamos a encontrar en los ajustes de integración del widget web.
+   <Info>
+   El App ID es un identificador único de tu configuración de Freshchat. Lo vamos a encontrar en los ajustes de integración del widget web.
+   </Info>
 
-    #### <strong>Pasos:</strong>
+    **Pasos:**
 
     1. Entra a la consola de Freshchat.  
     2. En el menú lateral izquierdo, haz clic en <strong>Admin Settings</strong>.
@@ -38,11 +39,14 @@ Esta integración conecta Freshchat (la plataforma de mensajería de Freshworks)
        ![][image4]
   </Step>
   <Step title="Obtener API Key y Base URL">
-    ### <strong>2. Obtener API Key y Base URL</strong>
+    <Info>
+    El API Key y el Base URL nos van a permitir autenticar integración del Agente hacia Freshchat desde Semantiks.
 
-    Estos dos elementos nos van a permitir autenticar nuestras peticiones hacia Freshchat desde Semantiks.
+    - **API Key:** Es una clave secreta única que identifica y autoriza a tu cuenta para interactuar con la API de Freshchat. Permite que Semantiks pueda enviar y recibir información de tu cuenta de Freshchat de forma segura.
+    - **Base URL:** Es la dirección base del servidor de Freshchat donde está alojada tu cuenta (por ejemplo, según la región: EU, US, IN, etc.). Todas las peticiones a la API se hacen a partir de esta URL, asegurando que los datos se envíen al entorno correcto.
+    </Info>
 
-    #### <strong>Pasos:</strong>
+    **Pasos:**
 
     1. Regresa al panel principal de <strong>Admin Settings</strong>.
 
@@ -61,11 +65,12 @@ Esta integración conecta Freshchat (la plataforma de mensajería de Freshworks)
     Es muy importante guardar estos valores en un lugar seguro. La API Key es sensible y no debe compartirse públicamente.
   </Step>
   <Step title="Configurar Webhook y Obtener Public Key">
-    ### <strong>3. Configurar Webhook y Obtener Public Key</strong>
-
+    
+    <Info>
     Este paso nos permite decirle a Freshchat hacia dónde debe enviar los mensajes que reciba. En otras palabras, aquí le decimos: “cada vez que alguien escriba en el chat, mándale esa info al agente de Semantiks”.
+    </Info>
 
-    #### <strong>Pasos:</strong>
+    **Pasos:**
 
     1. Sigue en la misma sección de <strong>API Settings</strong> dentro de <strong>Marketplace and Integrations</strong>, debemos seleccionar <strong>Conversation Webhooks:</strong>
 
