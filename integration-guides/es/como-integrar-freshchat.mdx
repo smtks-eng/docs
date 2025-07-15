@@ -3,28 +3,106 @@ title: "Cómo integrar con Freshchat"
 description: "Guía paso a paso para conectar tu agente Semantiks AI con Freshchat."
 icon: "comments"
 ---
+<Tip>Esta integración permite conectar Freshchat (plataforma de mensajería de Freshworks) con un agente conversacional de Semantiks, para que los mensajes enviados por los usuarios a través del chat de Freshchat puedan ser procesados automáticamente por nuestro agente de IA como primera linea de suporte y, en caso de tener configurado la herramienta de escalamiento, los usuarios prodrán ser transferidos a tu equipo detrás de Freshchat. 
+</Tip>
 
-Esta guía te ayudará a integrar tu agente Semantiks AI con Freshchat.
+## Resumen rápido de los pasos
 
-## 1. Crear una app en Freshchat
-- Inicia sesión en tu [panel de Freshchat](https://freshchat.com/).
-- Ve a **Admin > Apps > API**.
-- Haz clic en **Crear App** y completa los datos requeridos.
+1. **Obtener el App ID** desde la configuración del widget web de Freshchat.
+2. **Obtener API Key y Base URL** en la sección de integraciones de Freshchat.
+3. **Configurar Webhook y obtener Public Key** para que Freshchat envíe los mensajes a Semantiks.
+4. **Finalizar integración en Semantiks** ingresando los datos en la consola y activando el canal.
 
-## 2. Obtener las claves API
-- Después de crear la app, ve a la configuración de la app.
-- Copia el `App ID` y el `App Secret` (o clave API).
+<Steps>
+  <Step title="Obtener el App ID">
+    ### <strong>1. Obtener el App ID</strong>
 
-## 3. Configurar URLs de callback
-- En la configuración de la app, busca la sección **Webhook** o **URL de callback**.
-- Ingresa la URL de callback proporcionada por Semantiks (por ejemplo, `https://tu-endpoint-semantiks.com/webhook/freshchat`).
-- Guarda los cambios.
+    El App ID es un identificador único de tu configuración de Freshchat. Lo vamos a encontrar en los ajustes de integración del widget web.
 
-## 4. Finalizar integración en Semantiks
-- En la Consola de Semantiks, abre la sección de integración con Freshchat.
-- Pega tus claves API y confirma la URL de callback.
-- Prueba la conexión para asegurarte de que todo funcione correctamente.
+    #### <strong>Pasos:</strong>
 
-<Note>
-Si necesitas más ayuda, contacta al soporte de Semantiks o consulta la documentación de Freshchat API.
-</Note>
+    1. Entra a la consola de Freshchat.  
+    2. En el menú lateral izquierdo, haz clic en <strong>Admin Settings</strong>.
+
+       ![][image2]
+
+    3. Busca y entra a la sección <strong>Configuration and Workflows</strong>.  
+    4. Selecciona la opción <strong>Webchat Settings</strong>.
+
+       ![][image3]
+
+    5. Luego, haz clic en <strong>Integration Settings</strong>.  
+    6. Aquí encontrarás tu <strong>App ID</strong> —cópialo y guárdalo.
+
+       ![][image4]
+  </Step>
+  <Step title="Obtener API Key y Base URL">
+    ### <strong>2. Obtener API Key y Base URL</strong>
+
+    Estos dos elementos nos van a permitir autenticar nuestras peticiones hacia Freshchat desde Semantiks.
+
+    #### <strong>Pasos:</strong>
+
+    1. Regresa al panel principal de <strong>Admin Settings</strong>.
+
+       ![][image2]
+
+    2. Ahora ve a <strong>Marketplace and Integrations</strong>.  
+    3. Dentro de esta sección, selecciona <strong>API Settings</strong>.
+
+       ![][image5]
+
+    4. Aquí podrás ver y copiar:  
+       * <strong>API Key</strong>  
+       * <strong>Base URL</strong> (que indica la región o entorno donde está alojada tu cuenta).  
+         ![][image6]
+
+    Es muy importante guardar estos valores en un lugar seguro. La API Key es sensible y no debe compartirse públicamente.
+  </Step>
+  <Step title="Configurar Webhook y Obtener Public Key">
+    ### <strong>3. Configurar Webhook y Obtener Public Key</strong>
+
+    Este paso nos permite decirle a Freshchat hacia dónde debe enviar los mensajes que reciba. En otras palabras, aquí le decimos: “cada vez que alguien escriba en el chat, mándale esa info al agente de Semantiks”.
+
+    #### <strong>Pasos:</strong>
+
+    1. Sigue en la misma sección de <strong>API Settings</strong> dentro de <strong>Marketplace and Integrations</strong>, debemos seleccionar <strong>Conversation Webhooks:</strong>
+
+       ![][image7]
+
+    2. Haz clic en el botón <strong>Enable</strong>, si aún no lo has activado.
+
+       ![][image8]
+
+    3. Una vez habilitada la sección, en la primera caja de texto, pega esta URL:
+
+    [https://semantiks-switchboard-922021458660.us-central1.run.app/webhooks/freshchat](https://semantiks-switchboard-922021458660.us-central1.run.app/webhooks/freshchat)
+
+    ![][image9]
+
+    4. Al activar el webhook, Freshchat te mostrará una <strong>Public Key</strong> que debes copiar. Esta clave será necesaria para verificar que los mensajes vienen realmente de Freshchat.
+
+       ![][image10]
+  </Step>
+  <Step title="Finalizar integración en Semantiks">
+    Con los cuatro datos en mano:
+
+    * App ID  
+    * Public Key  
+    * Base URL  
+    * API Key
+
+    1. Entra a la <strong>consola de Semantiks</strong> con tu cuenta.  
+    2. En el menú de la izquierda, haz clic en <strong>Canales</strong> y selecciona la pestaña de <strong>canales externos</strong>.  
+       <strong>![][image1]</strong>  
+    3. Busca el recuadro de <strong>Freshchat</strong> y haz clic en el botón <strong>Conectar</strong>. Al dar click, se abrirá un formulario donde deberás ingresar los siguientes campos:  
+       * <strong>App ID</strong>  
+       * <strong>Public Key</strong>  
+       * <strong>Base URL</strong>  
+       * <strong>API Key</strong>  
+         Ojo: si aún no tienes estos datos a la mano, no te preocupes. En la siguiente sección te explicamos cómo obtener cada uno directamente desde tu cuenta de Freshchat.  
+    4. Una vez llenados todos los campos, haz clic en <strong>Conectar</strong> y la integración estará activa.
+
+    ¡Listo! Tu agente Semantiks ya está conectado a Freshchat y listo para empezar a conversar con tus usuarios.
+  </Step>
+</Steps>
