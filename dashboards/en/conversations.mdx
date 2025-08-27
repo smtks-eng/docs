@@ -1,37 +1,116 @@
 ---
-title: "Conversations"
-description: "Display inline code and code blocks"
-icon: "chart-line"
+title: "Conversations Dashboard"
+description: "Monitor, analyze, and manage all conversations between users and Agents"
+icon: "chart-bar"
 ---
 
-## Basic
+The Semantiks Console dashboard gives enterprises real‑time visibility into conversations led by AI agents across all connected channels. Its design supports two complementary objectives: understand system‑level behavior (volumes, duration, engagement) and quickly drill into any single session for evidence‑based decisions (retuning prompts, updating knowledge, or handing issues to operations). Start with the high‑level structure to frame what you’re seeing, then use the right‑side panel to read details without losing your place.
+<Note>
+Around the first week of September 2025, the Conversations Dashboard will be updated to include a unified filter that applies both to the KPIs and the Conversations Table, ensuring consistent data views.
+Additionally, our team is currently working on fixing certain reporting bugs affecting KPIs to improve accuracy and reliability.
+</Note>
 
-### Inline Code
+## Overview of the Dashboard
 
-To denote a `word` or `phrase` as code, enclose it in backticks (\`).
+When you access the **Conversations Dashboard**, you will see:
 
-```
-To denote a `word` or `phrase` as code, enclose it in backticks (`).
-```
+- **KPIs (Key Performance Indicators):** High-level metrics summarizing performance.
+- **Conversations Table:** A detailed list of all conversations with users.
+- **Conversation Panel:** A right-side panel that shows more details when you click on a conversation.
 
-### Code Block
 
-Use [fenced code blocks](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks) by enclosing code in three backticks and follow the leading ticks with the programming language of your snippet to get syntax highlighting. Optionally, you can also write the name of your code after the programming language.
+---
 
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
+## KPIs Cards
 
-````md
-```java HelloWorld.java
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
-````
+The top section provides at-a-glance metrics:
+
+- **Total conversations** – The number of conversations in the selected time range.
+- **Average duration** – The average length of conversations.
+- **User messages** – Average number of messages sent by users.
+- **Agent messages** – Average number of messages sent by the agent.
+
+> Green arrows indicate growth compared to the previous period, while red arrows indicate a decrease.
+
+You can filter the time range by selecting **Today, 7D, 30D, or Year**.
+
+---
+
+## Conversations Table
+
+Below the KPIs, you will find a table with all recorded conversations. Each row represents a conversation with details such as:
+
+- **Channel:** The communication channel used (e.g., Freshchat Bubble).
+- **Profile Name:** The identifier or label of the user.
+- **External ID:** The system-generated ID for reference.
+- **Last Message:** A preview of the most recent message in the conversation.
+- **Message Count:** Total number of exchanged messages.
+- **Start:** Timestamp of when the conversation started.
+- **Control:** Indicates if the agent was in control of the session.
+- **Status:** Current state of the conversation (Active, Ended).
+- **Tag:** Markers or labels applied to categorize conversations.
+- **Bubble:** Opens the **Conversation Panel** for more details.
+
+---
+
+## Filters & Search
+
+The dashboard allows you to quickly find relevant conversations:
+
+- **Search Bar:** Search by conversation content, external user ID, or messages.
+- **Filters:**
+  - **Status** – Active or Ended conversations.
+  - **Tags** – Specific labels assigned to conversations.
+  - **Channels** – Filter by communication channels (e.g., Freshchat).
+  - **Date Range** – Pick a custom date range.
+
+---
+
+## Actions
+
+On the top right of the table, you will find:
+
+- **Export CSV:** Download conversation data for external reporting.
+- **Columns:** Customize which columns appear in the table.
+- **Fetch New:** Refresh the data to see the latest conversations.
+- **Tag Conversations:** Apply or adjust tags directly from the table.
+- **Open Conversation Panel:** Click the bubble icon to review details or chat history.
+
+---
+
+## Conversation Panel
+
+When you click on the **bubble icon** in the Conversations Table, a right-side panel opens with two tabs:
+
+### Chat Tab
+- Displays the complete conversation between the user and the agent.
+- Messages are shown in chronological order.
+- Useful for reviewing exact interactions.
+
+### Details Tab
+- Provides metadata and context about the conversation, including:
+  - **Conversation ID** – A unique identifier for the session.
+  - **Client Info** – Name and identifier (if available).
+  - **Channel** – Where the conversation took place (e.g., Freshchat callback URL).
+  - **Summary** – A brief description of what occurred in the conversation.
+  - **Resolved by agent** – Shows whether the agent resolved the case.
+  - **Reason if unresolved** – Explains why no resolution occurred.
+  - **Category** – Assigned classification (e.g., General Assistance).
+  - **Topic** – Specific topic tag if applied.
+  - **Timestamp** – Date and time of the interaction.
+
+This panel allows you to inspect both the conversation flow and the system’s structured analysis of the exchange.
+
+---
+
+## Best Practices
+
+- **Start with filters, then read KPIs:** This ensures metrics reflect the audience or scenario you care about.
+- **Use the [Details] tab to triage quickly; open [Chat] only when narrative context is required.**
+- **Standardize Tags:** Create a minimal taxonomy (e.g., Category, Resolution reason, Escalation needed) to keep analytics clean.
+- **Refresh before exporting:** Click [Fetch New] to ensure you capture the latest conversations.
+- **Minimize context switching:** Keep the right panel open as you move the table vertically; it updates only when you click a new [Bubble Icon].
+- **Leverage tags for analytics:** Consistent use of tags improves reporting and insight generation.
+- **QA workflows:** Use the Conversation Panel to review unresolved conversations and identify training opportunities for agents.
+- **Monitor trends:** Track KPI fluctuations to adjust operational strategies (e.g., staffing, escalation rules).
+
