@@ -44,6 +44,14 @@
             ]
           },
           {
+            "group": "Channels",
+            "pages": [
+              "channels/en/bubble",
+              "channels/en/web",
+              "channels/en/external-channels"
+            ]
+          },
+          {
             "group": "Dashboards",
             "pages": [
               "dashboards/en/conversations",
@@ -114,6 +122,14 @@
             ]
           },
           {
+            "group": "Canales",
+            "pages": [
+              "channels/es/burbuja",
+              "channels/es/web",
+              "channels/es/canales-externos"
+            ]
+          },
+          {
             "group": "Tableros",
             "pages": [
               "dashboards/es/conversaciones",
@@ -122,7 +138,7 @@
             ]
           },
           {
-            "group": "Camapañas",
+            "group": "Campañas",
             "pages": [
               "campaigns/es/camapañas",
               "campaigns/es/plantillas"
