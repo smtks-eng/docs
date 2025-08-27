@@ -1,88 +1,115 @@
 ---
-title: "Converaciones"
-description: "Texto, título y estilo en markdown estándar"
-icon: "magnifying-glass-chart"
+title: "Conversaciones"
+description: "Monitorea, analiza y gestiona todas las conversaciones entre usuarios y Agentes"
+icon: "chart-bar"
 ---
 
-## Títulos
+El panel de control de Semantiks Console ofrece a las empresas **visibilidad en tiempo real** de las conversaciones lideradas por agentes de IA a través de todos los canales conectados. Su diseño responde a dos objetivos complementarios: entender el comportamiento a nivel sistema (volúmenes, duración, interacción) y profundizar rápidamente en una sesión específica para tomar decisiones basadas en evidencia (ajustar prompts, actualizar conocimiento o escalar a operaciones). Comienza con la estructura general para enmarcar lo que ves y luego utiliza el panel lateral derecho para leer los detalles sin perder tu lugar.
 
-Se usa mejor para encabezados de sección.
+<Note>
+Durante la primera semana de septiembre de 2025, el Panel de Conversaciones será actualizado para incluir un **filtro unificado** que aplicará tanto a las KPIs como a la Tabla de Conversaciones, garantizando vistas de datos consistentes.  
+Adicionalmente, nuestro equipo está trabajando en la corrección de algunos **errores de reporte que afectan las KPIs** para mejorar su precisión y confiabilidad.
+</Note>
 
-```md
-## Títulos
-```
+## Visión general del Panel
 
-### Subtítulos
+Al acceder al **Panel de Conversaciones**, verás:
 
-Se usa mejor para encabezados de subsección.
+- **KPIs (Indicadores Clave de Desempeño):** Métricas de alto nivel que resumen el rendimiento.  
+- **Tabla de Conversaciones:** Una lista detallada de todas las conversaciones con usuarios.  
+- **Panel de Conversación:** Un panel lateral derecho que muestra más detalles cuando haces clic en una conversación.  
 
-```md
-### Subtítulos
-```
+---
 
-<Tip>
-  Cada **título** y **subtítulo** crea un ancla y también aparece en la tabla de contenidos a la derecha.
-</Tip>
+## Tarjetas de KPIs
 
-## Formato de Texto
+La sección superior ofrece métricas rápidas y fáciles de leer:
 
-Soportamos la mayoría del formato markdown. Simplemente agrega `**`, `_`, o `~` alrededor del texto para darle formato.
+- **Total de conversaciones** – Número de conversaciones en el rango de tiempo seleccionado.  
+- **Duración promedio** – Tiempo promedio de las conversaciones.  
+- **Mensajes de usuario** – Promedio de mensajes enviados por los usuarios.  
+- **Mensajes del agente** – Promedio de mensajes enviados por el agente.  
 
-| Estilo        | Cómo escribirlo   | Resultado        |
-| ------------- | ----------------- | ---------------- |
-| Negrita       | `**negrita**`     | **negrita**      |
-| Cursiva       | `_cursiva_`       | _cursiva_        |
-| Tachado       | `~tachado~`       | ~~tachado~~      |
+> Las flechas verdes indican crecimiento en comparación con el período anterior, mientras que las rojas indican una disminución.  
 
-Puedes combinar estos. Por ejemplo, escribe `**_negrita y cursiva_**` para obtener texto en **_negrita y cursiva_**.
+Puedes filtrar el rango de tiempo seleccionando **Hoy, 7D, 30D o Año**.  
 
-Necesitas usar HTML para escribir texto superíndice y subíndice. Es decir, agrega `<sup>` o `<sub>` alrededor de tu texto.
+---
 
-| Tamaño de Texto | Cómo escribirlo           | Resultado              |
-| --------------- | ------------------------- | ---------------------- |
-| Superíndice     | `<sup>superíndice</sup>`  | <sup>superíndice</sup> |
-| Subíndice       | `<sub>subíndice</sub>`    | <sub>subíndice</sub>   |
+## Tabla de Conversaciones
 
-## Enlazando a Páginas
+Debajo de las KPIs encontrarás una tabla con todas las conversaciones registradas. Cada fila representa una conversación con detalles como:
 
-Puedes agregar un enlace envolviendo texto en `[]()`. Escribirías `[enlace a google](https://google.com)` para crear un [enlace a google](https://google.com).
+- **Canal:** El canal de comunicación usado (ej. Freshchat Bubble).  
+- **Nombre de perfil:** Identificador o etiqueta del usuario.  
+- **ID externo:** ID generado por el sistema como referencia.  
+- **Último mensaje:** Vista previa del mensaje más reciente en la conversación.  
+- **Número de mensajes:** Total de mensajes intercambiados.  
+- **Inicio:** Fecha y hora de inicio de la conversación.  
+- **Control:** Indica si el agente tenía control de la sesión.  
+- **Estado:** Estado actual de la conversación (Activa, Finalizada).  
+- **Etiqueta:** Marcadores o categorías asignadas a la conversación.  
+- **Burbuja:** Abre el **Panel de Conversación** para más detalles.  
 
-Los enlaces a páginas en tu documentación deben ser relativos a la raíz. Básicamente, debes incluir toda la ruta de carpetas. Por ejemplo, `[enlace a texto](/writing-content/text)` enlaza a la página "Texto" en nuestra sección de componentes.
+---
 
-Enlaces relativos como `[enlace a texto](../text)` se abrirán más lentamente porque no podemos optimizarlos tan fácilmente.
+### Filtros y Búsqueda
 
-## Citas en Bloque
+El panel permite encontrar conversaciones relevantes rápidamente:
 
-### Una Línea
+- **Barra de búsqueda:** Busca por contenido, ID externo de usuario o mensajes.  
+- **Filtros:**  
+  - **Estado** – Conversaciones activas o finalizadas.  
+  - **Etiquetas** – Filtros por etiquetas asignadas.  
+  - **Canales** – Filtra por canal de comunicación (ej. Freshchat).  
+  - **Rango de fechas** – Selecciona un rango personalizado.  
 
-Para crear una cita en bloque, agrega un `>` delante de un párrafo.
+---
 
-> Dorothy la siguió a través de muchas de las hermosas habitaciones de su castillo.
+### Acciones en la Tabla
 
-```md
-> Dorothy la siguió a través de muchas de las hermosas habitaciones de su castillo.
-```
+En la esquina superior derecha de la tabla encontrarás:  
 
-### Múltiples Líneas
+- **Exportar CSV:** Descarga los datos de conversaciones para reportes externos.  
+- **Columnas:** Personaliza qué columnas se muestran en la tabla.  
+- **Actualizar (Fetch New):** Refresca los datos para ver las últimas conversaciones.  
+- **Etiquetar conversaciones:** Aplica o ajusta etiquetas directamente desde la tabla.  
+- **Abrir Panel de Conversación:** Haz clic en el ícono de burbuja para revisar detalles o historial de chat.  
 
-> Dorothy la siguió a través de muchas de las hermosas habitaciones de su castillo.
->
-> La Bruja le ordenó limpiar las ollas y calderos, barrer el suelo y mantener el fuego alimentado con leña.
+---
 
-```md
-> Dorothy la siguió a través de muchas de las hermosas habitaciones de su castillo.
->
-> La Bruja le ordenó limpiar las ollas y calderos, barrer el suelo y mantener el fuego alimentado con leña.
-```
+### Panel de Conversación
 
-### LaTeX
+Al hacer clic en el **ícono de burbuja** en la Tabla de Conversaciones, se abre un panel lateral derecho con dos pestañas:  
 
-Mintlify soporta [LaTeX](https://www.latex-project.org) a través del componente Latex.
+#### Pestaña Chat  
+- Muestra la conversación completa entre el usuario y el agente.  
+- Los mensajes se muestran en orden cronológico.  
+- Útil para revisar interacciones exactas.  
 
-<Latex>
-  8 x (vk x H1 - H2) = (0,1)
-</Latex>
+#### Pestaña Detalles  
+- Muestra metadatos y contexto de la conversación, incluyendo:  
+  - **ID de conversación** – Identificador único de la sesión.  
+  - **Información del cliente** – Nombre e identificador (si está disponible).  
+  - **Canal** – Canal donde ocurrió la conversación (ej. URL de callback de Freshchat).  
+  - **Resumen** – Breve descripción de lo ocurrido en la conversación.  
+  - **Resuelto por agente** – Indica si el agente resolvió el caso.  
+  - **Razón si no se resolvió** – Explica por qué no se logró resolución.  
+  - **Categoría** – Clasificación asignada (ej. Asistencia General).  
+  - **Tema** – Etiqueta de tema específica si se aplicó.  
+  - **Marca de tiempo** – Fecha y hora de la interacción.  
 
-```md
-<Latex>8 x (vk x H1 - H2) = (0,1)</Latex>
-```
+Este panel permite inspeccionar tanto el flujo de mensajes como el análisis estructurado del sistema sobre el intercambio.  
+
+---
+
+## Mejores Prácticas
+
+- **Empieza con los filtros y luego revisa las KPIs:** Así garantizas que las métricas reflejen el público o escenario que te interesa.  
+- **Usa la pestaña `Detalles` para clasificar rápido; abre `Chat` solo cuando requieras contexto narrativo.**  
+- **Estandariza las etiquetas:** Define una taxonomía mínima (ej. Categoría, Motivo de resolución, Necesidad de escalamiento) para mantener reportes limpios.  
+- **Refresca antes de exportar:** Haz clic en `Fetch New` para asegurar que capturas las conversaciones más recientes.  
+- **Minimiza el cambio de contexto:** Mantén abierto el panel lateral al moverte en la tabla; solo se actualiza cuando haces clic en un nuevo `Ícono de Burbuja`.  
+- **Aprovecha las etiquetas para analítica:** El uso consistente mejora los reportes y la generación de insights.  
+- **Flujos de QA:** Usa el Panel de Conversación para revisar conversaciones no resueltas e identificar oportunidades de entrenamiento.  
+- **Monitorea tendencias:** Da seguimiento a las fluctuaciones de KPIs para ajustar estrategias operativas (ej. asignación de personal, reglas de escalamiento).  
