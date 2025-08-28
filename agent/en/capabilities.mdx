@@ -150,22 +150,25 @@ Manage your AI agent's capabilities through two types of tools: predefined tools
 
     <Accordion title="Example: Creating a Custom Weather API Tool">
       **Step 1:** Name: `Weather Lookup`  
-      **Step 2:** Description: Fetches current weather data for a given city.  
+      **Step 2:** Description: Fetches current weather data for a given city  
       **Step 3:** HTTP Method: `GET`  
       **Step 4:** Timeout: `10` seconds  
       **Step 5:** URL: `https://api.weather.com/v3/weather?city={city}`  
-      **Step 6:** Tool Properties: Add a property for `city` (string).  
-      **Step 7:** Prompt Description: *Use this tool to return the current weather when a user asks about weather conditions.*  
-      **Step 8:** Output Example:  
-        ```json
-        {
-          "temperature": "28C",
-          "condition": "Sunny"
-        }
+      **Step 6:** Tool Properties: Add a property for `city` (string)  
+      **Step 7:** Prompt Description: *Use this tool to return the current weather when a user asks about weather conditions*  
+      **Step 8:** Output Example:
+      ```json
+      {
+        "temperature": "28C",
+        "condition": "Sunny"
+      }
+      ```
       **Step 9:** Schema Fields:
-        - temperature (string, required)
-        - condition (string, required)
-      **Step 10:** Error Handling: If API call fails, return a fallback message: "Sorry, I can’t fetch the weather right now."
+      - temperature (string, required)
+      - condition (string, required)
+      
+      **Step 10:** Error Handling: If API call fails, return a fallback message: "Sorry, I can't fetch the weather right now."
     </Accordion>
+
   </Tab>
 </Tabs>
