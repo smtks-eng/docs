@@ -1,5 +1,99 @@
 ---
 title: "External Channels"
+description: "Integrate your Agent with external platforms such as WhatsApp, Instagram, Messenger, Freshchat, and Zendesk"
+icon: "share-2"
+language: en
 ---
 
-This page describes connecting external channels (WhatsApp, Slack, etc.).
+# External Channels
+
+The **External Channels** section enables you to connect your Agent with third-party providers so it can interact with users across popular messaging apps and service platforms.  
+
+Unlike the Web and Bubble options, External Channels are tied to external providers (e.g., **Meta, Freshchat, Zendesk**), and each provider offers multiple **channels** (e.g., WhatsApp, Instagram, Messenger) with unique capabilities.  
+
+---
+
+## Integrate with a Provider
+
+Available providers currently include:  
+- **Meta** (Messenger, Instagram, WhatsApp) → [How to Integrate with Meta](/workspaces/docs/integration-guides/en/how-to-integrate-to-meta.mdx)  
+- **Freshchat** (Callback URL integration) → [How to Integrate with Freshchat](/workspaces/docs/integration-guides/en/how-to-integrate-to-freshchat.mdx)  
+- **Zendesk** (WhatsApp, Messenger, Instagram) → [How to Integrate with Zendesk](/workspaces/docs/integration-guides/en/how-to-integrate-to-zendesk.mdx)  
+
+Once a provider is integrated, you can **enable or disable** channels individually.  
+
+---
+
+## Enable a Channel
+
+Each provider supports one or more channels. After integration, you can **enable or disable** channels individually. Once enabled, the Agent will be able to send and receive messages through that channel.
+
+---
+
+## Configure Add-ons
+
+Each channel has add-ons that extend what the Agent can do. For example:  
+- **WhatsApp:**  
+  - Send/receive **voice notes**  
+  - Enable **voice recognition**  
+  - Process **image inputs** (e.g., OCR, classification)  
+- **Messenger / Instagram:**  
+  - Handle **rich media messages** (images, videos, stickers)  
+  - Add **reaction handling**  
+- **Freshchat:**  
+  - Use **callback URLs** to link events back into your systems  
+
+<Note>
+Add-ons are optional and can be toggled on or off depending on the use case.  
+**Important:** Some add-ons may have **additional costs** depending on provider pricing or platform usage.
+</Note>
+
+---
+
+## Configuration
+
+When configuring a channel, you can:  
+- **Authenticate** with the provider (e.g., connect to a Meta or Zendesk account).  
+- **Set permissions** for the types of content your Agent can handle (voice, images, rich media).  
+- **Define behaviors** that determine how the Agent should respond to different input types.  
+
+---
+
+## Conversation Behaviors (by Channel)
+
+Each channel supports unique input and output methods. Examples include:  
+- **Text only** (basic fallback for all channels).  
+- **Voice inputs/outputs** (e.g., WhatsApp voice notes).  
+- **Image handling** (user uploads → Agent processes).  
+- **File attachments** (e.g., PDFs or documents shared in Zendesk-integrated chats).  
+
+<Note>
+Conversation behaviors are evolving — future releases will expand supported input/output formats and customization.
+</Note>
+
+---
+
+## Example Scenarios
+
+<AccordionGroup>
+  <Accordion title="WhatsApp – Voice and Media" icon="phone">
+    A user sends a voice note via WhatsApp.  
+    - The Agent can process it via **voice recognition**.  
+    - The Agent may reply with either **text** or another **voice note**.  
+    - Optional add-ons: image recognition, OCR for attachments.
+  </Accordion>
+
+  <Accordion title="Instagram – Images and Media" icon="image">
+    A user shares an image via Instagram.  
+    - The Agent can classify or extract information from the image.  
+    - Replies may include **text, rich media, or contextual information**.  
+    - Optional add-ons: advanced media processing, stickers, reactions.
+  </Accordion>
+
+  <Accordion title="Messenger – Engagement" icon="message-circle">
+    A user reacts to a message with an emoji in Messenger.  
+    - The Agent acknowledges the reaction.  
+    - The Agent may adapt its next response based on the sentiment or context.  
+    - Optional add-ons: handling rich media (images, videos).
+  </Accordion>
+</AccordionGroup>
