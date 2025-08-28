@@ -27,21 +27,21 @@ Manage your AI agent's capabilities through two types of tools: predefined tools
 
     ## Available Predefined Tools
 
-    ### 1. **Send Files**  
+    ### **Send Files**  
     - **Description:** Allows the agent to send files directly to the user during a conversation.  
     - **Default:** Always enabled.  
     - **Configuration:** No setup required.  
 
     ---
 
-    ### 2. **Answer FAQs**  
+    ### **Answer FAQs**  
     - **Description:** Enables the agent to respond to frequently asked questions about your product or service.  
     - **Default:** Always enabled.  
     - **Configuration:** No setup required. You can manage and update FAQs in the **Knowledge** section of the agent.  
 
     ---
 
-    ### 3. **Collect Information**  
+    ### **Collect Information**  
     - **Description:** Enables the agent to collect, verify, and store user information (e.g., name, email, phone number) for lead generation or service requests.  
     - **Toggle:** Off by default.  
     - **Configuration:** Define the fields you want the agent to collect and where the data should be stored.  
@@ -94,114 +94,83 @@ Manage your AI agent's capabilities through two types of tools: predefined tools
   </Tab>
 
   <Tab title="Tools (Custom)">
-    Custom tools allow you to extend your AI agent's capabilities by integrating external services, APIs, and business logic. This enables your agent to perform specialized tasks unique to your business needs.
+    The **Tools (Custom)** tab allows your organization to extend the AI agent’s functionality by creating custom tools that integrate with your internal systems or third-party APIs. Unlike predefined tools, these are designed and managed entirely by your organization, offering flexibility to meet unique business needs.  
+    
+    You can create tools for tasks such as querying proprietary databases, invoking external APIs, or applying custom business logic. Once created, these tools can be invoked by the agent during conversations.
+    ---
+    ## How to Create a Custom Tool
 
-    ## Overview
+    1. Navigate to **Agents > Capabilities > Tools (Custom)**.  
+    2. Click **Create Tool**.  
+    3. Fill in the required fields in the tool creation form, organized as follows:  
 
-    Custom tools can help your agent:
-    - Connect to your internal systems
-    - Process specialized data formats
-    - Perform complex calculations
-    - Integrate with third-party services
-    - Execute custom business logic
+    <AccordionGroup>
 
-    ## Creating a Custom Tool
+      <Accordion title="General Information">
+      - **Name:** Enter a unique tool name.  
+      - **Description:** Describe what the tool does for documentation and clarity.  
+      - **HTTP Method:** Select the request method (`GET`, `POST`, etc.).  
+      - **Timeout:** Define the maximum time (in seconds) the agent should wait for a response.  
+      - **URL:** Provide the endpoint the tool will call (e.g., `https://api.example.com/endpoint`).  
+      - **Visibility:** Tools are currently limited to **Private** within your organization.  
+      </Accordion>
 
-    ### Step 1: Basic Setup
-    1. Navigate to **Agents > Capabilities > Tools (Custom)**
-    2. Click **New Tool**
-    3. Provide basic information:
-       - Tool name (e.g., "Invoice Generator")
-       - Description
-       - Category (API, Database, Integration, etc.)
+      <Accordion title="Tool Properties">
+      - Add key-value properties that may be required for execution.  
+      - For example, an API key or parameter value.  
+      </Accordion>
 
-    ### Step 2: Define Parameters
-    Configure what information your tool needs:
-    ```json
-    {
-      "parameters": {
-        "customer_id": {
-          "type": "string",
-          "required": true,
-          "description": "Customer's unique identifier"
-        },
-        "amount": {
-          "type": "number",
-          "required": true,
-          "description": "Invoice amount"
-        }
+      <Accordion title="Prompt and Output">
+      - **Prompt Description:** Explain how the agent should use the tool and what format the response should follow.  
+      - **Output Example:** Provide a sample response for validation (e.g., JSON structure).  
+      - **Schema Fields:** Use the schema builder or JSON editor to specify the expected output structure.  
+      - **Output Validation:** Optionally enable validation and configure how errors should be handled (`Warn`, `Error`).  
+      </Accordion>
+
+      <Accordion title="Error Handling">
+      - Add logic or instructions on how the agent should react to errors returned by this tool.  
+      - Example: *If API call fails, return a fallback message such as "Sorry, this service is not available right now."*  
+      </Accordion>
+
+    </AccordionGroup>
+
+    4. Click **Save** to create the tool.  
+    ---
+    ## Tool Invocations
+
+    Once tools are created, the **Tool Invocations** sub-tab allows you to monitor how custom tools are being called by the agent:  
+    - View logs of past invocations.  
+    - Inspect request and response details.  
+    - Troubleshoot errors or unexpected behaviors.  
+
+    ---
+    ## Key Notes
+    - Custom tools are **organization-scoped**, meaning they can be reused across multiple agents in your account.  
+    - At present, all tools are **Private** to your organization; public or shared tools are not supported.  
+    - Well-defined **output schemas** improve reliability by ensuring the agent understands the tool’s responses.  
+    - Always provide **error handling logic** so the agent can gracefully manage failures.  
+    ---
+    
+    <Accordion title="Example: Creating a Custom Weather API Tool">  
+    **Step 1:** Name: `Weather Lookup`  
+    **Step 2:** Description: Fetches current weather data for a given city.  
+    **Step 3:** HTTP Method: `GET`  
+    **Step 4:** Timeout: `10` seconds  
+    **Step 5:** URL: `https://api.weather.com/v3/weather?city={city}`  
+    **Step 6:** Tool Properties: Add a property for `city` (string).  
+    **Step 7:** Prompt Description: *Use this tool to return the current weather when a user asks about weather conditions.*  
+    **Step 8:** Output Example:  
+      ```json
+      {
+        "temperature": "28C",
+        "condition": "Sunny"
       }
-    }
-    ```
+    **Step 9:** Schema Fields:
+      - temperature (string, required)
+      - condition (string, required)
 
-    ### Step 3: Configure Authentication
-    Choose the authentication method:
-    - API Key
-    - OAuth 2.0
-    - Basic Auth
-    - Custom Headers
+    **Step 10:** Error Handling: If API call fails, return a fallback message: "Sorry, I can’t fetch the weather right now."
+    </Accordion>
 
-    ### Step 4: Define Response Handling
-    Specify how to process the tool's output:
-    ```json
-    {
-      "response": {
-        "format": "json",
-        "success_criteria": {
-          "status": 200
-        },
-        "error_handling": {
-          "retry_count": 3,
-          "fallback_message": "Unable to generate invoice"
-        }
-      }
-    }
-    ```
-
-    ## Common Use Cases
-
-    1. **Payment Processing**
-       - Process payments
-       - Check payment status
-       - Generate invoices
-
-    2. **Data Retrieval**
-       - Fetch customer records
-       - Look up product information
-       - Check inventory levels
-
-    3. **External Services**
-       - Weather updates
-       - Currency conversion
-       - Language translation
-
-    ## Best Practices
-
-    1. **Error Handling**
-       - Always define fallback behaviors
-       - Include retry logic for transient failures
-       - Provide clear error messages
-
-    2. **Security**
-       - Use environment variables for secrets
-       - Implement rate limiting
-       - Validate input parameters
-
-    3. **Performance**
-       - Cache frequently accessed data
-       - Set appropriate timeouts
-       - Monitor response times
-
-    ## Testing Your Tool
-
-    Before deployment:
-    1. Use the **Test Console** to verify functionality
-    2. Try various input combinations
-    3. Validate error scenarios
-    4. Check response formatting
-
-    <Note>
-    Documentation for custom tools is in beta. More detailed guides and examples coming soon.
-    </Note>
   </Tab>
 </Tabs>
