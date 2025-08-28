@@ -1,5 +1,99 @@
 ---
 title: "Canales Externos"
+description: "Integra tu Agente con plataformas externas como WhatsApp, Instagram, Messenger, Freshchat y Zendesk"
+icon: "share-2"
+language: es
 ---
 
-Esta página describe cómo conectar canales externos (WhatsApp,
+# Canales Externos
+
+La sección de **Canales Externos** te permite conectar tu Agente con proveedores externos para que pueda interactuar con usuarios a través de aplicaciones de mensajería y plataformas de servicio populares.
+
+A diferencia de las opciones Web y Bubble, los Canales Externos están vinculados a proveedores externos (por ejemplo, **Meta, Freshchat, Zendesk**), y cada proveedor ofrece múltiples **canales** (por ejemplo, WhatsApp, Instagram, Messenger) con capacidades únicas.
+
+---
+
+## Integración con un Proveedor
+
+Los proveedores disponibles actualmente incluyen:
+- **Meta** (Messenger, Instagram, WhatsApp) → [Cómo Integrarse con Meta](/workspaces/docs/integration-guides/es/como-integrarse-con-meta.mdx)
+- **Freshchat** (integración URL de callback) → [Cómo Integrarse con Freshchat](/workspaces/docs/integration-guides/es/como-integrarse-con-freshchat.mdx)
+- **Zendesk** (WhatsApp, Messenger, Instagram) → [Cómo Integrarse con Zendesk](/workspaces/docs/integration-guides/es/como-integrarse-con-zendesk.mdx)
+
+Una vez que un proveedor está integrado, puedes **activar o desactivar** los canales individualmente.
+
+---
+
+## Activar un Canal
+
+Cada proveedor admite uno o más canales. Después de la integración, puedes **activar o desactivar** los canales individualmente. Una vez activado, el Agente podrá enviar y recibir mensajes a través de ese canal.
+
+---
+
+## Configurar Complementos
+
+Cada canal tiene complementos que extienden lo que el Agente puede hacer. Por ejemplo:
+- **WhatsApp:**
+  - Enviar/recibir **notas de voz**
+  - Habilitar **reconocimiento de voz**
+  - Procesar **entradas de imágenes** (por ejemplo, OCR, clasificación)
+- **Messenger / Instagram:**
+  - Manejar **mensajes de contenido enriquecido** (imágenes, videos, stickers)
+  - Agregar **manejo de reacciones**
+- **Freshchat:**
+  - Usar **URLs de callback** para vincular eventos con tus sistemas
+
+<Note>
+Los complementos son opcionales y se pueden activar o desactivar según el caso de uso.
+**Importante:** Algunos complementos pueden tener **costos adicionales** según los precios del proveedor o el uso de la plataforma.
+</Note>
+
+---
+
+## Configuración
+
+Al configurar un canal, puedes:
+- **Autenticarte** con el proveedor (por ejemplo, conectarte a una cuenta de Meta o Zendesk).
+- **Establecer permisos** para los tipos de contenido que tu Agente puede manejar (voz, imágenes, contenido enriquecido).
+- **Definir comportamientos** que determinen cómo debe responder el Agente a diferentes tipos de entrada.
+
+---
+
+## Comportamientos de Conversación (por Canal)
+
+Cada canal admite métodos únicos de entrada y salida. Los ejemplos incluyen:
+- **Solo texto** (respaldo básico para todos los canales).
+- **Entradas/salidas de voz** (por ejemplo, notas de voz de WhatsApp).
+- **Manejo de imágenes** (cargas del usuario → El Agente procesa).
+- **Archivos adjuntos** (por ejemplo, PDFs o documentos compartidos en chats integrados con Zendesk).
+
+<Note>
+Los comportamientos de conversación están evolucionando — las futuras versiones expandirán los formatos de entrada/salida soportados y la personalización.
+</Note>
+
+---
+
+## Escenarios de Ejemplo
+
+<AccordionGroup>
+  <Accordion title="WhatsApp – Voz y Multimedia" icon="phone">
+    Un usuario envía una nota de voz por WhatsApp.
+    - El Agente puede procesarla mediante **reconocimiento de voz**.
+    - El Agente puede responder con **texto** o con otra **nota de voz**.
+    - Complementos opcionales: reconocimiento de imágenes, OCR para archivos adjuntos.
+  </Accordion>
+
+  <Accordion title="Instagram – Imágenes y Multimedia" icon="image">
+    Un usuario comparte una imagen por Instagram.
+    - El Agente puede clasificar o extraer información de la imagen.
+    - Las respuestas pueden incluir **texto, contenido multimedia o información contextual**.
+    - Complementos opcionales: procesamiento avanzado de medios, stickers, reacciones.
+  </Accordion>
+
+  <Accordion title="Messenger – Interacción" icon="message-circle">
+    Un usuario reacciona a un mensaje con un emoji en Messenger.
+    - El Agente reconoce la reacción.
+    - El Agente puede adaptar su siguiente respuesta según el sentimiento o contexto.
+    - Complementos opcionales: manejo de contenido multimedia (imágenes, videos).
+  </Accordion>
+</AccordionGroup>
