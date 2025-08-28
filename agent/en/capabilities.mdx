@@ -94,18 +94,17 @@ Manage your AI agent's capabilities through two types of tools: predefined tools
   </Tab>
 
   <Tab title="Tools (Custom)">
-    The **Tools (Custom)** tab allows your organization to extend the AI agent’s functionality by creating custom tools that integrate with your internal systems or third-party APIs. Unlike predefined tools, these are designed and managed entirely by your organization, offering flexibility to meet unique business needs.  
+    The **Tools (Custom)** tab allows your organization to extend the AI agent's functionality by creating custom tools that integrate with your internal systems or third-party APIs. Unlike predefined tools, these are designed and managed entirely by your organization, offering flexibility to meet unique business needs.  
     
     You can create tools for tasks such as querying proprietary databases, invoking external APIs, or applying custom business logic. Once created, these tools can be invoked by the agent during conversations.
-    ---
+
     ## How to Create a Custom Tool
 
     1. Navigate to **Agents > Capabilities > Tools (Custom)**.  
     2. Click **Create Tool**.  
-    3. Fill in the required fields in the tool creation form, organized as follows:  
+    3. Fill in the required fields in the tool creation form:  
 
     <AccordionGroup>
-
       <Accordion title="General Information">
       - **Name:** Enter a unique tool name.  
       - **Description:** Describe what the tool does for documentation and clarity.  
@@ -135,42 +134,38 @@ Manage your AI agent's capabilities through two types of tools: predefined tools
     </AccordionGroup>
 
     4. Click **Save** to create the tool.  
-    ---
+
     ## Tool Invocations
 
     Once tools are created, the **Tool Invocations** sub-tab allows you to monitor how custom tools are being called by the agent:  
-    - View logs of past invocations.  
-    - Inspect request and response details.  
-    - Troubleshoot errors or unexpected behaviors.  
+    - View logs of past invocations  
+    - Inspect request and response details  
+    - Troubleshoot errors or unexpected behaviors  
 
-    ---
     ## Key Notes
-    - Custom tools are **organization-scoped**, meaning they can be reused across multiple agents in your account.  
-    - At present, all tools are **Private** to your organization; public or shared tools are not supported.  
-    - Well-defined **output schemas** improve reliability by ensuring the agent understands the tool’s responses.  
-    - Always provide **error handling logic** so the agent can gracefully manage failures.  
-    ---
-    
-    <Accordion title="Example: Creating a Custom Weather API Tool">  
-    **Step 1:** Name: `Weather Lookup`  
-    **Step 2:** Description: Fetches current weather data for a given city.  
-    **Step 3:** HTTP Method: `GET`  
-    **Step 4:** Timeout: `10` seconds  
-    **Step 5:** URL: `https://api.weather.com/v3/weather?city={city}`  
-    **Step 6:** Tool Properties: Add a property for `city` (string).  
-    **Step 7:** Prompt Description: *Use this tool to return the current weather when a user asks about weather conditions.*  
-    **Step 8:** Output Example:  
-      ```json
-      {
-        "temperature": "28C",
-        "condition": "Sunny"
-      }
-    **Step 9:** Schema Fields:
-      - temperature (string, required)
-      - condition (string, required)
+    - Custom tools are **organization-scoped**, meaning they can be reused across multiple agents in your account  
+    - At present, all tools are **Private** to your organization; public or shared tools are not supported  
+    - Well-defined **output schemas** improve reliability by ensuring the agent understands the tool's responses  
+    - Always provide **error handling logic** so the agent can gracefully manage failures  
 
-    **Step 10:** Error Handling: If API call fails, return a fallback message: "Sorry, I can’t fetch the weather right now."
+    <Accordion title="Example: Creating a Custom Weather API Tool">
+      **Step 1:** Name: `Weather Lookup`  
+      **Step 2:** Description: Fetches current weather data for a given city.  
+      **Step 3:** HTTP Method: `GET`  
+      **Step 4:** Timeout: `10` seconds  
+      **Step 5:** URL: `https://api.weather.com/v3/weather?city={city}`  
+      **Step 6:** Tool Properties: Add a property for `city` (string).  
+      **Step 7:** Prompt Description: *Use this tool to return the current weather when a user asks about weather conditions.*  
+      **Step 8:** Output Example:  
+        ```json
+        {
+          "temperature": "28C",
+          "condition": "Sunny"
+        }
+      **Step 9:** Schema Fields:
+        - temperature (string, required)
+        - condition (string, required)
+      **Step 10:** Error Handling: If API call fails, return a fallback message: "Sorry, I can’t fetch the weather right now."
     </Accordion>
-
   </Tab>
 </Tabs>
