@@ -2,61 +2,61 @@
 title: 'Capacidades'
 language: es
 icon: "screwdriver-wrench"
-description: 'Comienza a construir documentación increíble en menos de 5 minutos'
+description: 'Aprende a habilitar, configurar y gestionar las herramientas y capacidades integradas que tu agente de IA puede usar, como enviar archivos, responder preguntas frecuentes, recopilar información de usuarios y escalar a agentes humanos, a través de los canales soportados.'
 ---
 
-## Configura tu desarrollo
+Administra las capacidades de tu agente de IA a través de dos tipos de herramientas: herramientas predefinidas que vienen integradas con la plataforma y herramientas personalizadas que puedes crear para extender la funcionalidad de tu agente.
 
-Aprende cómo actualizar tu documentación localmente y desplegarla al público.
+<Tabs>
+  <Tab title="Herramientas (Predefinidas)">
+    La pestaña **Herramientas (Predefinidas)** te permite habilitar o deshabilitar capacidades integradas que tu agente de IA puede usar durante las conversaciones. Cada herramienta representa una función predefinida—como responder preguntas frecuentes, enviar archivos o escalar a un agente humano—que puede activarse o desactivarse según las necesidades de tu negocio.
 
-### Editar y previsualizar
+    Cuando una herramienta está habilitada, puede requerir configuración adicional antes de que el agente pueda usarla exitosamente. Algunas herramientas también dependen del **tipo de canal** donde el usuario final está interactuando (por ejemplo, WhatsApp, Zendesk, Freshchat).
 
-<AccordionGroup>
-  <Accordion icon="github" title="Clona tu documentación localmente">
-    Durante el proceso de incorporación, creamos un repositorio en tu Github con
-    el contenido de tu documentación. Puedes encontrar este repositorio en nuestro
-    [panel de control](https://dashboard.mintlify.com). Para clonar el repositorio
-    localmente, sigue estas
-    [instrucciones](https://docs.github.com/es/repositories/creating-and-managing-repositories/cloning-a-repository)
-    en tu terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Previsualizar cambios">
-    La previsualización te ayuda a asegurarte de que tus cambios se vean como lo deseas. Construimos una
-    interfaz de línea de comandos para renderizar estos cambios localmente.
-    1. Instala el
-    [CLI de Mintlify](https://www.npmjs.com/package/mintlify) para previsualizar los
-    cambios en la documentación localmente con este comando: ``` npm i -g mintlify ```
-    2. Ejecuta el siguiente comando en la raíz de tu documentación (donde está
-    `docs.json`): ``` mintlify dev ```
-    <Note>
-      Si actualmente estás usando el archivo de configuración heredado ```mint.json```, por favor actualiza el CLI de Mintlify:
+    <AccordionGroup>
+      <Accordion icon="message-bot" title="Enviar Archivos">
+        Habilita a tu agente para enviar archivos a los usuarios. Esto es útil para compartir documentos, imágenes u otros archivos necesarios durante la interacción.
+      </Accordion>
+      <Accordion icon="robot" title="Responder Preguntas Frecuentes">
+        Permite que tu agente responda automáticamente a preguntas comunes que los usuarios puedan tener, ahorrando tiempo y esfuerzo tanto para el usuario como para el agente.
+      </Accordion>
+      <Accordion icon="user" title="Recopilar Información del Usuario">
+        Configura a tu agente para que recopile información específica de los usuarios, como detalles de contacto o preferencias, para personalizar la interacción y mejorar el servicio.
+      </Accordion>
+      <Accordion icon="people-arrows" title="Escalar a Agentes Humanos">
+        Habilita la opción de escalar conversaciones a agentes humanos cuando sea necesario, asegurando que los usuarios siempre reciban la asistencia que necesitan.
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
 
+  <Tab title="Herramientas (Personalizadas)">
+    La pestaña **Herramientas (Personalizadas)** permite a tu organización extender la funcionalidad del agente de IA creando herramientas personalizadas que se integran con tus sistemas internos o APIs de terceros. A diferencia de las herramientas predefinidas, estas son diseñadas y administradas completamente por tu organización, ofreciendo flexibilidad para satisfacer necesidades únicas del negocio.
 
-      ```npm i -g mintlify@latest```
-      Y ejecuta el nuevo comando de actualización en tu repositorio de documentación:
-
-      ```mintlify upgrade```
-      Ahora deberías estar usando el nuevo archivo de configuración ```docs.json```. Puedes eliminar el archivo ```mint.json``` de tu repositorio.
-    </Note>
-  </Accordion>
-</AccordionGroup>
-
-### Despliega tus cambios
-
-<AccordionGroup>
-
-<Accordion icon="message-bot" title="Instala nuestra aplicación de Github">
-  Nuestra aplicación de Github despliega automáticamente tus cambios en tu sitio de documentación, así que
-  no necesitas gestionar los despliegues por ti mismo. Puedes encontrar el enlace para instalar en
-  tu [panel de control](https://dashboard.mintlify.com). Una vez que el bot ha sido
-  instalado exitosamente, debería haber una marca de verificación junto al hash del commit
-  del repositorio.
-</Accordion>
-<Accordion icon="rocket" title="Sube tus cambios">
-  [Confirma y sube tus cambios a
-  Git](https://docs.github.com/es/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  para que tus cambios se actualicen en tu sitio de documentación. Si subes y no ves que
-  la aplicación de Github haya desplegado exitosamente tus cambios, también puedes
+    <AccordionGroup>
+      <Accordion title="Ejemplo: Creando una Herramienta de API del Clima">
+        **Paso 1:** Nombre: `Consulta del Clima`  
+        **Paso 2:** Descripción: Obtiene datos actuales del clima para una ciudad dada  
+        **Paso 3:** Método HTTP: `GET`  
+        **Paso 4:** Tiempo de espera: `10` segundos  
+        **Paso 5:** URL: `https://api.weather.com/v3/weather?city={city}`  
+        **Paso 6:** Propiedades de la herramienta: Agregar una propiedad para `city` (string)  
+        **Paso 7:** Descripción del prompt: *Usa esta herramienta para devolver el clima actual cuando un usuario pregunte por las condiciones del tiempo*  
+        **Paso 8:** Ejemplo de salida:
+        ```json
+        {
+          "temperature": "28C",
+          "condition": "Soleado"
+        }
+        ```
+        **Paso 9:** Campos del esquema:
+        - temperature (string, requerido)
+        - condition (string, requerido)
+        
+        **Paso 10:** Manejo de errores: Si la llamada a la API falla, devolver el mensaje: "Lo siento, no puedo obtener el clima en este momento."
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+</Tabs>
   actualizar tu documentación manualmente a través de nuestro [panel de control](https://dashboard.mintlify.com).
 </Accordion>
 
