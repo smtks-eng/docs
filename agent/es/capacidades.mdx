@@ -13,87 +13,160 @@ Administra las capacidades de tu agente de IA a través de dos tipos de herramie
 
     Cuando una herramienta está habilitada, puede requerir configuración adicional antes de que el agente pueda usarla exitosamente. Algunas herramientas también dependen del **tipo de canal** donde el usuario final está interactuando (por ejemplo, WhatsApp, Zendesk, Freshchat).
 
-    <AccordionGroup>
-      <Accordion icon="message-bot" title="Enviar Archivos">
-        Habilita a tu agente para enviar archivos a los usuarios. Esto es útil para compartir documentos, imágenes u otros archivos necesarios durante la interacción.
-      </Accordion>
-      <Accordion icon="robot" title="Responder Preguntas Frecuentes">
-        Permite que tu agente responda automáticamente a preguntas comunes que los usuarios puedan tener, ahorrando tiempo y esfuerzo tanto para el usuario como para el agente.
-      </Accordion>
-      <Accordion icon="user" title="Recopilar Información del Usuario">
-        Configura a tu agente para que recopile información específica de los usuarios, como detalles de contacto o preferencias, para personalizar la interacción y mejorar el servicio.
-      </Accordion>
-      <Accordion icon="people-arrows" title="Escalar a Agentes Humanos">
-        Habilita la opción de escalar conversaciones a agentes humanos cuando sea necesario, asegurando que los usuarios siempre reciban la asistencia que necesitan.
-      </Accordion>
-    </AccordionGroup>
+    ---
+
+    ## Cómo Habilitar o Deshabilitar una Herramienta
+
+    1. Navega a **Agentes > Capacidades** en el menú izquierdo.
+    2. En **Herramientas (Predefinidas)**, localiza la herramienta que deseas gestionar.
+    3. Usa el **interruptor** para activar o desactivar la herramienta.
+    4. Si la herramienta requiere configuración, haz clic en **Configuración**, completa la configuración requerida y guarda los cambios.
+    5. Verifica que la herramienta sea compatible con los **canales** a los que tu agente está conectado.
+
+    ---
+
+    ## Herramientas Predefinidas Disponibles
+
+    ### **Enviar Archivos**
+    - **Descripción:** Permite al agente enviar archivos directamente al usuario durante una conversación.
+    - **Predeterminado:** Siempre habilitado.
+    - **Configuración:** No requiere configuración.
+
+    ---
+
+    ### **Responder Preguntas Frecuentes**
+    - **Descripción:** Permite al agente responder preguntas frecuentes sobre tu producto o servicio.
+    - **Predeterminado:** Siempre habilitado.
+    - **Configuración:** No requiere configuración. Puedes gestionar y actualizar las preguntas frecuentes en la sección **Conocimiento** del agente.
+
+    ---
+
+    ### **Recopilar Información**
+    - **Descripción:** Permite al agente recopilar, verificar y almacenar información del usuario (por ejemplo, nombre, correo electrónico, número de teléfono) para generación de leads o solicitudes de servicio.
+    - **Interruptor:** Desactivado por defecto.
+    - **Configuración:** Define los campos que deseas que el agente recopile y dónde se debe almacenar la información.
+
+    <Note>
+    Esta herramienta es **tan importante** que una vez habilitada, activa una **pestaña dedicada de Recopilar Información** en la sección de Capacidades. Desde allí, puedes crear, editar y gestionar configuraciones de recopilación de información en detalle.
+    </Note>
+
+    <Accordion title="Cómo Configurar Recopilar Información">
+    1. Ve a **Agentes > Capacidades > Recopilar Información**.
+    2. Haz clic en **Nueva Configuración** para comenzar.
+    3. Ingresa un **Nombre** para tu configuración (por ejemplo, `registro_interesados`).
+    4. Agrega **Instrucciones Especiales** para guiar al agente (por ejemplo, siempre capturar detalles del usuario si muestran interés en tu producto).
+    5. Define los **Campos a Recopilar** (por ejemplo, nombre, apellido, correo electrónico, teléfono). Marca los campos como **requeridos** si es necesario.
+    6. Elige los **Canales de Integración** donde se aplicará esta configuración (por ejemplo, WhatsApp, Consola Semantiks, Freshchat).
+    7. (Opcional) Agrega **Temas Disparadores** para especificar palabras clave o intenciones que activen el proceso de recopilación.
+    8. Guarda haciendo clic en **Actualizar configuración**.
+
+    Una vez activa, tu configuración aparecerá en la **pestaña Recopilar Información**, mostrando:
+    - Campos a recopilar
+    - Temas disparadores
+    - Canales asociados
+    - Estado (Activo o Inactivo)
+    </Accordion>
+
+    ---
+
+    ### 4. **Escalamiento a Humano (Dependiente del Canal)**
+    - **Descripción:** Permite al agente transferir un usuario de una conversación con IA a un agente de soporte en vivo.
+    - **Interruptor:** Desactivado por defecto.
+    - **Dependencia del Canal:**
+      - Esta herramienta solo aparece cuando el agente está conectado a ciertas plataformas de servicio al cliente como **Zendesk** o **Freshchat**.
+
+    <Accordion title="Cómo Configurar el Escalamiento a Humano">
+    1. Conecta tu cuenta de Zendesk o Freshchat.
+    2. Navega a **Agentes > Capacidades > Herramientas (Predefinidas)**.
+    3. Localiza **Escalamiento a Humano** y actívalo.
+    4. Define reglas de escalamiento (por ejemplo, frases disparadoras, escenarios de respaldo).
+    5. Guarda tu configuración para activar.
+    </Accordion>
+
+    ---
+
+    ## Notas Importantes
+    - Las herramientas marcadas como **Predeterminadas** (Enviar Archivos, Responder Preguntas Frecuentes) están siempre disponibles y no se pueden deshabilitar.
+    - Las herramientas que requieren **configuración** deben configurarse antes de que el agente pueda usarlas.
+    - Algunas herramientas (por ejemplo, **Escalamiento a Humano**) solo aparecerán si el agente está conectado a un **canal** compatible.
+    - **Recopilar Información** es única: habilitarla agrega su propia **pestaña** para una configuración más profunda.
+    - Puedes volver a esta pestaña en cualquier momento para ajustar tus capacidades habilitadas.
   </Tab>
 
   <Tab title="Herramientas (Personalizadas)">
     La pestaña **Herramientas (Personalizadas)** permite a tu organización extender la funcionalidad del agente de IA creando herramientas personalizadas que se integran con tus sistemas internos o APIs de terceros. A diferencia de las herramientas predefinidas, estas son diseñadas y administradas completamente por tu organización, ofreciendo flexibilidad para satisfacer necesidades únicas del negocio.
 
+    Puedes crear herramientas para tareas como consultar bases de datos propietarias, invocar APIs externas o aplicar lógica de negocio personalizada. Una vez creadas, estas herramientas pueden ser invocadas por el agente durante las conversaciones.
+
+    ## Cómo Crear una Herramienta Personalizada
+
+    1. Navega a **Agentes > Capacidades > Herramientas (Personalizadas)**.
+    2. Haz clic en **Crear Herramienta**.
+    3. Completa los campos requeridos en el formulario de creación de herramienta:
+
     <AccordionGroup>
-      <Accordion title="Ejemplo: Creando una Herramienta de API del Clima">
-        **Paso 1:** Nombre: `Consulta del Clima`  
-        **Paso 2:** Descripción: Obtiene datos actuales del clima para una ciudad dada  
-        **Paso 3:** Método HTTP: `GET`  
-        **Paso 4:** Tiempo de espera: `10` segundos  
-        **Paso 5:** URL: `https://api.weather.com/v3/weather?city={city}`  
-        **Paso 6:** Propiedades de la herramienta: Agregar una propiedad para `city` (string)  
-        **Paso 7:** Descripción del prompt: *Usa esta herramienta para devolver el clima actual cuando un usuario pregunte por las condiciones del tiempo*  
-        **Paso 8:** Ejemplo de salida:
-        ```json
-        {
-          "temperature": "28C",
-          "condition": "Soleado"
-        }
-        ```
-        **Paso 9:** Campos del esquema:
-        - temperature (string, requerido)
-        - condition (string, requerido)
-        
-        **Paso 10:** Manejo de errores: Si la llamada a la API falla, devolver el mensaje: "Lo siento, no puedo obtener el clima en este momento."
+      <Accordion title="Información General">
+      - **Nombre:** Ingresa un nombre único para la herramienta.
+      - **Descripción:** Describe qué hace la herramienta para documentación y claridad.
+      - **Método HTTP:** Selecciona el método de solicitud (`GET`, `POST`, etc.).
+      - **Tiempo de espera:** Define el tiempo máximo (en segundos) que el agente debe esperar una respuesta.
+      - **URL:** Proporciona el endpoint que la herramienta llamará (por ejemplo, `https://api.ejemplo.com/endpoint`).
+      - **Visibilidad:** Las herramientas están actualmente limitadas a **Privadas** dentro de tu organización.
+      </Accordion>
+
+      <Accordion title="Propiedades de la Herramienta">
+      - Agrega propiedades clave-valor que puedan ser requeridas para la ejecución.
+      - Por ejemplo, una clave API o valor de parámetro.
+      </Accordion>
+
+      <Accordion title="Prompt y Salida">
+      - **Descripción del Prompt:** Explica cómo debe usar el agente la herramienta y qué formato debe seguir la respuesta.
+      - **Ejemplo de Salida:** Proporciona una respuesta de muestra para validación (por ejemplo, estructura JSON).
+      - **Campos del Esquema:** Usa el constructor de esquemas o editor JSON para especificar la estructura de salida esperada.
+      - **Validación de Salida:** Opcionalmente habilita la validación y configura cómo se deben manejar los errores (`Advertir`, `Error`).
+      </Accordion>
+
+      <Accordion title="Manejo de Errores">
+      - Agrega lógica o instrucciones sobre cómo debe reaccionar el agente a los errores devueltos por esta herramienta.
+      - Ejemplo: *Si la llamada a la API falla, devuelve un mensaje de respaldo como "Lo siento, este servicio no está disponible en este momento."*
       </Accordion>
     </AccordionGroup>
+
+    4. Haz clic en **Guardar** para crear la herramienta.
+
+    ## Invocaciones de Herramientas
+
+    Una vez creadas las herramientas, la sub-pestaña **Invocaciones de Herramientas** te permite monitorear cómo el agente está llamando a las herramientas personalizadas:
+    - Ver registros de invocaciones pasadas
+    - Inspeccionar detalles de solicitud y respuesta
+    - Solucionar problemas o comportamientos inesperados
+
+    ## Notas Importantes
+    - Las herramientas personalizadas están **limitadas a la organización**, lo que significa que pueden reutilizarse en múltiples agentes en tu cuenta
+    - Actualmente, todas las herramientas son **Privadas** para tu organización; no se admiten herramientas públicas o compartidas
+    - Los **esquemas de salida** bien definidos mejoran la confiabilidad al asegurar que el agente entienda las respuestas de la herramienta
+    - Siempre proporciona **lógica de manejo de errores** para que el agente pueda manejar las fallas de manera elegante
+
+    <Accordion title="Ejemplo: Creando una Herramienta Personalizada de API del Clima">
+      **Paso 1:** Nombre: `Consulta del Clima`
+      **Paso 2:** Descripción: Obtiene datos actuales del clima para una ciudad dada
+      **Paso 3:** Método HTTP: `GET`
+      **Paso 4:** Tiempo de espera: `10` segundos
+      **Paso 5:** URL: `https://api.clima.com/v3/clima?ciudad={ciudad}`
+      **Paso 6:** Propiedades de la herramienta: Agregar una propiedad para `ciudad` (string)
+      **Paso 7:** Descripción del prompt: *Usa esta herramienta para devolver el clima actual cuando un usuario pregunte por las condiciones del tiempo*
+      **Paso 8:** Ejemplo de salida:
+      ```json
+      {
+        "temperatura": "28C",
+        "condicion": "Soleado"
+      }
+      ```
+      **Paso 9:** Campos del esquema:
+      - temperatura (string, requerido)
+      - condicion (string, requerido)
+      
+      **Paso 10:** Manejo de errores: Si la llamada a la API falla, devolver el mensaje: "Lo siento, no puedo obtener el clima en este momento."
+    </Accordion>
   </Tab>
 </Tabs>
-  actualizar tu documentación manualmente a través de nuestro [panel de control](https://dashboard.mintlify.com).
-</Accordion>
-
-</AccordionGroup>
-
-## Actualiza tu documentación
-
-Agrega contenido directamente en tus archivos con sintaxis MDX y componentes React. Puedes usar cualquiera de nuestros componentes, o incluso construir los tuyos propios.
-
-<CardGroup>
-
-<Card title="Agregar Contenido Con MDX" icon="file" href="/essentials/markdown">
-  Agrega contenido a tu documentación con sintaxis MDX.
-</Card>
-
-<Card
-  title="Agregar Bloques de Código"
-  icon="square-code"
-  href="/essentials/code"
->
-  Agrega código directamente a tu documentación con resaltado de sintaxis.
-</Card>
-
-<Card
-  title="Agregar Imágenes"
-  icon="image"
-  href="/essentials/images"
->
-  Agrega imágenes a tu documentación para hacerla más atractiva.
-</Card>
-
-<Card
-  title="Agregar Componentes Personalizados"
-  icon="puzzle-piece"
-  href="/essentials/reusable-snippets"
->
-  Agrega plantillas a tu documentación para hacerla más reutilizable.
-</Card>
-
-</CardGroup>
