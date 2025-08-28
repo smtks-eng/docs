@@ -1,5 +1,71 @@
 ---
 title: "Web"
+description: "Configura y personaliza la experiencia web independiente para tu Agente"
+icon: "globe"
+language: es
 ---
 
-Esta página describe la configuración del canal Web.
+# Configuración del Canal Web
+
+El **Canal Web** te permite implementar tu Agente como una página web independiente, accesible desde cualquier navegador. A diferencia de la Burbuja integrada, esta opción crea un enlace directo que puedes compartir con los clientes, facilitando que cualquiera interactúe con tu Agente sin necesidad de integrarlo en un sitio existente.
+
+<Tabs>
+  <Tab title="Apariencia" icon="palette">
+    ## Apariencia
+
+    Personaliza la página web independiente donde vive tu Agente.
+    ![Configuración del canal web de Semantiks con enlace compartible, personalización de marca y vista previa del agente de chat de IA en vivo.](/images/channels/web/es/web-appearance.png)
+
+    Navega a **Canales > Web > Apariencia** para configurar lo siguiente:
+
+    ### Opciones disponibles
+    - **Título del Encabezado:** Define un título que aparece en la parte superior de la página de chat.  
+    - **Logo:** Sube un logo para mostrarlo junto al Agente.  
+    - **Avatar:** Establece una imagen de perfil que representa al Agente.  
+    - **Color del Encabezado:** Elige un color sólido o degradado para la barra del encabezado.  
+      - Opciones de degradado: **Habilitar degradados**, seleccionar un color secundario y elegir dirección **Horizontal** o **Vertical**.  
+    - **Color de Fondo:** Define el fondo detrás de la ventana de chat. Se admiten colores sólidos y degradados.  
+    - **Mensaje de Bienvenida:** Personaliza el primer mensaje que ven los usuarios cuando llegan.  
+    - **Mensajes Sugeridos:** Predefine mensajes de inicio rápido que animan a los usuarios a interactuar con el Agente.
+
+    <Note>
+    Todos los cambios se pueden previsualizar en vivo en el widget del lado derecho antes de publicar.
+    </Note>
+  </Tab>
+
+  <Tab title="Funciones y Comportamiento" icon="settings">
+    ## Funciones y Comportamiento (Próximamente)
+
+    Esta sección introducirá configuraciones de comportamiento para tu Canal Web. Las opciones planificadas incluyen:
+
+    - **Control de sesión:** Habilita reinicio de conversación o conserva el historial entre visitas.  
+    - **Configuración de idioma:** Define el idioma predeterminado y manejo de múltiples idiomas.  
+    - **Enrutamiento de conversación:** Configura reglas para dirigir a agentes o departamentos específicos.  
+    - **Horario comercial:** Define cuándo la página web debe estar disponible para los usuarios.  
+    - **Dominios personalizados:** Mapea el canal web a tu propio subdominio para una experiencia de marca.  
+
+    <Note>
+    Estas funciones están en desarrollo y estarán disponibles en una actualización futura.
+    </Note>
+  </Tab>
+</Tabs>
+
+---
+
+## Enlace para Compartir
+
+Cada Canal Web proporciona un enlace único que puedes compartir con clientes, socios o equipos internos.  
+Puedes encontrar este enlace en la sección **Compartir** en la parte superior de la página de la Consola.
+
+Ejemplo:
+```
+[https://consola.semantiks.com/external-chat?agent_id=tu-agent-id\&agent_type=customer_service](https://consola.semantiks.com/external-chat?agent_id=tu-agent-id&agent_type=customer_service)
+```
+
+### Acciones disponibles
+- **Copiar enlace:** Usa el botón "Copiar" para copiar la URL completa.  
+- **Visitar enlace:** Abre la página web del Agente directamente en una nueva pestaña.  
+
+<Note>
+Esto facilita distribuir tu Agente sin necesidad de incrustar código o requerir integraciones externas.
+</Note>

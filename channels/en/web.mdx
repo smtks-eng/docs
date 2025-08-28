@@ -1,5 +1,71 @@
 ---
 title: "Web"
+description: "Set up and customize the standalone web experience for your Agent"
+icon: "globe"
+language: en
 ---
 
-This page describes the Web channel setup and configuration.
+# Web Channel Configuration
+
+The **Web Channel** allows you to deploy your Agent as a standalone web page, accessible from any browser. Unlike the embedded Bubble, this option creates a direct link you can share with customers, making it simple for anyone to interact with your Agent without needing integration into an existing site.
+
+<Tabs>
+  <Tab title="Appearance" icon="palette">
+    ## Appearance
+
+    Customize the standalone web page where your Agent lives.
+    ![Semantiks Web Channel settings with shareable link, branding customization, and live AI chat agent preview.](/images/channels/web/en/web-appearance.png)
+
+    Navigate to **Channels > Web > Appearance** to configure the following:
+
+    ### Options available
+    - **Header Title:** Define a title that appears at the top of the chat page.  
+    - **Logo:** Upload a logo to be displayed alongside the Agent.  
+    - **Avatar:** Set a profile image representing the Agent.  
+    - **Header Color:** Choose a solid or gradient color for the header bar.  
+      - Gradient options: **Enable gradients**, select a secondary color, and choose **Horizontal** or **Vertical** direction.  
+    - **Background Color:** Define the background behind the chat window. Solid and gradient options are supported.  
+    - **Welcome Message:** Personalize the first message users see when they arrive.  
+    - **Suggested Messages:** Predefine quick-start prompts that encourage users to engage with the Agent.
+
+    <Note>
+    All changes can be previewed live in the right-hand widget before publishing.
+    </Note>
+  </Tab>
+
+  <Tab title="Features & Behavior" icon="settings">
+    ## Features & Behavior (Coming Soon)
+
+    This section will introduce behavioral configurations for your Web Channel. Planned options include:
+
+    - **Session control:** Enable restart options or persistent conversations across visits.  
+    - **Language settings:** Define default language and enable multi-language support.  
+    - **Access controls:** Password protection, token-based access, or public access.  
+    - **Business hours:** Define when the web page should be available to users.  
+    - **Custom domains:** Map the web channel to your own subdomain for a branded experience.  
+
+    <Note>
+    These settings are under development and will be released in a future update.
+    </Note>
+  </Tab>
+</Tabs>
+
+---
+
+## Share Link
+
+Every Web Channel provides a unique link you can share with customers, partners, or internal teams.  
+You can find this link in the **Share** section at the top of the Console page.
+
+Example:
+```
+[https://consola.semantiks.com/external-chat?agent\_id=your-agent-id\&agent\_type=customer\_service](https://consola.semantiks.com/external-chat?agent_id=your-agent-id&agent_type=customer_service)
+```
+
+### Actions available
+- **Copy link:** Use the “Copy” button to copy the full URL.  
+- **Visit link:** Open the Agent’s web page directly in a new tab.  
+
+<Note>
+This makes it easy to distribute your Agent without embedding code or requiring external integrations.
+</Note>
