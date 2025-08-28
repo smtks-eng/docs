@@ -2,89 +2,206 @@
 title: 'Capabilities'
 language: en
 icon: "screwdriver-wrench"
-description: 'Start building awesome documentation in under 5 minutes'
----
-# Tools (Predefined)
-
-The **Tools (Predefined)** tab allows you to enable or disable built-in capabilities that your AI agent can use during conversations. Each tool represents a predefined function—such as answering FAQs, sending files, or escalating to a human agent—that can be toggled on or off depending on your business needs.  
-
-When a tool is enabled, additional configuration may be required before the agent can use it successfully. Some tools also depend on the **type of channel** where the end user is interacting (e.g., WhatsApp, Zendesk, Freshchat).  
-
+description: 'Learn how to enable, configure, and manage the built-in tools and capabilities your AI agent can use—such as sending files, answering FAQs, collecting user information, and escalating to human agents—across supported channels.'
 ---
 
-## How to Enable or Disable a Tool
+Manage your AI agent's capabilities through two types of tools: predefined tools that come built-in with the platform, and custom tools that you can create to extend your agent's functionality.
 
-1. Navigate to **Agents > Capabilities** in the left menu.  
-2. Under **Tools (Predefined)**, locate the tool you want to manage.  
-3. Use the **toggle switch** to turn the tool on or off.  
-4. If the tool requires configuration, click **Configuration**, complete the required setup, and save your changes.  
-5. Check that the tool is supported by the **channels** your agent is connected to.  
+<Tabs>
+  <Tab title="Tools (Predefined)">
+    The **Tools (Predefined)** tab allows you to enable or disable built-in capabilities that your AI agent can use during conversations. Each tool represents a predefined function—such as answering FAQs, sending files, or escalating to a human agent—that can be toggled on or off depending on your business needs.  
 
----
+    When a tool is enabled, additional configuration may be required before the agent can use it successfully. Some tools also depend on the **type of channel** where the end user is interacting (e.g., WhatsApp, Zendesk, Freshchat).  
 
-## Available Predefined Tools
+    ---
 
-### 1. **Send Files**  
-- **Description:** Allows the agent to send files directly to the user during a conversation.  
-- **Default:** Always enabled.  
-- **Configuration:** No setup required.  
+    ## How to Enable or Disable a Tool
 
----
+    1. Navigate to **Agents > Capabilities** in the left menu.  
+    2. Under **Tools (Predefined)**, locate the tool you want to manage.  
+    3. Use the **toggle switch** to turn the tool on or off.  
+    4. If the tool requires configuration, click **Configuration**, complete the required setup, and save your changes.  
+    5. Check that the tool is supported by the **channels** your agent is connected to.  
 
-### 2. **Answer FAQs**  
-- **Description:** Enables the agent to respond to frequently asked questions about your product or service.  
-- **Default:** Always enabled.  
-- **Configuration:** No setup required. You can manage and update FAQs in the **Knowledge** section of the agent.  
+    ---
 
----
+    ## Available Predefined Tools
 
-### 3. **Collect Information**  
-- **Description:** Enables the agent to collect, verify, and store user information (e.g., name, email, phone number) for lead generation or service requests.  
-- **Toggle:** Off by default.  
-- **Configuration:** Define the fields you want the agent to collect and where the data should be stored.  
+    ### 1. **Send Files**  
+    - **Description:** Allows the agent to send files directly to the user during a conversation.  
+    - **Default:** Always enabled.  
+    - **Configuration:** No setup required.  
 
-<Note>  
-This tool is **so important** that once enabled, it activates a dedicated **Collect Information tab** in the Capabilities section. From there, you can create, edit, and manage information collection configurations in detail.  
-</Note>  
+    ---
 
-<Accordion title="How to Configure Collect Information">  
-1. Go to **Agents > Capabilities > Collect Information**.  
-2. Click **New Configuration** to start.  
-3. Enter a **Name** for your configuration (e.g., `registro_interesados`).  
-4. Add any **Special Instructions** to guide the agent (e.g., always capture user details if they show interest in your product).  
-5. Define the **Fields to Collect** (e.g., name, surname, email, phone). Mark fields as **required** if necessary.  
-6. Choose the **Integration Channels** where this configuration will apply (e.g., WhatsApp, Semantiks Console, Freshchat).  
-7. (Optional) Add **Trigger Topics** to specify keywords or intents that activate the collection process.  
-8. Save by clicking **Update configuration**.  
+    ### 2. **Answer FAQs**  
+    - **Description:** Enables the agent to respond to frequently asked questions about your product or service.  
+    - **Default:** Always enabled.  
+    - **Configuration:** No setup required. You can manage and update FAQs in the **Knowledge** section of the agent.  
 
-Once active, your configuration will appear in the **Collect Information tab**, showing:  
-- Fields to collect  
-- Trigger topics  
-- Associated channels  
-- Status (Active or Inactive)  
-</Accordion>  
+    ---
 
----
+    ### 3. **Collect Information**  
+    - **Description:** Enables the agent to collect, verify, and store user information (e.g., name, email, phone number) for lead generation or service requests.  
+    - **Toggle:** Off by default.  
+    - **Configuration:** Define the fields you want the agent to collect and where the data should be stored.  
 
-### 4. **Human Escalation (Channel-Dependent)**  
-- **Description:** Allows the agent to transfer a user from an AI conversation to a live support agent.  
-- **Toggle:** Off by default.  
-- **Channel Dependency:**  
-  - This tool only appears when the agent is connected to certain customer service platforms such as **Zendesk** or **Freshchat**.  
+    <Note>  
+    This tool is **so important** that once enabled, it activates a dedicated **Collect Information tab** in the Capabilities section. From there, you can create, edit, and manage information collection configurations in detail.  
+    </Note>  
 
-<Accordion title="How to Configure Human Escalation">  
-1. Connect your Zendesk or Freshchat account.  
-2. Navigate to **Agents > Capabilities > Tools (Predefined)**.  
-3. Locate **Human Escalation** and toggle it on.  
-4. Define escalation rules (e.g., trigger phrases, fallback scenarios).  
-5. Save your configuration to activate.  
-</Accordion>  
+    <Accordion title="How to Configure Collect Information">  
+    1. Go to **Agents > Capabilities > Collect Information**.  
+    2. Click **New Configuration** to start.  
+    3. Enter a **Name** for your configuration (e.g., `registro_interesados`).  
+    4. Add any **Special Instructions** to guide the agent (e.g., always capture user details if they show interest in your product).  
+    5. Define the **Fields to Collect** (e.g., name, surname, email, phone). Mark fields as **required** if necessary.  
+    6. Choose the **Integration Channels** where this configuration will apply (e.g., WhatsApp, Semantiks Console, Freshchat).  
+    7. (Optional) Add **Trigger Topics** to specify keywords or intents that activate the collection process.  
+    8. Save by clicking **Update configuration**.  
 
----
+    Once active, your configuration will appear in the **Collect Information tab**, showing:  
+    - Fields to collect  
+    - Trigger topics  
+    - Associated channels  
+    - Status (Active or Inactive)  
+    </Accordion>  
 
-## Key Notes
-- Tools marked **Default** (Send Files, Answer FAQs) are always available and cannot be disabled.  
-- Tools that require **configuration** must be set up before they can be used by the agent.  
-- Some tools (e.g., **Human Escalation**) will only appear if the agent is connected to a compatible **channel**.  
-- **Collect Information** is unique: enabling it adds its own **tab** for deeper configuration.  
-- You can revisit this tab at any time to adjust your enabled capabilities.  
+    ---
+
+    ### 4. **Human Escalation (Channel-Dependent)**  
+    - **Description:** Allows the agent to transfer a user from an AI conversation to a live support agent.  
+    - **Toggle:** Off by default.  
+    - **Channel Dependency:**  
+      - This tool only appears when the agent is connected to certain customer service platforms such as **Zendesk** or **Freshchat**.  
+
+    <Accordion title="How to Configure Human Escalation">  
+    1. Connect your Zendesk or Freshchat account.  
+    2. Navigate to **Agents > Capabilities > Tools (Predefined)**.  
+    3. Locate **Human Escalation** and toggle it on.  
+    4. Define escalation rules (e.g., trigger phrases, fallback scenarios).  
+    5. Save your configuration to activate.  
+    </Accordion>  
+
+    ---
+
+    ## Key Notes
+    - Tools marked **Default** (Send Files, Answer FAQs) are always available and cannot be disabled.  
+    - Tools that require **configuration** must be set up before they can be used by the agent.  
+    - Some tools (e.g., **Human Escalation**) will only appear if the agent is connected to a compatible **channel**.  
+    - **Collect Information** is unique: enabling it adds its own **tab** for deeper configuration.  
+    - You can revisit this tab at any time to adjust your enabled capabilities.
+  </Tab>
+
+  <Tab title="Tools (Custom)">
+    Custom tools allow you to extend your AI agent's capabilities by integrating external services, APIs, and business logic. This enables your agent to perform specialized tasks unique to your business needs.
+
+    ## Overview
+
+    Custom tools can help your agent:
+    - Connect to your internal systems
+    - Process specialized data formats
+    - Perform complex calculations
+    - Integrate with third-party services
+    - Execute custom business logic
+
+    ## Creating a Custom Tool
+
+    ### Step 1: Basic Setup
+    1. Navigate to **Agents > Capabilities > Tools (Custom)**
+    2. Click **New Tool**
+    3. Provide basic information:
+       - Tool name (e.g., "Invoice Generator")
+       - Description
+       - Category (API, Database, Integration, etc.)
+
+    ### Step 2: Define Parameters
+    Configure what information your tool needs:
+    ```json
+    {
+      "parameters": {
+        "customer_id": {
+          "type": "string",
+          "required": true,
+          "description": "Customer's unique identifier"
+        },
+        "amount": {
+          "type": "number",
+          "required": true,
+          "description": "Invoice amount"
+        }
+      }
+    }
+    ```
+
+    ### Step 3: Configure Authentication
+    Choose the authentication method:
+    - API Key
+    - OAuth 2.0
+    - Basic Auth
+    - Custom Headers
+
+    ### Step 4: Define Response Handling
+    Specify how to process the tool's output:
+    ```json
+    {
+      "response": {
+        "format": "json",
+        "success_criteria": {
+          "status": 200
+        },
+        "error_handling": {
+          "retry_count": 3,
+          "fallback_message": "Unable to generate invoice"
+        }
+      }
+    }
+    ```
+
+    ## Common Use Cases
+
+    1. **Payment Processing**
+       - Process payments
+       - Check payment status
+       - Generate invoices
+
+    2. **Data Retrieval**
+       - Fetch customer records
+       - Look up product information
+       - Check inventory levels
+
+    3. **External Services**
+       - Weather updates
+       - Currency conversion
+       - Language translation
+
+    ## Best Practices
+
+    1. **Error Handling**
+       - Always define fallback behaviors
+       - Include retry logic for transient failures
+       - Provide clear error messages
+
+    2. **Security**
+       - Use environment variables for secrets
+       - Implement rate limiting
+       - Validate input parameters
+
+    3. **Performance**
+       - Cache frequently accessed data
+       - Set appropriate timeouts
+       - Monitor response times
+
+    ## Testing Your Tool
+
+    Before deployment:
+    1. Use the **Test Console** to verify functionality
+    2. Try various input combinations
+    3. Validate error scenarios
+    4. Check response formatting
+
+    <Note>
+    Documentation for custom tools is in beta. More detailed guides and examples coming soon.
+    </Note>
+  </Tab>
+</Tabs>
