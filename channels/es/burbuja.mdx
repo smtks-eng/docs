@@ -1,5 +1,98 @@
 ---
 title: "Burbuja"
+language: es
+description: "Personaliza, configura e integra la burbuja de chat para conectar tu Agente con los usuarios del sitio web o aplicación"
+icon: "message-dot"
 ---
 
-Esta página describe la configuración del canal Burbuja.
+# Configuración de la Burbuja de Chat
+
+La **Burbuja de Chat** te permite conectar tu Agente directamente con los usuarios en tu sitio web o aplicación. Puedes personalizar su apariencia, definir su comportamiento e integrarlo con un script simple.
+
+Usa las pestañas a continuación para explorar las opciones de configuración:
+
+<Tabs>
+  <Tab title="Apariencia" icon="palette">
+    ## Apariencia
+
+    Personaliza el aspecto de tu burbuja de chat para que coincida con la identidad de tu marca.
+    Navega a **Canales > Burbuja > Apariencia** para ajustar estas configuraciones.
+
+    ### Opciones disponibles
+    - **Elegir un color:** Selecciona un color sólido de la paleta.
+    - **Usar colores degradados:** Habilita el modo degradado y selecciona un color secundario.
+    - **Dirección del degradado:** Elige entre flujo **Horizontal** o **Vertical**.
+    - **Mensajes sugeridos:** Predefine hasta 5 sugerencias de inicio rápido para ayudar a los usuarios a interactuar más rápido.
+
+    <Note>
+    Vista previa en tiempo real con el widget de burbuja de chat mostrado en el lado derecho de la Consola.
+    </Note>
+  </Tab>
+
+  <Tab title="Funciones y Comportamiento" icon="settings">
+    ## Funciones y Comportamiento (Próximamente)
+
+    Esta sección te permitirá controlar cómo se comporta la burbuja de chat una vez implementada. Las opciones esperadas incluyen:
+
+    - **Comportamiento de apertura automática:** Decide si la burbuja debe abrirse automáticamente al cargar la página.
+    - **Detección de inactividad:** Activa mensajes proactivos cuando los usuarios están inactivos.
+    - **Configuración de idioma:** Define el idioma predeterminado y el manejo de múltiples idiomas.
+    - **Enrutamiento de conversaciones:** Configura reglas para enrutar a agentes o departamentos específicos.
+    - **Horario comercial:** Muestra u oculta la burbuja según tu horario definido.
+
+    <Note>
+    Esta funcionalidad está en desarrollo y estará disponible en una versión futura.
+    </Note>
+  </Tab>
+
+  <Tab title="Integración" icon="code">
+    ## Integrar la Burbuja de Chat
+
+    Para integrar la burbuja de chat en tu sitio web o aplicación, copia los fragmentos de script proporcionados.
+    Puedes encontrarlos en **Canales > Burbuja > Integración**.
+
+    ### 1. Agrega en el `<head>` de tu sitio:
+    ```html
+    <script src="https://consola.semantiks.com/bubble-chat.js"></script>
+    ```
+
+    ### 2. Agrega en el `<body>` de tu sitio:
+    ```html
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        window.BubbleChat.initWidget({
+          agent_id: 'tu-agent-id',
+          agent_type: 'customer_service',
+          position: 'bottom_right',
+          bubble_theme: 'simple_light',
+          api_key: 'Tu API KEY aquí',
+        });
+      });
+    </script>
+    ```
+
+    ### 3. (Opcional) Pasar información del usuario
+    ```javascript
+    window.BubbleChat.initWidget({
+      agent_id: 'tu-agent-id',
+      agent_type: 'customer_service',
+      position: 'bottom_right',
+      bubble_theme: 'simple_light',
+      api_key: 'Tu API KEY aquí',
+      user: {
+        id: 'id_usuario',
+        name: 'Nombre Usuario',
+        metadata: { clave: 'valor' },
+      },
+    });
+    ```
+
+    ### Temas de Burbuja Disponibles
+    - `simple_light`
+    - `simple_dark`
+
+    <Note>
+    Asegúrate de reemplazar **Tu API KEY aquí** con la clave API de tu Agente.
+    </Note>
+  </Tab>
+</Tabs>
