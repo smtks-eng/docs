@@ -22,8 +22,7 @@
             "pages": [
               "overview/en/welcome",
               "overview/en/customers",
-              "overview/en/console-tour",
-              "platform/en/home"
+              "overview/en/console-tour"
             ]
           },
           {
@@ -34,51 +33,90 @@
             ]
           },
           {
-            "group": "Agent",
+            "group": "AI Agent",
             "pages": [
-              "agent/en/identity",
-              "agent/en/knowledge",
-              "agent/en/capabilities",
-              "agent/en/channels",
-              "agent/en/playground"
+              "platform/en/home",
+              {
+                "group": "AI Agent",
+                "pages": [
+                  {
+                    "group": "Design",
+                    "icon": "pencil",
+                    "pages": [
+                      "agent/en/identity",
+                      "agent/en/knowledge",
+                      "agent/en/capabilities",
+                      "agent/en/memories",
+                      "agent/en/workflows"
+                    ]
+                  },
+                  {
+                    "group": "Playground",
+                    "icon": "circle-play",
+                    "pages": [
+                      "agent/en/playground"
+                    ]
+                  },
+                  "agent/en/channels",
+                  {
+                    "group": "Supervise",
+                    "icon": "binoculars",
+                    "pages": [
+                      "dashboards/en/conversations",
+                      "dashboards/en/task-log"
+                    ]
+                  },
+                  {
+                    "group": "Evaluate",
+                    "icon": "chart-line",
+                    "pages": [
+                      "dashboards/en/evaluations",
+                      "dashboards/en/hotspots",
+                      "dashboards/en/alerts-and-reports"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Proactive AI",
+                "pages": [
+                  {
+                    "group": "Engagement",
+                    "icon": "paper-plane",
+                    "pages": [
+                      "campaigns/en/campaigns",
+                      "contacts/en/followups"
+                    ]
+                  }
+                ]
+              }
             ]
           },
           {
-            "group": "Channels",
+            "group": "Contact Center",
             "pages": [
-              "channels/en/bubble",
-              "channels/en/web",
-              "channels/en/external-channels"
+              {
+                "group": "Live Chat",
+                "icon": "headset",
+                "pages": [
+                  "chat-live/en/conversations-panel",
+                  "chat-live/en/performance",
+                  "chat-live/en/escalation-insights"
+                ]
+              }
             ]
           },
           {
-            "group": "Dashboards",
+            "group": "Audience",
             "pages": [
-              "dashboards/en/conversations",
-              "dashboards/en/tool-usage",
-              "dashboards/en/knowledge"
-            ]
-          },
-          {
-            "group": "Campaigns",
-            "pages": [
-              "campaigns/en/campaigns",
-              "campaigns/en/templates"
-            ]
-          },
-          {
-            "group": "Contacts",
-            "pages": [
-              "contacts/en/external-contacts",
-              "contacts/en/channel-contacts"
-            ]
-          },
-          {
-            "group": "Chat Live",
-            "pages": [
-              "chat-live/en/notifications",
-              "chat-live/en/conversations-panel", 
-              "chat-live/en/configuration"
+              {
+                "group": "Audience",
+                "icon": "users",
+                "pages": [
+                  "contacts/en/external-contacts",
+                  "contacts/en/directory"
+                ]
+              }
             ]
           },
           {
@@ -100,8 +138,7 @@
             "pages": [
               "overview/es/bienvenida",
               "overview/es/clientes",
-              "overview/es/tour-de-consola",
-              "platform/es/home"
+              "overview/es/tour-de-consola"
             ]
           },
           {
@@ -112,51 +149,90 @@
             ]
           },
           {
-            "group": "Agente",
+            "group": "AI Agent",
             "pages": [
-              "agent/es/identidad",
-              "agent/es/conocimiento",
-              "agent/es/capacidades",
-              "agent/es/canales",
-              "agent/es/playground"
+              "platform/es/home",
+              {
+                "group": "AI Agent",
+                "pages": [
+                  {
+                    "group": "Design",
+                    "icon": "pencil",
+                    "pages": [
+                      "agent/es/identidad",
+                      "agent/es/conocimiento",
+                      "agent/es/capacidades",
+                      "agent/es/memorias",
+                      "agent/es/flujos-de-trabajo"
+                    ]
+                  },
+                  {
+                    "group": "Playground",
+                    "icon": "circle-play",
+                    "pages": [
+                      "agent/es/playground"
+                    ]
+                  },
+                  "agent/es/canales",
+                  {
+                    "group": "Supervise",
+                    "icon": "binoculars",
+                    "pages": [
+                      "dashboards/es/conversaciones",
+                      "dashboards/es/registro-de-tareas"
+                    ]
+                  },
+                  {
+                    "group": "Evaluate",
+                    "icon": "chart-line",
+                    "pages": [
+                      "dashboards/es/evaluaciones",
+                      "dashboards/es/puntos-clave",
+                      "dashboards/es/alertas-y-reportes"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Proactive AI",
+                "pages": [
+                  {
+                    "group": "Engagement",
+                    "icon": "paper-plane",
+                    "pages": [
+                      "campaigns/es/camapañas",
+                      "contacts/es/seguimientos"
+                    ]
+                  }
+                ]
+              }
             ]
           },
           {
-            "group": "Canales",
+            "group": "Contact Center",
             "pages": [
-              "channels/es/burbuja",
-              "channels/es/web",
-              "channels/es/canales-externos"
+              {
+                "group": "Live Chat",
+                "icon": "headset",
+                "pages": [
+                  "chat-live/es/panel-conversaciones",
+                  "chat-live/es/desempeno",
+                  "chat-live/es/perspectivas-escalacion"
+                ]
+              }
             ]
           },
           {
-            "group": "Tableros",
+            "group": "Audience",
             "pages": [
-              "dashboards/es/conversaciones",
-              "dashboards/es/uso-de-capacidades",
-              "dashboards/es/conocimiento"
-            ]
-          },
-          {
-            "group": "Campañas",
-            "pages": [
-              "campaigns/es/camapañas",
-              "campaigns/es/plantillas"
-            ]
-          },
-          {
-            "group": "Contactos",
-            "pages": [
-              "contacts/es/contactos-externos",
-              "contacts/es/contactos-canales"
-            ]
-          },
-          {
-            "group": "Chat en Vivo",
-            "pages": [
-              "chat-live/es/notificaciones",
-              "chat-live/es/panel-conversaciones",
-              "chat-live/es/configuracion"
+              {
+                "group": "Audience",
+                "icon": "users",
+                "pages": [
+                  "contacts/es/contactos-externos",
+                  "contacts/es/directorio"
+                ]
+              }
             ]
           },
           {

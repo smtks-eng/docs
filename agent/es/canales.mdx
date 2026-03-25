@@ -1,75 +1,117 @@
 ---
-title: "Canales"
+title: "Conectar"
 language: es
-icon: messages
-description: "¿Tu agente está completamente configurado y listo para salir en vivo? Ahora es el momento de conectarlo a un canal externo. En esta sección de la documentación, encontrarás tanto integraciones nativas de Semantiks como integraciones externas, como Meta WhatsApp, para que puedas desplegar tu agente donde están tus usuarios."
+icon: "plug"
+description: "Despliega tu agente por canales, integraciones externas y API para que los usuarios hablen con él donde ya están."
 ---
 
 <Info>
-  **Prerrequisito**: Es muy importante que hayas completado el proceso de incorporación y agregado suficiente conocimiento base antes de pasar a esta parte del tutorial.
-  De lo contrario, el usuario final puede tener una mala experiencia al interactuar con el agente. En Semantiks, priorizamos la experiencia del usuario final por encima de todo.
+  Antes de conectar tu agente, asegúrate de tener listas **Identidad**, **Conocimiento** y **Skills**.  
+  Un agente bien configurado da mejores respuestas desde la primera conversación.
 </Info>
 
-## Conectando tu agente al mundo
+## Conecta tu agente con usuarios reales
 
-**Tener un agente súper inteligente, capaz y rápido suena increíble, pero si no está conectado al mundo, realmente no importa.**\
-En este paso, aprenderás cómo conectar tu agente a un entorno en vivo mediante:
+En la consola, **Conectar** se organiza en 3 secciones:
 
-- Incrustándolo en una página web usando un simple código para copiar y pegar
-- Integrándolo con Meta WhatsApp como canal de mensajería
-- Sirviendo tu Agente usando la URL de "Chat Externo"
+- **Channels**: publica tu agente en canales propios y externos (Web Bubble, External Chat, WhatsApp y otros)
+- **Integrations**: conecta herramientas/servicios externos de tu operación
+- **API**: envía y recibe mensajes desde tus propios sistemas
 
-Esto asegura que tu agente no solo sea poderoso, sino que también esté disponible donde tus usuarios más lo necesitan.
+Este paso convierte tu agente de "configurado" a "en producción".
 
-<Note>
-  **Encontrarás un tutorial paso a paso para cada canal en la sección de Canales de la documentación.**
-  Ya sea que estés configurando un widget web o integrando con WhatsApp, Instagram, SMS, etc., todo lo que necesitas está ahí.
-</Note>
+## 1) Channels
 
-### URL Externa
+Usa Channels cuando quieres que los usuarios hablen con tu agente desde superficies de chat.
 
-**La URL externa es la forma más rápida de compartir tu agente.**\
-Este enlace compartible te permite proporcionar una experiencia de chat personalizada donde el agente está listo para responder preguntas y resolver problemas de los usuarios.\
-La mayoría de las herramientas y capacidades del agente están disponibles a través de esta interfaz, lo que la convierte en una opción poderosa para un despliegue rápido.
+### External Chat (salida más rápida)
 
-Encuentra la sección de canales en el menú
+**External Chat** te da una URL compartible para lanzar en minutos.
 
-![agent_creation-step-1.png](/images/agent/agent_creation/agent_creation-step-1.png)
+<Steps>
+  <Step title="Ve a Conectar > Channels">
+    Abre tu agente y entra a la página de Connect.
+  </Step>
+  <Step title="Abre External Chat">
+    Selecciona la tarjeta de External Chat.
+  </Step>
+  <Step title="Copia la URL pública">
+    Haz clic en compartir y copia el enlace generado.
+  </Step>
+  <Step title="Prueba como usuario final">
+    Abre el link en incógnito y valida casos de uso reales.
+  </Step>
+</Steps>
 
-**_Haz clic en Compartir Chat y copia la URL generada._**\
-Ahora puedes enviar este enlace a cualquier persona, y podrán interactuar con tu agente instantáneamente.
+### Web Bubble (embebido en sitio web)
 
-![agent_creation-step-2.png](/images/agent/agent_creation/agent_creation-step-2.png)
+Usa **Web Bubble** cuando quieres tener el agente dentro de tu propia web.
 
-![agent_creation-step-3.png](/images/agent/agent_creation/agent_creation-step-3.png)
+<Steps>
+  <Step title="Abre el canal Bubble">
+    En Connect > Channels, abre la tarjeta Bubble.
+  </Step>
+  <Step title="Genera credenciales/snippets">
+    La consola te muestra el snippet y claves para la integración.
+  </Step>
+  <Step title="Agrega el snippet al sitio">
+    Pega el script donde tu equipo implementa el código web.
+  </Step>
+  <Step title="Personaliza la experiencia">
+    Ajusta branding, launcher y comportamiento de bienvenida.
+  </Step>
+</Steps>
 
-<Note>
-  Si ya tienes una imagen para tu agente, la imagen se mostrará en el Chat Externo
-</Note>
+### Proveedores externos (WhatsApp y otros)
 
-### Burbuja Web
+El mismo flujo de Connect soporta proveedores externos a través de canales basados en integración.
 
-**El chat externo es genial, pero ¿qué pasa si quieres integrar tu agente directamente en tu propio sitio web con una burbuja de mensaje?**\
-Ahí es donde entra el **Widget de Burbuja Web**. Este widget te permite incrustar el agente como una burbuja de chat en cualquier lugar de tu sitio, dando a los usuarios acceso sin problemas al soporte o interacción sin salir de tu página.
+<Tip>
+  Para configuración detallada por canal, usa las guías específicas en `channels/es/*`.
+</Tip>
 
-**_Para comenzar, selecciona el canal de Burbuja Web._**\
-Primero necesitarás generar una **clave API**, y luego seguir una configuración simple de dos pasos:
+## 2) Integrations
 
-1. **Copia el primer fragmento de código** y pégalo en la sección `<head>` de tu sitio web.
-2. **Copia el segundo fragmento de código** y pégalo en la sección `<body>` donde quieras que aparezca la burbuja de chat.
+Usa Integrations para conectar sistemas externos de tu operación (por ejemplo, proveedores de mensajería, CRM/helpdesk o servicios personalizados).
 
-Una vez hecho esto, ¡tu agente estará en vivo y listo para interactuar con los usuarios directamente en tu sitio\!
+Desde el punto de vista del usuario:
 
-![agent_creation-step-4.png](/images/agent/agent_creation/agent_creation-step-4.png)
+- Activas la integración una vez por organización.
+- Luego configuras canales por agente.
+- Si aplica, activas addons opcionales por canal.
 
-#### **¡Puedes personalizar tu burbuja de chat para que coincida con tu marca\!**
+Esto sigue el modelo del backend (integración de organización -> canal del agente -> addon opcional), pero en una experiencia guiada desde consola.
 
-Dirígete a la sección _Personalizar Tu Burbuja_ y explora las diversas opciones de personalización que ofrecemos.\
-Desde colores e iconos hasta mensajes de bienvenida. Puedes adaptar la experiencia para que se ajuste a tu estilo.
+## 3) API
 
-![agent_creation-step-5.png](/images/agent/agent_creation/agent_creation-step-5.png)
+Usa API cuando tu backend o aplicación necesita enviar mensajes al agente de forma programática.
 
-### **Sirviendo Tu Agente en WhatsApp**
+En Connect > API puedes crear canales API y usar la referencia que aparece en la consola.
 
-Ahora es el momento de conectar tu agente a un canal de comunicación real: **WhatsApp**.\
-Esto se maneja a través de la sección _Chats Externos_ dentro de la pestaña _Canales_. Desde allí, puedes configurar y gestionar la integración de tu agente con WhatsApp para comenzar a interactuar con los usuarios directamente.
+Flujo típico:
+
+<Steps>
+  <Step title="Crea un API Channel">
+    En Connect, haz clic en **Create API Channel**.
+  </Step>
+  <Step title="Copia identificadores requeridos">
+    Obtén `agent_id`, identificador del canal y tu API key.
+  </Step>
+  <Step title="Envía una solicitud">
+    Llama al endpoint de chat desde tu backend con contexto de usuario y payload.
+  </Step>
+  <Step title="Procesa la respuesta">
+    Guarda identificadores de conversación y renderiza la respuesta del agente.
+  </Step>
+</Steps>
+
+<Warning>
+  Mantén las API keys siempre del lado servidor. No expongas secretos en frontend público.
+</Warning>
+
+## Orden recomendado de despliegue
+
+1. Lanza con **External Chat** para validar rápido.
+2. Integra **Web Bubble** en tu propiedad principal.
+3. Agrega **integraciones externas** para canales operativos.
+4. Migra a **API** cuando necesites experiencias producto más personalizadas.

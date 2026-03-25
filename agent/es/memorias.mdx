@@ -1,0 +1,62 @@
+---
+title: "Memorias"
+description: "Enseña a tu agente de IA a recordar información específica sobre cada usuario entre conversaciones—de forma automática."
+---
+
+Las **Memorias** permiten que tu agente de IA aprenda y retenga información estructurada sobre tus usuarios a lo largo del tiempo. En lugar de tratar cada conversación como una pizarra en blanco, tu agente puede recordar cosas como el nombre del usuario, su empresa, sus preferencias o cualquier campo de datos que definas.
+
+<Info>
+Las memorias son recopiladas **automáticamente por el agente durante las conversaciones**. Tú defines qué recopilar y cómo—el agente se encarga de la extracción y el almacenamiento por su cuenta.
+</Info>
+
+## Cómo funcionan las Memorias
+
+Creas **Configuraciones de Memoria**, cada una de las cuales define:
+- Un **nombre** y un **objetivo** (qué intenta aprender esta configuración)
+- Uno o más **campos** (los datos específicos a capturar)
+- Los **canales** donde esta configuración está activa
+
+Cuando un usuario interactúa con tu agente en un canal asignado, el agente identifica y guarda automáticamente los campos definidos cuando aparecen en la conversación.
+
+<Note>
+Puedes crear hasta **10 Configuraciones de Memoria** por agente.
+</Note>
+
+## Creando una Configuración de Memoria
+
+<Steps>
+  <Step title="Ve a Memorias">
+    Navega a **AI Agent > Diseño > Memorias** en el menú lateral.
+  </Step>
+  <Step title="Crea una nueva configuración">
+    Haz clic en **Nueva Configuración** y dale un nombre descriptivo (ej. `Perfil de Usuario`) y un objetivo que guíe al agente (ej. `Capturar el nombre, empresa y rol del usuario para personalizar futuras interacciones`).
+  </Step>
+  <Step title="Agrega campos">
+    Para cada dato que deseas capturar, agrega un campo con:
+    - **Nombre del campo** — qué estás recopilando (ej. `nombre_completo`, `empresa`, `email`)
+    - **Tipo de dato** — texto, número, fecha o booleano
+    - **Instrucciones de prompt** — cómo el agente debe extraer este campo
+  </Step>
+  <Step title="Asigna canales">
+    Selecciona los canales donde esta configuración de memoria debe estar activa.
+  </Step>
+  <Step title="Guarda">
+    Haz clic en **Guardar** para activar la configuración.
+  </Step>
+</Steps>
+
+## Tipos de campo
+
+| Tipo | Descripción |
+|---|---|
+| **Texto** | Cadena libre (nombre, empresa, preferencias) |
+| **Número** | Valor numérico (edad, ID de cuenta, número de orden) |
+| **Fecha** | Valor de fecha (última compra, fecha de renovación) |
+| **Booleano** | Verdadero/falso (es usuario premium, se registró para actualizaciones) |
+
+## Notas clave
+
+- Las memorias se almacenan **por usuario, por agente**.
+- Si un usuario proporciona información diferente en una conversación posterior, el **valor más reciente prevalece**.
+- Las memorias solo se recopilan en los **canales asignados** a cada configuración.
+- Puedes **editar o eliminar** configuraciones en cualquier momento sin afectar los datos ya recopilados.

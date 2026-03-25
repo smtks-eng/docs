@@ -1,0 +1,54 @@
+---
+title: "Alertas y Reportes"
+description: "Configura alertas basadas en umbrales para mantenerte notificado sobre la actividad de tu agente, y genera reportes para compartir con stakeholders."
+---
+
+**Alertas y Reportes** es donde configuras notificaciones proactivas y generas reportes de rendimiento para tu agente. Usa esta sección para estar al tanto de picos de actividad, caídas en el rendimiento y otras condiciones que requieren tu atención.
+
+<Note>
+Alertas y Reportes es una función en **Beta**.
+</Note>
+
+## Alertas
+
+La sección de Alertas tiene dos pestañas:
+
+### Configuración
+Aquí creas y gestionas las reglas de alerta. Una configuración de alerta define:
+- **Título** — nombre descriptivo para la alerta (ej. `Alerta de tasa de escalación alta`)
+- **Tipo de alerta** — la métrica o evento que se monitorea
+- **Umbral** — el valor numérico que activa la alerta (debe ser 0 o mayor)
+- **Unidad** — la unidad de medida para el umbral (ej. conversaciones, porcentaje, minutos)
+
+Cuando se cumple la condición definida, la alerta se dispara y se registra en la pestaña **Historial**.
+
+#### Creando una alerta
+
+<Steps>
+  <Step title="Ve a Alertas y Reportes">
+    Navega a **AI Agent > Evaluar > Alertas y Reportes** en el menú lateral.
+  </Step>
+  <Step title="Abre la pestaña de Alertas">
+    Haz clic en **Nueva Alerta** en la sub-pestaña de Configuración.
+  </Step>
+  <Step title="Define la alerta">
+    Ingresa el título, selecciona el tipo de alerta, establece tu valor umbral y elige la unidad.
+  </Step>
+  <Step title="Guarda">
+    Haz clic en **Guardar** para activar la alerta. Comenzará a monitorear inmediatamente.
+  </Step>
+</Steps>
+
+### Historial
+La pestaña de Historial muestra un registro de todas las alertas que se han disparado, incluyendo cuál alerta se activó, cuándo ocurrió y el valor que cruzó el umbral.
+
+## Reportes
+
+La sección de Reportes te permite generar resúmenes del rendimiento de tu agente en un período definido. Los reportes son útiles para:
+- Compartir instantáneas de rendimiento con stakeholders o dirección
+- Revisiones mensuales o trimestrales
+- Seguimiento de tendencias a lo largo del tiempo
+
+<Tip>
+Configura una **alerta de tasa de escalación alta** como tu primera alerta. Las escalaciones son frecuentemente la señal más clara de que el agente tiene dificultades con un tema específico.
+</Tip>

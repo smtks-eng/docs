@@ -1,0 +1,47 @@
+---
+title: "Task Log"
+description: "See every action your AI agent took—tool by tool, call by call—in real time."
+---
+
+The **Task Log** gives you a detailed record of every tool invocation made by your AI agent. Each time your agent uses a skill—whether looking up data, sending a file, collecting information, or escalating a conversation—it appears here as an individual log entry.
+
+This is your go-to view for understanding exactly what your agent is doing under the hood.
+
+## What you'll see
+
+The Task Log page has three main sections:
+
+### Status distribution chart
+A pie chart showing the breakdown of tool invocations by execution status:
+- **Success** — the tool ran and returned a valid result
+- **Error** — the tool failed to execute or returned an error
+- **Timeout** — the tool exceeded the configured time limit
+
+### Daily activity chart
+A bar chart showing the volume of tool invocations per day across the selected date range. Use this to spot spikes in tool usage or identify days with unusually high error rates.
+
+### Invocations table
+A detailed table with one row per tool invocation. Each row shows:
+- **Tool name** — which skill or tool was called
+- **Status** — success, error, or timeout
+- **Timestamp** — when the invocation occurred
+- **Request / Response** — expand any row to inspect the exact input and output of the call
+
+## Filters
+
+Use the filters at the top of the page to narrow down the log:
+
+- **Date range** — filter by a specific period (today, last 7 days, month-to-date, custom)
+- **Tools** — filter by specific tools or skills (only tools with activity in the selected period appear)
+- **Status** — filter by execution result (success, error, timeout)
+
+<Tip>
+Filter by **Error** status to quickly identify which tools are failing and why. Expand the row to see the exact error message returned.
+</Tip>
+
+## Common use cases
+
+- **Debugging unexpected agent behavior** — find exactly which tool call went wrong and what it returned
+- **Auditing tool usage** — verify that your custom tools are being called with the right parameters
+- **Performance monitoring** — spot tools that frequently time out and may need a higher timeout setting
+- **Validating new tool configurations** — after setting up a new custom tool, confirm it runs successfully in the task log

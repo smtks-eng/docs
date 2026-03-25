@@ -1,0 +1,58 @@
+---
+title: "Integrations"
+description: "Connect your agent to third-party platforms and tools to extend its reach and capabilities."
+icon: "puzzle-piece"
+---
+
+**Integrations** connect your AI agent to external platforms and services. This is how you link your agent to messaging apps, customer support tools, CRMs, and other systems your team already uses.
+
+Integrations operate at two levels:
+- **Organization integrations** — connected once and shared across all agents in your organization
+- **Channel integrations** — specific configurations that apply per agent and per channel
+
+## Accessing Integrations
+
+Navigate to **AI Agent > Connect > Integrations** in the left sidebar. You'll see all available integrations organized by type.
+
+## Available integration types
+
+### Messaging channels
+Connect your agent to the platforms where your users are:
+- **WhatsApp (Meta)** — Deploy your agent on WhatsApp Business via the Meta API
+- **Freshchat** — Integrate with Freshchat for live chat support workflows
+- **Zendesk** — Connect to Zendesk for ticketing and live chat support
+
+### Web channels
+- **Web Bubble** — Embed a chat widget on your website
+- **External Chat URL** — Share a standalone chat link without embedding
+
+<Tip>
+For step-by-step setup instructions for each channel, see the **Integration Guides** section at the bottom of the left sidebar.
+</Tip>
+
+## Setting up an integration
+
+<Steps>
+  <Step title="Select an integration">
+    Click on the integration you want to set up. You'll see the required credentials and configuration options.
+  </Step>
+  <Step title="Enter your credentials">
+    Provide the API keys, tokens, or authentication details required by the platform. These are encrypted and stored securely.
+  </Step>
+  <Step title="Configure channels">
+    Once the integration is connected, configure the specific channels (e.g. a WhatsApp phone number, a Freshchat inbox) you want your agent to use.
+  </Step>
+  <Step title="Assign to your agent">
+    In the **Channels** section of the Connect tab, assign the configured channel to your agent.
+  </Step>
+  <Step title="Test the connection">
+    Use the **Playground** or send a test message through the channel to verify the integration is working correctly.
+  </Step>
+</Steps>
+
+## Key notes
+
+- Integrations are **organization-level** — multiple agents in your organization can use the same connected integration.
+- **Credentials are encrypted** — API keys and tokens are stored securely and never exposed in plain text.
+- Some skills (like **Human Escalation**) only appear when a compatible integration (Freshchat or Zendesk) is connected.
+- Disconnecting an integration will affect **all agents** that use it — proceed with care.

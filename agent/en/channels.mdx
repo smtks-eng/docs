@@ -1,75 +1,117 @@
 ---
-title: "Channels"
+title: "Connect"
 language: en
-icon: "messages"
-description: "Is your agent fully set up and ready to go live? Now it's time to connect it to an external channel. In this section of the documentation, you'll find both native Semantiks integrations and external integrations—such as Meta WhatsApp—so you can deploy your agent where your users are."
+icon: "plug"
+description: "Deploy your agent through channels, external integrations, and API so users can talk to it wherever they are."
 ---
 
 <Info>
-  **Prerequisite**: It's very important that you've completed the onboarding process and added enough base knowledge before moving on to this part of the tutorial.
-  If not, the final user may have a poor experience when interacting with the agent. At Semantiks, we prioritize the end-user experience above all else.
+  Before connecting your agent, make sure your **Identity**, **Knowledge**, and **Skills** are ready.  
+  A well-configured agent gives users better answers from the first conversation.
 </Info>
 
-## Connecting your agent to the world
+## Connect your agent to real users
 
-**Having a super smart, capable, and fast agent sounds amazing—but if it's not connected to the world, it doesn't really matter.**\
-In this step, you'll learn how to connect your agent to a live environment by:
+In the Console, **Connect** is organized in 3 sections:
 
-- Embedding it into a web page using a simple copy-paste code snippet
-- Integrating it with Meta WhatsApp as a messaging channel
-- Serve your Agent using the "External Chat" URL
+- **Channels**: publish your agent in owned and external channels (Web Bubble, External Chat, WhatsApp, and others)
+- **Integrations**: connect external tools/services used by your operation
+- **API**: send and receive messages from your own systems
 
-This ensures your agent is not only powerful, but also available where your users need it most.
+This is the step that turns your agent from "configured" into "live".
 
-<Note>
-  **You'll find a step-by-step tutorial for each channel in the Channels section of the documentation.**
-  Whether you're setting up a web widget or integrating with WhatsApp, Instagra,SMS, etc everything you need is right there.
-</Note>
+## 1) Channels
 
-### External URL
+Use Channels when you want users to talk to your agent directly from chat surfaces.
 
-**The external URL is the fastest way to share your agent.**\
-This shareable link lets you provide a personalized chat experience where the agent is ready to answer questions and solve user problems.\
-Most of the agent's tools and capabilities are available through this interface, making it a powerful option for quick deployment.
+### External Chat (fastest launch)
 
-Find the channels section in the menu
+**External Chat** gives you a shareable URL you can send in seconds.
 
-![agent_creation-step-1.png](/images/agent/agent_creation/agent_creation-step-1.png)
+<Steps>
+  <Step title="Go to Connect > Channels">
+    Open your agent and navigate to the Connect page.
+  </Step>
+  <Step title="Open External Chat">
+    Select the External Chat channel card.
+  </Step>
+  <Step title="Copy the public URL">
+    Click the share option and copy the generated link.
+  </Step>
+  <Step title="Test as an end user">
+    Open the link in an incognito window and run a few real use-case questions.
+  </Step>
+</Steps>
 
-**_Click on Share Chat and copy the generated URL._**\
-You can now send this link to anyone, and they'll be able to interact with your agent instantly.
+### Web Bubble (embed in your website)
 
-![agent_creation-step-2.png](/images/agent/agent_creation/agent_creation-step-2.png)
+Use **Web Bubble** when you want the agent inside your own site.
 
-![agent_creation-step-3.png](/images/agent/agent_creation/agent_creation-step-3.png)
+<Steps>
+  <Step title="Open Bubble channel">
+    In Connect > Channels, open the Bubble card.
+  </Step>
+  <Step title="Generate credentials/snippets">
+    The Console provides the snippet and keys needed for embedding.
+  </Step>
+  <Step title="Add snippet to your website">
+    Paste the script where your implementation team manages site code.
+  </Step>
+  <Step title="Customize appearance">
+    Configure brand settings like launcher style and welcome behavior.
+  </Step>
+</Steps>
 
-<Note>
-  If you already have an image for your agent the image is going to be render in the External Chat
-</Note>
+### External providers (WhatsApp and others)
 
-### Web Bubble
+The same Connect flow also supports external providers through integration-driven channels.
 
-**The external chat is great but what if you want to integrate your agent directly into your own website with a message bubble?**\
-That's where the **Web Bubble Widget** comes in. This widget lets you embed the agent as a chat bubble anywhere on your site, giving users seamless access to support or interaction without leaving your page.
+<Tip>
+  For channel-specific setup details, use the dedicated guides in `channels/en/*`.
+</Tip>
 
-**_To get started, select the Web Bubble channel._**\
-You'll first need to generate an **API key**, and then follow a simple two-step configuration:
+## 2) Integrations
 
-1. **Copy the first code snippet** and paste it into the `<head>` section of your website.
-2. **Copy the second code snippet** and paste it into the `<body>` section where you want the chat bubble to appear.
+Use Integrations to connect external systems your organization depends on (for example, messaging providers, CRM/helpdesk, or custom operational services).
 
-Once done, your agent will be live and ready to interact with users directly on your site\!
+From the user perspective:
 
-![agent_creation-step-4.png](/images/agent/agent_creation/agent_creation-step-4.png)
+- You enable the integration once for your organization.
+- Then you configure channels per agent.
+- Optional addons can be enabled per channel when available.
 
-#### **You can customize your chat bubble to match your brand\!**
+This follows the backend integration model (organization integration -> agent channel -> optional addon), but the Console keeps it in a guided UI flow.
 
-Head over to the _Personalize Your Bubble_ section and explore the various customization options we offer.\
-From colors and icons to welcome messages. You can tailor the experience to fit your style.
+## 3) API
 
-![agent_creation-step-5.png](/images/agent/agent_creation/agent_creation-step-5.png)
+Use API when your own backend or app needs to send messages to the agent programmatically.
 
-### **Serving Your Agent on WhatsApp**
+In Connect > API you can create API channels and use the API reference shown in the Console.
 
-Now it's time to connect your agent to a real communication channel **WhatsApp**.\
-This is handled through the _External Chats_ section within the _Channels_ tab. From there, you can set up and manage your agent's integration with WhatsApp to start engaging with users directly.
+Typical flow:
+
+<Steps>
+  <Step title="Create an API channel">
+    In Connect, click **Create API Channel**.
+  </Step>
+  <Step title="Copy required identifiers">
+    Get the `agent_id`, channel identifier, and your API key.
+  </Step>
+  <Step title="Send a request">
+    Call the chat endpoint from your backend with user context and message payload.
+  </Step>
+  <Step title="Handle the response">
+    Store conversation identifiers and render the assistant response in your interface.
+  </Step>
+</Steps>
+
+<Warning>
+  Keep API keys on your server side only. Do not expose secrets in public frontend code.
+</Warning>
+
+## Recommended rollout order
+
+1. Launch with **External Chat** for quick validation.
+2. Add **Web Bubble** to your main web property.
+3. Add **external provider integrations** for your operational channels.
+4. Move to **API** when you need custom product experiences.

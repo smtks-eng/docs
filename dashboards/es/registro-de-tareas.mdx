@@ -1,0 +1,41 @@
+---
+title: "Registro de Tareas"
+description: "Consulta cada acción que tomó tu agente de IA—herramienta por herramienta, llamada por llamada—en tiempo real."
+---
+
+El **Registro de Tareas** te ofrece un historial detallado de cada invocación de herramienta realizada por tu agente de IA. Cada vez que tu agente usa una skill—ya sea buscar datos, enviar un archivo, recopilar información o escalar una conversación—aparece aquí como un registro individual.
+
+## Lo que verás
+
+### Gráfica de distribución por estado
+Un gráfico de pie mostrando el desglose de invocaciones de herramientas por estado de ejecución:
+- **Éxito** — la herramienta se ejecutó y devolvió un resultado válido
+- **Error** — la herramienta falló o devolvió un error
+- **Tiempo agotado** — la herramienta superó el límite de tiempo configurado
+
+### Gráfica de actividad diaria
+Una gráfica de barras mostrando el volumen de invocaciones por día en el rango de fechas seleccionado.
+
+### Tabla de invocaciones
+Una tabla detallada con una fila por invocación. Cada fila muestra:
+- **Nombre de herramienta** — qué skill o herramienta fue llamada
+- **Estado** — éxito, error o tiempo agotado
+- **Fecha y hora** — cuándo ocurrió la invocación
+- **Solicitud / Respuesta** — expande cualquier fila para inspeccionar el input y output exactos
+
+## Filtros
+
+- **Rango de fechas** — filtra por un período específico
+- **Herramientas** — filtra por skills o herramientas específicas
+- **Estado** — filtra por resultado de ejecución
+
+<Tip>
+Filtra por estado **Error** para identificar rápidamente qué herramientas están fallando y por qué.
+</Tip>
+
+## Casos de uso comunes
+
+- **Depurar comportamiento inesperado del agente** — encuentra exactamente qué llamada de herramienta salió mal
+- **Auditar el uso de herramientas** — verifica que tus herramientas personalizadas se llamen con los parámetros correctos
+- **Monitoreo de rendimiento** — detecta herramientas que frecuentemente superan el tiempo límite
+- **Validar nuevas configuraciones** — después de configurar una herramienta nueva, confirma que se ejecuta correctamente

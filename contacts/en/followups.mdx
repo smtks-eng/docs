@@ -1,0 +1,59 @@
+---
+title: "Follow ups"
+description: "Automatically re-engage users with a proactive message after a period of inactivity in a conversation."
+---
+
+**Followups** let your AI agent proactively reach out to users who haven't responded in a while. Instead of letting conversations go cold, you can configure a message to be sent automatically after a defined period of inactivity—keeping users engaged and increasing resolution rates.
+
+<Note>
+Followups is a **Beta** feature. Some capabilities may evolve as the feature matures.
+</Note>
+
+## How Followups work
+
+A Followup is a message rule tied to a channel. When a conversation on that channel has been inactive for the configured time window, the agent sends the defined message to the user—automatically, without any manual intervention.
+
+This is useful for:
+- Re-engaging users who asked a question and then went quiet
+- Sending post-conversation surveys or satisfaction checks
+- Following up after sending information to confirm the user received it
+
+## Creating a Followup
+
+<Steps>
+  <Step title="Go to Follow ups">
+    Navigate to **AI Agent > Proactive AI > Engagement > Follow ups** in the left sidebar.
+  </Step>
+  <Step title="Create a new followup">
+    Click **New Followup** to open the creation dialog.
+  </Step>
+  <Step title="Define the followup">
+    Fill in the required fields:
+    - **Title** — a name to identify this followup rule (e.g. `Post-conversation check-in`)
+    - **Message** — the text the agent will send to the user
+    - **Delay** — how long after the last agent message to wait before sending (e.g. 30 minutes, 2 hours)
+    - **Survey type** — optionally attach a satisfaction survey to the message
+    - **Channels** — which channels this rule applies to
+  </Step>
+  <Step title="Save and activate">
+    Click **Save**. The followup rule becomes active immediately on the assigned channels.
+  </Step>
+</Steps>
+
+## Managing Followups
+
+From the Followups table you can:
+- **View details** of any followup rule including its current status and channel assignments
+- **Edit** a followup to update the message, delay, or channel assignments
+- **Activate or deactivate** rules without deleting them
+
+## Key notes
+
+- A followup is triggered based on the time since the **last agent message**, not the last user message.
+- A conversation will only trigger a followup **once per session**—even if the user stays inactive for longer than the delay.
+- Followups respect the agent's **availability hours** defined in the Identity section—messages are queued and sent when the agent is available.
+- Each channel can have **multiple followup rules** with different delays and messages.
+
+<Tip>
+Start with a simple re-engagement message and measure the response rate before adding survey types or multiple followup rules to the same channel.
+</Tip>

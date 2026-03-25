@@ -1,0 +1,67 @@
+---
+title: "Workflows"
+description: "Design multi-step conversation flows that guide your AI agent through structured interactions—stage by stage."
+---
+
+**Workflows** let you design structured conversation flows for your AI agent. Instead of a single open-ended conversation, you can define a sequence of **stages** and **transitions** that guide the agent through a predictable, controlled path.
+
+This is ideal for scenarios like sales qualification, onboarding flows, appointment scheduling, or any interaction where the conversation should follow a defined sequence.
+
+<Note>
+Workflows is a **Beta** feature. It is actively being developed and some capabilities may change.
+</Note>
+
+## Core concepts
+
+### Stages
+A stage is a step in the conversation. Each stage has:
+- A **name** that identifies the step (e.g. `Greeting`, `Qualification`, `Closing`)
+- **Instructions** that tell the agent what to do or say in that stage
+- A **goal** — what the agent needs to accomplish before moving on
+
+### Transitions
+A transition is the rule that moves the conversation from one stage to the next. You define:
+- The **source stage** (where we are)
+- The **target stage** (where to go next)
+- The **condition** that triggers the transition (e.g. user confirmed their email, user said they're interested)
+
+### Channels
+Each workflow is assigned to one or more channels. A channel can only be assigned to **one workflow at a time**.
+
+## Creating a Workflow
+
+<Steps>
+  <Step title="Go to Workflows">
+    Navigate to **AI Agent > Design > Workflows** in the left sidebar.
+  </Step>
+  <Step title="Create a new workflow">
+    Click **New Workflow**. A new workflow is created automatically and you're taken to the visual editor.
+  </Step>
+  <Step title="Add stages">
+    In the editor, add stages to represent each step of the conversation. Give each stage a clear name and write the instructions the agent should follow at that point.
+  </Step>
+  <Step title="Define transitions">
+    Connect stages by adding transitions. For each transition, define the condition that triggers it—this can be a user action, a phrase, or a data condition.
+  </Step>
+  <Step title="Assign channels">
+    In the workflow settings, assign the channels where this workflow should run. The Playground channel is auto-assigned on creation so you can test immediately.
+  </Step>
+  <Step title="Save and test">
+    Save the workflow and head to the **Playground** to test the full conversation flow end to end.
+  </Step>
+</Steps>
+
+## Testing a Workflow
+
+Use the **Playground** (AI Agent > Design > Playground) to test your workflow before going live. The Playground channel is automatically assigned when you create a workflow, so you can simulate the full conversation flow right away.
+
+<Tip>
+Test your workflow thoroughly at each transition. Try giving unexpected answers to make sure the agent handles edge cases gracefully before assigning it to a live channel.
+</Tip>
+
+## Key notes
+
+- A channel can only run **one workflow** at a time—assigning a new workflow to a channel replaces the previous one.
+- Workflows operate **alongside** the agent's identity, knowledge, and skills—they define the structure, but the agent still uses its full capabilities within each stage.
+- You can have **multiple workflows** (e.g. one per use case or channel), each independently configured.
+- Deleting a workflow **does not affect** conversations already in progress on that channel.

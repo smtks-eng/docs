@@ -1,0 +1,61 @@
+---
+title: "Alerts & Reports"
+description: "Set up threshold-based alerts to stay notified about your agent's activity, and generate reports for stakeholder sharing."
+---
+
+**Alerts & Reports** is where you configure proactive notifications and generate performance reports for your agent. Use this section to stay on top of activity spikes, performance dips, and other conditions that require your attention.
+
+<Note>
+Alerts & Reports is a **Beta** feature.
+</Note>
+
+## Alerts
+
+The Alerts section has two tabs:
+
+### Configuration
+This is where you create and manage alert rules. An alert configuration defines:
+- **Title** — a descriptive name for the alert (e.g. `High escalation rate alert`)
+- **Alert type** — the metric or event being monitored
+- **Threshold** — the numeric value that triggers the alert (must be 0 or greater)
+- **Unit** — the measurement unit for the threshold (e.g. conversations, percentage, minutes)
+
+When the defined condition is met, the alert fires and is recorded in the **History** tab.
+
+#### Creating an alert
+
+<Steps>
+  <Step title="Go to Alerts & Reports">
+    Navigate to **AI Agent > Evaluate > Alerts & Reports** in the left sidebar.
+  </Step>
+  <Step title="Open the Alerts tab">
+    The page opens on the Alerts section by default. Click **New Alert** in the Configuration sub-tab.
+  </Step>
+  <Step title="Define the alert">
+    Fill in the title, select the alert type, set your threshold value, and choose the unit.
+  </Step>
+  <Step title="Save">
+    Click **Save** to activate the alert. It will start monitoring immediately.
+  </Step>
+</Steps>
+
+### History
+The History tab shows a log of all alerts that have been triggered, including:
+- Which alert fired
+- When it was triggered
+- The value that crossed the threshold
+
+Use the History tab to audit alert activity and understand how often specific conditions are occurring.
+
+## Reports
+
+The Reports section lets you generate summaries of your agent's performance over a defined period. Reports are useful for:
+- Sharing performance snapshots with stakeholders or leadership
+- Monthly or quarterly reviews
+- Tracking trends over time
+
+Click **Generate Report** to create a new report. You can select the date range and the metrics to include.
+
+<Tip>
+Set up a **high escalation rate alert** as your first alert. Escalations are often the clearest signal that the agent is struggling with a specific topic—and catching them early lets you fix the issue before it impacts more users.
+</Tip>

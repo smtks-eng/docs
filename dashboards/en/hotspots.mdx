@@ -1,0 +1,55 @@
+---
+title: "Hotspots"
+description: "Identify the topics and issues that matter most to your users—ranked by priority score."
+---
+
+**Hotspots** surfaces the topics and tags that appear most frequently and with the highest impact in your agent's conversations. Instead of reading hundreds of transcripts, Hotspots gives you a ranked view of what your users are actually talking about—and which topics deserve the most attention.
+
+<Note>
+Hotspots is a **Beta** feature. Rankings and scoring logic are actively being refined.
+</Note>
+
+## How it works
+
+Every conversation your agent has is automatically classified by topic and tagged. Hotspots aggregates this data across a selected time period and computes a **Priority Score** for each topic based on multiple signals:
+
+| Signal | What it measures |
+|---|---|
+| **Conversation volume** | How often this topic comes up |
+| **Negative sentiment %** | What share of conversations on this topic have negative user sentiment |
+| **Escalation rate** | How often this topic leads to a human escalation |
+| **Repeat rate** | How often users come back with the same topic |
+| **Avg CSAT** | Average satisfaction score for conversations on this topic |
+
+The Priority Score is **normalized from 0 to 100** and used to assign each topic a tier:
+- **High** — needs immediate attention
+- **Medium** — worth monitoring and improving
+- **Low** — stable, no urgent action needed
+
+## Views: Topics vs Tags
+
+Use the toggle at the top to switch between two perspectives:
+
+### Topics view
+Shows high-level topics (e.g. `Returns & Refunds`, `Billing Questions`, `Account Access`). Click on any topic to expand it and see the **subtopics** it contains. This gives you a two-level breakdown of the issue.
+
+### Tags view
+Shows conversation tags. If your team uses tags to categorize conversations manually or via automation, this view aggregates them by priority the same way topics are aggregated.
+
+## Using date range filters
+
+Select the time period for analysis using the date picker. You can compare different periods to see if certain topics are growing or shrinking in volume.
+
+<Tip>
+Set the date range to the **last 30 days** for an operational view, or to **quarter-to-date** for a strategic review with your team.
+</Tip>
+
+## Drilling down into a topic
+
+Click on any topic row to be taken directly to the **Evaluations** view pre-filtered by that topic and date range. There, you can read the actual conversations and identify exactly what's causing the problem.
+
+## Common actions after reviewing Hotspots
+
+- **High-volume topic with high escalation rate** → Add knowledge base articles or update agent instructions for that topic
+- **Recurring topic with low CSAT** → Review conversations in Evaluations to find where the agent is falling short
+- **Unexpected new topic appearing** → Check if there's a product change or external event driving it

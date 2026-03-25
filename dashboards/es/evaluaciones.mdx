@@ -1,0 +1,43 @@
+---
+title: "Evaluaciones"
+description: "Analiza la calidad de las conversaciones de tu agente con filtros enriquecidos, puntuaciones y detalles por conversación."
+---
+
+**Evaluaciones** es una vista de análisis profundo de las conversaciones completadas de tu agente. A diferencia de la vista de Conversaciones en Supervisar (que muestra todas las conversaciones de un vistazo), Evaluaciones está diseñada para análisis de calidad—muestra datos de conversaciones puntuados, clasificados y filtrables para que puedas identificar qué funciona y qué necesita mejorar.
+
+## Lo que verás
+
+La vista de Evaluaciones muestra una tabla de conversaciones con métricas de calidad adicionales:
+
+| Columna | Descripción |
+|---|---|
+| **Canal** | Dónde ocurrió la conversación |
+| **Tema** | El tema auto-clasificado de la conversación |
+| **Sentimiento** | Sentimiento del usuario: positivo, neutral o negativo |
+| **Éxito de tarea** | Si el agente resolvió exitosamente la solicitud del usuario |
+| **CSAT** | Puntuación de satisfacción del cliente (si se recopiló) |
+| **Fecha** | Cuándo ocurrió la conversación |
+
+## Filtros
+
+- **Rango de fechas** — selecciona un período o usa presets (MTD, QTD, YTD, personalizado)
+- **Tema** — filtra por uno o más temas auto-clasificados
+- **Sentimiento** — positivo, neutral, negativo
+- **Éxito de tarea** — filtra por conversaciones resueltas o no resueltas
+- **Puntuación CSAT** — establece un umbral máximo para detectar conversaciones con baja satisfacción
+- **IDs de conversación** — salta directamente a conversaciones específicas
+
+<Tip>
+Comienza filtrando por **conversaciones no resueltas con sentimiento negativo** — esta combinación generalmente revela los problemas de mayor prioridad en el conocimiento o prompts de tu agente.
+</Tip>
+
+## Conexión con Puntos Clave
+
+Evaluaciones y **Puntos Clave** trabajan juntos. Al hacer clic en un tema en la vista de Puntos Clave, eres llevado directamente a Evaluaciones pre-filtrado por ese tema y rango de fechas.
+
+## Buenas prácticas
+
+- **Revisa conversaciones con CSAT bajo** para entender qué frustró a los usuarios.
+- **Ordena por éxito de tarea** para encontrar patrones en conversaciones no resueltas.
+- **Usa filtros de tema** para enfocar tu análisis en un área específica.
+- **Exporta los datos** para análisis externos o reportes a stakeholders.

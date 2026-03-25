@@ -1,0 +1,47 @@
+---
+title: "Puntos Clave"
+description: "Identifica los temas y problemas que más importan a tus usuarios—clasificados por puntaje de prioridad."
+---
+
+**Puntos Clave** (Hotspots) muestra los temas y etiquetas que aparecen con mayor frecuencia e impacto en las conversaciones de tu agente. En lugar de leer cientos de transcripciones, Puntos Clave te da una vista clasificada de lo que realmente hablan tus usuarios—y qué temas merecen más atención.
+
+<Note>
+Puntos Clave es una función en **Beta**. La lógica de clasificación y puntuación está en refinamiento activo.
+</Note>
+
+## Cómo funciona
+
+Cada conversación de tu agente se clasifica automáticamente por tema y se etiqueta. Puntos Clave agrega estos datos en un período seleccionado y calcula un **Puntaje de Prioridad** para cada tema basado en múltiples señales:
+
+| Señal | Qué mide |
+|---|---|
+| **Volumen de conversaciones** | Con qué frecuencia aparece este tema |
+| **% de sentimiento negativo** | Qué proporción de conversaciones tiene sentimiento negativo |
+| **Tasa de escalación** | Con qué frecuencia este tema lleva a una escalación humana |
+| **Tasa de repetición** | Con qué frecuencia los usuarios regresan con el mismo tema |
+| **CSAT promedio** | Puntuación de satisfacción promedio para conversaciones sobre este tema |
+
+El Puntaje de Prioridad está **normalizado de 0 a 100** y se usa para asignar un nivel:
+- **Alto** — necesita atención inmediata
+- **Medio** — vale la pena monitorear y mejorar
+- **Bajo** — estable, sin acción urgente necesaria
+
+## Vistas: Temas vs Etiquetas
+
+Usa el selector al principio para cambiar entre dos perspectivas:
+
+### Vista de Temas
+Muestra temas de alto nivel (ej. `Devoluciones y Reembolsos`, `Preguntas de Facturación`). Haz clic en cualquier tema para expandirlo y ver los **subtemas** que contiene.
+
+### Vista de Etiquetas
+Muestra etiquetas de conversación. Si tu equipo usa etiquetas para categorizar conversaciones, esta vista las agrega por prioridad.
+
+## Profundizando en un tema
+
+Haz clic en cualquier fila de tema para ir directamente a **Evaluaciones** pre-filtrado por ese tema y rango de fechas. Allí puedes leer las conversaciones reales e identificar exactamente qué está causando el problema.
+
+## Acciones comunes después de revisar Puntos Clave
+
+- **Tema de alto volumen con alta tasa de escalación** → Agrega artículos de base de conocimiento o actualiza las instrucciones del agente para ese tema
+- **Tema recurrente con CSAT bajo** → Revisa conversaciones en Evaluaciones para encontrar dónde falla el agente
+- **Nuevo tema inesperado** → Verifica si hay un cambio de producto o evento externo que lo impulsa

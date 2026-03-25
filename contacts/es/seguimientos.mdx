@@ -1,0 +1,52 @@
+---
+title: "Seguimientos"
+description: "Re-engancha automáticamente a los usuarios con un mensaje proactivo después de un período de inactividad en una conversación."
+---
+
+Los **Seguimientos** permiten que tu agente de IA contacte proactivamente a usuarios que no han respondido en un tiempo. En lugar de dejar que las conversaciones se enfríen, puedes configurar un mensaje para que se envíe automáticamente después de un período de inactividad definido—manteniendo a los usuarios comprometidos y aumentando las tasas de resolución.
+
+<Note>
+Seguimientos es una función en **Beta**. Algunas capacidades pueden evolucionar a medida que la función madura.
+</Note>
+
+## Cómo funcionan los Seguimientos
+
+Un Seguimiento es una regla de mensaje vinculada a un canal. Cuando una conversación en ese canal ha estado inactiva por la ventana de tiempo configurada, el agente envía el mensaje definido al usuario—automáticamente, sin ninguna intervención manual.
+
+Esto es útil para:
+- Re-enganchar a usuarios que hicieron una pregunta y luego se silenciaron
+- Enviar encuestas post-conversación o verificaciones de satisfacción
+- Dar seguimiento después de enviar información para confirmar que el usuario la recibió
+
+## Creando un Seguimiento
+
+<Steps>
+  <Step title="Ve a Seguimientos">
+    Navega a **Alcance > Engagement > Seguimientos** en el menú lateral.
+  </Step>
+  <Step title="Crea un nuevo seguimiento">
+    Haz clic en **Nuevo Seguimiento** para abrir el diálogo de creación.
+  </Step>
+  <Step title="Define el seguimiento">
+    Completa los campos requeridos:
+    - **Título** — nombre para identificar esta regla (ej. `Verificación post-conversación`)
+    - **Mensaje** — el texto que el agente enviará al usuario
+    - **Retraso** — cuánto tiempo esperar después del último mensaje del agente antes de enviar
+    - **Tipo de encuesta** — opcionalmente adjunta una encuesta de satisfacción al mensaje
+    - **Canales** — en qué canales aplica esta regla
+  </Step>
+  <Step title="Guarda y activa">
+    Haz clic en **Guardar**. La regla de seguimiento se activa inmediatamente en los canales asignados.
+  </Step>
+</Steps>
+
+## Notas clave
+
+- Un seguimiento se activa basado en el tiempo desde el **último mensaje del agente**, no del usuario.
+- Una conversación solo activará un seguimiento **una vez por sesión**.
+- Los seguimientos respetan las **horas de disponibilidad** del agente definidas en Identidad.
+- Cada canal puede tener **múltiples reglas de seguimiento** con diferentes retrasos y mensajes.
+
+<Tip>
+Comienza con un mensaje simple de re-enganche y mide la tasa de respuesta antes de agregar tipos de encuesta o múltiples reglas de seguimiento en el mismo canal.
+</Tip>

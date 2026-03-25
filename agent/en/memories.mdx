@@ -1,0 +1,72 @@
+---
+title: "Memories"
+description: "Teach your AI agent to remember specific information about each user across conversations—automatically."
+---
+
+**Memories** allow your AI agent to learn and retain structured information about your users over time. Instead of treating every conversation as a blank slate, your agent can remember things like a user's name, company, preferences, or any custom data field you define.
+
+This is especially useful for building personalized experiences at scale—your agent greets returning users by name, picks up where the last conversation left off, and avoids asking for information it already knows.
+
+<Info>
+Memories are collected **automatically by the agent during conversations**. You define what to collect and how—the agent handles extraction and storage on its own.
+</Info>
+
+## How Memories work
+
+You create **Memory Configurations**, each of which defines:
+- A **name** and **goal** (what this configuration is trying to learn)
+- One or more **fields** (the specific data points to capture)
+- The **channels** where this configuration is active
+
+When a user interacts with your agent on an assigned channel, the agent automatically identifies and saves the defined fields whenever they appear in the conversation. If the user provides updated information later, the stored value is overwritten.
+
+<Note>
+You can create up to **10 Memory Configurations** per agent.
+</Note>
+
+## Creating a Memory Configuration
+
+<Steps>
+  <Step title="Go to Memories">
+    Navigate to **AI Agent > Design > Memories** in the left sidebar.
+  </Step>
+  <Step title="Create a new configuration">
+    Click **New Configuration** and give it a descriptive name (e.g. `User Profile`) and a goal that guides the agent (e.g. `Capture the user's name, company, and role to personalize future interactions`).
+  </Step>
+  <Step title="Add fields">
+    For each piece of information you want to capture, add a field with:
+    - **Field name** — what you're collecting (e.g. `full_name`, `company`, `email`)
+    - **Data type** — text, number, date, or boolean
+    - **Prompt instructions** — how the agent should extract this field (e.g. `Extract the user's full name if they introduce themselves or sign off`)
+  </Step>
+  <Step title="Assign channels">
+    Select the channels where this memory configuration should be active. The agent will only collect memories on conversations happening through those channels.
+  </Step>
+  <Step title="Save">
+    Click **Save** to activate the configuration. The agent will start collecting data on new conversations immediately.
+  </Step>
+</Steps>
+
+## Field types
+
+| Type | Description |
+|---|---|
+| **Text** | Free-form string (name, company, preferences) |
+| **Number** | Numeric value (age, account ID, order number) |
+| **Date** | Date value (last purchase, renewal date) |
+| **Boolean** | True/false flag (is a premium user, opted in for updates) |
+
+## Viewing collected memories
+
+You can see the memories collected for any specific user from the **Contacts** section. Open a contact and view their stored memory fields under the memory tab.
+
+<Tip>
+Write **clear and specific prompt instructions** for each field. The more precisely you describe what to look for, the more reliably the agent will capture the right data.
+</Tip>
+
+## Key notes
+
+- Memories are stored **per user, per agent**—different agents maintain separate memory stores.
+- If a user provides conflicting information in a later conversation, the **most recent value wins**.
+- Memories are only collected on the **channels assigned** to each configuration.
+- You can **edit or delete** configurations at any time without affecting previously collected data.

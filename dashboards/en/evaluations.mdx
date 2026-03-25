@@ -1,0 +1,47 @@
+---
+title: "Evaluations"
+description: "Analyze the quality of your agent's conversations with rich filters, scores, and per-conversation details."
+---
+
+**Evaluations** is a deep-dive analytics view of your agent's completed conversations. Unlike the Supervise > Conversations view which shows all conversations at a glance, Evaluations is built for quality analysis—it surfaces scored, classified, and filterable conversation data so you can identify what's working and what needs improvement.
+
+## What you'll see
+
+The Evaluations view shows a table of conversations with additional quality metrics attached to each one:
+
+| Column | Description |
+|---|---|
+| **Channel** | Where the conversation took place |
+| **Topic** | The auto-classified topic of the conversation |
+| **Sentiment** | Positive, neutral, or negative user sentiment |
+| **Task success** | Whether the agent successfully resolved the user's request |
+| **CSAT** | Customer satisfaction score (if collected) |
+| **Date** | When the conversation took place |
+
+Click any row to open the conversation panel and read the full transcript, summary, and resolution details.
+
+## Filters
+
+Use the filter bar at the top to slice the data:
+
+- **Date range** — select a period or use presets (MTD, QTD, YTD, custom)
+- **Topic** — filter by one or more auto-classified topics
+- **Sentiment** — positive, neutral, negative
+- **Task success** — filter for resolved or unresolved conversations
+- **CSAT score** — set a maximum CSAT threshold to surface low-scoring conversations
+- **Conversation IDs** — jump directly to specific conversations
+
+<Tip>
+Start by filtering for **unresolved conversations with negative sentiment** — this combination usually reveals the highest-priority issues to address in your agent's knowledge or prompts.
+</Tip>
+
+## Connection to Hotspots
+
+Evaluations and **Hotspots** work together. When you click on a topic in the Hotspots view, you're taken directly to Evaluations pre-filtered by that topic and date range. This lets you go from "this topic has a high priority score" to "let me read the actual conversations" in one click.
+
+## Best practices
+
+- **Review low CSAT conversations** to understand what frustrated users and improve agent responses.
+- **Sort by task success** to find patterns in unresolved conversations—are they all about the same topic?
+- **Use topic filters** to focus your analysis on a specific area of your product or service.
+- **Export data** for external analysis or stakeholder reporting using the CSV export option in the table toolbar.
