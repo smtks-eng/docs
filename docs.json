@@ -49,13 +49,7 @@
                       "agent/en/workflows"
                     ]
                   },
-                  {
-                    "group": "Playground",
-                    "icon": "circle-play",
-                    "pages": [
-                      "agent/en/playground"
-                    ]
-                  },
+                  "agent/en/playground",
                   "agent/en/channels",
                   {
                     "group": "Supervise",
@@ -147,33 +141,27 @@
             ]
           },
           {
-            "group": "AI Agent",
+            "group": "Agente IA",
             "pages": [
               "platform/es/home",
               {
-                "group": "AI Agent",
+                "group": "Agente IA",
                 "pages": [
                   {
-                    "group": "Design",
+                    "group": "Diseño",
                     "icon": "pencil",
                     "pages": [
                       "agent/es/identidad",
                       "agent/es/conocimiento",
                       "agent/es/capacidades",
                       "agent/es/memorias",
-                      "agent/es/flujos-de-trabajo"
+                      "agent/es/workflows"
                     ]
                   },
-                  {
-                    "group": "Playground",
-                    "icon": "circle-play",
-                    "pages": [
-                      "agent/es/playground"
-                    ]
-                  },
+                  "agent/es/playground",
                   "agent/es/canales",
                   {
-                    "group": "Supervise",
+                    "group": "Supervisa",
                     "icon": "binoculars",
                     "pages": [
                       "dashboards/es/conversaciones",
@@ -181,21 +169,21 @@
                     ]
                   },
                   {
-                    "group": "Evaluate",
+                    "group": "Evalúa",
                     "icon": "chart-line",
                     "pages": [
                       "dashboards/es/evaluaciones",
-                      "dashboards/es/puntos-clave",
+                      "dashboards/es/hotspots",
                       "dashboards/es/alertas-y-reportes"
                     ]
                   }
                 ]
               },
               {
-                "group": "Proactive AI",
+                "group": "IA proactiva",
                 "pages": [
                   {
-                    "group": "Engagement",
+                    "group": "Enganche",
                     "icon": "paper-plane",
                     "pages": [
                       "campaigns/es/camapañas",
@@ -207,10 +195,10 @@
             ]
           },
           {
-            "group": "Contact Center",
+            "group": "Centro de contacto",
             "pages": [
               {
-                "group": "Live Chat",
+                "group": "Chat en vivo",
                 "icon": "headset",
                 "pages": [
                   "chat-live/es/panel-conversaciones",
@@ -221,10 +209,10 @@
             ]
           },
           {
-            "group": "Audience",
+            "group": "Audiencia",
             "pages": [
               {
-                "group": "Audience",
+                "group": "Audiencia",
                 "icon": "users",
                 "pages": [
                   "contacts/es/contactos-externos",

@@ -1,52 +1,52 @@
 ---
-title: "Seguimientos"
-description: "Re-engancha automáticamente a los usuarios con un mensaje proactivo después de un período de inactividad en una conversación."
+title: "Follow ups"
+description: "Reengancha automáticamente a los usuarios con un mensaje proactivo después de un periodo de inactividad en una conversación."
 ---
 
-Los **Seguimientos** permiten que tu agente de IA contacte proactivamente a usuarios que no han respondido en un tiempo. En lugar de dejar que las conversaciones se enfríen, puedes configurar un mensaje para que se envíe automáticamente después de un período de inactividad definido—manteniendo a los usuarios comprometidos y aumentando las tasas de resolución.
+Los **Follow ups** permiten que tu agente de IA contacte de forma proactiva a usuarios que llevan un tiempo sin responder. En lugar de dejar que las conversaciones se enfríen, puedes configurar un mensaje para que se envíe automáticamente tras un periodo de inactividad definido, manteniendo el interés y mejorando las tasas de resolución.
 
 <Note>
-Seguimientos es una función en **Beta**. Algunas capacidades pueden evolucionar a medida que la función madura.
+Follow ups es una función en **Beta**. Algunas capacidades pueden evolucionar a medida que la función madura.
 </Note>
 
-## Cómo funcionan los Seguimientos
+## Cómo funcionan los Follow ups
 
-Un Seguimiento es una regla de mensaje vinculada a un canal. Cuando una conversación en ese canal ha estado inactiva por la ventana de tiempo configurada, el agente envía el mensaje definido al usuario—automáticamente, sin ninguna intervención manual.
+Un **Follow up** es una regla de mensaje vinculada a un canal. Cuando una conversación en ese canal lleva inactiva el tiempo configurado, el agente envía el mensaje definido al usuario de forma automática, sin intervención manual.
 
 Esto es útil para:
-- Re-enganchar a usuarios que hicieron una pregunta y luego se silenciaron
-- Enviar encuestas post-conversación o verificaciones de satisfacción
-- Dar seguimiento después de enviar información para confirmar que el usuario la recibió
+- Volver a contactar a usuarios que preguntaron y luego dejaron de responder
+- Enviar encuestas posconversación o comprobaciones de satisfacción
+- Dar seguimiento tras enviar información y confirmar que el usuario la recibió
 
-## Creando un Seguimiento
+## Crear un Follow up
 
 <Steps>
-  <Step title="Ve a Seguimientos">
-    Navega a **Alcance > Engagement > Seguimientos** en el menú lateral.
+  <Step title="Abre Follow ups">
+    En el menú lateral, ve a **Agente IA > IA proactiva > Enganche > Follow ups**.
   </Step>
-  <Step title="Crea un nuevo seguimiento">
-    Haz clic en **Nuevo Seguimiento** para abrir el diálogo de creación.
+  <Step title="Crea un nuevo Follow up">
+    Haz clic en **Nuevo Follow up** (o el botón equivalente) para abrir el diálogo de creación.
   </Step>
-  <Step title="Define el seguimiento">
+  <Step title="Configura el Follow up">
     Completa los campos requeridos:
-    - **Título** — nombre para identificar esta regla (ej. `Verificación post-conversación`)
+    - **Título** — nombre para identificar esta regla (p. ej. `Verificación posconversación`)
     - **Mensaje** — el texto que el agente enviará al usuario
-    - **Retraso** — cuánto tiempo esperar después del último mensaje del agente antes de enviar
+    - **Retraso** — cuánto tiempo esperar tras el último mensaje del agente antes de enviar
     - **Tipo de encuesta** — opcionalmente adjunta una encuesta de satisfacción al mensaje
     - **Canales** — en qué canales aplica esta regla
   </Step>
   <Step title="Guarda y activa">
-    Haz clic en **Guardar**. La regla de seguimiento se activa inmediatamente en los canales asignados.
+    Haz clic en **Guardar**. La regla se activa de inmediato en los canales asignados.
   </Step>
 </Steps>
 
 ## Notas clave
 
-- Un seguimiento se activa basado en el tiempo desde el **último mensaje del agente**, no del usuario.
-- Una conversación solo activará un seguimiento **una vez por sesión**.
-- Los seguimientos respetan las **horas de disponibilidad** del agente definidas en Identidad.
-- Cada canal puede tener **múltiples reglas de seguimiento** con diferentes retrasos y mensajes.
+- Un Follow up se dispara según el tiempo desde el **último mensaje del agente**, no del usuario.
+- Una conversación solo dispara un Follow up **una vez por sesión**.
+- Los Follow ups respetan las **horas de disponibilidad** del agente definidas en Identidad.
+- Cada canal puede tener **varias reglas de Follow up** con distintos retrasos y mensajes.
 
 <Tip>
-Comienza con un mensaje simple de re-enganche y mide la tasa de respuesta antes de agregar tipos de encuesta o múltiples reglas de seguimiento en el mismo canal.
+Comienza con un mensaje sencillo de reenganche y mide la tasa de respuesta antes de añadir encuestas o varias reglas en el mismo canal.
 </Tip>

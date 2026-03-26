@@ -1,117 +1,117 @@
 ---
-title: "Conectar"
+title: "Conecta"
 language: es
 icon: "plug"
 description: "Despliega tu agente por canales, integraciones externas y API para que los usuarios hablen con él donde ya están."
 ---
 
 <Info>
-  Antes de conectar tu agente, asegúrate de tener listas **Identidad**, **Conocimiento** y **Skills**.  
+  Antes de conectar tu agente, asegúrate de tener listas **Identidad**, **Conocimiento** y **Habilidades**.  
   Un agente bien configurado da mejores respuestas desde la primera conversación.
 </Info>
 
 ## Conecta tu agente con usuarios reales
 
-En la consola, **Conectar** se organiza en 3 secciones:
+En la consola, **Conecta** se organiza en tres bloques:
 
-- **Channels**: publica tu agente en canales propios y externos (Web Bubble, External Chat, WhatsApp y otros)
-- **Integrations**: conecta herramientas/servicios externos de tu operación
-- **API**: envía y recibe mensajes desde tus propios sistemas
+- **Canales** — publica tu agente en canales propios y externos (burbuja web, chat externo, WhatsApp y otros; en la interfaz algunos nombres pueden aparecer en inglés).
+- **Integraciones** — conecta herramientas o servicios externos de tu operación.
+- **API** — envía y recibe mensajes desde tus propios sistemas.
 
-Este paso convierte tu agente de "configurado" a "en producción".
+Este paso convierte tu agente de «configurado» a «en producción».
 
-## 1) Channels
+## 1) Canales
 
-Usa Channels cuando quieres que los usuarios hablen con tu agente desde superficies de chat.
+Usa **Canales** cuando quieras que los usuarios hablen con tu agente desde superficies de chat.
 
-### External Chat (salida más rápida)
+### Chat externo (salida más rápida)
 
-**External Chat** te da una URL compartible para lanzar en minutos.
+El **chat externo** te da una URL compartible para lanzar en minutos (en consola puede mostrarse como *External chat*).
 
 <Steps>
-  <Step title="Ve a Conectar > Channels">
-    Abre tu agente y entra a la página de Connect.
+  <Step title="Ve a Conecta > Canales">
+    Abre tu agente y entra a la página **Conecta**.
   </Step>
-  <Step title="Abre External Chat">
-    Selecciona la tarjeta de External Chat.
+  <Step title="Abre el chat externo">
+    Selecciona la tarjeta de chat externo / *External chat*.
   </Step>
   <Step title="Copia la URL pública">
-    Haz clic en compartir y copia el enlace generado.
+    Usa la opción para compartir y copia el enlace generado.
   </Step>
   <Step title="Prueba como usuario final">
-    Abre el link en incógnito y valida casos de uso reales.
+    Abre el enlace en una ventana privada y valida casos de uso reales.
   </Step>
 </Steps>
 
-### Web Bubble (embebido en sitio web)
+### Burbuja web (embebido en tu sitio)
 
-Usa **Web Bubble** cuando quieres tener el agente dentro de tu propia web.
+Usa la **burbuja web** cuando quieras el agente dentro de tu propia web (en consola puede aparecer como *Web bubble* / *Bubble*).
 
 <Steps>
-  <Step title="Abre el canal Bubble">
-    En Connect > Channels, abre la tarjeta Bubble.
+  <Step title="Abre el canal de burbuja">
+    En **Conecta > Canales**, abre la tarjeta de burbuja web.
   </Step>
-  <Step title="Genera credenciales/snippets">
-    La consola te muestra el snippet y claves para la integración.
+  <Step title="Genera credenciales y fragmentos de código">
+    La consola muestra el fragmento (*snippet*) y las claves para la integración.
   </Step>
-  <Step title="Agrega el snippet al sitio">
+  <Step title="Añade el fragmento al sitio">
     Pega el script donde tu equipo implementa el código web.
   </Step>
   <Step title="Personaliza la experiencia">
-    Ajusta branding, launcher y comportamiento de bienvenida.
+    Ajusta marca, botón de apertura y mensaje de bienvenida.
   </Step>
 </Steps>
 
 ### Proveedores externos (WhatsApp y otros)
 
-El mismo flujo de Connect soporta proveedores externos a través de canales basados en integración.
+El mismo flujo de **Conecta** admite proveedores externos mediante canales basados en integración.
 
 <Tip>
-  Para configuración detallada por canal, usa las guías específicas en `channels/es/*`.
+  Para la configuración detallada por canal, consulta las guías en `channels/es/*`.
 </Tip>
 
-## 2) Integrations
+## 2) Integraciones
 
-Usa Integrations para conectar sistemas externos de tu operación (por ejemplo, proveedores de mensajería, CRM/helpdesk o servicios personalizados).
+Usa **Integraciones** para conectar sistemas externos de tu operación (por ejemplo, proveedores de mensajería, CRM, mesa de ayuda o servicios propios).
 
-Desde el punto de vista del usuario:
+Desde la perspectiva del usuario:
 
 - Activas la integración una vez por organización.
 - Luego configuras canales por agente.
-- Si aplica, activas addons opcionales por canal.
+- Si aplica, activas complementos (*addons*) opcionales por canal.
 
-Esto sigue el modelo del backend (integración de organización -> canal del agente -> addon opcional), pero en una experiencia guiada desde consola.
+El modelo en backend es: integración de organización → canal del agente → complemento opcional, con una interfaz guiada en consola.
 
 ## 3) API
 
-Usa API cuando tu backend o aplicación necesita enviar mensajes al agente de forma programática.
+Usa la **API** cuando tu *backend* o aplicación deba enviar mensajes al agente de forma programática.
 
-En Connect > API puedes crear canales API y usar la referencia que aparece en la consola.
+En **Conecta > API** puedes crear canales API y usar la referencia que muestra la consola.
 
 Flujo típico:
 
 <Steps>
-  <Step title="Crea un API Channel">
-    En Connect, haz clic en **Create API Channel**.
+  <Step title="Crea un canal API">
+    En **Conecta**, haz clic en **Crear canal API** (o el botón equivalente si la etiqueta sigue en inglés).
   </Step>
-  <Step title="Copia identificadores requeridos">
-    Obtén `agent_id`, identificador del canal y tu API key.
+  <Step title="Copia los identificadores necesarios">
+    Obtén `agent_id`, el identificador del canal y tu clave API.
   </Step>
   <Step title="Envía una solicitud">
-    Llama al endpoint de chat desde tu backend con contexto de usuario y payload.
+    Llama al *endpoint* de chat desde tu *backend* con el contexto del usuario y el cuerpo del mensaje.
   </Step>
   <Step title="Procesa la respuesta">
-    Guarda identificadores de conversación y renderiza la respuesta del agente.
+    Guarda los identificadores de conversación y muestra la respuesta del agente en tu interfaz.
   </Step>
 </Steps>
 
 <Warning>
-  Mantén las API keys siempre del lado servidor. No expongas secretos en frontend público.
+  Mantén las claves API solo en el servidor. No expongas secretos en el *frontend* público.
 </Warning>
 
 ## Orden recomendado de despliegue
 
-1. Lanza con **External Chat** para validar rápido.
-2. Integra **Web Bubble** en tu propiedad principal.
-3. Agrega **integraciones externas** para canales operativos.
-4. Migra a **API** cuando necesites experiencias producto más personalizadas.
+1. Arranca con **chat externo** para validar rápido.
+2. Integra la **burbuja web** en tu sitio principal.
+3. Añade **integraciones externas** para tus canales operativos.
+4. Pasa a la **API** cuando necesites experiencias de producto más a medida.

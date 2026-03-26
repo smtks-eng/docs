@@ -1,0 +1,62 @@
+---
+title: "Workflows"
+description: "Diseña conversaciones estructuradas en múltiples pasos que guíen a tu agente a través de interacciones definidas, etapa por etapa."
+---
+
+Los **Workflows** te permiten diseñar conversaciones estructuradas para tu agente de IA. En lugar de una conversación abierta, puedes definir una secuencia de **etapas** y **transiciones** que guíen al agente a través de un camino predecible y controlado.
+
+Esto es ideal para calificación de ventas, flujos de onboarding, agendado de citas o cualquier interacción donde la conversación deba seguir una secuencia definida.
+
+<Note>
+Workflows es una función en **Beta**. Está en desarrollo activo y algunas capacidades pueden cambiar.
+</Note>
+
+## Conceptos clave
+
+### Etapas
+Una etapa es un paso en la conversación. Cada etapa tiene:
+- Un **nombre** que identifica el paso (ej. `Saludo`, `Calificación`, `Cierre`)
+- **Instrucciones** que le dicen al agente qué hacer o decir en esa etapa
+- Un **objetivo** — qué necesita lograr el agente antes de avanzar
+
+### Transiciones
+Una transición es la regla que mueve la conversación de una etapa a la siguiente:
+- La **etapa origen** (donde estamos)
+- La **etapa destino** (hacia dónde ir)
+- La **condición** que activa la transición
+
+### Canales
+Cada **workflow** se asigna a uno o más canales. Un canal solo puede tener **un workflow a la vez**.
+
+## Crear un workflow
+
+<Steps>
+  <Step title="Ve a Workflows">
+    Navega a **Agente IA > Diseño > Workflows** en el menú lateral.
+  </Step>
+  <Step title="Crea un nuevo workflow">
+    Haz clic en **New Workflow** (o el equivalente si la interfaz sigue solo en inglés). Se crea un workflow nuevo y se abre el editor visual.
+  </Step>
+  <Step title="Agrega etapas">
+    En el editor, agrega etapas que representen cada paso de la conversación.
+  </Step>
+  <Step title="Define transiciones">
+    Conecta las etapas agregando transiciones y definiendo las condiciones que las activan.
+  </Step>
+  <Step title="Asigna canales">
+    En la configuración del workflow, asigna los canales donde debe ejecutarse.
+  </Step>
+  <Step title="Guarda y prueba">
+    Guarda y ve al **Playground** para probar el flujo de conversación completo.
+  </Step>
+</Steps>
+
+<Tip>
+Prueba tu workflow exhaustivamente en cada transición. Intenta dar respuestas inesperadas para asegurarte de que el agente maneja los casos extremos antes de asignarlo a un canal en vivo.
+</Tip>
+
+## Notas clave
+
+- Un canal solo puede ejecutar **un workflow** a la vez.
+- Los **workflows** operan **junto con** la identidad, conocimiento y habilidades del agente.
+- Eliminar un workflow **no afecta** las conversaciones ya en curso en ese canal.
