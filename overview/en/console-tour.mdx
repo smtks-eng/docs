@@ -1,89 +1,125 @@
 ---
 title: "Console Tour"
-description: "Welcome to the Semantiks Console! This guide will walk you through the main sections of the console interface, helping you navigate and make the most of the platform."
+description: "Walk through the Semantiks Console: how the sidebar is organized, what each area is for, and where to go first."
 icon: "compass"
 ---
-# Console Navigation
 
-The Semantiks Console is organized into the following main sections, accessible from the navigation menu:
+export const BetaPill = () => (
+  <span
+    style={{
+      display: 'inline-block',
+      marginLeft: '0.35em',
+      padding: '0 6px',
+      height: '18px',
+      lineHeight: '18px',
+      fontSize: '10px',
+      fontWeight: 600,
+      letterSpacing: '0.06em',
+      textTransform: 'uppercase',
+      borderRadius: '9999px',
+      background: '#dbeafe',
+      color: '#1d4ed8',
+      border: '1px solid #93c5fd',
+      verticalAlign: 'middle',
+    }}
+  >
+    Beta
+  </span>
+);
 
-# Agent
+The **Semantiks Console** is built around your AI agent. You switch context with **tabs** at the top of the sidebar—each tab groups a part of the product so you can focus on building the agent, running the contact center, or managing your audience.
 
-<Steps titleSize="h2">
-  <Step title="Identity" icon="user" iconType="regular">
-    Configure your agent's name, description, and personality
-  </Step>
-  <Step title="Knowledge" icon="book" iconType="regular">
-    Manage the information sources your agent can access
-  </Step>
-  <Step title="Capabilities" icon="bolt" iconType="regular">
-    Enable and configure specific agent abilities
-  </Step>
-  <Step title="Channels" icon="share-nodes" iconType="regular">
-    Connect your agent to different communication platforms
-  </Step>
-  <Step title="Playground" icon="flask" iconType="regular">
-    Test your agent in a sandbox environment
-  </Step>
-</Steps>
+## How you move around
 
-# Dashboards
+- **Pick a tab** (AI Agent, Contact Center, or Audience) to see the menu for that area.
+- **Choose an agent** from the selector when you need to work on a specific agent’s configuration or data.
+- **Home** (house icon) opens your agent’s overview dashboard—volume, trends, and health at a glance.
 
-<Steps titleSize="h2">
-  <Step title="Conversations" icon="comments" iconType="regular">
-    View metrics and trends about user interactions
-  </Step>
-  <Step title="Tool Usage" icon="wrench" iconType="regular">
-    Analyze how your agents are using various capabilities
-  </Step>
-  <Step title="Knowledge" icon="book-open" iconType="regular">
-    Track which information sources are most frequently accessed
-  </Step>
-</Steps>
+---
 
-# Campaigns
+## AI Agent tab
 
-<Steps titleSize="h2">
-  <Step title="Campaigns" icon="megaphone" iconType="regular">
-    Create and monitor automated messaging campaigns
-  </Step>
-  <Step title="Templates" icon="file-lines" iconType="regular">
-    Design reusable message templates for your campaigns
-  </Step>
-</Steps>
+Everything under this tab is about **designing, connecting, supervising, and improving** your agent.
 
-# Contacts
+### Home
 
-<Steps titleSize="h2">
-  <Step title="External Contacts" icon="address-book" iconType="regular">
-    Manage contacts from external sources
-  </Step>
-  <Step title="Channel Contacts" icon="address-card" iconType="regular">
-    View and organize contacts by communication channel
-  </Step>
-</Steps>
+Your **starting point** after selecting an agent: key metrics and activity so you know how the agent is performing before you dive into settings.
 
-# Chat Live
+### AI Agent section
 
-<Steps titleSize="h2">
-  <Step title="Notifications" icon="bell" iconType="regular">
-    Configure alerts for important events
-  </Step>
-  <Step title="Conversations Panel" icon="comments" iconType="regular">
-    Monitor and participate in ongoing conversations
-  </Step>
-  <Step title="Configuration" icon="gear" iconType="regular">
-    Set up preferences for the live chat system
-  </Step>
-</Steps>
+#### Design
 
-# Getting Started
+Configure *how* the agent behaves and what it can use:
 
-Now that you're familiar with the console structure, we recommend:
+- **Identity** — Name, tone, greeting, audience, availability, and how the agent presents itself.
+- **Knowledge** — Documents, FAQs, and sources the agent can rely on in answers.
+- **Skills** — Built-in and custom tools (files, FAQs, collect information, human escalation where supported, and your own HTTP tools).
+- **Memories** — What the agent can remember about each user across conversations.
+- **Workflows** — Structured, multi-step conversation flows. <BetaPill />
 
-1. Explore the Agent section to create your first AI assistant
-2. Set up your knowledge base with relevant information
-3. Configure channel integrations to deploy your agent
-4. Use the Dashboards to monitor performance
+#### Playground
 
-For more detailed instructions on any specific feature, please refer to the relevant section in our documentation.
+A **safe sandbox** to chat with the agent and test changes before they affect live channels.
+
+#### Connect
+
+One place to **go live**: internal channels (e.g. External Chat, Web Bubble), **external integrations** (messaging and tools your org uses), and **API** access for programmatic messaging. Channel-specific setup is also documented under Integration Guides where needed.
+
+#### Supervise
+
+Operational visibility over live traffic:
+
+- **Conversations** — Browse and drill into conversations across channels.
+- **Task Log** — See tool and skill invocations step by step (what the agent actually did).
+
+#### Evaluate
+
+Quality and insight on top of raw traffic:
+
+- **Evaluations** — Filtered, scored views for reviewing conversation quality.
+- **Hotspots** — Topics and patterns that stand out. <BetaPill />
+- **Alerts & Reports** — Thresholds, notifications, and reporting. <BetaPill />
+
+### Proactive AI section
+
+#### Engagement
+
+Reach users beyond reactive chat:
+
+- **Campaigns** — Schedule outbound campaigns (e.g. approved WhatsApp templates and audiences).
+- **Follow ups** — Automated re-engagement after silence in a conversation. <BetaPill />
+
+---
+
+## Contact Center tab
+
+Focused on **human agents** working alongside the AI.
+
+### Live Chat
+
+When human escalation is enabled, this is where teams work live conversations:
+
+- **Inbox** — Open, respond to, and take over escalated threads.
+- **Performance** — Team metrics (where available). <BetaPill />
+- **Escalation Insights** — Why and when conversations move from AI to humans. <BetaPill />
+
+---
+
+## Audience tab
+
+Manage **people** who interact with your agents:
+
+- **Contacts** — Lists and segments you use for outreach and operations.
+- **Directory** — Unified view of users who have talked to your agent across channels.
+
+---
+
+## Suggested first path
+
+1. **Home** — Confirm the agent is active and see baseline usage.
+2. **Design** — Identity, Knowledge, and Skills so answers are on-brand and accurate.
+3. **Connect** — Turn on at least one channel or API path.
+4. **Playground** — Validate behavior before going wider.
+5. **Supervise** and **Evaluate** — Monitor conversations and improve over time.
+
+For step-by-step tutorials, open the matching section in this documentation from the left navigation.

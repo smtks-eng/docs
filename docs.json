@@ -21,7 +21,6 @@
             "group": "Overview",
             "pages": [
               "overview/en/welcome",
-              "overview/en/customers",
               "overview/en/console-tour"
             ]
           },
@@ -137,7 +136,6 @@
             "group": "Panorama",
             "pages": [
               "overview/es/bienvenida",
-              "overview/es/clientes",
               "overview/es/tour-de-consola"
             ]
           },

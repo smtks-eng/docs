@@ -1,90 +1,125 @@
 ---
 title: "Tour de la Consola"
-description: "¡Bienvenido a la Consola de Semantiks! Esta guía te mostrará las principales secciones de la interfaz de la consola, ayudándote a navegar y aprovechar al máximo la plataforma."
+description: "Recorre la Consola Semantiks: cómo está organizado el menú, para qué sirve cada área y por dónde empezar."
 icon: "compass"
 ---
 
-## Navegación de la Consola
+export const BetaPill = () => (
+  <span
+    style={{
+      display: 'inline-block',
+      marginLeft: '0.35em',
+      padding: '0 6px',
+      height: '18px',
+      lineHeight: '18px',
+      fontSize: '10px',
+      fontWeight: 600,
+      letterSpacing: '0.06em',
+      textTransform: 'uppercase',
+      borderRadius: '9999px',
+      background: '#dbeafe',
+      color: '#1d4ed8',
+      border: '1px solid #93c5fd',
+      verticalAlign: 'middle',
+    }}
+  >
+    Beta
+  </span>
+);
 
-La Consola de Semantiks está organizada en las siguientes secciones principales, accesibles desde el menú de navegación:
+La **Consola Semantiks** gira en torno a tu agente de IA. Cambias de contexto con las **pestañas** arriba del menú lateral: cada una agrupa una parte del producto para que puedas enfocarte en construir el agente, operar el contact center o gestionar tu audiencia.
 
-# Agente
+## Cómo te mueves
 
-<Steps titleSize="h2">
-  <Step title="Identidad" icon="user" iconType="regular">
-    Configura el nombre, descripción y personalidad de tu agente
-  </Step>
-  <Step title="Conocimiento" icon="book" iconType="regular">
-    Gestiona las fuentes de información a las que tu agente puede acceder
-  </Step>
-  <Step title="Capacidades" icon="bolt" iconType="regular">
-    Habilita y configura habilidades específicas del agente
-  </Step>
-  <Step title="Canales" icon="share-nodes" iconType="regular">
-    Conecta tu agente a diferentes plataformas de comunicación
-  </Step>
-  <Step title="Playground" icon="flask" iconType="regular">
-    Prueba tu agente en un entorno sandbox
-  </Step>
-</Steps>
+- **Elige una pestaña** (AI Agent, Contact Center o Audience) para ver el menú de esa área.
+- **Selecciona un agente** cuando trabajes en la configuración o los datos de un agente concreto.
+- **Home** (ícono de casita) abre el tablero resumen del agente: volumen, tendencias y salud general de un vistazo.
 
-# Tableros
+---
 
-<Steps titleSize="h2">
-  <Step title="Conversaciones" icon="comments" iconType="regular">
-    Visualiza métricas y tendencias sobre las interacciones de los usuarios
-  </Step>
-  <Step title="Uso de Capacidades" icon="wrench" iconType="regular">
-    Analiza cómo tus agentes están utilizando varias capacidades
-  </Step>
-  <Step title="Conocimiento" icon="book-open" iconType="regular">
-    Realiza seguimiento de qué fuentes de información se acceden con más frecuencia
-  </Step>
-</Steps>
+## Pestaña AI Agent
 
-# Campañas
+Todo lo de esta pestaña sirve para **diseñar, conectar, supervisar y mejorar** tu agente.
 
-<Steps titleSize="h2">
-  <Step title="Campañas" icon="megaphone" iconType="regular">
-    Crea y monitorea campañas de mensajería automatizadas
-  </Step>
-  <Step title="Plantillas" icon="file-lines" iconType="regular">
-    Diseña plantillas de mensajes reutilizables para tus campañas
-  </Step>
-</Steps>
+### Home
 
-# Contactos
+Tu **punto de partida** con un agente seleccionado: métricas clave y actividad para saber cómo va el agente antes de entrar a ajustes finos.
 
-<Steps titleSize="h2">
-  <Step title="Contactos Externos" icon="address-book" iconType="regular">
-    Gestiona contactos de fuentes externas
-  </Step>
-  <Step title="Contactos de Canales" icon="address-card" iconType="regular">
-    Visualiza y organiza contactos por canal de comunicación
-  </Step>
-</Steps>
+### Sección AI Agent
 
-# Conversa en Vivo
+#### Design
 
-<Steps titleSize="h2">
-  <Step title="Notificaciones" icon="bell" iconType="regular">
-    Configura alertas para eventos importantes
-  </Step>
-  <Step title="Panel de Conversaciones" icon="comments" iconType="regular">
-    Monitorea y participa en conversaciones en curso
-  </Step>
-  <Step title="Configuración" icon="gear" iconType="regular">
-    Establece preferencias para el sistema de chat en vivo
-  </Step>
-</Steps>
+Configura *cómo* se comporta el agente y con qué cuenta:
 
-# Primeros Pasos
+- **Identidad** — Nombre, tono, saludo, audiencia, disponibilidad y cómo se presenta el agente.
+- **Conocimiento** — Documentos, FAQs y fuentes de las que el agente puede basarse.
+- **Skills** — Herramientas integradas y personalizadas (archivos, FAQs, recopilar información, escalamiento humano cuando el canal lo permita, y tus propias herramientas HTTP).
+- **Memorias** — Qué puede recordar el agente de cada usuario entre conversaciones.
+- **Workflows** — Flujos de conversación estructurados en varios pasos. <BetaPill />
 
-Ahora que estás familiarizado con la estructura de la consola, recomendamos:
+#### Playground
 
-1. Explora la sección de Agente para crear tu primer asistente de IA
-2. Configura tu base de conocimiento con información relevante
-3. Configura integraciones de canales para implementar tu agente
-4. Utiliza los Tableros para monitorear el rendimiento
+**Entorno de prueba** para chatear con el agente y validar cambios sin afectar canales en vivo.
 
-Para instrucciones más detalladas sobre cualquier característica específica, consulta la sección correspondiente en nuestra documentación.
+#### Connect
+
+Un solo lugar para **salir a producción**: canales internos (p. ej. External Chat, Web Bubble), **integraciones externas** (mensajería y herramientas de tu organización) y acceso por **API**. La configuración detallada por canal también está en las guías de integración cuando aplica.
+
+#### Supervise
+
+Visibilidad operativa del tráfico en vivo:
+
+- **Conversaciones** — Explora y profundiza en conversaciones por canal.
+- **Registro de tareas** — Invocaciones de herramientas y skills paso a paso (qué hizo el agente).
+
+#### Evaluate
+
+Calidad e insights sobre el tráfico:
+
+- **Evaluaciones** — Vistas filtradas y puntuadas para revisar calidad de conversación.
+- **Puntos clave (Hotspots)** — Temas y patrones destacados. <BetaPill />
+- **Alertas y reportes** — Umbrales, notificaciones e informes. <BetaPill />
+
+### Sección Proactive AI
+
+#### Engagement
+
+Llega a usuarios más allá del chat reactivo:
+
+- **Campañas** — Programa envíos masivos (p. ej. plantillas aprobadas de WhatsApp y audiencias).
+- **Seguimientos** — Reenganche automático tras inactividad en una conversación. <BetaPill />
+
+---
+
+## Pestaña Contact Center
+
+Pensada para **agentes humanos** que trabajan junto a la IA.
+
+### Live Chat
+
+Con escalamiento humano activo, aquí opera el equipo en conversaciones en vivo:
+
+- **Bandeja de entrada (Inbox)** — Abre, responde y toma el control de conversaciones escaladas.
+- **Desempeño** — Métricas del equipo (donde esté disponible). <BetaPill />
+- **Perspectivas de escalación** — Cuándo y por qué el tráfico pasa de la IA a humanos. <BetaPill />
+
+---
+
+## Pestaña Audience
+
+Gestiona a las **personas** que interactúan con tus agentes:
+
+- **Contactos** — Listas y segmentos para operación y alcance.
+- **Directorio** — Vista unificada de usuarios que han hablado con el agente en todos los canales.
+
+---
+
+## Ruta sugerida para empezar
+
+1. **Home** — Confirma que el agente está activo y revisa el uso base.
+2. **Design** — Identidad, Conocimiento y Skills para respuestas alineadas y correctas.
+3. **Connect** — Activa al menos un canal o vía API.
+4. **Playground** — Valida el comportamiento antes de ampliar.
+5. **Supervise** y **Evaluate** — Monitorea conversaciones y mejora con el tiempo.
+
+Para tutoriales paso a paso, usa la sección correspondiente en el menú de esta documentación.
