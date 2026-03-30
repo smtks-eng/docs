@@ -58,61 +58,50 @@ En la pestaña **Idioma**, puedes configurar los idiomas que tu agente entiende 
 
 ### Audiencia
 
-Usa la pestaña **Audiencia** para definir con quién está destinado a hablar tu agente. Esto ayuda a ajustar el tono, la complejidad y el tipo de respuestas.
+Usa la pestaña **Audiencia** para definir a quién está dirigido tu agente. Esto ayuda a ajustar el tono, la complejidad y el tipo de respuestas.
 
 ![identity_agent-step-7.png](/images/agent/identity_agent/identity_agent-step-7.png)
 
-- **Grupo de edad**: Selecciona los rangos de edad típicos de tus usuarios.
-
-  ![identity_agent-step-8.png](/images/agent/identity_agent/identity_agent-step-8.png)
-- **Países**: Define tu audiencia principal por país.
-
-![identity_agent-step-9.png](/images/agent/identity_agent/identity_agent-step-9.png)
-
-- **Descripción de la audiencia**: Da una breve descripción para ayudar a tu agente a entender mejor a tus usuarios objetivo.
-
-<Note>
-  Adaptar el agente a tu audiencia asegura una mejor coincidencia en tono, complejidad y estructura de contenido.
-</Note>
-
 ---
 
-### Disponibilidad
+### Mensajes Programados
 
-Aquí, defines los días y horas exactos en que tu agente estará disponible para los usuarios. Usa esto para alinearte con equipos de soporte, ventanas de automatización u horarios comerciales.
+Los mensajes programados (también llamados anuncios) te permiten definir mensajes que tu agente envía automáticamente durante una ventana de tiempo específica. Cada mensaje programado tiene un **título**, un **cuerpo del mensaje** y un **toggle de programación** opcional que controla si el mensaje está limitado en el tiempo.
 
-![identity_agent-step-10.png](/images/agent/identity_agent/identity_agent-step-10.png)
+#### Crear un Mensaje Programado
 
-- **Días de la semana**: Elige qué días tu agente está activo.
+1. Navega a **Agente IA > Diseño > Identidad** y abre la pestaña **Mensajes Programados**.
+2. Haz clic en **Nuevo Mensaje**.
+3. Ingresa un **Título** y un **Mensaje**.
+4. *(Opcional)* Activa el **toggle de Programación** para restringir el mensaje a una ventana de fecha/hora.
+5. Si la programación está activa, selecciona una **Fecha de inicio** y una **Fecha de fin**, junto con sus respectivas horas.
+6. Haz clic en **Guardar**.
 
-  ![identity_agent-step-11.png](/images/agent/identity_agent/identity_agent-step-11.png)
-- **Hora de inicio / Hora de fin**: Establece las horas de trabajo para tu agente.
+#### Validación de Programación
+
+Cuando el toggle de programación está activado, la plataforma valida tu selección de fechas antes de guardar:
+
+| Escenario | Qué sucede |
+|---|---|
+| Programación activa pero **ninguna fecha** seleccionada | Un error pide que selecciones una fecha de inicio y una de fin. |
+| Programación activa pero **falta solo la fecha de inicio** | Un error pide que selecciones una fecha de inicio. |
+| Programación activa pero **falta solo la fecha de fin** | Un error pide que selecciones una fecha de fin. |
+| La **fecha/hora de inicio ya pasó** (solo al crear) | Un error pide que elijas una fecha y hora futura. |
+| La **fecha/hora de fin es igual o anterior** a la de inicio | Un error pide que la fecha de fin sea posterior a la de inicio. |
+
+<Note>
+  La fecha de fin solo necesita ser **posterior** a la fecha de inicio; no es necesario que sea un día completo después. La programación en el mismo día con horarios distintos es totalmente válida.
+</Note>
+
+#### Desactivar la Programación
+
+Si desactivas el toggle de programación en un mensaje existente y guardas, las fechas de inicio y fin almacenadas previamente se eliminan. El mensaje dejará de estar limitado en el tiempo y se comportará como un anuncio siempre activo (sujeto a su estado habilitado/deshabilitado).
+
+#### Editar y Eliminar
+
+- Haz clic en cualquier mensaje programado existente para editar su título, cuerpo o ventana de programación.
+- Usa la opción de eliminar para borrar un mensaje programado por completo.
 
 <Tip>
-  Si tu agente manejará soporte fuera de horario, asegúrate de configurar flujos de respaldo en tus ajustes de automatización.
+  Usa los mensajes programados para anuncios sensibles al tiempo, como promociones, ventanas de mantenimiento o saludos de temporada.
 </Tip>
-
----
-
-### Programar Saludo / Despedida
-
-Puedes programar mensajes de bienvenida y despedida para que aparezcan en días específicos o durante eventos especiales.
-
-![identity_agent-step-12.png](/images/agent/identity_agent/identity_agent-step-12.png)
-
-- Selecciona si estás programando un **saludo** o una **despedida**
-
-  ![identity_agent-step-13.png](/images/agent/identity_agent/identity_agent-step-13.png)
-- Establece el estado como **Todos**, **Activo**, **Programado** o **Expirado**
-
-![identity_agent-step-14.png](/images/agent/identity_agent/identity_agent-step-14.png)
-
-- Elige la fecha y hora específica cuando debe activarse el mensaje
-
-  ![identity_agent-step-15.png](/images/agent/identity_agent/identity_agent-step-15.png)
-
-<Note>
-  Esto es perfecto para mensajes temporales, como saludos festivos, lanzamientos de campañas o actualizaciones de servicio programadas.
-</Note>
-
-**_La identidad de tu agente es más que solo un nombre y una imagen: es la base para la confianza y la claridad en las conversaciones. Invierte tiempo aquí y revisa frecuentemente para mantenerlo alineado con tus usuarios y marca._**

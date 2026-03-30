@@ -62,57 +62,46 @@ Use the **Audience** tab to define who your agent is meant to talk to. This help
 
 ![identity_agent-step-7.png](/images/agent/identity_agent/identity_agent-step-7.png)
 
-- **Age group**: Select the typical age ranges of your users.
-
-  ![identity_agent-step-8.png](/images/agent/identity_agent/identity_agent-step-8.png)
-- **Countries**: Define your main audience by country.
-
-![identity_agent-step-9.png](/images/agent/identity_agent/identity_agent-step-9.png)
-
-- **Audience description**: Give a short description to help your agent better understand your target users.
-
-<Note>
-  Tailoring the agent to your audience ensures a better match in tone, complexity, and content structure.
-</Note>
-
 ---
 
-### Availability
+### Scheduled Messages
 
-Here, you define the exact days and times your agent will be available to users. Use this to align with support teams, automation windows, or business hours.
+Scheduled messages (also called announcements) let you define messages that your agent sends automatically during a specific time window. Each scheduled message has a **title**, a **message body**, and an optional **scheduling** toggle that controls whether the message is time-bound.
 
-![identity_agent-step-10.png](/images/agent/identity_agent/identity_agent-step-10.png)
+#### Creating a Scheduled Message
 
-- **Days of the week**: Choose which days your agent is active.
+1. Navigate to **AI Agent > Design > Identity** and open the **Scheduled Messages** tab.
+2. Click **New Message**.
+3. Enter a **Title** and a **Message**.
+4. *(Optional)* Enable the **Scheduling** toggle to restrict the message to a date/time window.
+5. If scheduling is enabled, select a **Start date** and an **End date**, along with their respective times.
+6. Click **Save**.
 
-  ![identity_agent-step-11.png](/images/agent/identity_agent/identity_agent-step-11.png)
-- **Start time / End time**: Set the working hours for your agent.
+#### Scheduling Validation
+
+When the scheduling toggle is turned on, the platform validates your date selections before saving:
+
+| Scenario | What happens |
+|---|---|
+| Scheduling enabled but **neither date** is selected | An error asks you to select both a start date and an end date. |
+| Scheduling enabled but **only the start date** is missing | An error asks you to select a start date. |
+| Scheduling enabled but **only the end date** is missing | An error asks you to select an end date. |
+| The **start date/time is in the past** (create only) | An error asks you to choose a future date and time. |
+| The **end date/time is equal to or before** the start date/time | An error asks you to set the end date after the start date. |
+
+<Note>
+  The end date only needs to be **after** the start date—it does not need to be a full day later. Same-day scheduling with different times is perfectly valid.
+</Note>
+
+#### Turning Scheduling Off
+
+If you toggle scheduling **off** on an existing message and save, the previously stored start and end dates are cleared. The message will no longer be time-bound and will behave as an always-active announcement (subject to its enabled/disabled status).
+
+#### Editing and Deleting
+
+- Click on any existing scheduled message to edit its title, body, or scheduling window.
+- Use the delete option to remove a scheduled message entirely.
 
 <Tip>
-  If your agent will handle off-hours support, make sure to configure fallback flows in your automation settings.
+  Use scheduled messages for time-sensitive announcements like promotions, maintenance windows, or seasonal greetings.
 </Tip>
-
----
-
-### Schedule Greeting / Farewell
-
-You can program welcome and goodbye messages to appear on specific days or during special events.
-
-![identity_agent-step-12.png](/images/agent/identity_agent/identity_agent-step-12.png)
-
-- Select whether you're scheduling a **greeting** or **farewell**
-
-  ![identity_agent-step-13.png](/images/agent/identity_agent/identity_agent-step-13.png)
-- Set the status to **All, Active**, **Scheduled**, or **Expired**
-
-![identity_agent-step-14.png](/images/agent/identity_agent/identity_agent-step-14.png)
-
-- Choose the specific date and time when the message should be triggered
-
-  ![identity_agent-step-15.png](/images/agent/identity_agent/identity_agent-step-15.png)
-
-<Note>
-  This is perfect for temporary messages—like holiday greetings, campaign launches, or scheduled service updates.
-</Note>
-
-**_Your agent's identity is more than just a name and a picture—it's the foundation for trust and clarity in conversations. Invest time here and revisit often to keep it aligned with your users and brand._**
