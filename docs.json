@@ -78,6 +78,7 @@
                     "icon": "paper-plane",
                     "pages": [
                       "campaigns/en/campaigns",
+                      "campaigns/en/ab-testing",
                       "contacts/en/followups"
                     ]
                   }
@@ -187,6 +188,7 @@
                     "icon": "paper-plane",
                     "pages": [
                       "campaigns/es/camapañas",
+                      "campaigns/es/pruebas-ab",
                       "contacts/es/seguimientos"
                     ]
                   }

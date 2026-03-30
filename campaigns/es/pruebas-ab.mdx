@@ -1,0 +1,91 @@
+---
+title: "Pruebas A/B"
+language: es
+description: "Compara variantes de mensajes lado a lado para descubrir cuál conecta mejor con tu audiencia. Crea pruebas, divide el tráfico entre variantes y elige un ganador, todo desde la Consola de Semantiks."
+---
+
+Las **Pruebas A/B** te permiten ejecutar experimentos controlados sobre tus mensajes de campaña. En lugar de adivinar qué redacción, tono o llamado a la acción funcionará mejor, puedes crear múltiples variantes, dividir el tráfico entre ellas y usar resultados reales para elegir un ganador.
+
+Esta funcionalidad se encuentra dentro de la sección **IA Proactiva > Enganche** y funciona junto con tu flujo de Campañas existente.
+
+<Info>
+  Las Pruebas A/B están diseñadas para mensajes de campañas salientes. Asegúrate de tener al menos una campaña activa o plantilla de mensaje antes de crear una prueba.
+</Info>
+
+---
+
+## Conceptos Clave
+
+### Pruebas
+
+Una prueba A/B es un contenedor que agrupa dos o más **variantes** de un mensaje. Cada prueba tiene:
+
+- **Nombre** — una etiqueta descriptiva para que tu equipo identifique el experimento (ej. `Oferta de bienvenida – Ene 2025`)
+- **Estado** — el estado actual de la prueba:
+  - **Borrador** (*Draft*) — creada pero aún no en ejecución
+  - **En ejecución** (*Running*) — enviando variantes activamente a los contactos
+  - **Completada** (*Completed*) — finalizada, ya sea detenida manualmente o después de seleccionar un ganador
+- **Ganador** — la variante que tú (o tu equipo) seleccionan como la de mejor desempeño
+
+### Variantes
+
+Cada variante representa una versión diferente del mensaje que deseas probar. Una variante incluye:
+
+- **Nombre** — una etiqueta corta (ej. `Variante A`, `Tono amigable`)
+- **Mensaje** — el contenido real del mensaje que se envía a los contactos
+- **Porcentaje de tráfico** — la proporción de tu audiencia que recibirá esta variante
+
+<Note>
+  Los porcentajes de tráfico de todas las variantes en una prueba deben sumar **100 %**.
+</Note>
+
+---
+
+## Crear una Prueba A/B
+
+<Steps>
+  <Step title="Navega a Pruebas A/B">
+    Ve a **IA Proactiva > Enganche > Pruebas A/B** en el menú lateral.
+  </Step>
+  <Step title="Haz clic en Nueva Prueba A/B">
+    Haz clic en el botón **New A/B Test** (o su equivalente en la interfaz) en el encabezado de la página para comenzar a crear tu experimento.
+  </Step>
+  <Step title="Nombra tu prueba">
+    Dale a la prueba un nombre claro y descriptivo para que tu equipo pueda encontrarla fácilmente.
+  </Step>
+  <Step title="Agrega variantes">
+    Crea dos o más variantes. Para cada una, ingresa:
+    - Un **nombre de variante**
+    - El **contenido del mensaje**
+    - El **porcentaje de tráfico** que debe recibir esta variante
+  </Step>
+  <Step title="Lanza la prueba">
+    Una vez que estés conforme con la configuración, inicia la prueba. Su estado cambiará a **En ejecución** y los mensajes comenzarán a enviarse.
+  </Step>
+</Steps>
+
+---
+
+## Gestionar una Prueba en Ejecución
+
+Mientras una prueba está en ejecución puedes:
+
+- **Seleccionar un ganador** — Haz clic en **Select as Winner** en la variante que mejor está funcionando. La prueba se marcará como **Completada** y la variante ganadora mostrará una insignia de **Ganador** (*Winner*).
+- **Detener la prueba** — Haz clic en **Stop Test** para finalizar el experimento de inmediato. El estado de la prueba cambia a **Completada** sin seleccionar un ganador.
+
+<Tip>
+  Deja que la prueba se ejecute el tiempo suficiente para recopilar datos significativos antes de elegir un ganador. Muestras pequeñas pueden llevar a resultados engañosos.
+</Tip>
+
+---
+
+## Mejores Prácticas
+
+- **Prueba una variable a la vez.** Cambia solo la redacción del mensaje, o solo el llamado a la acción, no ambos. Esto facilita entender qué generó la diferencia.
+- **Equilibra tu tráfico.** Una división 50/50 es el punto de partida más simple para dos variantes. Usa divisiones desiguales solo cuando quieras limitar la exposición a una idea no probada.
+- **Documenta tus aprendizajes.** Después de completar una prueba, anota qué funcionó y aplica esas ideas a futuras campañas.
+- **Combina con Campañas.** Usa la variante ganadora como plantilla para tu próximo envío de campaña completo.
+
+<Warning>
+  Detener una prueba no se puede deshacer. Asegúrate de haber recopilado suficientes datos antes de finalizar el experimento.
+</Warning>
