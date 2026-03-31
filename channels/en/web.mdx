@@ -6,6 +6,18 @@ language: en
 ---
 
 The **Web Channel** allows you to deploy your Agent as a standalone web page, accessible from any browser. Unlike the embedded Bubble, this option creates a direct link you can share with customers, making it simple for anyone to interact with your Agent without needing integration into an existing site.
+
+## Page layout
+
+When you open the Web channel settings (**Channels > Web**), you'll see a **two-panel layout**:
+
+- **Left panel** — configuration tabs where you adjust appearance and domain settings.
+- **Right panel** — a live preview that updates in real time as you make changes, displayed inside a browser-style mockup.
+
+Use the **back arrow** at the top-left of the panel to return to the Channels overview.
+
+---
+
 <Tabs>
   <Tab title="Appearance" icon="palette">
     ## Appearance
@@ -15,54 +27,92 @@ The **Web Channel** allows you to deploy your Agent as a standalone web page, ac
 
     Navigate to **Channels > Web > Appearance** to configure the following:
 
-    ### Options available
-    - **Header Title:** Define a title that appears at the top of the chat page.  
-    - **Logo:** Upload a logo to be displayed alongside the Agent.  
-    - **Avatar:** Set a profile image representing the Agent.  
-    - **Header Color:** Choose a solid or gradient color for the header bar.  
-      - Gradient options: **Enable gradients**, select a secondary color, and choose **Horizontal** or **Vertical** direction.  
-    - **Background Color:** Define the background behind the chat window. Solid and gradient options are supported.  
-    - **Welcome Message:** Personalize the first message users see when they arrive.  
-    - **Suggested Messages:** Predefine quick-start prompts that encourage users to engage with the Agent.
+    ### Icon vs Logo mode
+
+    At the top of the Appearance section you'll find a **"Prefer logo over icon"** toggle:
+
+    - **Off (Icon mode)** — Upload a square image that is displayed as a small **round icon** in the header and as a circular avatar on the welcome screen.
+    - **On (Logo mode)** — Upload a wider **title image / logo** that is displayed with rounded corners in the header and at a configurable size on the welcome screen.
+
+    Use whichever mode best matches your brand assets.
+
+    ### Logo / Icon size
+
+    A **size slider** lets you control how large the logo or icon appears on the welcome screen (before the user sends their first message). Drag it to find the right balance between brand visibility and chat space.
+
+    ### Background color
+
+    Set the **background color** of the entire chat page. This color is applied behind the chat messages and welcome screen. Solid color and gradient options are supported:
+
+    - **Enable gradients** — pick a secondary color and choose **Horizontal** or **Vertical** direction.
+    - **Swap colors** — quickly reverse primary and secondary gradient colors.
+
+    ### Welcome message
+
+    Personalize the first message users see when they arrive.
+
+    ### Suggested messages
+
+    Predefine quick-start prompts that encourage users to engage with the Agent.
 
     <Note>
-    All changes can be previewed live in the right-hand widget before publishing.
+    All changes can be previewed live in the right-hand panel before saving.
     </Note>
+
+    ### Saving changes
+
+    A **sticky Save button** appears at the bottom of the Appearance tab. Click it to persist your changes. The button shows:
+    - **"Save changes"** — ready to save.
+    - **"Saving..."** with a spinner — save in progress.
+    - **"Saved" ✓** — save completed (shown for a few seconds).
   </Tab>
 
-  <Tab title="Features & Behavior" icon="settings">
-    ## Features & Behavior (Coming Soon)
+  <Tab title="Domain setup" icon="link">
+    ## Domain setup
 
-    This section will introduce behavioral configurations for your Web Channel. Planned options include:
+    The **Domain setup** tab contains your shareable link and deployment options.
 
-    - **Session control:** Enable restart options or persistent conversations across visits.  
-    - **Language settings:** Define default language and enable multi-language support.  
-    - **Access controls:** Password protection, token-based access, or public access.  
-    - **Business hours:** Define when the web page should be available to users.  
-    - **Custom domains:** Map the web channel to your own subdomain for a branded experience.  
+    Every Web Channel provides a unique link you can share with customers, partners, or internal teams.
 
-    <Note>
-    These settings are under development and will be released in a future update.
-    </Note>
+    ### Actions available
+    - **Copy link** — use the copy button to grab the full URL.
+    - **Visit link** — open the Agent's web page directly in a new tab.
+
+    Example:
+    ```
+    https://consola.semantiks.com/external-chat?agent_id=your-agent-id
+    ```
+
+    <Tip>
+    Free trial credits can be activated from this tab if your organization hasn't set up a usage contract yet.
+    </Tip>
   </Tab>
 </Tabs>
 
 ---
 
-## Share Link
+## End-user chat experience
 
-Every Web Channel provides a unique link you can share with customers, partners, or internal teams.  
-You can find this link in the **Share** section at the top of the Console page.
+When a user opens the shared link, they land on the chat page. Here's what they'll see:
 
-Example:
-```
-[https://consola.semantiks.com/external-chat?agent\_id=your-agent-id](https://consola.semantiks.com/external-chat?agent_id=your-agent-id)
-```
-
-### Actions available
-- **Copy link:** Use the “Copy” button to copy the full URL.  
-- **Visit link:** Open the Agent’s web page directly in a new tab.  
+| Element | Behavior |
+|---|---|
+| **Welcome screen** | The configured logo/icon is shown centered above the input field. The placeholder reads *"What can I help you with today?"*. |
+| **Header** | Displays the logo or icon (depending on the mode you chose) once the conversation starts. |
+| **New thread button** | Fixed in the **top-right corner** of the screen. Click it to start a fresh conversation. |
+| **Language selector** | Located in the **footer** alongside Privacy and Terms links. Users can switch between English and Spanish from a dropdown menu. |
+| **Background color** | The page background matches the color you configured in the Appearance tab. |
 
 <Note>
-This makes it easy to distribute your Agent without embedding code or requiring external integrations.
+The live preview in the Console shows the same chat experience your end users will see, so what you see is what they get.
 </Note>
+
+---
+
+## Best practices
+
+- **Use Logo mode** if you have a horizontal brand logo — it gives the welcome screen a polished, branded feel.
+- **Use Icon mode** if you have a square avatar or app icon — it keeps the look compact and conversational.
+- **Adjust the size slider** to ensure your logo is prominent without overwhelming the chat area.
+- **Pick a background color** that provides good contrast with the chat bubbles for readability.
+- **Test in preview** before saving — the right-hand panel updates instantly so you can iterate quickly.
