@@ -16,6 +16,7 @@ Workflows is a **Beta** feature. It is actively being developed and some capabil
 ### Stages
 A stage is a step in the conversation. Each stage has:
 - A **name** that identifies the step (e.g. `Greeting`, `Qualification`, `Closing`)
+- An **identifier** — automatically generated from the stage name (lowercase, no accents, underscores instead of spaces). Identifiers must be unique across all stages in a workflow.
 - **Instructions** that tell the agent what to do or say in that stage
 - A **goal** — what the agent needs to accomplish before moving on
 
@@ -25,8 +26,39 @@ A transition is the rule that moves the conversation from one stage to the next.
 - The **target stage** (where to go next)
 - The **condition** that triggers the transition (e.g. user confirmed their email, user said they're interested)
 
+<Warning>
+Every transition **must** have a condition. The workflow cannot be saved if any transition has an empty condition.
+</Warning>
+
 ### Channels
 Each workflow is assigned to one or more channels. A channel can only be assigned to **one workflow at a time**.
+
+## The Workflow Editor
+
+The workflow editor is a visual canvas where you drag, drop, and connect stages. The settings for each stage — and its outgoing transitions — are managed from a single side panel.
+
+### Stage Settings Panel
+
+Click any stage on the canvas to open the **Stage Settings** panel on the right. The panel is organized into collapsible accordion sections:
+
+| Section | What it contains |
+|---|---|
+| **Stage Settings** | Stage name (and auto-generated identifier) and agent instructions for this step. |
+| **Knowledge Snippets** | Context or knowledge text that the agent can reference during this stage. |
+| **Topics Search** | Toggle to enable searching the knowledge base, with optional topic filtering. |
+| **Transitions** | All outgoing transitions from this stage, each with its target and condition. |
+
+### Managing Transitions
+
+Transitions are configured **inside the source stage's settings panel**, in the **Transitions** section:
+
+1. **Create a transition** by drawing a connection from one stage to another on the canvas. When you connect two stages, the source stage's settings panel opens automatically so you can define the condition right away.
+2. **Edit a condition** by opening the source stage's settings and scrolling to the Transitions section. Each outgoing transition shows the target stage name and a text field for the condition.
+3. **Delete a transition** using the trash icon next to the transition in the panel.
+
+<Tip>
+Transitions with empty conditions are highlighted with a red dashed border to help you spot them before saving.
+</Tip>
 
 ## Creating a Workflow
 
@@ -38,10 +70,10 @@ Each workflow is assigned to one or more channels. A channel can only be assigne
     Click **New Workflow**. A new workflow is created automatically and you're taken to the visual editor.
   </Step>
   <Step title="Add stages">
-    In the editor, add stages to represent each step of the conversation. Give each stage a clear name and write the instructions the agent should follow at that point.
+    In the editor, add stages to represent each step of the conversation. Give each stage a clear name — a unique identifier is generated automatically from the name.
   </Step>
   <Step title="Define transitions">
-    Connect stages by adding transitions. For each transition, define the condition that triggers it—this can be a user action, a phrase, or a data condition.
+    Connect stages by drawing edges between them on the canvas. When you create a connection, the source stage's settings panel opens so you can immediately write the transition condition.
   </Step>
   <Step title="Assign channels">
     In the workflow settings, assign the channels where this workflow should run. The Playground channel is auto-assigned on creation so you can test immediately.
@@ -50,6 +82,13 @@ Each workflow is assigned to one or more channels. A channel can only be assigne
     Save the workflow and head to the **Playground** to test the full conversation flow end to end.
   </Step>
 </Steps>
+
+## Validation on Save
+
+When you save a workflow, the editor validates:
+
+- **No empty conditions** — Every transition must have a non-empty condition. If a transition is missing a condition, you'll see an error toast showing which connection needs attention (e.g. *Stage A → Stage B*).
+- **No duplicate identifiers** — Each stage must have a unique identifier. If two or more stages share the same identifier, you'll be asked to rename one before saving.
 
 ## Testing a Workflow
 
@@ -61,7 +100,7 @@ Test your workflow thoroughly at each transition. Try giving unexpected answers 
 
 ## Key notes
 
-- A channel can only run **one workflow** at a time—assigning a new workflow to a channel replaces the previous one.
-- Workflows operate **alongside** the agent's identity, knowledge, and skills—they define the structure, but the agent still uses its full capabilities within each stage.
-- You can have **multiple workflows** (e.g. one per use case or channel), each independently configured.
-- Deleting a workflow **does not affect** conversations already in progress on that channel.
+- A channel can only run **one workflow** at a time.
+- **Workflows** operate alongside the agent's identity, knowledge, and skills — they don't replace them.
+- Stage identifiers are generated automatically from the stage name and must be unique within a workflow.
+- Deleting a workflow does **not** affect conversations already in progress on that channel.

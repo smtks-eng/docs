@@ -16,6 +16,7 @@ Workflows es una función en **Beta**. Está en desarrollo activo y algunas capa
 ### Etapas
 Una etapa es un paso en la conversación. Cada etapa tiene:
 - Un **nombre** que identifica el paso (ej. `Saludo`, `Calificación`, `Cierre`)
+- Un **identificador** — generado automáticamente a partir del nombre de la etapa (minúsculas, sin acentos, guiones bajos en lugar de espacios). Los identificadores deben ser únicos dentro del workflow.
 - **Instrucciones** que le dicen al agente qué hacer o decir en esa etapa
 - Un **objetivo** — qué necesita lograr el agente antes de avanzar
 
@@ -25,8 +26,39 @@ Una transición es la regla que mueve la conversación de una etapa a la siguien
 - La **etapa destino** (hacia dónde ir)
 - La **condición** que activa la transición
 
+<Warning>
+Toda transición **debe** tener una condición. El workflow no se puede guardar si alguna transición tiene la condición vacía.
+</Warning>
+
 ### Canales
 Cada **workflow** se asigna a uno o más canales. Un canal solo puede tener **un workflow a la vez**.
+
+## El editor de Workflows
+
+El editor de workflows es un lienzo visual donde puedes arrastrar, soltar y conectar etapas. La configuración de cada etapa — y sus transiciones salientes — se gestiona desde un único panel lateral.
+
+### Panel de configuración de etapa
+
+Haz clic en cualquier etapa del lienzo para abrir el panel de **Configuración de Etapa** a la derecha. El panel está organizado en secciones colapsables tipo acordeón:
+
+| Sección | Qué contiene |
+|---|---|
+| **Configuración de Etapa** | Nombre de la etapa (e identificador auto-generado) e instrucciones del agente para este paso. |
+| **Fragmentos de conocimiento** | Texto de contexto o conocimiento que el agente puede consultar durante esta etapa. |
+| **Búsqueda de temas** | Interruptor para habilitar la búsqueda en la base de conocimiento, con filtrado opcional por temas. |
+| **Transiciones** | Todas las transiciones salientes de esta etapa, cada una con su destino y condición. |
+
+### Gestión de transiciones
+
+Las transiciones se configuran **dentro del panel de configuración de la etapa origen**, en la sección **Transiciones**:
+
+1. **Crear una transición**: dibuja una conexión de una etapa a otra en el lienzo. Al conectar dos etapas, el panel de configuración de la etapa origen se abre automáticamente para que puedas definir la condición de inmediato.
+2. **Editar una condición**: abre la configuración de la etapa origen y ve a la sección de Transiciones. Cada transición saliente muestra el nombre de la etapa destino y un campo de texto para la condición.
+3. **Eliminar una transición**: usa el ícono de papelera junto a la transición en el panel.
+
+<Tip>
+Las transiciones con condiciones vacías se resaltan con un borde rojo punteado para ayudarte a detectarlas antes de guardar.
+</Tip>
 
 ## Crear un workflow
 
@@ -35,21 +67,32 @@ Cada **workflow** se asigna a uno o más canales. Un canal solo puede tener **un
     Navega a **Agente IA > Diseño > Workflows** en el menú lateral.
   </Step>
   <Step title="Crea un nuevo workflow">
-    Haz clic en **New Workflow** (o el equivalente si la interfaz sigue solo en inglés). Se crea un workflow nuevo y se abre el editor visual.
+    Haz clic en **New Workflow**. Se crea un workflow nuevo y se abre el editor visual.
   </Step>
   <Step title="Agrega etapas">
-    En el editor, agrega etapas que representen cada paso de la conversación.
+    En el editor, agrega etapas que representen cada paso de la conversación. Dale a cada etapa un nombre claro — se generará un identificador único automáticamente a partir del nombre.
   </Step>
   <Step title="Define transiciones">
-    Conecta las etapas agregando transiciones y definiendo las condiciones que las activan.
+    Conecta las etapas dibujando aristas entre ellas en el lienzo. Al crear una conexión, el panel de configuración de la etapa origen se abre para que puedas escribir la condición de transición de inmediato.
   </Step>
   <Step title="Asigna canales">
-    En la configuración del workflow, asigna los canales donde debe ejecutarse.
+    En la configuración del workflow, asigna los canales donde debe ejecutarse. El canal Playground se asigna automáticamente para que puedas probar inmediatamente.
   </Step>
   <Step title="Guarda y prueba">
     Guarda y ve al **Playground** para probar el flujo de conversación completo.
   </Step>
 </Steps>
+
+## Validaciones al guardar
+
+Al guardar un workflow, el editor valida:
+
+- **Sin condiciones vacías** — Toda transición debe tener una condición. Si alguna transición no tiene condición, verás un mensaje de error indicando qué conexión necesita atención (ej. *Etapa A → Etapa B*).
+- **Sin identificadores duplicados** — Cada etapa debe tener un identificador único. Si dos o más etapas comparten el mismo identificador, se te pedirá renombrar una antes de guardar.
+
+## Probar un workflow
+
+Usa el **Playground** (Agente IA > Diseño > Playground) para probar tu workflow antes de ponerlo en producción. El canal Playground se asigna automáticamente al crear un workflow para que puedas simular el flujo completo.
 
 <Tip>
 Prueba tu workflow exhaustivamente en cada transición. Intenta dar respuestas inesperadas para asegurarte de que el agente maneja los casos extremos antes de asignarlo a un canal en vivo.
@@ -58,5 +101,6 @@ Prueba tu workflow exhaustivamente en cada transición. Intenta dar respuestas i
 ## Notas clave
 
 - Un canal solo puede ejecutar **un workflow** a la vez.
-- Los **workflows** operan **junto con** la identidad, conocimiento y habilidades del agente.
+- Los **workflows** operan **junto con** la identidad, conocimiento y habilidades del agente — no los reemplazan.
+- Los identificadores de etapa se generan automáticamente a partir del nombre y deben ser únicos dentro del workflow.
 - Eliminar un workflow **no afecta** las conversaciones ya en curso en ese canal.
