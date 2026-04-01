@@ -1,58 +1,136 @@
 ---
-title: "Bandeja de entrada"
-description: "Monitorea y responde conversaciones en vivo entre usuarios y tu agente de IA—o toma el control como agente humano cuando sea necesario."
+title: "Panel de Conversaciones"
+language: es
+description: "Monitorea, gestiona y responde a conversaciones en vivo entre tu agente de IA y los usuarios en tiempo real."
 ---
 
-La **Bandeja de Entrada** es tu espacio de trabajo en tiempo real para gestionar conversaciones. Muestra todas las conversaciones activas y recientes manejadas por tu agente de IA, y permite que tú o cualquier agente humano intervenga y responda directamente cuando la situación lo requiere.
+El **Panel de Conversaciones** es tu centro de control en tiempo real para monitorear y gestionar todas las conversaciones que tu agente de IA está manejando. Desde aquí puedes observar lo que los usuarios preguntan, tomar el control de las conversaciones cuando sea necesario y responder directamente como agente humano.
 
-<Info>
-La bandeja de entrada forma parte de **Centro de contacto > Chat en vivo**. Está pensada para equipos que tienen habilitada la escalación humana en al menos un canal.
-</Info>
+---
 
-## Lo que verás
+## Vista general del diseño
 
-Al abrir la Bandeja de Entrada, encontrarás una lista de conversaciones a la izquierda y un panel de chat a la derecha.
+La pantalla de Chat en Vivo se divide en dos áreas principales:
+
+- **Barra lateral (izquierda)** — lista todas las conversaciones con búsqueda, filtros y estado en tiempo real
+- **Área de chat (derecha)** — muestra los mensajes de la conversación seleccionada y proporciona controles para responder
+
+---
+
+## Barra lateral
+
+### Estado de conexión
+
+En la parte superior de la barra lateral, junto al título, un **indicador de conexión** muestra si el Chat en Vivo está recibiendo actualizaciones en tiempo real:
+
+- **Live** (ícono Wi-Fi verde) — el panel está conectado y recibiendo actualizaciones en tiempo real
+- **Offline** (ícono Wi-Fi gris) — la conexión se ha perdido; las actualizaciones pueden retrasarse
+
+<Note>
+El panel también consulta actualizaciones periódicamente, por lo que las conversaciones se actualizarán incluso si la conexión en tiempo real se pierde temporalmente.
+</Note>
+
+### Búsqueda
+
+Usa la **barra de búsqueda** en la parte superior de la barra lateral para encontrar conversaciones por palabra clave. Los resultados se actualizan mientras escribes.
+
+### Filtros
+
+Debajo de la barra de búsqueda, dos filtros desplegables te permiten acotar la lista de conversaciones:
+
+| Filtro | Opciones | Descripción |
+|---|---|---|
+| **Estado** | Todos / Activos / Inactivos | Muestra todas las conversaciones, solo las activas o solo las finalizadas |
+| **Manejado por** | Todos / Agente / Humano | Muestra todas las conversaciones, solo las manejadas por la IA o solo las tomadas por un agente humano |
 
 ### Lista de conversaciones
 
-Cada fila muestra:
-- **Nombre o identificador del contacto** — el usuario que interactúa con tu agente
-- **Canal** — la plataforma donde ocurre la conversación (p. ej. WhatsApp, Freshchat, burbuja web)
-- **Vista previa del último mensaje** — el mensaje más reciente enviado o recibido
-- **Hora** — cuándo se envió el último mensaje
-- **Indicador de estado** — si la conversación está activa, en espera o resuelta
+Cada conversación en la lista muestra:
 
-### Panel de chat
+- **Avatar del usuario** con iniciales y un **punto verde** si la conversación está activa
+- **Nombre del usuario** y **marca de tiempo relativa** (ej. "hace 2 min")
+- **Vista previa del último mensaje**
+- Una **insignia "Human"** (con ícono de auriculares) si un agente humano ha tomado el control de la conversación
 
-Haz clic en cualquier conversación para abrirla en el panel. Verás:
-- El hilo completo de la conversación entre el usuario y el agente de IA
-- Un campo de texto para escribir y enviar mensajes como agente humano
-- Contexto sobre el usuario (nombre, canal, ID de conversación)
-
-## Cómo tomar el control de una conversación
-
-<Steps>
-  <Step title="Abre la conversación">
-    Haz clic en la conversación en la lista para ver el hilo completo.
-  </Step>
-  <Step title="Escribe tu respuesta">
-    Usa el campo de texto al final del panel de chat para redactar tu mensaje.
-  </Step>
-  <Step title="Envía el mensaje">
-    Presiona **Enter** o haz clic en **Enviar** para entregar tu mensaje directamente al usuario.
-  </Step>
-  <Step title="Resuelve la conversación">
-    Cuando el problema esté resuelto, marca la conversación como cerrada o devuelve el control al agente de IA.
-  </Step>
-</Steps>
+Haz clic en cualquier conversación para abrirla en el área de chat. La conversación seleccionada se resalta con una **barra de color** en el borde izquierdo.
 
 <Tip>
-Si tu equipo usa Freshchat o Zendesk, las conversaciones escaladas por el agente de IA aparecerán aquí automáticamente una vez que la escalación humana esté configurada en las **Habilidades** del agente.
+Las conversaciones se ordenan con las activas arriba, luego por actividad más reciente.
 </Tip>
 
-## Buenas prácticas
+---
 
-- **Monitorea la bandeja regularmente** en horas pico para detectar escalaciones rápidamente.
-- **Responde con prontitud** — los usuarios que escalaron a un humano esperan respuestas más rápidas.
-- **Revisa el historial de la conversación con la IA** antes de responder para tener contexto completo.
-- **Cierra las conversaciones** una vez resueltas para no saturar la lista activa.
+## Área de chat
+
+### Encabezado de la conversación
+
+El encabezado muestra:
+
+- **Avatar del usuario** con un punto verde de estado para conversaciones activas
+- **Nombre del usuario**
+- **Etiqueta de estado** — "Active" (verde) o "Ended"
+- **Insignia "Controlled by human"** cuando un agente humano ha tomado el control
+
+Botones de acción en el encabezado:
+
+| Botón | Cuándo es visible | Acción |
+|---|---|---|
+| **Take control** | La conversación está activa y manejada por la IA | Transfiere el control a ti como agente humano |
+| **Release control** | La conversación está manejada por un humano | Devuelve el control al agente de IA |
+| **Toggle de detalles del contacto** | Siempre | Abre o cierra el panel lateral de detalles del cliente |
+
+### Mensajes
+
+Los mensajes en el área de chat incluyen varias ayudas visuales:
+
+- **Separadores de fecha** — los mensajes se agrupan por día con etiquetas como "Today", "Yesterday" o la fecha completa para mensajes más antiguos
+- **Avatares y nombres de remitente** — cada grupo de mensajes muestra el avatar del remitente (iniciales del usuario, ícono de bot para mensajes de IA o ícono de auriculares para mensajes de agente humano) y su nombre
+- **Burbujas con código de colores** — diferentes remitentes y tipos de mensaje usan estilos de burbuja distintos:
+  - **Mensajes del usuario** — fondo blanco/claro, alineados a la izquierda
+  - **Mensajes del agente humano** — fondo de color primario, alineados a la derecha
+  - **Mensajes del agente IA** — fondo gris, alineados a la izquierda
+  - **Mensajes de seguimiento** — tono púrpura, alineados a la izquierda
+  - **Mensajes proactivos** — tono verde, alineados a la izquierda
+  - **Eventos de escalación** — píldora ámbar centrada
+- **Marcas de tiempo** — se muestran debajo del último mensaje en cada grupo consecutivo del mismo remitente
+- **Indicador de escritura** — aparecen puntos animados mientras tu mensaje se está enviando
+
+### Responder
+
+El área de entrada en la parte inferior del chat se comporta de manera diferente según el estado de la conversación:
+
+| Estado | Comportamiento |
+|---|---|
+| **Conversación finalizada** | Un mensaje indica "This conversation has ended" — no hay entrada disponible |
+| **Manejada por IA** | Un mensaje indica "Take control of this conversation to reply" — no hay entrada disponible |
+| **Manejada por humano (tú)** | Se muestra un campo de texto donde puedes escribir y enviar mensajes |
+
+Para enviar un mensaje, escribe en el campo y presiona **Enter** (o haz clic en el botón de enviar). Usa **Shift + Enter** para agregar una nueva línea.
+
+---
+
+## Panel de detalles del cliente
+
+Haz clic en el **botón de toggle del panel** (ícono de panel derecho) en el encabezado de la conversación para abrir el panel lateral de **Detalles del Cliente** en el lado derecho del área de chat. Este panel muestra información contextual sobre el usuario de la conversación actual, como datos de perfil, información de contacto y metadatos de la conversación.
+
+Haz clic nuevamente en el toggle para cerrar el panel.
+
+<Tip>
+Usa el panel de detalles del cliente para acceder rápidamente al contexto del usuario sin salir de la conversación — esto te ayuda a dar respuestas más rápidas e informadas.
+</Tip>
+
+---
+
+## Estado vacío
+
+Cuando no hay ninguna conversación seleccionada, el área de chat muestra un ícono de mensaje centrado invitándote a seleccionar una conversación de la barra lateral.
+
+---
+
+## Mejores prácticas
+
+- **Monitorea el indicador de conexión** — si muestra "Offline", verifica tu conexión de red para asegurarte de no perder conversaciones urgentes.
+- **Usa los filtros** para enfocarte en las conversaciones que necesitan atención — por ejemplo, filtra por "Human" para ver solo las conversaciones que tú o un compañero han tomado.
+- **Toma el control con moderación** — deja que la IA maneje las consultas rutinarias e intervén solo cuando se necesite juicio humano.
+- **Usa el panel de detalles del cliente** para revisar el contexto del usuario antes de responder, especialmente para usuarios recurrentes.
+- **Libera el control** cuando termines para que el agente de IA pueda retomar la conversación.
