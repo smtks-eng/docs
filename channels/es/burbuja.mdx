@@ -7,46 +7,100 @@ language: es
 
 La **Burbuja de Chat** te permite conectar tu Agente directamente con los usuarios en tu sitio web o aplicación. Puedes personalizar su apariencia, definir su comportamiento e integrarlo con un script simple.
 
+Cuando abres la configuración del canal Burbuja (**Canales > Burbuja**), verás un **diseño de dos paneles**:
+
+- **Panel izquierdo** — pestañas de configuración donde ajustas contenido, apariencia e integración.
+- **Panel derecho** — una vista previa en vivo que se actualiza en tiempo real mientras haces cambios.
+
 Usa las pestañas a continuación para explorar las opciones de configuración:
 
 <Tabs>
-  <Tab title="Apariencia" icon="palette">
-    ## Apariencia
+  <Tab title="Contenido" icon="text">
+    ## Contenido
 
-    Personaliza el aspecto de tu burbuja de chat para que coincida con la identidad de tu marca.
-    Navega a **Canales > Burbuja > Apariencia** para ajustar estas configuraciones.
+    Configura los mensajes y elementos de texto que aparecen dentro de tu burbuja de chat.  
+    Navega a **Canales > Burbuja > Contenido** para ajustar estas configuraciones.
 
-    ### Opciones disponibles
-    - **Elegir un color:** Selecciona un color sólido de la paleta.
-    - **Usar colores degradados:** Habilita el modo degradado y selecciona un color secundario.
-    - **Dirección del degradado:** Elige entre flujo **Horizontal** o **Vertical**.
-    - **Mensajes sugeridos:** Predefine hasta 5 sugerencias de inicio rápido para ayudar a los usuarios a interactuar más rápido.
+    ### Mensaje de bienvenida
+
+    Define el primer mensaje que tu Agente muestra cuando un usuario abre el chat. Puedes habilitar o deshabilitar el mensaje de bienvenida con un interruptor.
+
+    ### Mensajes sugeridos
+
+    Predefine hasta **5 sugerencias de inicio rápido** (cada una de hasta 100 caracteres) para ayudar a los usuarios a interactuar más rápido. Aparecen como botones clicables debajo del mensaje de bienvenida. Activa o desactiva los mensajes sugeridos según sea necesario.
+
+    ### Aviso descartable
+
+    Agrega un aviso informativo que aparece en la parte inferior de la ventana del chat (sobre el campo de entrada). Esto es útil para avisos de privacidad o recordatorios de términos de servicio.
+
+    - Edita el texto del aviso usando el **editor de texto enriquecido** — soporta **negrita**, *cursiva*, <u>subrayado</u>, ~~tachado~~ y enlaces.
+    - Si dejas el aviso vacío, se muestra automáticamente un aviso de privacidad predeterminado.
+    - Si eliminas explícitamente el aviso, no se muestra nada.
+
+    <Tip>
+    Usa el aviso descartable para informar a los usuarios que las conversaciones son procesadas por IA, vinculando a tu política de privacidad para mayor transparencia.
+    </Tip>
+
+    El aviso se descarta automáticamente cuando el usuario envía su primer mensaje o hace clic en un mensaje sugerido.
+
+    ### Texto del pie de página
+
+    Personaliza el texto que se muestra en la parte inferior del panel de chat. Usa el **editor de texto enriquecido** para agregar texto con formato y enlaces (por ejemplo, "Desarrollado por [Tu Marca]").
+
+    ### Recolección de feedback
+
+    Activa o desactiva si los usuarios pueden dar feedback sobre las respuestas del Agente. *(Próximamente)*
 
     <Note>
     Vista previa en tiempo real con el widget de burbuja de chat mostrado en el lado derecho de la Consola.
     </Note>
   </Tab>
 
-  <Tab title="Funciones y Comportamiento" icon="settings">
-    ## Funciones y Comportamiento (Próximamente)
+  <Tab title="Apariencia" icon="palette">
+    ## Apariencia
 
-    Esta sección te permitirá controlar cómo se comporta la burbuja de chat una vez implementada. Las opciones esperadas incluyen:
+    Personaliza el aspecto de tu burbuja de chat para que coincida con la identidad de tu marca.  
+    Navega a **Canales > Burbuja > Apariencia** para ajustar estas configuraciones.
 
-    - **Comportamiento de apertura automática:** Decide si la burbuja debe abrirse automáticamente al cargar la página.
-    - **Detección de inactividad:** Activa mensajes proactivos cuando los usuarios están inactivos.
-    - **Configuración de idioma:** Define el idioma predeterminado y el manejo de múltiples idiomas.
-    - **Enrutamiento de conversaciones:** Configura reglas para enrutar a agentes o departamentos específicos.
-    - **Horario comercial:** Muestra u oculta la burbuja según tu horario definido.
+    ### Encabezado
+
+    #### Nombre visible
+
+    Activa **Mostrar nombre visible** para controlar si aparece un nombre en el encabezado del chat. De forma predeterminada se usa el nombre de tu organización. Puedes sobrescribirlo ingresando un **título de encabezado personalizado** — este es el nombre que los usuarios ven en la parte superior de la ventana de chat.
+
+    #### Modo Ícono vs Logo
+
+    Usa el interruptor **Preferir logo sobre ícono** para cambiar entre dos modos de imagen en el encabezado:
+
+    - **Desactivado (modo Ícono, predeterminado)** — Sube una imagen cuadrada que se muestra como un **ícono redondo** pequeño (círculo de 32×32) en el encabezado del chat.
+    - **Activado (modo Logo)** — Sube una **imagen de título / logo** más ancha que se muestra en formato rectangular en el encabezado.
 
     <Note>
-    Esta funcionalidad está en desarrollo y estará disponible en una versión futura.
+    Cuando el **modo Logo** está habilitado, debes subir una imagen de logo antes de poder guardar. Si no se ha subido logo, se bloquea el guardado y verás un mensaje de error.
+    </Note>
+
+    #### Color del encabezado
+
+    Elige el color de fondo del encabezado:
+    - **Color sólido:** Selecciona desde el selector de color.
+    - **Degradado:** Habilita el modo degradado, selecciona un color secundario y elige dirección **Horizontal** o **Vertical**.
+
+    ### Botón de activación
+
+    Personaliza el botón flotante que los usuarios hacen clic para abrir el chat:
+    - **Color de la burbuja** — el color de fondo del botón activador.
+    - **Texto de la burbuja** — la etiqueta que se muestra en el botón (máximo 30 caracteres).
+    - **Alineación** — posiciona la burbuja en el lado **izquierdo** o **derecho** de la pantalla.
+
+    <Note>
+    Vista previa en tiempo real con el widget de burbuja de chat mostrado en el lado derecho de la Consola.
     </Note>
   </Tab>
 
   <Tab title="Integración" icon="code">
     ## Integrar la Burbuja de Chat
 
-    Para integrar la burbuja de chat en tu sitio web o aplicación, copia los fragmentos de script proporcionados.
+    Para integrar la burbuja de chat en tu sitio web o aplicación, copia los fragmentos de script proporcionados.  
     Puedes encontrarlos en **Canales > Burbuja > Integración**.
 
     ### 1. Agrega en el `<head>` de tu sitio:
@@ -76,19 +130,38 @@ Usa las pestañas a continuación para explorar las opciones de configuración:
       bubble_theme: 'simple_light',
       api_key: 'Tu API KEY aquí',
       user: {
-        id: 'id_usuario',
-        name: 'Nombre Usuario',
-        metadata: { clave: 'valor' },
-      },
+        user_id: 'usuario_123',
+        profile_name: 'Juan Pérez',
+        user_metadata: {
+          plan: 'premium',
+          company: 'Acme Inc'
+        }
+      }
     });
     ```
 
-    ### Temas de Burbuja Disponibles
-    - `simple_light`
-    - `simple_dark`
-
     <Note>
-    Asegúrate de reemplazar **Tu API KEY aquí** con la clave API de tu Agente.
+    Si no se proporciona información de usuario, el widget genera un ID de usuario invitado automáticamente y lo persiste entre visitas usando el almacenamiento local del navegador.
     </Note>
+
+    <Tip>
+    Usa la pestaña **Integración** en la Consola para copiar fragmentos pre-llenados con el ID real de tu agente y API key — sin necesidad de editar manualmente.
+    </Tip>
   </Tab>
 </Tabs>
+
+---
+
+## Comportamiento de la conversación
+
+La burbuja de chat soporta varios modos de visualización de mensajes:
+
+- **Escritura** — los mensajes aparecen con una animación de máquina de escribir.
+- **Streaming** — los mensajes se transmiten mientras el Agente los genera.
+- **Puntos** — se muestra un indicador de pensamiento (puntos animados) mientras el Agente procesa.
+
+Los usuarios pueden reiniciar una conversación en cualquier momento usando el botón de actualizar en el encabezado del chat. Esto limpia el hilo actual y comienza una nueva sesión.
+
+<Tip>
+  Siempre prueba la configuración de tu burbuja usando la vista previa en vivo antes de guardar. Una vez guardados, los cambios se reflejan inmediatamente en tu sitio web.
+</Tip>

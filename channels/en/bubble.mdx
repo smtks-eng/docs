@@ -5,42 +5,97 @@ icon: "message-dot"
 language: en
 ---
 
-The **Chat Bubble** lets you connect your Agent directly to users on your website or app. You can customize its look, define its behavior, and embed it with a simple script.  
+The **Chat Bubble** lets you connect your Agent directly to users on your website or app. You can customize its look, define its behavior, and embed it with a simple script.
+
+When you open the Bubble channel settings (**Channels > Bubble**), you'll see a **two-panel layout**:
+
+- **Left panel** — configuration tabs where you adjust content, appearance, and embedding.
+- **Right panel** — a live preview that updates in real time as you make changes.
 
 Use the tabs below to explore configuration options:
 
 <Tabs>
+  <Tab title="Content" icon="text">
+    ## Content
+
+    Configure the messages and text elements that appear inside your chat bubble.  
+    Navigate to **Channels > Bubble > Content** to adjust these settings.
+
+    ### Welcome message
+
+    Set the first message your Agent displays when a user opens the chat. You can enable or disable the welcome message with a toggle.
+
+    ### Suggested messages
+
+    Predefine up to **5 quick-start suggestions** (each up to 100 characters) to help users engage faster. These appear as clickable pills below the welcome message. Toggle suggested messages on or off as needed.
+
+    ### Dismissible notice
+
+    Add an informational notice that appears at the bottom of the chat window (above the input field). This is useful for privacy disclaimers or terms-of-service reminders.
+
+    - Edit the notice text using the **rich text editor** — supports **bold**, *italic*, <u>underline</u>, ~~strikethrough~~, and links.
+    - If you leave the notice empty, a default privacy notice is shown automatically.
+    - If you explicitly clear the notice, nothing is displayed.
+
+    <Tip>
+    Use the dismissible notice to inform users that conversations are processed by AI, linking to your privacy policy for transparency.
+    </Tip>
+
+    The notice is automatically dismissed when the user sends their first message or clicks a suggested message pill.
+
+    ### Footer text
+
+    Customize the text displayed at the very bottom of the chat panel. Use the **rich text editor** to add formatted text and links (e.g., "Powered by [Your Brand]").
+
+    ### Feedback collection
+
+    Toggle whether users can provide feedback on Agent responses. *(Coming soon)*
+
+    <Note>
+    Preview updates in real time with the chat bubble widget shown on the right side of the Console.
+    </Note>
+  </Tab>
+
   <Tab title="Appearance" icon="palette">
     ## Appearance
+
     Personalize the look and feel of your chat bubble so it matches your brand identity.  
     Navigate to **Channels > Bubble > Appearance** to adjust these settings.
 
     ![bubble-appearance.png](/images/channels/bubble/en/bubble-appearance.png)
 
-    ### Options available
-    - **Choose a color:** Select a solid color from the palette.  
-    - **Use gradient colors:** Enable gradient mode and select a secondary color.  
-    - **Gradient direction:** Choose between **Horizontal** or **Vertical** flow.  
-    - **Suggested messages:** Predefine up to 5 quick-start suggestions to help users engage faster.
+    ### Header
+
+    #### Display name
+
+    Toggle **Show display name** to control whether a name appears in the chat header. By default, your organization name is used. You can override it by entering a **custom header title** — this is the name users see at the top of the chat window.
+
+    #### Icon vs Logo mode
+
+    Use the **Prefer logo over icon** toggle to switch between two header image modes:
+
+    - **Off (Icon mode, default)** — Upload a square image displayed as a small **round icon** (32×32 circle) in the chat header.
+    - **On (Logo mode)** — Upload a wider **title image / logo** displayed in rectangular format in the header.
+
+    <Note>
+    When **Logo mode** is enabled, you must upload a logo image before you can save. If no logo is uploaded, saving is blocked and you'll see an error message.
+    </Note>
+
+    #### Header color
+
+    Choose the header background color:
+    - **Solid color:** Select from the color picker.
+    - **Gradient:** Enable gradient mode, pick a secondary color, and choose **Horizontal** or **Vertical** direction.
+
+    ### Bubble trigger
+
+    Customize the floating button that users click to open the chat:
+    - **Bubble color** — the background color of the trigger pill/icon.
+    - **Bubble text** — the label shown on the pill trigger (max 30 characters).
+    - **Alignment** — position the bubble on the **left** or **right** side of the screen.
 
     <Note>
     Preview updates in real-time with the chat bubble widget shown on the right side of the Console.
-    </Note>
-  </Tab>
-
-  <Tab title="Features & Behavior" icon="settings">
-    ## Features & Behavior (Coming Soon)
-
-    This section will allow you to control how the chat bubble behaves once deployed. Expected options include:
-
-    - **Auto-open behavior:** Decide if the bubble should open automatically on page load.  
-    - **Idle detection:** Trigger proactive messages when users are inactive.  
-    - **Language settings:** Define default language and multi-language handling.  
-    - **Conversation routing:** Configure rules for routing to specific agents or departments.  
-    - **Business hours:** Show or hide the bubble based on your defined schedule.  
-
-    <Note>
-    This functionality is under development and will be available in a future release.
     </Note>
   </Tab>
 
@@ -79,19 +134,38 @@ Use the tabs below to explore configuration options:
       bubble_theme: 'simple_light',
       api_key: 'Your API KEY here',
       user: {
-        id: 'user_id',
-        name: 'User Name',
-        metadata: { key: 'value' },
-      },
+        user_id: 'user_123',
+        profile_name: 'John Doe',
+        user_metadata: {
+          plan: 'premium',
+          company: 'Acme Inc'
+        }
+      }
     });
     ```
 
-    ### Bubble Themes Available
-    - `simple_light`  
-    - `simple_dark`
-
     <Note>
-    Make sure to replace **Your API KEY here** with the API key from your Agent.
+    If no user information is provided, the widget generates a guest user ID automatically and persists it across visits using the browser's local storage.
     </Note>
+
+    <Tip>
+    Use the **Embed** tab in the Console to copy pre-filled snippets with your agent's actual ID and API key — no manual editing required.
+    </Tip>
   </Tab>
 </Tabs>
+
+---
+
+## Conversation behavior
+
+The chat bubble supports several message display modes:
+
+- **Writing** — messages appear with a typewriter animation.
+- **Streaming** — messages stream in as the Agent generates them.
+- **Dots** — a thinking indicator (animated dots) is shown while the Agent processes.
+
+Users can restart a conversation at any time using the refresh button in the chat header. This clears the current thread and starts a new session.
+
+<Tip>
+  Always test your bubble configuration using the live preview before saving. Once saved, the changes are reflected immediately on your website.
+</Tip>
