@@ -1,136 +1,83 @@
 ---
 title: "Panel de Conversaciones"
-language: es
-description: "Monitorea, gestiona y responde a conversaciones en vivo entre tu agente de IA y los usuarios en tiempo real."
+description: "Monitorea, filtra y responde a conversaciones en vivo entre tu agente de IA y los usuarios — ahora con actualizaciones en tiempo real y filtros avanzados."
 ---
 
-El **Panel de Conversaciones** es tu centro de control en tiempo real para monitorear y gestionar todas las conversaciones que tu agente de IA está manejando. Desde aquí puedes observar lo que los usuarios preguntan, tomar el control de las conversaciones cuando sea necesario y responder directamente como agente humano.
-
----
-
-## Vista general del diseño
-
-La pantalla de Chat en Vivo se divide en dos áreas principales:
-
-- **Barra lateral (izquierda)** — lista todas las conversaciones con búsqueda, filtros y estado en tiempo real
-- **Área de chat (derecha)** — muestra los mensajes de la conversación seleccionada y proporciona controles para responder
-
----
-
-## Barra lateral
-
-### Estado de conexión
-
-En la parte superior de la barra lateral, junto al título, un **indicador de conexión** muestra si el Chat en Vivo está recibiendo actualizaciones en tiempo real:
-
-- **Live** (ícono Wi-Fi verde) — el panel está conectado y recibiendo actualizaciones en tiempo real
-- **Offline** (ícono Wi-Fi gris) — la conexión se ha perdido; las actualizaciones pueden retrasarse
+El **Panel de Conversaciones** (Bandeja de entrada) es tu centro de control para monitorear cada conversación que tu agente de IA está gestionando. Desde aquí puedes ver las conversaciones en tiempo real, tomar el control cuando se necesita intervención humana y dar seguimiento al estado de las conversaciones en todos los canales.
 
 <Note>
-El panel también consulta actualizaciones periódicamente, por lo que las conversaciones se actualizarán incluso si la conexión en tiempo real se pierde temporalmente.
+Chat en Vivo es una función en **Beta**. Algunas capacidades pueden evolucionar a medida que la función madura.
 </Note>
 
-### Búsqueda
+## Actualizaciones en tiempo real
 
-Usa la **barra de búsqueda** en la parte superior de la barra lateral para encontrar conversaciones por palabra clave. Los resultados se actualizan mientras escribes.
+El Panel de Conversaciones usa **Server-Sent Events (SSE)** para entregar mensajes en tiempo real. Ya no necesitas actualizar la página ni esperar intervalos de sondeo:
 
-### Filtros
+- **Nuevos mensajes** de usuarios y del agente de IA aparecen instantáneamente en la vista de detalle de la conversación.
+- **La lista de conversaciones** se actualiza automáticamente — la conversación más reciente sube al inicio.
+- **Cambios de estado** (por ejemplo, escalación o fin de conversación) se reflejan de inmediato en la lista lateral.
 
-Debajo de la barra de búsqueda, dos filtros desplegables te permiten acotar la lista de conversaciones:
+Cuando envías un mensaje como agente humano, aparece en el chat de forma **optimista** — es decir, se muestra al instante mientras el servidor confirma la entrega en segundo plano. Si el envío falla, el mensaje se elimina automáticamente.
 
-| Filtro | Opciones | Descripción |
-|---|---|---|
-| **Estado** | Todos / Activos / Inactivos | Muestra todas las conversaciones, solo las activas o solo las finalizadas |
-| **Manejado por** | Todos / Agente / Humano | Muestra todas las conversaciones, solo las manejadas por la IA o solo las tomadas por un agente humano |
+## Lista de conversaciones
 
-### Lista de conversaciones
+La barra lateral izquierda muestra todas las conversaciones de tu agente. Cada elemento muestra:
 
-Cada conversación en la lista muestra:
-
-- **Avatar del usuario** con iniciales y un **punto verde** si la conversación está activa
-- **Nombre del usuario** y **marca de tiempo relativa** (ej. "hace 2 min")
+- **Nombre del usuario**
 - **Vista previa del último mensaje**
-- Una **insignia "Human"** (con ícono de auriculares) si un agente humano ha tomado el control de la conversación
+- **Marca de tiempo relativa** (por ejemplo, "5m", "2h", "3d" o una fecha para conversaciones más antiguas)
+- **Indicadores de estado** para conversaciones activas, escaladas o finalizadas
 
-Haz clic en cualquier conversación para abrirla en el área de chat. La conversación seleccionada se resalta con una **barra de color** en el borde izquierdo.
+## Filtrado de conversaciones
+
+Encima de la lista de conversaciones encontrarás varios filtros para limitar lo que ves:
+
+| Filtro | Descripción |
+|---|---|
+| **Búsqueda** | Búsqueda de texto libre por resumen de conversación o nombre de usuario |
+| **Canal** | Filtra por un canal específico conectado (se llena dinámicamente con tus integraciones habilitadas) |
+| **Asignado** | Filtra por el miembro del equipo al que está asignada la conversación |
+| **Escalación** | Alterna entre **Todos**, **Escalados** (atendidos por humano) o **No escalados** (atendidos por agente) |
+| **Estado** | Filtra por conversaciones **Activas** o **Inactivas** (finalizadas) |
+| **Orden** | Alterna entre **Más recientes primero** y **Más antiguos primero** |
 
 <Tip>
-Las conversaciones se ordenan con las activas arriba, luego por actividad más reciente.
+Usa el filtro de **Escalados** para encontrar rápidamente conversaciones que necesitan atención humana, y combínalo con el filtro **Asignado** para ver solo las que están asignadas a ti.
 </Tip>
 
----
+## Detalle de conversación
 
-## Área de chat
+Selecciona una conversación de la lista para abrirla. La vista de detalle incluye:
 
-### Encabezado de la conversación
+### Encabezado
 
-El encabezado muestra:
+- **Nombre del usuario** — el nombre visible del contacto
+- **Historial de conversaciones** — si el usuario ha tenido conversaciones previas, un menú desplegable te permite navegar entre ellas
+- **Asignado a** — muestra qué miembro del equipo está atendiendo la conversación (si fue escalada)
+- **Insignia de canal** — indica en qué canal (por ejemplo, WhatsApp, Web) está la conversación
+- **Controles de estado** — cambia el estado de la conversación o toma/libera el control humano
 
-- **Avatar del usuario** con un punto verde de estado para conversaciones activas
-- **Nombre del usuario**
-- **Etiqueta de estado** — "Active" (verde) o "Ended"
-- **Insignia "Controlled by human"** cuando un agente humano ha tomado el control
+### Hilo de mensajes
 
-Botones de acción en el encabezado:
+El historial completo de mensajes entre el usuario, el agente de IA y cualquier agente humano. Los mensajes están etiquetados por remitente.
 
-| Botón | Cuándo es visible | Acción |
-|---|---|---|
-| **Take control** | La conversación está activa y manejada por la IA | Transfiere el control a ti como agente humano |
-| **Release control** | La conversación está manejada por un humano | Devuelve el control al agente de IA |
-| **Toggle de detalles del contacto** | Siempre | Abre o cierra el panel lateral de detalles del cliente |
+### Envío de mensajes
 
-### Mensajes
+Cuando has tomado el control de una conversación, aparece un campo de entrada de mensaje en la parte inferior. Los mensajes que envías aparecen al instante (envío optimista) y son confirmados por el servidor en segundo plano.
 
-Los mensajes en el área de chat incluyen varias ayudas visuales:
+## Tomar y liberar el control
 
-- **Separadores de fecha** — los mensajes se agrupan por día con etiquetas como "Today", "Yesterday" o la fecha completa para mensajes más antiguos
-- **Avatares y nombres de remitente** — cada grupo de mensajes muestra el avatar del remitente (iniciales del usuario, ícono de bot para mensajes de IA o ícono de auriculares para mensajes de agente humano) y su nombre
-- **Burbujas con código de colores** — diferentes remitentes y tipos de mensaje usan estilos de burbuja distintos:
-  - **Mensajes del usuario** — fondo blanco/claro, alineados a la izquierda
-  - **Mensajes del agente humano** — fondo de color primario, alineados a la derecha
-  - **Mensajes del agente IA** — fondo gris, alineados a la izquierda
-  - **Mensajes de seguimiento** — tono púrpura, alineados a la izquierda
-  - **Mensajes proactivos** — tono verde, alineados a la izquierda
-  - **Eventos de escalación** — píldora ámbar centrada
-- **Marcas de tiempo** — se muestran debajo del último mensaje en cada grupo consecutivo del mismo remitente
-- **Indicador de escritura** — aparecen puntos animados mientras tu mensaje se está enviando
+Puedes **tomar el control** de cualquier conversación activa para responder como agente humano. El agente de IA pausará sus respuestas automáticas mientras tú gestionas la conversación.
 
-### Responder
-
-El área de entrada en la parte inferior del chat se comporta de manera diferente según el estado de la conversación:
-
-| Estado | Comportamiento |
-|---|---|
-| **Conversación finalizada** | Un mensaje indica "This conversation has ended" — no hay entrada disponible |
-| **Manejada por IA** | Un mensaje indica "Take control of this conversation to reply" — no hay entrada disponible |
-| **Manejada por humano (tú)** | Se muestra un campo de texto donde puedes escribir y enviar mensajes |
-
-Para enviar un mensaje, escribe en el campo y presiona **Enter** (o haz clic en el botón de enviar). Usa **Shift + Enter** para agregar una nueva línea.
-
----
+Para devolver el control al agente de IA, haz clic en el botón **Liberar**. Un mensaje de estado se registra automáticamente en la conversación.
 
 ## Panel de detalles del cliente
 
-Haz clic en el **botón de toggle del panel** (ícono de panel derecho) en el encabezado de la conversación para abrir el panel lateral de **Detalles del Cliente** en el lado derecho del área de chat. Este panel muestra información contextual sobre el usuario de la conversación actual, como datos de perfil, información de contacto y metadatos de la conversación.
+Activa el panel lateral derecho para ver información detallada sobre el contacto, incluyendo sus datos de perfil y cualquier memoria recopilada por el agente.
 
-Haz clic nuevamente en el toggle para cerrar el panel.
+## Notas clave
 
-<Tip>
-Usa el panel de detalles del cliente para acceder rápidamente al contexto del usuario sin salir de la conversación — esto te ayuda a dar respuestas más rápidas e informadas.
-</Tip>
-
----
-
-## Estado vacío
-
-Cuando no hay ninguna conversación seleccionada, el área de chat muestra un ícono de mensaje centrado invitándote a seleccionar una conversación de la barra lateral.
-
----
-
-## Mejores prácticas
-
-- **Monitorea el indicador de conexión** — si muestra "Offline", verifica tu conexión de red para asegurarte de no perder conversaciones urgentes.
-- **Usa los filtros** para enfocarte en las conversaciones que necesitan atención — por ejemplo, filtra por "Human" para ver solo las conversaciones que tú o un compañero han tomado.
-- **Toma el control con moderación** — deja que la IA maneje las consultas rutinarias e intervén solo cuando se necesite juicio humano.
-- **Usa el panel de detalles del cliente** para revisar el contexto del usuario antes de responder, especialmente para usuarios recurrentes.
-- **Libera el control** cuando termines para que el agente de IA pueda retomar la conversación.
+- Las actualizaciones en tiempo real son posibles gracias a SSE — no se necesita actualizar manualmente.
+- El filtro de canal refleja dinámicamente solo los canales que has conectado y habilitado para tu agente.
+- Las conversaciones donde ningún miembro del equipo ha intervenido siguen mostrando las respuestas del agente de IA en tiempo real.
+- El ordenamiento y filtrado se gestionan del lado del servidor para un rendimiento consistente con grandes volúmenes de conversaciones.

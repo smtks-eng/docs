@@ -1,136 +1,83 @@
 ---
 title: "Conversations Panel"
-language: en
-description: "Monitor, manage, and respond to live conversations between your AI agent and users in real time."
+description: "Monitor, filter, and respond to live conversations between your AI agent and users — now with real-time updates and advanced filtering."
 ---
 
-The **Conversations Panel** is your real-time command center for monitoring and managing all conversations your AI agent is handling. From here you can observe what users are asking, take control of conversations when needed, and respond directly as a human agent.
-
----
-
-## Layout overview
-
-The Live Chat screen is split into two main areas:
-
-- **Sidebar (left)** — lists all conversations with search, filters, and real-time status
-- **Chat area (right)** — displays the selected conversation's messages and provides reply controls
-
----
-
-## Sidebar
-
-### Connection status
-
-At the top of the sidebar, next to the title, a **connection indicator** shows whether the Live Chat is receiving real-time updates:
-
-- **Live** (green Wi-Fi icon) — the panel is connected and receiving updates in real time
-- **Offline** (grey Wi-Fi icon) — the connection has dropped; updates may be delayed
+The **Conversations Panel** (Inbox) is your central hub for monitoring every conversation your AI agent is handling. From here you can watch conversations in real time, take control when human intervention is needed, and keep track of conversation status across all channels.
 
 <Note>
-The panel also polls for updates periodically, so conversations will still refresh even if the real-time connection is temporarily lost.
+Live Chat is a **Beta** feature. Some capabilities may evolve as the feature matures.
 </Note>
 
-### Search
+## Real-time updates
 
-Use the **search bar** at the top of the sidebar to find conversations by keyword. Results update as you type.
+The Conversations Panel uses **Server-Sent Events (SSE)** to deliver messages in real time. You no longer need to refresh the page or wait for polling intervals:
 
-### Filters
+- **New messages** from users and the AI agent appear instantly in the conversation detail view.
+- **Conversation list** updates automatically — the most recently active conversation bubbles to the top.
+- **Status changes** (e.g. escalation, end of conversation) are reflected immediately in the sidebar list.
 
-Below the search bar, two dropdown filters let you narrow the conversation list:
+When you send a message as a human agent, it appears in the chat **optimistically** — meaning it shows up right away while the server confirms delivery in the background. If sending fails, the message is automatically removed.
 
-| Filter | Options | Description |
-|---|---|---|
-| **Status** | All / Active / Inactive | Show all conversations, only those currently active, or only ended ones |
-| **Handled by** | All / Agent / Human | Show all conversations, only those handled by the AI, or only those taken over by a human agent |
+## Conversation list
 
-### Conversation list
+The left sidebar shows all conversations for your agent. Each item displays:
 
-Each conversation in the list shows:
-
-- **User avatar** with initials and a **green dot** if the conversation is currently active
-- **User name** and **relative timestamp** (e.g. "2 min ago")
+- **User name**
 - **Last message** preview
-- A **"Human" badge** (with a headset icon) if a human agent has taken control of the conversation
+- **Relative timestamp** (e.g. "5m", "2h", "3d", or a date for older conversations)
+- **Status indicators** for active, escalated, or ended conversations
 
-Click any conversation to open it in the chat area. The selected conversation is highlighted with a **colored bar** on the left edge.
+## Filtering conversations
+
+Above the conversation list you'll find several filters to narrow down what you see:
+
+| Filter | Description |
+|---|---|
+| **Search** | Free-text search by conversation summary or user name |
+| **Channel** | Filter by a specific connected channel (dynamically populated from your enabled integrations) |
+| **Assigned** | Filter by the team member a conversation is assigned to |
+| **Escalation** | Toggle between **All**, **Escalated** (human-handled), or **Not escalated** (agent-handled) |
+| **Status** | Filter by **Active** or **Inactive** (ended) conversations |
+| **Sort** | Toggle between **Newest first** and **Oldest first** ordering |
 
 <Tip>
-Conversations are sorted with active ones at the top, then by most recent activity.
+Use the **Escalated** filter to quickly find conversations that need human attention, then combine it with the **Assigned** filter to see only the ones assigned to you.
 </Tip>
 
----
+## Conversation detail
 
-## Chat area
+Select a conversation from the list to open it. The detail view includes:
 
-### Conversation header
+### Header
 
-The header displays:
+- **User name** — the contact's display name
+- **Conversation history** — if this user has had previous conversations, a dropdown lets you navigate between them
+- **Assigned to** — shows which team member is currently handling the conversation (if escalated)
+- **Channel badge** — indicates which channel (e.g. WhatsApp, Web) the conversation is on
+- **Status controls** — change the conversation status or take/release human control
 
-- **User avatar** with a green status dot for active conversations
-- **User name**
-- **Status label** — "Active" (green) or "Ended"
-- **"Controlled by human"** badge when a human agent has taken over
+### Message thread
 
-Action buttons in the header:
+The full message history between the user, the AI agent, and any human agents. Messages are labeled by sender.
 
-| Button | When visible | Action |
-|---|---|---|
-| **Take control** | Conversation is active and handled by AI | Transfers control to you as a human agent |
-| **Release control** | Conversation is handled by a human | Returns control back to the AI agent |
-| **Contact details toggle** | Always | Opens or closes the customer details sidebar panel |
+### Sending messages
 
-### Messages
+When you have taken control of a conversation, a message input appears at the bottom. Messages you send show up instantly (optimistic send) and are confirmed by the server in the background.
 
-Messages in the chat area include several visual aids:
+## Taking and releasing control
 
-- **Date separators** — messages are grouped by day with labels like "Today", "Yesterday", or the full date for older messages
-- **Avatars and sender names** — each message group shows the sender's avatar (user initials, a bot icon for AI messages, or a headset icon for human agent messages) and their name
-- **Color-coded bubbles** — different senders and message types use distinct bubble styles:
-  - **User messages** — white/light background, aligned left
-  - **Human agent messages** — primary-colored background, aligned right
-  - **AI agent messages** — grey background, aligned left
-  - **Follow-up messages** — purple-tinted, aligned left
-  - **Proactive messages** — green-tinted, aligned left
-  - **Escalation events** — centered amber pill
-- **Timestamps** — shown below the last message in each consecutive group from the same sender
-- **Typing indicator** — animated dots appear while your message is being sent
+You can **take control** of any active conversation to respond as a human agent. The AI agent will pause its automatic replies while you handle the conversation.
 
-### Replying
-
-The input area at the bottom of the chat area behaves differently depending on the conversation state:
-
-| State | Behavior |
-|---|---|
-| **Conversation ended** | A message reads "This conversation has ended" — no input available |
-| **Handled by AI** | A prompt reads "Take control of this conversation to reply" — no input available |
-| **Handled by human (you)** | A text input is shown where you can type and send messages |
-
-To send a message, type in the input box and press **Enter** (or click the send button). Use **Shift + Enter** to add a new line.
-
----
+To release control back to the AI agent, click the **Release** button. A status message is recorded in the conversation automatically.
 
 ## Customer details panel
 
-Click the **panel toggle button** (right-panel icon) in the conversation header to open the **Customer Details** sidebar on the right side of the chat area. This panel shows contextual information about the user in the current conversation, such as profile data, contact information, and conversation metadata.
+Toggle the right-side panel to see detailed information about the contact, including their profile data and any memories collected by the agent.
 
-Click the toggle again to close the panel.
+## Key notes
 
-<Tip>
-Use the customer details panel to quickly access user context without leaving the conversation — this helps you give faster, more informed replies.
-</Tip>
-
----
-
-## Empty state
-
-When no conversation is selected, the chat area shows a centered message icon prompting you to select a conversation from the sidebar.
-
----
-
-## Best practices
-
-- **Monitor the connection indicator** — if it shows "Offline", check your network connection to ensure you don't miss urgent conversations.
-- **Use filters** to focus on conversations that need attention — for example, filter by "Human" to see only conversations you or a teammate have taken over.
-- **Take control sparingly** — let the AI handle routine queries and step in only when human judgment is needed.
-- **Use the customer details panel** to review user context before replying, especially for returning users.
-- **Release control** when you're done so the AI agent can resume handling the conversation.
+- Real-time updates are powered by SSE — no manual refresh needed.
+- The channel filter dynamically reflects only the channels you have connected and enabled for your agent.
+- Conversations where no team member has interacted still show the AI agent's responses in real time.
+- Sorting and filtering are handled server-side for consistent performance across large conversation volumes.
