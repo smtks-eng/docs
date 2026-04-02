@@ -51,8 +51,18 @@ En la pestaña **Idioma**, puedes configurar los idiomas que tu agente entiende 
   ![identity_agent-step-6.png](/images/agent/identity_agent/identity_agent-step-6.png)
 
 <Tip>
-  Mezcla y combina estilos y tonos basados en la personalidad de tu marca y las expectativas del usuario.
+  Mezcla y combina estilos y tonos basados en la personalidad de tu marca y las expectativas de los usuarios.
 </Tip>
+
+---
+
+### Idioma de la Consola
+
+La Consola de Semantiks soporta **tres idiomas**: inglés, español y portugués. Puedes cambiar el idioma de la consola en cualquier momento usando el **selector de idioma** en la barra de navegación o el menú lateral. Esto cambia el idioma de todos los menús, etiquetas, botones y elementos de la interfaz en toda la plataforma.
+
+<Note>
+  El idioma de la consola es independiente de los idiomas que habla tu agente. Tu agente puede comunicarse en cualquier idioma configurado sin importar qué idioma uses para la consola.
+</Note>
 
 ---
 
@@ -62,46 +72,38 @@ Usa la pestaña **Audiencia** para definir a quién está dirigido tu agente. Es
 
 ![identity_agent-step-7.png](/images/agent/identity_agent/identity_agent-step-7.png)
 
+- **Audiencia objetivo**: Describe quién hablará con el agente (ej. clientes, empleados, estudiantes).
+- **Rango de edad**: Opcionalmente establece el rango de edad esperado de los usuarios.
+- **Ubicación de la audiencia**: Especifica la región o país de donde provienen principalmente tus usuarios.
+
+<Tip>
+  Cuanto más específico seas con tu audiencia, mejor se adaptará tu agente en lenguaje y complejidad.
+</Tip>
+
+---
+
+### Disponibilidad
+
+En la pestaña **Disponibilidad**, puedes definir cuándo tu agente está activo y cómo se comporta fuera del horario laboral.
+
+![identity_agent-step-8.png](/images/agent/identity_agent/identity_agent-step-8.png)
+
+- **Siempre disponible**: Activa esto si quieres que tu agente esté disponible 24/7.
+- **Horario personalizado**: Define días y horas específicos cuando el agente debe estar activo.
+- **Mensaje fuera de horario**: Personaliza el mensaje que los usuarios ven cuando el agente no está disponible.
+
 ---
 
 ### Mensajes Programados
 
-Los mensajes programados (también llamados anuncios) te permiten definir mensajes que tu agente envía automáticamente durante una ventana de tiempo específica. Cada mensaje programado tiene un **título**, un **cuerpo del mensaje** y un **toggle de programación** opcional que controla si el mensaje está limitado en el tiempo.
+Los mensajes programados te permiten configurar mensajes recurrentes o únicos que tu agente envía en horarios específicos.
 
-#### Crear un Mensaje Programado
-
-1. Navega a **Agente IA > Diseño > Identidad** y abre la pestaña **Mensajes Programados**.
-2. Haz clic en **Nuevo Mensaje**.
-3. Ingresa un **Título** y un **Mensaje**.
-4. *(Opcional)* Activa el **toggle de Programación** para restringir el mensaje a una ventana de fecha/hora.
-5. Si la programación está activa, selecciona una **Fecha de inicio** y una **Fecha de fin**, junto con sus respectivas horas.
-6. Haz clic en **Guardar**.
-
-#### Validación de Programación
-
-Cuando el toggle de programación está activado, la plataforma valida tu selección de fechas antes de guardar:
-
-| Escenario | Qué sucede |
-|---|---|
-| Programación activa pero **ninguna fecha** seleccionada | Un error pide que selecciones una fecha de inicio y una de fin. |
-| Programación activa pero **falta solo la fecha de inicio** | Un error pide que selecciones una fecha de inicio. |
-| Programación activa pero **falta solo la fecha de fin** | Un error pide que selecciones una fecha de fin. |
-| La **fecha/hora de inicio ya pasó** (solo al crear) | Un error pide que elijas una fecha y hora futura. |
-| La **fecha/hora de fin es igual o anterior** a la de inicio | Un error pide que la fecha de fin sea posterior a la de inicio. |
-
-<Note>
-  La fecha de fin solo necesita ser **posterior** a la fecha de inicio; no es necesario que sea un día completo después. La programación en el mismo día con horarios distintos es totalmente válida.
-</Note>
-
-#### Desactivar la Programación
-
-Si desactivas el toggle de programación en un mensaje existente y guardas, las fechas de inicio y fin almacenadas previamente se eliminan. El mensaje dejará de estar limitado en el tiempo y se comportará como un anuncio siempre activo (sujeto a su estado habilitado/deshabilitado).
-
-#### Editar y Eliminar
-
-- Haz clic en cualquier mensaje programado existente para editar su título, cuerpo o ventana de programación.
-- Usa la opción de eliminar para borrar un mensaje programado por completo.
+- **Título**: Un nombre para identificar el mensaje programado.
+- **Mensaje**: El contenido que el agente enviará.
+- **Programación**: Define la hora y frecuencia (una vez, diario, semanal, etc.).
+- **Canales**: Selecciona a qué canales aplica el mensaje programado.
+- **Habilitado/Deshabilitado**: Activa o desactiva el mensaje programado.
 
 <Tip>
-  Usa los mensajes programados para anuncios sensibles al tiempo, como promociones, ventanas de mantenimiento o saludos de temporada.
+  Usa los mensajes programados para saludos diarios, anuncios semanales o recordatorios periódicos.
 </Tip>

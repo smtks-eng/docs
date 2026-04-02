@@ -56,52 +56,54 @@ In the **Language** tab, you can configure the languages your agent understands 
 
 ---
 
+### Console Language
+
+The Semantiks Console itself supports **three languages**: English, Spanish, and Portuguese. You can switch the console language at any time using the **language toggle** in the navigation bar or sidebar. This changes the language of all menus, labels, buttons, and interface elements throughout the platform.
+
+<Note>
+  The console language is independent from the languages your agent speaks. Your agent can communicate in any configured language regardless of which language you use for the console.
+</Note>
+
+---
+
 ### Audience
 
 Use the **Audience** tab to define who your agent is meant to talk to. This helps fine-tune tone, complexity, and type of responses.
 
 ![identity_agent-step-7.png](/images/agent/identity_agent/identity_agent-step-7.png)
 
+- **Target audience**: Describe who will be talking to the agent (e.g., customers, employees, students).
+- **Audience age range**: Optionally set the expected age range of users.
+- **Audience location**: Specify the region or country your users are primarily from.
+
+<Tip>
+  The more specific you are with your audience, the better your agent will adapt its language and complexity.
+</Tip>
+
+---
+
+### Availability
+
+In the **Availability** tab, you can define when your agent is active and how it behaves outside working hours.
+
+![identity_agent-step-8.png](/images/agent/identity_agent/identity_agent-step-8.png)
+
+- **Always available**: Toggle this on if you want your agent available 24/7.
+- **Custom schedule**: Define specific days and hours when the agent should be active.
+- **Out-of-hours message**: Customize the message users see when the agent is unavailable.
+
 ---
 
 ### Scheduled Messages
 
-Scheduled messages (also called announcements) let you define messages that your agent sends automatically during a specific time window. Each scheduled message has a **title**, a **message body**, and an optional **scheduling** toggle that controls whether the message is time-bound.
+Scheduled messages let you configure recurring or one-time messages that your agent sends at specific times.
 
-#### Creating a Scheduled Message
-
-1. Navigate to **AI Agent > Design > Identity** and open the **Scheduled Messages** tab.
-2. Click **New Message**.
-3. Enter a **Title** and a **Message**.
-4. *(Optional)* Enable the **Scheduling** toggle to restrict the message to a date/time window.
-5. If scheduling is enabled, select a **Start date** and an **End date**, along with their respective times.
-6. Click **Save**.
-
-#### Scheduling Validation
-
-When the scheduling toggle is turned on, the platform validates your date selections before saving:
-
-| Scenario | What happens |
-|---|---|
-| Scheduling enabled but **neither date** is selected | An error asks you to select both a start date and an end date. |
-| Scheduling enabled but **only the start date** is missing | An error asks you to select a start date. |
-| Scheduling enabled but **only the end date** is missing | An error asks you to select an end date. |
-| The **start date/time is in the past** (create only) | An error asks you to choose a future date and time. |
-| The **end date/time is equal to or before** the start date/time | An error asks you to set the end date after the start date. |
-
-<Note>
-  The end date only needs to be **after** the start date—it does not need to be a full day later. Same-day scheduling with different times is perfectly valid.
-</Note>
-
-#### Turning Scheduling Off
-
-If you toggle scheduling **off** on an existing message and save, the previously stored start and end dates are cleared. The message will no longer be time-bound and will behave as an always-active announcement (subject to its enabled/disabled status).
-
-#### Editing and Deleting
-
-- Click on any existing scheduled message to edit its title, body, or scheduling window.
-- Use the delete option to remove a scheduled message entirely.
+- **Title**: A name to identify the scheduled message.
+- **Message**: The content the agent will send.
+- **Schedule**: Define the time and frequency (once, daily, weekly, etc.).
+- **Channels**: Select which channels the scheduled message applies to.
+- **Enabled/Disabled**: Toggle the scheduled message on or off.
 
 <Tip>
-  Use scheduled messages for time-sensitive announcements like promotions, maintenance windows, or seasonal greetings.
+  Use scheduled messages for daily greetings, weekly announcements, or periodic reminders.
 </Tip>
