@@ -3,7 +3,7 @@ title: "Conversations"
 description: "Monitor, analyze, and manage all conversations between users and Agents"
 ---
 
-The Semantiks Console dashboard gives enterprises real‑time visibility into conversations led by AI agents across all connected channels. Its design supports two complementary objectives: understand system‑level behavior (volumes, duration, engagement) and quickly drill into any single session for evidence‑based decisions (retuning prompts, updating knowledge, or handing issues to operations). Start with the high‑level structure to frame what you’re seeing, then use the right‑side panel to read details without losing your place.
+The Semantiks Console dashboard gives enterprises real‑time visibility into conversations led by AI agents across all connected channels. Its design supports two complementary objectives: understand system‑level behavior (volumes, duration, engagement) and quickly drill into any single session for evidence‑based decisions (retuning prompts, updating knowledge, or handing issues to operations). Start with the high‑level structure to frame what you're seeing, then use the right‑side panel to read details without losing your place.
 
 <Note>
 Around the first week of September 2025, the Conversations Dashboard will be updated to include a unified filter that applies both to the KPIs and the Conversations Table, ensuring consistent data views.
@@ -57,56 +57,59 @@ The dashboard allows you to quickly find relevant conversations:
 
 - **Search Bar:** Search by conversation content, external user ID, or messages.
 - **Filters:**
+  - **Channel** – Filter by the communication channel (e.g., Bubble, Playground, WhatsApp Meta, Freshchat, Zendesk, etc.).
   - **Status** – Active or Ended conversations.
-  - **Tags** – Specific labels assigned to conversations.
-  - **Channels** – Filter by communication channels (e.g., Freshchat).
-  - **Date Range** – Pick a custom date range.
+  - **Control** – Agent-controlled or human-controlled conversations.
+  - **Tags** – Filter by specific tags assigned to conversations.
+  - **Sentiment** – Positive, neutral, or negative user sentiment.
+  - **Topic** – Filter by auto-classified conversation topics.
+  - **Task Success** – Success, partial success, failure, or undetermined.
+  - **CSAT** – Set a minimum and maximum CSAT score (1–5).
+  - **Message Count** – Filter by the number of messages exchanged.
+
+- **Action Buttons:**
+  - **Manage Tags** – Opens the tag management modal to create or edit tags.
+  - **Clear Filters** – Resets all filters to their default values.
+  - **Refresh** – Fetches the latest conversations from the server.
 
 ---
 
-### Table Actions
+### Metadata Filters
 
-On the top right of the table, you will find:
+Below the standard filter bar, a collapsible **Metadata Filters** section lets you narrow down conversations based on **user metadata** sent by your integrated channels. This is especially useful when your channels pass custom user information (such as customer IDs, emails, or account identifiers) alongside conversations.
 
-- **Export CSV:** Download conversation data for external reporting.
-- **Columns:** Customize which columns appear in the table.
-- **Fetch New:** Refresh the data to see the latest conversations.
-- **Tag Conversations:** Apply or adjust tags directly from the table.
-- **Open Conversation Panel:** Click the bubble icon to review details or chat history.
+#### How it works
+
+1. **Expand the section** – Click the **Metadata Filters** header to reveal the available metadata fields. A small badge shows how many metadata filters are currently active.
+2. **Channels & fields** – Metadata fields are grouped by channel (e.g., *Freshchat Bubble*, *WhatsApp Meta*). Each channel card lists the metadata fields that have been detected in conversations for your agent. Only channels that have sent metadata will appear.
+3. **Filter by value** – Type a value into any field's text input to filter conversations where that metadata field matches your query.
+4. **Clear per channel** – Click the **✕** button on a channel header to clear all metadata filters for that channel at once.
+5. **Collapse channels** – Click the arrow on a channel header to expand or collapse its field list, keeping the filter bar tidy.
+
+<Tip>
+Metadata filters are especially powerful when combined with standard filters. For example, filter by a specific **Channel** and then add a metadata filter for `customer_id` to find all conversations from a particular customer.
+</Tip>
+
+<Note>
+The metadata fields shown depend on what your integrated channels send. If no metadata has been received for any channel, the section will display an informational message. Adding metadata to your channel integration is typically done on the integration side (e.g., passing custom attributes via Freshchat or Zendesk).
+</Note>
+
 ---
 
-### Conversation Panel
+### Conversation Detail Panel
 
-By clicking on the **bubble icon** in the Conversations Table, a right-side panel opens with two tabs that allow you to inspect the conversation, as well as view the summary and details of this interaction.
+Clicking on a row opens the **Conversation Panel** on the right side. Here, you can:
 
-#### Chat Tab
-- Displays the complete conversation between the user and the agent.
-- Messages are shown in chronological order.
-- Useful for reviewing exact interactions.
+- **Read the full conversation** between the user and the agent.
+- **See conversation metadata**: channel, start time, status, and tags.
+- **Review the summary** and resolution details.
 
-#### Details Tab
-- Provides metadata and context about the conversation, including:
-  - **Conversation ID** – A unique identifier for the session.
-  - **Client Info** – Name and identifier (if available).
-  - **Channel** – Where the conversation took place (e.g., Freshchat callback URL).
-  - **Summary** – A brief description of what occurred in the conversation.
-  - **Resolved by agent** – Shows whether the agent resolved the case.
-  - **Reason if unresolved** – Explains why no resolution occurred.
-  - **Category** – Assigned classification (e.g., General Assistance).
-  - **Topic** – Specific topic tag if applied.
-  - **Timestamp** – Date and time of the interaction.
-
-This panel allows you to inspect both the conversation flow and the system’s structured analysis of the exchange.
 ---
 
 ## Best Practices
 
-- **Start with filters, then read KPIs:** This ensures metrics reflect the audience or scenario you care about.
-- **Use the `Details` tab to triage quickly; open `Chat` only when narrative context is required.**
-- **Standardize Tags:** Create a minimal taxonomy (e.g., Category, Resolution reason, Escalation needed) to keep analytics clean.
-- **Refresh before exporting:** Click `Fetch New` to ensure you capture the latest conversations.
-- **Minimize context switching:** Keep the right panel open as you move the table vertically; it updates only when you click a new `Bubble Icon`.
-- **Leverage tags for analytics:** Consistent use of tags improves reporting and insight generation.
-- **QA workflows:** Use the Conversation Panel to review unresolved conversations and identify training opportunities for agents.
-- **Monitor trends:** Track KPI fluctuations to adjust operational strategies (e.g., staffing, escalation rules).
-
+- **Use date filters** to focus on the most relevant time period for your analysis.
+- **Combine multiple filters** (channel + sentiment + topic) to narrow down to the conversations that matter most.
+- **Use metadata filters** to trace specific customers or user attributes across conversations.
+- **Review tagged conversations** to understand common patterns and improve agent responses.
+- **Export data** for external reporting using the export options available in the table toolbar.

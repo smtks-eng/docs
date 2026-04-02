@@ -25,11 +25,30 @@ Click any row to open the conversation panel and read the full transcript, summa
 Use the filter bar at the top to slice the data:
 
 - **Date range** — select a period or use presets (MTD, QTD, YTD, custom)
+- **Channel** — filter by the communication channel
 - **Topic** — filter by one or more auto-classified topics
 - **Sentiment** — positive, neutral, negative
 - **Task success** — filter for resolved or unresolved conversations
-- **CSAT score** — set a maximum CSAT threshold to surface low-scoring conversations
+- **CSAT score** — set a minimum and maximum CSAT threshold (1–5)
+- **Tags** — filter by tags assigned to conversations
 - **Conversation IDs** — jump directly to specific conversations
+
+### Metadata Filters
+
+Below the standard filters, you can expand a **Metadata Filters** section to filter conversations by **user metadata** passed from your integrated channels (for example, `customer_id`, `email`, or any custom attribute).
+
+- Metadata fields are **grouped by channel** (e.g., *Freshchat Bubble*, *WhatsApp Meta*).
+- Type a value into any field to filter conversations where that metadata matches.
+- Use the **✕** button on a channel header to clear all metadata filters for that channel.
+- Collapse or expand each channel group to keep the filter bar organized.
+
+<Tip>
+Combine metadata filters with topic or sentiment filters for highly targeted analysis. For example, filter by a specific `customer_id` and negative sentiment to see all problematic conversations for a single customer.
+</Tip>
+
+<Note>
+The metadata fields displayed depend on what your integrated channels send. If no metadata has been received, the section shows an informational message.
+</Note>
 
 <Tip>
 Start by filtering for **unresolved conversations with negative sentiment** — this combination usually reveals the highest-priority issues to address in your agent's knowledge or prompts.
@@ -44,4 +63,5 @@ Evaluations and **Hotspots** work together. When you click on a topic in the Hot
 - **Review low CSAT conversations** to understand what frustrated users and improve agent responses.
 - **Sort by task success** to find patterns in unresolved conversations—are they all about the same topic?
 - **Use topic filters** to focus your analysis on a specific area of your product or service.
+- **Use metadata filters** to drill down into conversations for specific customers or user segments.
 - **Export data** for external analysis or stakeholder reporting using the CSV export option in the table toolbar.

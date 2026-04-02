@@ -20,12 +20,33 @@ La vista de Evaluaciones muestra una tabla de conversaciones con métricas de ca
 
 ## Filtros
 
+Usa la barra de filtros en la parte superior para segmentar los datos:
+
 - **Rango de fechas** — selecciona un período o usa presets (MTD, QTD, YTD, personalizado)
+- **Canal** — filtra por canal de comunicación
 - **Tema** — filtra por uno o más temas auto-clasificados
 - **Sentimiento** — positivo, neutral, negativo
 - **Éxito de tarea** — filtra por conversaciones resueltas o no resueltas
-- **Puntuación CSAT** — establece un umbral máximo para detectar conversaciones con baja satisfacción
+- **Puntuación CSAT** — establece un umbral mínimo y máximo de CSAT (1–5)
+- **Etiquetas** — filtra por etiquetas asignadas a las conversaciones
 - **IDs de conversación** — salta directamente a conversaciones específicas
+
+### Filtros de Metadatos
+
+Debajo de los filtros estándar, puedes expandir una sección de **Filtros de Metadatos** para filtrar conversaciones por **metadatos de usuario** enviados desde tus canales integrados (por ejemplo, `customer_id`, `email` o cualquier atributo personalizado).
+
+- Los campos de metadatos se **agrupan por canal** (p. ej. *Freshchat Bubble*, *WhatsApp Meta*).
+- Escribe un valor en cualquier campo para filtrar las conversaciones donde ese metadato coincida.
+- Usa el botón **✕** en el encabezado de un canal para limpiar todos los filtros de metadatos de ese canal.
+- Colapsa o expande cada grupo de canal para mantener la barra de filtros organizada.
+
+<Tip>
+Combina los filtros de metadatos con filtros de tema o sentimiento para un análisis altamente dirigido. Por ejemplo, filtra por un `customer_id` específico y sentimiento negativo para ver todas las conversaciones problemáticas de un solo cliente.
+</Tip>
+
+<Note>
+Los campos de metadatos que se muestran dependen de lo que envíen tus canales integrados. Si no se han recibido metadatos, la sección muestra un mensaje informativo.
+</Note>
 
 <Tip>
 Comienza filtrando por **conversaciones no resueltas con sentimiento negativo** — esta combinación generalmente revela los problemas de mayor prioridad en el conocimiento o prompts de tu agente.
@@ -40,4 +61,5 @@ Evaluaciones y **Hotspots** trabajan juntos. Al hacer clic en un tema en la vist
 - **Revisa conversaciones con CSAT bajo** para entender qué frustró a los usuarios.
 - **Ordena por éxito de tarea** para encontrar patrones en conversaciones no resueltas.
 - **Usa filtros de tema** para enfocar tu análisis en un área específica.
+- **Usa filtros de metadatos** para profundizar en conversaciones de clientes o segmentos de usuarios específicos.
 - **Exporta los datos** para análisis externos o reportes a stakeholders.
