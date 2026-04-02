@@ -62,12 +62,37 @@ Use **Web Bubble** when you want the agent inside your own site.
   </Step>
 </Steps>
 
-### External providers (WhatsApp and others)
+### Meta channels (WhatsApp, Messenger, Instagram)
 
-The same Connect flow also supports external providers through integration-driven channels.
+The Connect page always displays a **Meta** section with three channel cards:
+
+| Channel | Description |
+|---|---|
+| **WhatsApp** | WhatsApp Business channel via Meta |
+| **Messenger** | Facebook Messenger channel via Meta |
+| **Instagram** | Instagram messaging channel via Meta |
+
+Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection process at any time.
+
+Once you have connected one or more accounts for a channel type, a **Channels (n)** button appears on the card showing the count of active connections. Click it to view, edit, or reconnect your existing connections.
+
+<Steps>
+  <Step title="Open the Meta section">
+    Scroll to the **Meta** section on the Connect page.
+  </Step>
+  <Step title="Click Connect on the desired channel">
+    Choose **WhatsApp**, **Messenger**, or **Instagram** and click the **+&nbsp;Connect** button.
+  </Step>
+  <Step title="Complete the Meta sign-up flow">
+    Follow the embedded sign-up modal to authenticate with your Meta Business account and select the asset (phone number, page, or Instagram account) to connect.
+  </Step>
+  <Step title="Verify the connection">
+    After connecting, the card updates to show the number of active channels. Click the count button to review details.
+  </Step>
+</Steps>
 
 <Tip>
-  For channel-specific setup details, use the dedicated guides in `channels/en/*`.
+  For a detailed, step-by-step WhatsApp setup guide, see the dedicated [How to Integrate with WhatsApp](/integration-guides/en/how-to-integrate-to-whatsapp) integration guide.
 </Tip>
 
 ## 2) Integrations
@@ -92,26 +117,16 @@ Typical flow:
 
 <Steps>
   <Step title="Create an API channel">
-    In Connect, click **Create API Channel**.
+    Go to Connect > API and create a new API channel.
   </Step>
-  <Step title="Copy required identifiers">
-    Get the `agent_id`, channel identifier, and your API key.
+  <Step title="Copy credentials">
+    Copy the API key and endpoint provided.
   </Step>
-  <Step title="Send a request">
-    Call the chat endpoint from your backend with user context and message payload.
-  </Step>
-  <Step title="Handle the response">
-    Store conversation identifiers and render the assistant response in your interface.
+  <Step title="Integrate in your system">
+    Use the credentials and the API reference to send and receive messages.
   </Step>
 </Steps>
 
-<Warning>
-  Keep API keys on your server side only. Do not expose secrets in public frontend code.
-</Warning>
-
-## Recommended rollout order
-
-1. Launch with **External Chat** for quick validation.
-2. Add **Web Bubble** to your main web property.
-3. Add **external provider integrations** for your operational channels.
-4. Move to **API** when you need custom product experiences.
+<Note>
+  Refer to the API reference in the Console for the full list of available endpoints and payload formats.
+</Note>

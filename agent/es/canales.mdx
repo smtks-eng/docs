@@ -62,12 +62,37 @@ Usa la **burbuja web** cuando quieras el agente dentro de tu propia web (en cons
   </Step>
 </Steps>
 
-### Proveedores externos (WhatsApp y otros)
+### Canales de Meta (WhatsApp, Messenger, Instagram)
 
-El mismo flujo de **Conecta** admite proveedores externos mediante canales basados en integración.
+La página de Conecta siempre muestra una sección de **Meta** con tres tarjetas de canal:
+
+| Canal | Descripción |
+|---|---|
+| **WhatsApp** | Canal de WhatsApp Business vía Meta |
+| **Messenger** | Canal de Facebook Messenger vía Meta |
+| **Instagram** | Canal de mensajería de Instagram vía Meta |
+
+Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración de ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar el proceso de conexión en cualquier momento.
+
+Una vez que hayas conectado una o más cuentas para un tipo de canal, aparece un botón **Canales (n)** en la tarjeta mostrando el número de conexiones activas. Haz clic en él para ver, editar o reconectar tus conexiones existentes.
+
+<Steps>
+  <Step title="Abre la sección de Meta">
+    Desplázate hasta la sección **Meta** en la página de Conecta.
+  </Step>
+  <Step title="Haz clic en Conectar en el canal deseado">
+    Elige **WhatsApp**, **Messenger** o **Instagram** y haz clic en el botón **+&nbsp;Conectar**.
+  </Step>
+  <Step title="Completa el flujo de registro de Meta">
+    Sigue el modal de registro integrado para autenticarte con tu cuenta de Meta Business y seleccionar el activo (número de teléfono, página o cuenta de Instagram) a conectar.
+  </Step>
+  <Step title="Verifica la conexión">
+    Después de conectar, la tarjeta se actualiza para mostrar la cantidad de canales activos. Haz clic en el botón del conteo para revisar los detalles.
+  </Step>
+</Steps>
 
 <Tip>
-  Para la configuración detallada por canal, consulta las guías en `channels/es/*`.
+  Para una guía detallada paso a paso de configuración de WhatsApp, consulta la guía de integración [Cómo integrar WhatsApp](/integration-guides/es/como-integrar-whatsapp).
 </Tip>
 
 ## 2) Integraciones
@@ -80,38 +105,26 @@ Desde la perspectiva del usuario:
 - Luego configuras canales por agente.
 - Si aplica, activas complementos (*addons*) opcionales por canal.
 
-El modelo en backend es: integración de organización → canal del agente → complemento opcional, con una interfaz guiada en consola.
+El modelo en backend es: integración de organización → canal del agente → complemento opcional, pero la consola lo presenta en un flujo guiado.
 
 ## 3) API
 
-Usa la **API** cuando tu *backend* o aplicación deba enviar mensajes al agente de forma programática.
+Usa **API** cuando tu propio backend o aplicación necesite enviar mensajes al agente de forma programática.
 
-En **Conecta > API** puedes crear canales API y usar la referencia que muestra la consola.
-
-Flujo típico:
+En **Conecta > API** puedes crear canales API y usar la referencia de API que se muestra en la consola.
 
 <Steps>
   <Step title="Crea un canal API">
-    En **Conecta**, haz clic en **Crear canal API** (o el botón equivalente si la etiqueta sigue en inglés).
+    Ve a Conecta > API y crea un nuevo canal API.
   </Step>
-  <Step title="Copia los identificadores necesarios">
-    Obtén `agent_id`, el identificador del canal y tu clave API.
+  <Step title="Copia las credenciales">
+    Copia la clave API y el endpoint proporcionados.
   </Step>
-  <Step title="Envía una solicitud">
-    Llama al *endpoint* de chat desde tu *backend* con el contexto del usuario y el cuerpo del mensaje.
-  </Step>
-  <Step title="Procesa la respuesta">
-    Guarda los identificadores de conversación y muestra la respuesta del agente en tu interfaz.
+  <Step title="Integra en tu sistema">
+    Usa las credenciales y la referencia de API para enviar y recibir mensajes.
   </Step>
 </Steps>
 
-<Warning>
-  Mantén las claves API solo en el servidor. No expongas secretos en el *frontend* público.
-</Warning>
-
-## Orden recomendado de despliegue
-
-1. Arranca con **chat externo** para validar rápido.
-2. Integra la **burbuja web** en tu sitio principal.
-3. Añade **integraciones externas** para tus canales operativos.
-4. Pasa a la **API** cuando necesites experiencias de producto más a medida.
+<Note>
+  Consulta la referencia de API en la consola para la lista completa de endpoints y formatos de payload disponibles.
+</Note>
