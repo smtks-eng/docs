@@ -12,17 +12,22 @@ description: "Despliega tu agente por canales, integraciones externas y API para
 
 ## Conecta tu agente con usuarios reales
 
-En la consola, **Conecta** se organiza en tres bloques:
+La página **Conecta** se organiza en dos pestañas:
+
+- **Canales** — conecta y administra los canales donde tu agente habla con los usuarios.
+- **Comportamiento de Mensajería** — configura cómo tu agente maneja las conversaciones y mensajes en todos los canales.
+
+Este paso convierte tu agente de «configurado» a «en producción».
+
+---
+
+## Pestaña de Canales
+
+La pestaña de Canales se organiza en tres bloques:
 
 - **Canales** — publica tu agente en canales propios y externos (burbuja web, chat externo, WhatsApp y otros; en la interfaz algunos nombres pueden aparecer en inglés).
 - **Integraciones** — conecta herramientas o servicios externos de tu operación.
 - **API** — envía y recibe mensajes desde tus propios sistemas.
-
-Este paso convierte tu agente de «configurado» a «en producción».
-
-## 1) Canales
-
-Usa **Canales** cuando quieras que los usuarios hablen con tu agente desde superficies de chat.
 
 ### Chat externo (salida más rápida)
 
@@ -74,57 +79,103 @@ La página de Conecta siempre muestra una sección de **Meta** con tres tarjetas
 
 Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración de ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar el proceso de conexión en cualquier momento.
 
-Una vez que hayas conectado una o más cuentas para un tipo de canal, aparece un botón **Canales (n)** en la tarjeta mostrando el número de conexiones activas. Haz clic en él para ver, editar o reconectar tus conexiones existentes.
+Una vez que hayas conectado una o más cuentas para un tipo de canal, aparece un botón **Canales (n)** en la tarjeta mostrando la cantidad de conexiones activas. Haz clic para ver, editar o reconectar tus conexiones existentes.
 
 <Steps>
   <Step title="Abre la sección de Meta">
     Desplázate hasta la sección **Meta** en la página de Conecta.
   </Step>
   <Step title="Haz clic en Conectar en el canal deseado">
-    Elige **WhatsApp**, **Messenger** o **Instagram** y haz clic en el botón **+&nbsp;Conectar**.
+    Elige **WhatsApp**, **Messenger** o **Instagram** y sigue la configuración guiada.
   </Step>
-  <Step title="Completa el flujo de registro de Meta">
-    Sigue el modal de registro integrado para autenticarte con tu cuenta de Meta Business y seleccionar el activo (número de teléfono, página o cuenta de Instagram) a conectar.
+  <Step title="Completa la autenticación">
+    Serás redirigido a Meta para autorizar la conexión. Sigue las instrucciones en pantalla.
   </Step>
   <Step title="Verifica la conexión">
-    Después de conectar, la tarjeta se actualiza para mostrar la cantidad de canales activos. Haz clic en el botón del conteo para revisar los detalles.
+    Una vez conectado, la tarjeta del canal se actualiza mostrando tu conexión activa. Usa el Playground o envía un mensaje de prueba para confirmar que todo funciona.
   </Step>
 </Steps>
 
 <Tip>
-  Para una guía detallada paso a paso de configuración de WhatsApp, consulta la guía de integración [Cómo integrar WhatsApp](/integration-guides/es/como-integrar-whatsapp).
+Para instrucciones detalladas paso a paso sobre cómo conectar WhatsApp, consulta la [Guía de Integración de WhatsApp](/integration-guides/es/como-integrar-whatsapp).
 </Tip>
 
-## 2) Integraciones
+---
 
-Usa **Integraciones** para conectar sistemas externos de tu operación (por ejemplo, proveedores de mensajería, CRM, mesa de ayuda o servicios propios).
+## Pestaña de Comportamiento de Mensajería
 
-Desde la perspectiva del usuario:
+La pestaña **Comportamiento de Mensajería** te permite controlar cómo tu agente maneja las conversaciones y mensajes en todos los canales conectados. Contiene dos secciones: **Cierre Automático de Sesión** y **Configuración por Canal**.
 
-- Activas la integración una vez por organización.
-- Luego configuras canales por agente.
-- Si aplica, activas complementos (*addons*) opcionales por canal.
+### Cierre Automático de Sesión
 
-El modelo en backend es: integración de organización → canal del agente → complemento opcional, pero la consola lo presenta en un flujo guiado.
-
-## 3) API
-
-Usa **API** cuando tu propio backend o aplicación necesite enviar mensajes al agente de forma programática.
-
-En **Conecta > API** puedes crear canales API y usar la referencia de API que se muestra en la consola.
+Esta configuración a nivel de agente cierra automáticamente una conversación tras un periodo de inactividad del usuario. Aplica a **todos los canales** conectados a tu agente.
 
 <Steps>
-  <Step title="Crea un canal API">
-    Ve a Conecta > API y crea un nuevo canal API.
+  <Step title="Abre la pestaña Comportamiento de Mensajería">
+    Ve a **Conecta** y haz clic en la pestaña **Comportamiento de Mensajería**.
   </Step>
-  <Step title="Copia las credenciales">
-    Copia la clave API y el endpoint proporcionados.
+  <Step title="Activa el Cierre Automático de Sesión">
+    Usa el interruptor para activar o desactivar la función.
   </Step>
-  <Step title="Integra en tu sistema">
-    Usa las credenciales y la referencia de API para enviar y recibir mensajes.
+  <Step title="Establece el tiempo de inactividad">
+    Usa el control deslizante o los botones de selección rápida para elegir cuántos minutos de inactividad activan el cierre de sesión (de **1 a 30 minutos**).
+  </Step>
+  <Step title="Revisa la línea de tiempo">
+    Una línea de tiempo visual muestra el flujo: el agente responde → pasa el periodo de inactividad configurado → la sesión se cierra automáticamente.
+  </Step>
+  <Step title="Guarda">
+    Haz clic en **Guardar** para aplicar la configuración.
   </Step>
 </Steps>
 
 <Note>
-  Consulta la referencia de API en la consola para la lista completa de endpoints y formatos de payload disponibles.
+Cuando está desactivado, las conversaciones permanecen abiertas hasta que se cierren manualmente o por otro mecanismo. Cuando está activado, el mensaje de despedida (configurado en **Identidad**) se envía antes de cerrar la sesión.
 </Note>
+
+### Configuración por Canal
+
+Configura el comportamiento de mensajería **por canal**. Cada canal conectado aparece como una tarjeta mostrando su configuración actual. Haz clic en **Configurar** en cualquier tarjeta para abrir el diálogo de configuración.
+
+#### Ráfaga de Mensajes (Debounce)
+
+Cuando un usuario envía múltiples mensajes seguidos, el agente puede esperar un breve periodo antes de responder — de modo que procesa todos los mensajes juntos en lugar de responder a cada uno individualmente.
+
+- **Ventana de tiempo**: Establece el periodo de espera de **1 a 15 segundos** usando el control deslizante o los botones de selección rápida.
+- Una vista previa visual muestra cómo los mensajes consecutivos del usuario se agrupan y se envía una sola respuesta después de la ventana de espera.
+
+<Note>
+El tiempo de espera se suma a la latencia total de respuesta. Por ejemplo, un debounce de 5 segundos significa que el agente espera al menos 5 segundos después del último mensaje del usuario antes de responder.
+</Note>
+
+#### Preferencias de Archivos
+
+Habilita y configura los tipos de archivos que cada canal puede recibir de los usuarios. Se soportan cuatro tipos de archivos:
+
+| Tipo de archivo | Formatos |
+|---|---|
+| **Imágenes** | JPG, PNG, WebP, GIF |
+| **Documentos** | PDF, DOCX, XLSX, CSV |
+| **Audio** | Notas de voz, archivos de audio |
+| **Video** | Archivos de video |
+
+Para cada tipo de archivo puedes:
+1. **Activarlo o desactivarlo** con el interruptor.
+2. **Agregar instrucciones de procesamiento** — un texto que le indica al agente cómo manejar archivos de ese tipo (ej., "Extrae el texto de la imagen y resúmelo").
+
+<Tip>
+Usa las instrucciones de procesamiento de archivos para guiar el comportamiento del agente. Por ejemplo, puedes indicarle que extraiga datos de facturas subidas o transcriba notas de voz.
+</Tip>
+
+#### Guardando la configuración del canal
+
+Después de ajustar el tiempo de espera y las preferencias de archivos, haz clic en **Guardar** en el diálogo para aplicar los cambios. La tarjeta del canal se actualiza mostrando insignias que reflejan la configuración actual:
+- Una **insignia de debounce** mostrando el tiempo de espera actual.
+- **Insignias de tipo de archivo** para cada tipo de archivo habilitado.
+
+---
+
+## Secciones de Integraciones y API
+
+Para más detalles sobre cómo conectar integraciones externas y usar el canal de API, consulta:
+- [Integraciones](/agent/es/integraciones)
+- [Guías de Integración](/integration-guides/es/como-integrar-whatsapp)

@@ -12,17 +12,22 @@ description: "Deploy your agent through channels, external integrations, and API
 
 ## Connect your agent to real users
 
-In the Console, **Connect** is organized in 3 sections:
+The **Connect** page is organized into two tabs:
+
+- **Channels** — connect and manage the channels where your agent talks to users.
+- **Messaging Behaviour** — configure how your agent handles conversations and messages across all channels.
+
+This is the step that turns your agent from "configured" into "live".
+
+---
+
+## Channels tab
+
+The Channels tab is organized in 3 sections:
 
 - **Channels**: publish your agent in owned and external channels (Web Bubble, External Chat, WhatsApp, and others)
 - **Integrations**: connect external tools/services used by your operation
 - **API**: send and receive messages from your own systems
-
-This is the step that turns your agent from "configured" into "live".
-
-## 1) Channels
-
-Use Channels when you want users to talk to your agent directly from chat surfaces.
 
 ### External Chat (fastest launch)
 
@@ -81,52 +86,96 @@ Once you have connected one or more accounts for a channel type, a **Channels (n
     Scroll to the **Meta** section on the Connect page.
   </Step>
   <Step title="Click Connect on the desired channel">
-    Choose **WhatsApp**, **Messenger**, or **Instagram** and click the **+&nbsp;Connect** button.
+    Choose **WhatsApp**, **Messenger**, or **Instagram** and follow the guided setup.
   </Step>
-  <Step title="Complete the Meta sign-up flow">
-    Follow the embedded sign-up modal to authenticate with your Meta Business account and select the asset (phone number, page, or Instagram account) to connect.
+  <Step title="Complete authentication">
+    You will be redirected to Meta to authorize the connection. Follow the on-screen prompts.
   </Step>
   <Step title="Verify the connection">
-    After connecting, the card updates to show the number of active channels. Click the count button to review details.
+    Once connected, the channel card updates to show your active connection. Use the Playground or send a test message to confirm everything works.
   </Step>
 </Steps>
 
 <Tip>
-  For a detailed, step-by-step WhatsApp setup guide, see the dedicated [How to Integrate with WhatsApp](/integration-guides/en/how-to-integrate-to-whatsapp) integration guide.
+For detailed, step-by-step instructions on connecting WhatsApp, see the [WhatsApp Integration Guide](/integration-guides/en/how-to-integrate-to-whatsapp).
 </Tip>
 
-## 2) Integrations
+---
 
-Use Integrations to connect external systems your organization depends on (for example, messaging providers, CRM/helpdesk, or custom operational services).
+## Messaging Behaviour tab
 
-From the user perspective:
+The **Messaging Behaviour** tab lets you control how your agent handles conversations and messages across all connected channels. It contains two sections: **Automatic Session Close** and **Channel Settings**.
 
-- You enable the integration once for your organization.
-- Then you configure channels per agent.
-- Optional addons can be enabled per channel when available.
+### Automatic Session Close
 
-This follows the backend integration model (organization integration -> agent channel -> optional addon), but the Console keeps it in a guided UI flow.
-
-## 3) API
-
-Use API when your own backend or app needs to send messages to the agent programmatically.
-
-In Connect > API you can create API channels and use the API reference shown in the Console.
-
-Typical flow:
+This agent-level setting automatically closes a conversation after a period of user inactivity. It applies to **all channels** connected to your agent.
 
 <Steps>
-  <Step title="Create an API channel">
-    Go to Connect > API and create a new API channel.
+  <Step title="Open the Messaging Behaviour tab">
+    Go to **Connect** and click the **Messaging Behaviour** tab.
   </Step>
-  <Step title="Copy credentials">
-    Copy the API key and endpoint provided.
+  <Step title="Enable Automatic Session Close">
+    Toggle the switch to enable or disable the feature.
   </Step>
-  <Step title="Integrate in your system">
-    Use the credentials and the API reference to send and receive messages.
+  <Step title="Set the inactivity time">
+    Use the slider or the quick-select buttons to choose how many minutes of inactivity trigger the session close (from **1 to 30 minutes**).
+  </Step>
+  <Step title="Review the timeline preview">
+    A visual timeline shows the flow: the agent responds → the configured inactivity period passes → the session closes automatically.
+  </Step>
+  <Step title="Save">
+    Click **Save** to apply the setting.
   </Step>
 </Steps>
 
 <Note>
-  Refer to the API reference in the Console for the full list of available endpoints and payload formats.
+When disabled, conversations remain open until they are closed manually or by another mechanism. When enabled, the farewell message (configured in **Identity**) is sent before the session closes.
 </Note>
+
+### Channel Settings
+
+Configure **per-channel** messaging behavior. Each connected channel appears as a card showing its current settings. Click **Settings** on any channel card to open the configuration dialog.
+
+#### Message Debounce
+
+When a user sends multiple messages in quick succession, the agent can wait for a short period before responding—so it processes all messages together instead of replying to each one individually.
+
+- **Time window**: Set the debounce period from **1 to 15 seconds** using the slider or quick-select buttons.
+- A visual preview shows how consecutive user messages are grouped and a single response is sent after the debounce window.
+
+<Note>
+The debounce time adds to the overall response latency. For example, a 5-second debounce means the agent waits at least 5 seconds after the user's last message before responding.
+</Note>
+
+#### File Preferences
+
+Enable and configure the types of files each channel can receive from users. Four file types are supported:
+
+| File type | Formats |
+|---|---|
+| **Images** | JPG, PNG, WebP, GIF |
+| **Documents** | PDF, DOCX, XLSX, CSV |
+| **Audio** | Voice notes, audio files |
+| **Video** | Video files |
+
+For each file type you can:
+1. **Toggle** it on or off.
+2. **Add processing instructions** — a text prompt that tells the agent how to handle files of that type (e.g., "Extract text from the image and summarize it").
+
+<Tip>
+Use file processing instructions to guide the agent's behavior. For example, you could instruct it to extract data from uploaded invoices or transcribe voice notes.
+</Tip>
+
+#### Saving channel settings
+
+After adjusting debounce time and file preferences, click **Save** in the dialog to apply the changes. The channel card updates to show badges reflecting the current configuration:
+- A **debounce badge** showing the current debounce time.
+- **File type badges** for each enabled file type.
+
+---
+
+## Integration and API sections
+
+For details on connecting external integrations and using the API channel, see:
+- [Integrations](/agent/en/integrations)
+- [Integration Guides](/integration-guides/en/how-to-integrate-to-whatsapp)
