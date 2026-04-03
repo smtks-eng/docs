@@ -1,59 +1,115 @@
 ---
 title: "Follow ups"
-description: "Automatically re-engage users with a proactive message after a period of inactivity in a conversation."
+description: "Automatically re-engage users with proactive messages after inactivity, and configure automatic session closing."
 ---
 
-**Followups** let your AI agent proactively reach out to users who haven't responded in a while. Instead of letting conversations go cold, you can configure a message to be sent automatically after a defined period of inactivity—keeping users engaged and increasing resolution rates.
+The **Follow ups** section lets you manage two related capabilities that help your agent handle conversation inactivity:
+
+- **Sequences** — automated follow-up message sequences that re-engage users after periods of silence.
+- **Session Close** — automatic conversation closing after a defined period of inactivity.
+
+Both features are accessible from the same page via **tabs** at the top.
 
 <Note>
-Followups is a **Beta** feature. Some capabilities may evolve as the feature matures.
+Follow ups is a **Beta** feature. Some capabilities may evolve as the feature matures.
 </Note>
 
-## How Followups work
+---
 
-A Followup is a message rule tied to a channel. When a conversation on that channel has been inactive for the configured time window, the agent sends the defined message to the user—automatically, without any manual intervention.
+## Sequences tab
+
+Sequences let your AI agent proactively reach out to users who haven't responded in a while. Instead of letting conversations go cold, you configure automated message sequences that are sent after defined periods of inactivity—keeping users engaged and increasing resolution rates.
+
+### How Sequences work
+
+A Sequence is a multi-step message rule tied to a channel. When a conversation on that channel has been inactive for the configured time window, the agent sends the defined messages to the user automatically, without any manual intervention.
 
 This is useful for:
 - Re-engaging users who asked a question and then went quiet
 - Sending post-conversation surveys or satisfaction checks
 - Following up after sending information to confirm the user received it
+- Collecting additional information through multiple follow-up steps
 
-## Creating a Followup
+### Creating a Sequence
 
 <Steps>
   <Step title="Go to Follow ups">
     Navigate to **AI Agent > Proactive AI > Engagement > Follow ups** in the left sidebar.
   </Step>
-  <Step title="Create a new followup">
-    Click **New Followup** to open the creation dialog.
+  <Step title="Open the Sequences tab">
+    Make sure the **Sequences** tab is selected at the top of the page.
   </Step>
-  <Step title="Define the followup">
-    Fill in the required fields:
-    - **Title** — a name to identify this followup rule (e.g. `Post-conversation check-in`)
-    - **Message** — the text the agent will send to the user
-    - **Delay** — how long after the last agent message to wait before sending (e.g. 30 minutes, 2 hours)
-    - **Survey type** — optionally attach a satisfaction survey to the message
-    - **Channels** — which channels this rule applies to
+  <Step title="Create a new sequence">
+    Click the **+ Create** button to start building a new sequence.
+  </Step>
+  <Step title="Define the sequence steps">
+    Configure each step in the sequence:
+    - **Step 0** — the initial message sent when a conversation becomes inactive for the specified time
+    - **Additional steps** — follow-up messages sent after further silence, optionally with **Collect Info** configurations to gather specific data from the user
   </Step>
   <Step title="Save and activate">
-    Click **Save**. The followup rule becomes active immediately on the assigned channels.
+    Save the sequence. It becomes active on the assigned channels immediately.
   </Step>
 </Steps>
 
-## Managing Followups
+### Managing Sequences
 
-From the Followups table you can:
-- **View details** of any followup rule including its current status and channel assignments
-- **Edit** a followup to update the message, delay, or channel assignments
-- **Activate or deactivate** rules without deleting them
+From the Sequences list you can:
+- **View details** of any sequence including its steps and channel assignments
+- **Edit** a sequence to update messages, delays, or collect-info configurations
+- **Delete** sequences you no longer need
+
+### Sequence requirements
+
+To use a **Collect Info** configuration in a sequence step, it must:
+- Not have start or end dates (must be permanent)
+- Not have special instructions
+- Not use internal Semantiks channels
+
+<Tip>
+Click the **Tutorial** button on the Sequences tab for an interactive walkthrough of how sequences work, including step-by-step explanations and requirements.
+</Tip>
+
+---
+
+## Session Close tab
+
+The **Session Close** tab lets you configure automatic conversation closing after a period of inactivity. When enabled, conversations that have been inactive for the specified number of minutes are automatically closed by the agent.
+
+This setting applies at the **agent level** — it affects all channels connected to the agent.
+
+### Configuring Session Close
+
+<Steps>
+  <Step title="Go to Follow ups">
+    Navigate to **AI Agent > Proactive AI > Engagement > Follow ups** in the left sidebar.
+  </Step>
+  <Step title="Open the Session Close tab">
+    Click the **Session Close** tab at the top of the page.
+  </Step>
+  <Step title="Enable or disable">
+    Use the toggle to turn automatic session closing on or off.
+  </Step>
+  <Step title="Set the inactivity time">
+    When enabled, use the slider or quick-select buttons to set the number of minutes of inactivity after which conversations should be closed (between 1 and 30 minutes).
+  </Step>
+  <Step title="Save">
+    Click **Save** to apply the configuration.
+  </Step>
+</Steps>
+
+<Note>
+Session Close was previously located in the **Messaging Behaviour** tab under **Connect**. It has been moved here to keep all inactivity-related settings in one place.
+</Note>
 
 ## Key notes
 
-- A followup is triggered based on the time since the **last agent message**, not the last user message.
-- A conversation will only trigger a followup **once per session**—even if the user stays inactive for longer than the delay.
-- Followups respect the agent's **availability hours** defined in the Identity section—messages are queued and sent when the agent is available.
-- Each channel can have **multiple followup rules** with different delays and messages.
+- A sequence is triggered based on the time since the **last agent message**, not the last user message.
+- A conversation will only trigger a sequence **once per session**—even if the user stays inactive for longer than the delay.
+- Follow ups respect the agent's **availability hours** defined in the Identity section—messages are queued and sent when the agent is available.
+- Each channel can have **multiple follow-up sequences** with different delays and messages.
+- Session Close applies to **all channels** at the agent level.
 
 <Tip>
-Start with a simple re-engagement message and measure the response rate before adding survey types or multiple followup rules to the same channel.
+Start with a simple re-engagement message and measure the response rate before adding multiple steps or collect-info configurations to your sequences.
 </Tip>

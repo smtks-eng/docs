@@ -15,7 +15,7 @@ description: "Despliega tu agente por canales, integraciones externas y API para
 La página **Conecta** se organiza en dos pestañas:
 
 - **Canales** — conecta y administra los canales donde tu agente habla con los usuarios.
-- **Comportamiento de Mensajería** — configura cómo tu agente maneja las conversaciones y mensajes en todos los canales.
+- **Comportamiento de Mensajería** — configura cómo tu agente maneja los mensajes en cada canal conectado.
 
 Este paso convierte tu agente de «configurado» a «en producción».
 
@@ -79,103 +79,55 @@ La página de Conecta siempre muestra una sección de **Meta** con tres tarjetas
 
 Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración de ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar el proceso de conexión en cualquier momento.
 
-Una vez que hayas conectado una o más cuentas para un tipo de canal, aparece un botón **Canales (n)** en la tarjeta mostrando la cantidad de conexiones activas. Haz clic para ver, editar o reconectar tus conexiones existentes.
-
-<Steps>
-  <Step title="Abre la sección de Meta">
-    Desplázate hasta la sección **Meta** en la página de Conecta.
-  </Step>
-  <Step title="Haz clic en Conectar en el canal deseado">
-    Elige **WhatsApp**, **Messenger** o **Instagram** y sigue la configuración guiada.
-  </Step>
-  <Step title="Completa la autenticación">
-    Serás redirigido a Meta para autorizar la conexión. Sigue las instrucciones en pantalla.
-  </Step>
-  <Step title="Verifica la conexión">
-    Una vez conectado, la tarjeta del canal se actualiza mostrando tu conexión activa. Usa el Playground o envía un mensaje de prueba para confirmar que todo funciona.
-  </Step>
-</Steps>
-
-<Tip>
-Para instrucciones detalladas paso a paso sobre cómo conectar WhatsApp, consulta la [Guía de Integración de WhatsApp](/integration-guides/es/como-integrar-whatsapp).
-</Tip>
-
 ---
 
 ## Pestaña de Comportamiento de Mensajería
 
-La pestaña **Comportamiento de Mensajería** te permite controlar cómo tu agente maneja las conversaciones y mensajes en todos los canales conectados. Contiene dos secciones: **Cierre Automático de Sesión** y **Configuración por Canal**.
+La pestaña **Comportamiento de Mensajería** te permite ajustar cómo el agente procesa y responde mensajes en cada canal conectado. Los ajustes se configuran **por canal**.
 
-### Cierre Automático de Sesión
+### Seleccionar un canal
 
-Esta configuración a nivel de agente cierra automáticamente una conversación tras un periodo de inactividad del usuario. Aplica a **todos los canales** conectados a tu agente.
+En la parte superior de la pestaña verás una fila de **píldoras de selección de canal** — una por cada canal conectado. Cada píldora muestra el nombre, tipo e identificador del canal. Haz clic en una píldora para seleccionar ese canal; se resalta para indicar que está activo.
 
-<Steps>
-  <Step title="Abre la pestaña Comportamiento de Mensajería">
-    Ve a **Conecta** y haz clic en la pestaña **Comportamiento de Mensajería**.
-  </Step>
-  <Step title="Activa el Cierre Automático de Sesión">
-    Usa el interruptor para activar o desactivar la función.
-  </Step>
-  <Step title="Establece el tiempo de inactividad">
-    Usa el control deslizante o los botones de selección rápida para elegir cuántos minutos de inactividad activan el cierre de sesión (de **1 a 30 minutos**).
-  </Step>
-  <Step title="Revisa la línea de tiempo">
-    Una línea de tiempo visual muestra el flujo: el agente responde → pasa el periodo de inactividad configurado → la sesión se cierra automáticamente.
-  </Step>
-  <Step title="Guarda">
-    Haz clic en **Guardar** para aplicar la configuración.
-  </Step>
-</Steps>
+Si aún no hay canales conectados, la pestaña muestra un mensaje invitándote a conectar un canal primero.
+
+### Tiempo de debounce
+
+El ajuste de **Tiempo de Debounce** controla cuánto tiempo espera el agente después de recibir un mensaje antes de procesar y responder. Esto es útil para canales donde los usuarios tienden a enviar varios mensajes cortos seguidos (como WhatsApp).
+
+- Ajusta el deslizador entre **0 s** y **15 s**, o usa los botones de selección rápida (**0, 1, 3, 5, 8, 10, 15**).
+- Configurar el debounce en **0 s** significa que el agente responde inmediatamente a cada mensaje.
+- Una **vista previa** visual debajo del deslizador muestra cómo se agrupan los mensajes del usuario durante la ventana de debounce antes de que el agente responda.
 
 <Note>
-Cuando está desactivado, las conversaciones permanecen abiertas hasta que se cierren manualmente o por otro mecanismo. Cuando está activado, el mensaje de despedida (configurado en **Identidad**) se envía antes de cerrar la sesión.
+El ajuste de debounce se oculta automáticamente para canales internos como el **Playground** y **Agent API**, ya que el agrupamiento no aplica a esos tipos de canal.
 </Note>
-
-### Configuración por Canal
-
-Configura el comportamiento de mensajería **por canal**. Cada canal conectado aparece como una tarjeta mostrando su configuración actual. Haz clic en **Configurar** en cualquier tarjeta para abrir el diálogo de configuración.
-
-#### Ráfaga de Mensajes (Debounce)
-
-Cuando un usuario envía múltiples mensajes seguidos, el agente puede esperar un breve periodo antes de responder — de modo que procesa todos los mensajes juntos en lugar de responder a cada uno individualmente.
-
-- **Ventana de tiempo**: Establece el periodo de espera de **1 a 15 segundos** usando el control deslizante o los botones de selección rápida.
-- Una vista previa visual muestra cómo los mensajes consecutivos del usuario se agrupan y se envía una sola respuesta después de la ventana de espera.
-
-<Note>
-El tiempo de espera se suma a la latencia total de respuesta. Por ejemplo, un debounce de 5 segundos significa que el agente espera al menos 5 segundos después del último mensaje del usuario antes de responder.
-</Note>
-
-#### Preferencias de Archivos
-
-Habilita y configura los tipos de archivos que cada canal puede recibir de los usuarios. Se soportan cuatro tipos de archivos:
-
-| Tipo de archivo | Formatos |
-|---|---|
-| **Imágenes** | JPG, PNG, WebP, GIF |
-| **Documentos** | PDF, DOCX, XLSX, CSV |
-| **Audio** | Notas de voz, archivos de audio |
-| **Video** | Archivos de video |
-
-Para cada tipo de archivo puedes:
-1. **Activarlo o desactivarlo** con el interruptor.
-2. **Agregar instrucciones de procesamiento** — un texto que le indica al agente cómo manejar archivos de ese tipo (ej., "Extrae el texto de la imagen y resúmelo").
 
 <Tip>
-Usa las instrucciones de procesamiento de archivos para guiar el comportamiento del agente. Por ejemplo, puedes indicarle que extraiga datos de facturas subidas o transcriba notas de voz.
+Comienza con un debounce de **3–5 segundos** para WhatsApp y canales similares. Esto da a los usuarios tiempo suficiente para terminar de escribir sin que el agente se sienta lento.
 </Tip>
 
-#### Guardando la configuración del canal
+### Preferencias de archivos
 
-Después de ajustar el tiempo de espera y las preferencias de archivos, haz clic en **Guardar** en el diálogo para aplicar los cambios. La tarjeta del canal se actualiza mostrando insignias que reflejan la configuración actual:
-- Una **insignia de debounce** mostrando el tiempo de espera actual.
-- **Insignias de tipo de archivo** para cada tipo de archivo habilitado.
+Debajo de la sección de debounce, puedes activar o desactivar qué **tipos de archivo** puede recibir el agente en el canal seleccionado:
 
----
+| Tipo de archivo | Ejemplos |
+|---|---|
+| **Imágenes** | Fotos, capturas de pantalla, documentos escaneados |
+| **Documentos** | PDFs, archivos de Word, hojas de cálculo |
+| **Audio** | Notas de voz, grabaciones de audio |
+| **Video** | Clips de video, grabaciones de pantalla |
 
-## Secciones de Integraciones y API
+Para cada tipo de archivo habilitado, configura:
+- **Tamaño máximo** — el tamaño máximo permitido del archivo (en MB)
+- **Instrucciones** — indicaciones que el agente sigue cuando recibe este tipo de archivo (ej. "Describe el contenido de la imagen y responde la pregunta del usuario basándote en ella")
 
-Para más detalles sobre cómo conectar integraciones externas y usar el canal de API, consulta:
-- [Integraciones](/agent/es/integraciones)
-- [Guías de Integración](/integration-guides/es/como-integrar-whatsapp)
+Los tipos de archivo deshabilitados son ignorados por el agente en ese canal.
+
+### Guardar cambios
+
+Después de ajustar el debounce o las preferencias de archivos de un canal, haz clic en **Guardar** en el área superior derecha. Aparecerá una breve confirmación cuando los ajustes se hayan guardado.
+
+<Note>
+El cierre automático de sesiones (cierre de conversaciones tras inactividad) ahora se configura en **IA proactiva > Enganche > Follow ups**. Consulta la documentación de [Follow ups](/contacts/es/seguimientos) para más detalles.
+</Note>

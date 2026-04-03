@@ -1,52 +1,115 @@
 ---
 title: "Follow ups"
-description: "Reengancha automáticamente a los usuarios con un mensaje proactivo después de un periodo de inactividad en una conversación."
+description: "Reengancha automáticamente a los usuarios con mensajes proactivos después de inactividad, y configura el cierre automático de sesiones."
 ---
 
-Los **Follow ups** permiten que tu agente de IA contacte de forma proactiva a usuarios que llevan un tiempo sin responder. En lugar de dejar que las conversaciones se enfríen, puedes configurar un mensaje para que se envíe automáticamente tras un periodo de inactividad definido, manteniendo el interés y mejorando las tasas de resolución.
+La sección de **Follow ups** te permite gestionar dos funcionalidades relacionadas que ayudan a tu agente a manejar la inactividad en conversaciones:
+
+- **Secuencias** — secuencias automáticas de mensajes de seguimiento que reenganchan a los usuarios tras periodos de silencio.
+- **Cierre de sesión** — cierre automático de conversaciones después de un periodo de inactividad definido.
+
+Ambas funcionalidades son accesibles desde la misma página mediante **pestañas** en la parte superior.
 
 <Note>
 Follow ups es una función en **Beta**. Algunas capacidades pueden evolucionar a medida que la función madura.
 </Note>
 
-## Cómo funcionan los Follow ups
+---
 
-Un **Follow up** es una regla de mensaje vinculada a un canal. Cuando una conversación en ese canal lleva inactiva el tiempo configurado, el agente envía el mensaje definido al usuario de forma automática, sin intervención manual.
+## Pestaña de Secuencias
+
+Las secuencias permiten que tu agente de IA contacte de forma proactiva a usuarios que llevan un tiempo sin responder. En lugar de dejar que las conversaciones se enfríen, configuras secuencias automáticas de mensajes que se envían tras periodos de inactividad definidos, manteniendo el interés y mejorando las tasas de resolución.
+
+### Cómo funcionan las Secuencias
+
+Una Secuencia es una regla de mensajes en múltiples pasos vinculada a un canal. Cuando una conversación en ese canal lleva inactiva el tiempo configurado, el agente envía los mensajes definidos al usuario de forma automática, sin intervención manual.
 
 Esto es útil para:
 - Volver a contactar a usuarios que preguntaron y luego dejaron de responder
 - Enviar encuestas posconversación o comprobaciones de satisfacción
 - Dar seguimiento tras enviar información y confirmar que el usuario la recibió
+- Recopilar información adicional a través de múltiples pasos de seguimiento
 
-## Crear un Follow up
+### Crear una Secuencia
 
 <Steps>
   <Step title="Abre Follow ups">
     En el menú lateral, ve a **Agente IA > IA proactiva > Enganche > Follow ups**.
   </Step>
-  <Step title="Crea un nuevo Follow up">
-    Haz clic en **Nuevo Follow up** (o el botón equivalente) para abrir el diálogo de creación.
+  <Step title="Abre la pestaña de Secuencias">
+    Asegúrate de que la pestaña **Secuencias** esté seleccionada en la parte superior de la página.
   </Step>
-  <Step title="Configura el Follow up">
-    Completa los campos requeridos:
-    - **Título** — nombre para identificar esta regla (p. ej. `Verificación posconversación`)
-    - **Mensaje** — el texto que el agente enviará al usuario
-    - **Retraso** — cuánto tiempo esperar tras el último mensaje del agente antes de enviar
-    - **Tipo de encuesta** — opcionalmente adjunta una encuesta de satisfacción al mensaje
-    - **Canales** — en qué canales aplica esta regla
+  <Step title="Crea una nueva secuencia">
+    Haz clic en el botón **+ Crear** para comenzar a construir una nueva secuencia.
+  </Step>
+  <Step title="Define los pasos de la secuencia">
+    Configura cada paso de la secuencia:
+    - **Paso 0** — el mensaje inicial que se envía cuando una conversación se vuelve inactiva por el tiempo especificado
+    - **Pasos adicionales** — mensajes de seguimiento enviados tras más silencio, opcionalmente con configuraciones de **Recopilar Información** para obtener datos específicos del usuario
   </Step>
   <Step title="Guarda y activa">
-    Haz clic en **Guardar**. La regla se activa de inmediato en los canales asignados.
+    Guarda la secuencia. Se activa de inmediato en los canales asignados.
   </Step>
 </Steps>
 
-## Notas clave
+### Gestionar Secuencias
 
-- Un Follow up se dispara según el tiempo desde el **último mensaje del agente**, no del usuario.
-- Una conversación solo dispara un Follow up **una vez por sesión**.
-- Los Follow ups respetan las **horas de disponibilidad** del agente definidas en Identidad.
-- Cada canal puede tener **varias reglas de Follow up** con distintos retrasos y mensajes.
+Desde la lista de Secuencias puedes:
+- **Ver detalles** de cualquier secuencia incluyendo sus pasos y canales asignados
+- **Editar** una secuencia para actualizar mensajes, retrasos o configuraciones de recopilación de información
+- **Eliminar** secuencias que ya no necesites
+
+### Requisitos de las secuencias
+
+Para usar una configuración de **Recopilar Información** en un paso de secuencia, esta debe:
+- No tener fechas de inicio o fin (debe ser permanente)
+- No tener instrucciones especiales
+- No usar canales internos de Semantiks
 
 <Tip>
-Comienza con un mensaje sencillo de reenganche y mide la tasa de respuesta antes de añadir encuestas o varias reglas en el mismo canal.
+Haz clic en el botón **Tutorial** en la pestaña de Secuencias para un recorrido interactivo de cómo funcionan las secuencias, incluyendo explicaciones paso a paso y requisitos.
+</Tip>
+
+---
+
+## Pestaña de Cierre de Sesión
+
+La pestaña de **Cierre de Sesión** te permite configurar el cierre automático de conversaciones después de un periodo de inactividad. Cuando está habilitado, las conversaciones que hayan estado inactivas durante el número de minutos especificado se cierran automáticamente por el agente.
+
+Este ajuste se aplica a **nivel de agente** — afecta a todos los canales conectados al agente.
+
+### Configurar el Cierre de Sesión
+
+<Steps>
+  <Step title="Abre Follow ups">
+    En el menú lateral, ve a **Agente IA > IA proactiva > Enganche > Follow ups**.
+  </Step>
+  <Step title="Abre la pestaña de Cierre de Sesión">
+    Haz clic en la pestaña **Cierre de Sesión** en la parte superior de la página.
+  </Step>
+  <Step title="Habilita o deshabilita">
+    Usa el interruptor para activar o desactivar el cierre automático de sesiones.
+  </Step>
+  <Step title="Define el tiempo de inactividad">
+    Cuando esté habilitado, usa el deslizador o los botones de selección rápida para establecer el número de minutos de inactividad antes de que se cierren las conversaciones (entre 1 y 30 minutos).
+  </Step>
+  <Step title="Guarda">
+    Haz clic en **Guardar** para aplicar la configuración.
+  </Step>
+</Steps>
+
+<Note>
+El Cierre de Sesión se encontraba anteriormente en la pestaña **Comportamiento de Mensajería** dentro de **Conecta**. Se ha movido aquí para mantener todos los ajustes relacionados con inactividad en un solo lugar.
+</Note>
+
+## Notas clave
+
+- Una secuencia se dispara según el tiempo desde el **último mensaje del agente**, no del usuario.
+- Una conversación solo dispara una secuencia **una vez por sesión**, incluso si el usuario permanece inactivo más tiempo del retraso configurado.
+- Los Follow ups respetan las **horas de disponibilidad** del agente definidas en Identidad.
+- Cada canal puede tener **varias secuencias de seguimiento** con distintos retrasos y mensajes.
+- El Cierre de Sesión se aplica a **todos los canales** a nivel de agente.
+
+<Tip>
+Comienza con un mensaje sencillo de reenganche y mide la tasa de respuesta antes de añadir múltiples pasos o configuraciones de recopilación de información a tus secuencias.
 </Tip>

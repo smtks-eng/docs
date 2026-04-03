@@ -15,7 +15,7 @@ description: "Deploy your agent through channels, external integrations, and API
 The **Connect** page is organized into two tabs:
 
 - **Channels** — connect and manage the channels where your agent talks to users.
-- **Messaging Behaviour** — configure how your agent handles conversations and messages across all channels.
+- **Messaging Behaviour** — configure how your agent handles messages on each connected channel.
 
 This is the step that turns your agent from "configured" into "live".
 
@@ -81,101 +81,55 @@ Each card shows a **Connect** button that opens the setup flow for that specific
 
 Once you have connected one or more accounts for a channel type, a **Channels (n)** button appears on the card showing the count of active connections. Click it to view, edit, or reconnect your existing connections.
 
-<Steps>
-  <Step title="Open the Meta section">
-    Scroll to the **Meta** section on the Connect page.
-  </Step>
-  <Step title="Click Connect on the desired channel">
-    Choose **WhatsApp**, **Messenger**, or **Instagram** and follow the guided setup.
-  </Step>
-  <Step title="Complete authentication">
-    You will be redirected to Meta to authorize the connection. Follow the on-screen prompts.
-  </Step>
-  <Step title="Verify the connection">
-    Once connected, the channel card updates to show your active connection. Use the Playground or send a test message to confirm everything works.
-  </Step>
-</Steps>
-
-<Tip>
-For detailed, step-by-step instructions on connecting WhatsApp, see the [WhatsApp Integration Guide](/integration-guides/en/how-to-integrate-to-whatsapp).
-</Tip>
-
 ---
 
 ## Messaging Behaviour tab
 
-The **Messaging Behaviour** tab lets you control how your agent handles conversations and messages across all connected channels. It contains two sections: **Automatic Session Close** and **Channel Settings**.
+The **Messaging Behaviour** tab lets you fine-tune how the agent processes and responds to messages on each connected channel. Settings are configured **per channel**.
 
-### Automatic Session Close
+### Selecting a channel
 
-This agent-level setting automatically closes a conversation after a period of user inactivity. It applies to **all channels** connected to your agent.
+At the top of the tab you'll see a row of **channel selector pills** — one for each connected channel. Each pill shows the channel name, type, and identifier. Click a pill to select that channel; it highlights to indicate it's active.
 
-<Steps>
-  <Step title="Open the Messaging Behaviour tab">
-    Go to **Connect** and click the **Messaging Behaviour** tab.
-  </Step>
-  <Step title="Enable Automatic Session Close">
-    Toggle the switch to enable or disable the feature.
-  </Step>
-  <Step title="Set the inactivity time">
-    Use the slider or the quick-select buttons to choose how many minutes of inactivity trigger the session close (from **1 to 30 minutes**).
-  </Step>
-  <Step title="Review the timeline preview">
-    A visual timeline shows the flow: the agent responds → the configured inactivity period passes → the session closes automatically.
-  </Step>
-  <Step title="Save">
-    Click **Save** to apply the setting.
-  </Step>
-</Steps>
+If no channels are connected yet, the tab displays a message prompting you to connect a channel first.
+
+### Debounce time
+
+The **Debounce Time** setting controls how long the agent waits after receiving a message before processing and responding. This is useful for channels where users tend to send multiple short messages in rapid succession (like WhatsApp).
+
+- Adjust the slider between **0 s** and **15 s**, or use the quick-select buttons (**0, 1, 3, 5, 8, 10, 15**).
+- Setting debounce to **0 s** means the agent responds immediately to every message.
+- A visual **preview** below the slider shows how multiple user messages are batched during the debounce window before the agent responds.
 
 <Note>
-When disabled, conversations remain open until they are closed manually or by another mechanism. When enabled, the farewell message (configured in **Identity**) is sent before the session closes.
+The debounce setting is automatically hidden for internal channels such as the **Playground** and **Agent API**, since batching does not apply to those channel types.
 </Note>
-
-### Channel Settings
-
-Configure **per-channel** messaging behavior. Each connected channel appears as a card showing its current settings. Click **Settings** on any channel card to open the configuration dialog.
-
-#### Message Debounce
-
-When a user sends multiple messages in quick succession, the agent can wait for a short period before responding—so it processes all messages together instead of replying to each one individually.
-
-- **Time window**: Set the debounce period from **1 to 15 seconds** using the slider or quick-select buttons.
-- A visual preview shows how consecutive user messages are grouped and a single response is sent after the debounce window.
-
-<Note>
-The debounce time adds to the overall response latency. For example, a 5-second debounce means the agent waits at least 5 seconds after the user's last message before responding.
-</Note>
-
-#### File Preferences
-
-Enable and configure the types of files each channel can receive from users. Four file types are supported:
-
-| File type | Formats |
-|---|---|
-| **Images** | JPG, PNG, WebP, GIF |
-| **Documents** | PDF, DOCX, XLSX, CSV |
-| **Audio** | Voice notes, audio files |
-| **Video** | Video files |
-
-For each file type you can:
-1. **Toggle** it on or off.
-2. **Add processing instructions** — a text prompt that tells the agent how to handle files of that type (e.g., "Extract text from the image and summarize it").
 
 <Tip>
-Use file processing instructions to guide the agent's behavior. For example, you could instruct it to extract data from uploaded invoices or transcribe voice notes.
+Start with a debounce of **3–5 seconds** for WhatsApp and similar channels. This gives users enough time to finish typing without making the agent feel slow.
 </Tip>
 
-#### Saving channel settings
+### File preferences
 
-After adjusting debounce time and file preferences, click **Save** in the dialog to apply the changes. The channel card updates to show badges reflecting the current configuration:
-- A **debounce badge** showing the current debounce time.
-- **File type badges** for each enabled file type.
+Below the debounce section, you can toggle which **file types** the agent is allowed to receive on the selected channel:
 
----
+| File type | Examples |
+|---|---|
+| **Images** | Photos, screenshots, scanned documents |
+| **Documents** | PDFs, Word files, spreadsheets |
+| **Audio** | Voice notes, audio recordings |
+| **Video** | Video clips, screen recordings |
 
-## Integration and API sections
+For each enabled file type, configure:
+- **Max size** — the maximum allowed file size (in MB)
+- **Instructions** — guidance the agent follows when it receives this type of file (e.g. "Describe the image content and answer the user's question based on it")
 
-For details on connecting external integrations and using the API channel, see:
-- [Integrations](/agent/en/integrations)
-- [Integration Guides](/integration-guides/en/how-to-integrate-to-whatsapp)
+Disabled file types are ignored by the agent on that channel.
+
+### Saving changes
+
+After adjusting debounce or file preferences for a channel, click **Save** in the top-right area. A brief confirmation appears once the settings are persisted.
+
+<Note>
+Session close (automatic conversation closing after inactivity) is now configured in **Proactive AI > Engagement > Follow ups**. See the [Follow ups](/contacts/en/followups) documentation for details.
+</Note>
