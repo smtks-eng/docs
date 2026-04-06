@@ -42,73 +42,46 @@ Debajo de los indicadores encontrarás una tabla con todas las conversaciones re
 - **ID externo:** ID del usuario del canal.  
 - **Último mensaje:** Vista previa del mensaje más reciente en la conversación.  
 - **Número de mensajes:** Total de mensajes intercambiados (con el Agente de IA).  
+- **Tiempo de primera respuesta (FRT):** El tiempo transcurrido entre el primer mensaje del usuario y la primera respuesta del agente. Se muestra en un formato legible (p. ej. `45s`, `2m 30s`, `1h 15m`).  
+- **Tiempo promedio de respuesta (ART):** El tiempo promedio que el agente tardó en responder a lo largo de todos los mensajes de la conversación. Usa el mismo formato legible que el FRT.  
 - **Inicio:** Fecha y hora de inicio de la conversación.  
 - **Control:** Indica quien terminó la conversación (agente o humano).  
 - **Estado:** Estado actual de la conversación (Activa, Finalizada).  
 - **Etiqueta:** Marcadores o categorías asignadas a la conversación.  
 - **Burbuja:** Abre el **Panel de Conversación** para más detalles.  
 
+<Tip>
+**FRT** y **ART** te ayudan a medir qué tan rápido responde tu agente a los usuarios. Ambas columnas son ordenables, por lo que puedes identificar rápidamente conversaciones con tiempos de respuesta inusualmente largos e investigar más a fondo.
+</Tip>
+
 ---
 
 ### Filtros y Búsqueda
 
-El panel te permite encontrar rápidamente conversaciones relevantes:
+El panel permite encontrar conversaciones relevantes rápidamente:
 
-- **Barra de búsqueda:** Busca por contenido de conversación, ID de usuario externo o mensajes.
+- **Barra de búsqueda:** Busca por contenido de la conversación, ID externo del usuario o mensajes.
 - **Filtros:**
-  - **Canal** – Filtra por canal de comunicación (p. ej. Bubble, Playground, WhatsApp Meta, Freshchat, Zendesk, etc.).
-  - **Estado** – Conversaciones activas o finalizadas.
-  - **Control** – Conversaciones controladas por el agente o por un humano.
-  - **Etiquetas** – Filtra por etiquetas específicas asignadas a las conversaciones.
-  - **Sentimiento** – Sentimiento del usuario: positivo, neutral o negativo.
-  - **Tema** – Filtra por temas auto-clasificados.
-  - **Éxito de tarea** – Éxito, éxito parcial, fallo o indeterminado.
-  - **CSAT** – Establece una puntuación mínima y máxima de CSAT (1–5).
-  - **Número de mensajes** – Filtra por la cantidad de mensajes intercambiados.
-
-- **Botones de acción:**
-  - **Gestionar etiquetas** – Abre el modal de gestión de etiquetas para crear o editar etiquetas.
-  - **Limpiar filtros** – Restablece todos los filtros a sus valores por defecto.
-  - **Actualizar** – Obtiene las conversaciones más recientes del servidor.
+  - **Canal** – Filtra por canal de comunicación (p. ej. Bubble, Plataforma, WhatsApp).
+  - **Estado** – Conversaciones Activas o Finalizadas.
+  - **Etiquetas** – Filtra por etiquetas asignadas a las conversaciones.
+  - **Rango de fechas** – Selecciona un período de tiempo para las conversaciones.
 
 ---
 
-### Filtros de Metadatos
+### Exportar conversaciones
 
-Debajo de la barra de filtros estándar, una sección colapsable de **Filtros de Metadatos** te permite reducir las conversaciones según los **metadatos de usuario** enviados por tus canales integrados. Esto es especialmente útil cuando tus canales pasan información personalizada del usuario (como IDs de cliente, correos electrónicos o identificadores de cuenta) junto con las conversaciones.
-
-#### Cómo funciona
-
-1. **Expande la sección** – Haz clic en el encabezado **Filtros de Metadatos** para revelar los campos disponibles. Una insignia pequeña muestra cuántos filtros de metadatos están activos actualmente.
-2. **Canales y campos** – Los campos de metadatos se agrupan por canal (p. ej. *Freshchat Bubble*, *WhatsApp Meta*). Cada tarjeta de canal lista los campos de metadatos que se han detectado en las conversaciones de tu agente. Solo aparecerán los canales que hayan enviado metadatos.
-3. **Filtrar por valor** – Escribe un valor en el campo de texto de cualquier campo para filtrar conversaciones donde ese campo de metadatos coincida con tu consulta.
-4. **Limpiar por canal** – Haz clic en el botón **✕** del encabezado de un canal para limpiar todos los filtros de metadatos de ese canal a la vez.
-5. **Colapsar canales** – Haz clic en la flecha del encabezado de un canal para expandir o colapsar su lista de campos, manteniendo la barra de filtros ordenada.
-
-<Tip>
-Los filtros de metadatos son especialmente poderosos cuando se combinan con los filtros estándar. Por ejemplo, filtra por un **Canal** específico y luego agrega un filtro de metadatos por `customer_id` para encontrar todas las conversaciones de un cliente particular.
-</Tip>
-
-<Note>
-Los campos de metadatos que se muestran dependen de lo que envíen tus canales integrados. Si no se han recibido metadatos de ningún canal, la sección mostrará un mensaje informativo. Agregar metadatos a la integración de tu canal se realiza típicamente del lado de la integración (p. ej. pasando atributos personalizados a través de Freshchat o Zendesk).
-</Note>
+Puedes exportar tus conversaciones a un archivo CSV. La exportación incluye todas las columnas visibles, incluyendo **Tiempo de primera respuesta** y **Tiempo promedio de respuesta** (mostrados en segundos en el archivo exportado).
 
 ---
 
-### Panel de Detalle de Conversación
+### Panel de Conversación
 
-Al hacer clic en una fila se abre el **Panel de Conversación** en el lado derecho. Allí puedes:
+Al hacer clic en una fila de conversación (o en el ícono de burbuja) se abre el **Panel de Conversación** en el lado derecho. Este panel muestra:
 
-- **Leer la conversación completa** entre el usuario y el agente.
-- **Ver los metadatos de la conversación**: canal, hora de inicio, estado y etiquetas.
-- **Revisar el resumen** y los detalles de resolución.
+- Transcripción completa de la conversación
+- Detalles de mensajes del usuario y del agente
+- Metadatos e información de contexto
+- Etiquetas y estado
 
----
-
-## Mejores Prácticas
-
-- **Usa filtros de fecha** para enfocarte en el período de tiempo más relevante para tu análisis.
-- **Combina múltiples filtros** (canal + sentimiento + tema) para reducir a las conversaciones que más importan.
-- **Usa filtros de metadatos** para rastrear clientes específicos o atributos de usuario a través de conversaciones.
-- **Revisa conversaciones etiquetadas** para entender patrones comunes y mejorar las respuestas del agente.
-- **Exporta los datos** para reportes externos usando las opciones de exportación disponibles en la barra de herramientas de la tabla.
+Usa este panel para revisar conversaciones individuales sin salir de la vista principal del panel.
