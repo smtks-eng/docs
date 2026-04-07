@@ -114,6 +114,12 @@
             ]
           },
           {
+            "group": "Settings",
+            "pages": [
+              "settings/en/system-status"
+            ]
+          },
+          {
             "group": "Integration Guides",
             "pages": [
               "integration-guides/en/how-to-integrate-to-whatsapp",
@@ -221,6 +227,12 @@
                   "contacts/es/directorio"
                 ]
               }
+            ]
+          },
+          {
+            "group": "Configuración",
+            "pages": [
+              "settings/es/estado-del-sistema"
             ]
           },
           {
