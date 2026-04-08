@@ -19,6 +19,33 @@ El **Playground** es un espacio dedicado dentro de la Consola de Semantiks donde
   - *Cuéntame más sobre tu organización*
 - **Reiniciar Conversaciones:** Reinicia el chat en cualquier momento para probar un nuevo flujo desde el principio.
 - **Soporte Multilingüe:** Prueba las respuestas de tu Agente en diferentes idiomas (si está habilitado).
+- **Banner Informativo:** Al abrir una nueva sesión del Playground, un banner azul te recuerda que estás probando en el canal del Playground y recomienda reiniciar la conversación después de hacer cambios en tu agente. El banner se cierra automáticamente cuando envías tu primer mensaje, o puedes cerrarlo manualmente haciendo clic en el botón **✕**.
+- **Adjuntos de Archivos:** Envía imágenes, documentos (PDF), audio y video directamente en el Playground para probar cómo tu Agente maneja archivos multimedia. Esta funcionalidad depende de la configuración de preferencias de archivos del canal web de tu agente.
+
+---
+
+## Envío de Adjuntos de Archivos
+
+Si el canal web de tu agente tiene uno o más tipos de archivo habilitados en sus **preferencias de archivos**, el compositor del Playground mostrará un botón **+** a la izquierda del campo de texto.
+
+### Cómo adjuntar archivos
+
+1. Haz clic en el botón **+** en el área del compositor.
+2. Aparecerá un menú con los tipos de archivos disponibles: **Imágenes**, **Media** (PDF), **Audio** y **Video**. Solo los tipos habilitados en la configuración del canal web de tu agente estarán activos.
+3. Selecciona un tipo de archivo y elige uno o más archivos desde tu dispositivo.
+4. Una barra de vista previa aparecerá sobre el compositor mostrando miniaturas para imágenes o insignias con el nombre del archivo para otros tipos.
+5. Para eliminar un archivo antes de enviarlo, pasa el cursor sobre su vista previa y haz clic en el botón **✕**.
+6. Escribe tu mensaje (opcional) y presiona **Enviar**. Los archivos adjuntos se envían junto con tu mensaje.
+
+<Note>
+Puedes adjuntar hasta **3 archivos** por mensaje, con un tamaño máximo de **10 MB por archivo**.
+</Note>
+
+<Tip>
+Si no ves el botón **+**, verifica que al menos un tipo de archivo (imágenes, media, audio o video) esté habilitado en las preferencias de archivos del canal web de tu agente en **Conecta > Canales > Chat Externo**.
+</Tip>
+
+Las imágenes enviadas se muestran en línea como miniaturas en tu burbuja de mensaje de usuario, para que puedas confirmar visualmente lo que se envió.
 
 ---
 
@@ -28,6 +55,7 @@ Usa el Playground cuando quieras:
 
 - Validar **nuevas entradas de conocimiento** antes de hacerlas públicas.
 - Confirmar que las **capacidades** (integraciones, herramientas, funciones) están respondiendo según lo esperado.
+- Probar cómo tu agente maneja **adjuntos de archivos e imágenes** antes de ir a producción.
 - Entrenar a tu equipo mostrándoles cómo se comporta el Agente en escenarios controlados.
 - Depurar problemas detectados en producción sin necesidad de replicarlos directamente con clientes en vivo.
 
@@ -37,15 +65,19 @@ Usa el Playground cuando quieras:
 
 1. Ve a **Agentes > Playground** en el menú de navegación izquierdo.
 2. Selecciona el Agente que deseas probar (por ejemplo, *Servicio al Cliente – Ale*).
-3. Escribe tu consulta o haz clic en un prompt sugerido para comenzar a probar.
-4. Usa el botón **Reiniciar Conversación** en la parte superior derecha para limpiar la sesión y comenzar de nuevo.
+3. Lee el banner informativo en la parte superior como recordatorio de reiniciar después de hacer cambios.
+4. Escribe tu consulta o haz clic en un prompt sugerido para comenzar a probar.
+5. Usa el botón **+** para adjuntar archivos si los tipos de archivo están habilitados para tu agente.
+6. Usa el botón **Reiniciar Conversación** en la parte superior derecha para limpiar la sesión y comenzar de nuevo.
 
 ---
 
 ## Mejores Prácticas
 
 - **Itera Frecuentemente:** Prueba pequeños cambios en el Playground antes de enviar múltiples actualizaciones a producción.
+- **Reinicia Después de Cambios:** Como sugiere el banner, reinicia la conversación después de modificar la configuración de tu agente para obtener los resultados de prueba más precisos.
 - **Compara Escenarios:** Usa entradas similares entre sesiones para medir mejoras en las respuestas.
+- **Prueba con Adjuntos:** Si tu agente soporta manejo de archivos, envía imágenes y documentos de ejemplo en el Playground para verificar el comportamiento antes de habilitarlo en canales en vivo.
 - **Documenta Aprendizajes:** Anota problemas o mejoras necesarias y actualiza el conocimiento o capacidades del Agente en consecuencia.
 - **Validación Final:** Siempre confirma en el Playground que las respuestas de tu Agente se alinean con el tono y los objetivos de servicio de tu organización antes de habilitar cambios en canales públicos.
 
