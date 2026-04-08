@@ -1,66 +1,31 @@
 ---
 title: "Estado del Sistema"
-description: "Monitorea la salud de tus integraciones y servicios de la plataforma en tiempo real."
+description: "Monitorea el estado de los servicios de la plataforma Semantiks en tiempo real."
 ---
 
-La página de **Estado del Sistema** te ofrece visibilidad en tiempo real sobre la salud de los servicios principales que impulsan tu agente de Semantiks. Úsala para verificar rápidamente que todas las integraciones funcionan correctamente, diagnosticar rendimiento degradado y revisar datos históricos de salud.
+# Estado del Sistema
 
-La encontrarás en **Configuración → Estado del Sistema**.
+La página de **Estado del Sistema** te ofrece una vista rápida del rendimiento de cada servicio principal de la plataforma Semantiks. Puedes acceder desde **Configuración → Estado del Sistema**.
 
-## Banner de Estado General
+## Verificaciones de Salud
 
-En la parte superior de la página, un banner de color resume la salud general de la plataforma:
+La página muestra el estado actual de los siguientes servicios:
 
-| Banner | Significado |
-|---|---|
-| 🟢 **Todos los sistemas operativos** | Todas las verificaciones de salud reportan estado saludable |
-| 🟡 **Algunos sistemas presentan problemas** | Al menos una verificación está degradada, pero ninguna está completamente caída |
-| 🔴 **Se detectó una interrupción del sistema** | Una o más verificaciones reportan como caídas |
+| Servicio | Descripción |
+| --- | --- |
+| **Servicio de Mensajería de Integraciones** | Gestiona el envío de mensajes a través de tus canales conectados (WhatsApp, Freshchat, Zendesk, etc.). |
+| **API de Consola** | Alimenta la consola de Semantiks — la aplicación web que estás usando en este momento. |
+| **Servicio de Agente** | Ejecuta el razonamiento y la generación de respuestas de tu agente de IA. |
 
-## Tarjetas de Verificación de Salud
+Cada servicio muestra:
 
-Debajo del banner, verás una tarjeta por cada servicio monitoreado. Las verificaciones actualmente rastreadas son:
-
-- **Flujo E2E Switchboard** — enrutamiento de mensajes de extremo a extremo a través del switchboard
-- **API de Consola** — la API principal de Semantiks Console
-- **Agente LangGraph** — el motor de orquestación del agente de IA
-
-Cada tarjeta muestra:
-
-- **Indicador de estado** — Saludable, Degradado o Caído (con código de color verde, amarillo o rojo)
-- **Tiempo de respuesta** — cuánto tardó la verificación, en milisegundos
-- **Última verificación** — tiempo relativo desde la última verificación (ej. "hace 2m")
-- **Mensaje de error** — si la verificación falló, se muestra una breve descripción del error
+- **Estado** — si el servicio está operativo o presenta problemas.
+- **Verificado el** — la fecha y hora en que se verificó el estado por última vez.
 
 <Tip>
-Haz clic en cualquier tarjeta para filtrar la tabla de historial y mostrar solo las entradas de ese servicio específico. Haz clic de nuevo en la tarjeta para deseleccionar y ver todo el historial.
+  Si algún servicio aparece con problemas, espera unos minutos y actualiza la página. Si el problema persiste, contacta a soporte.
 </Tip>
 
-## Actualización del Estado
-
-Las verificaciones de salud se actualizan automáticamente cada **60 segundos**. También puedes hacer clic en el botón **Actualizar** en la esquina superior derecha para activar una actualización inmediata.
-
-## Tabla de Historial
-
-Debajo de las tarjetas, una tabla de historial muestra los resultados más recientes de las verificaciones de salud (hasta 30 entradas). La tabla incluye:
-
-| Columna | Descripción |
-|---|---|
-| **Verificación** | El nombre del servicio que fue verificado |
-| **Estado** | Saludable, Degradado o Caído |
-| **Tiempo de respuesta** | Cuánto tardó la verificación (en ms) |
-| **Error** | Mensaje de error, si lo hay (de lo contrario muestra "-") |
-| **Verificado el** | La fecha y hora exacta de la verificación |
-
-Cuando seleccionas una tarjeta de servicio específico, la tabla de historial se filtra para mostrar solo las entradas de ese servicio.
-
-## Casos de Uso Comunes
-
-- **Antes de lanzar una campaña** — verifica que todos los sistemas estén operativos para que los mensajes se entreguen de forma confiable
-- **Después de configurar un nuevo canal** — confirma que la integración está saludable
-- **Solucionar problemas del agente** — verifica si una interrupción o degradación del servicio podría estar causando comportamiento inesperado
-- **Compartir el estado con tu equipo** — confirma rápidamente la salud de la plataforma durante incidentes
-
-<Note>
-Las verificaciones de salud se realizan del lado del servidor. Si ves un error de "Error al obtener el estado de salud", verifica tu conexión de red e intenta actualizar la página.
-</Note>
+<Warning>
+  Si ves un error de "Error al obtener el estado de salud", verifica tu conexión a internet e inténtalo de nuevo.
+</Warning>

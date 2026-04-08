@@ -1,66 +1,31 @@
 ---
 title: "System Status"
-description: "Monitor the health of your platform integrations and services in real time."
+description: "Monitor the health of the Semantiks platform services in real time."
 ---
 
-The **System Status** page gives you real-time visibility into the health of the core services that power your Semantiks agent. Use it to quickly verify that all integrations are running smoothly, diagnose degraded performance, and review historical health data.
+# System Status
 
-You'll find it under **Settings → System Status**.
+The **System Status** page gives you a quick overview of how each core service in the Semantiks platform is performing. You can access it from **Settings → System Status**.
 
-## Overall Status Banner
+## Health Checks
 
-At the top of the page, a colored banner summarizes the overall platform health:
+The page displays the current status of the following services:
 
-| Banner | Meaning |
-|---|---|
-| 🟢 **All systems operational** | Every health check is reporting healthy |
-| 🟡 **Some systems experiencing issues** | At least one check is degraded, but none are fully down |
-| 🔴 **System outage detected** | One or more checks are reporting as down |
+| Service | Description |
+| --- | --- |
+| **Integrations Messaging Service** | Handles message delivery across your connected channels (WhatsApp, Freshchat, Zendesk, etc.). |
+| **Console API** | Powers the Semantiks console — the web application you are using right now. |
+| **Agent Service** | Runs your AI agent's reasoning and response generation. |
 
-## Health Check Cards
+Each service shows:
 
-Below the banner, you'll see a card for each monitored service. The checks currently tracked are:
-
-- **E2E Switchboard Flow** — end-to-end message routing through the switchboard
-- **Console API** — the core Semantiks Console API
-- **LangGraph Agent** — the AI agent orchestration engine
-
-Each card displays:
-
-- **Status badge** — Healthy, Degraded, or Down (color-coded green, yellow, or red)
-- **Response time** — how long the check took, in milliseconds
-- **Last checked** — relative time since the last check (e.g. "2m ago")
-- **Error message** — if the check failed, a brief description of the error is shown
+- **Status** — whether the service is operational or experiencing issues.
+- **Checked At** — the date and time the status was last verified.
 
 <Tip>
-Click on any card to filter the history table below to show only entries for that specific service. Click the card again to deselect and see all history.
+  If any service appears unhealthy, wait a few minutes and refresh the page. If the issue persists, contact support.
 </Tip>
 
-## Refreshing Status
-
-Health checks auto-refresh every **60 seconds**. You can also click the **Refresh** button in the top-right corner to trigger an immediate update.
-
-## History Table
-
-Below the cards, a history table shows the most recent health check results (up to 30 entries). The table includes:
-
-| Column | Description |
-|---|---|
-| **Check** | The name of the service that was checked |
-| **Status** | Healthy, Degraded, or Down |
-| **Response Time** | How long the check took (in ms) |
-| **Error** | Error message, if any (otherwise shows "-") |
-| **Checked At** | The exact date and time of the check |
-
-When you select a specific service card, the history table filters to show only that service's entries.
-
-## Common Use Cases
-
-- **Before launching a campaign** — verify all systems are operational so messages are delivered reliably
-- **After configuring a new channel** — confirm the integration is healthy
-- **Troubleshooting agent issues** — check whether a service outage or degradation might be causing unexpected behavior
-- **Sharing status with your team** — quickly confirm platform health during incidents
-
-<Note>
-The health checks are performed server-side. If you see a "Failed to fetch health status" error, verify your network connection and try refreshing the page.
-</Note>
+<Warning>
+  If you see a "Failed to fetch health status" error, check your internet connection and try again.
+</Warning>
