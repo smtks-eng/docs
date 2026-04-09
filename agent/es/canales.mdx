@@ -79,55 +79,61 @@ La página de Conecta siempre muestra una sección de **Meta** con tres tarjetas
 
 Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración de ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar el proceso de conexión en cualquier momento.
 
+Una vez que hayas conectado una o más cuentas para un tipo de canal, aparece un botón **Canales (n)** en la tarjeta mostrando el conteo de conexiones activas. Haz clic para ver, editar o reconectar tus conexiones existentes.
+
+---
+
+## Integraciones
+
+La sección de **Integraciones** muestra las plataformas de terceros a las que tu agente puede conectarse. Cada tarjeta de integración tiene un botón **Configurar** para ingresar las credenciales requeridas. Una vez configurada, la mayoría de las integraciones también muestran un botón **Canales** que te permite gestionar los canales individuales conectados a través de esa integración.
+
+### Integración de Intercom
+
+Intercom utiliza un modelo de conexión **basado en workspaces**. La configuración se divide en dos partes:
+
+#### 1. Configurar la integración
+
+Haz clic en **Configurar** en la tarjeta de Intercom y proporciona:
+
+| Campo | Descripción |
+|---|---|
+| **Client Secret** | El client secret de tu aplicación privada de Intercom. |
+| **Admin ID** | El ID del administrador de Intercom que se asociará con la integración. |
+
+<Note>
+  Puedes encontrar el Admin ID en tu Intercom Developer Hub. Identifica bajo qué cuenta de administrador opera el agente.
+</Note>
+
+#### 2. Gestionar workspaces
+
+Una vez que la integración de Intercom está configurada, aparece un botón **Workspaces** en la tarjeta. Haz clic para abrir el panel de Workspaces de Intercom, donde puedes:
+
+- **Ver** todos los workspaces de Intercom conectados actualmente y su estado.
+- **Agregar un workspace** — haz clic en **Agregar Workspace**, luego ingresa el **Workspace ID** y el **Access Token** de ese workspace específico. Cada workspace tiene su propio access token.
+- **Desconectar un workspace** — haz clic en el botón de desconectar junto a cualquier workspace para eliminarlo.
+
+<Tip>
+  Si gestionas múltiples workspaces de Intercom (por ejemplo, diferentes marcas o regiones), puedes conectar cada uno de forma individual. Cada workspace necesita su propio Workspace ID y Access Token.
+</Tip>
+
 ---
 
 ## Pestaña de Comportamiento de Mensajería
 
-La pestaña **Comportamiento de Mensajería** te permite ajustar cómo el agente procesa y responde mensajes en cada canal conectado. Los ajustes se configuran **por canal**.
+La pestaña de **Comportamiento de Mensajería** tiene dos sub-pestañas:
 
-### Seleccionar un canal
+### Sub-pestaña de Canales
 
-En la parte superior de la pestaña verás una fila de **píldoras de selección de canal** — una por cada canal conectado. Cada píldora muestra el nombre, tipo e identificador del canal. Haz clic en una píldora para seleccionar ese canal; se resalta para indicar que está activo.
+Aquí ves cada canal al que tu agente está conectado, junto con su configuración de mensajería. Para cada canal puedes configurar:
 
-Si aún no hay canales conectados, la pestaña muestra un mensaje invitándote a conectar un canal primero.
+- **Mensaje de escalación humana** — el mensaje que se muestra cuando la conversación se transfiere a un humano.
+- **Mensaje de cierre de conversación** — el mensaje que se envía cuando el agente termina la conversación.
+- **Configuración de inactividad** — cuánto tiempo espera el agente antes de cerrar una conversación inactiva, y los mensajes de advertencia/cierre.
 
-### Tiempo de debounce
+### Sub-pestaña de Archivos
 
-El ajuste de **Tiempo de Debounce** controla cuánto tiempo espera el agente después de recibir un mensaje antes de procesar y responder. Esto es útil para canales donde los usuarios tienden a enviar varios mensajes cortos seguidos (como WhatsApp).
-
-- Ajusta el deslizador entre **0 s** y **15 s**, o usa los botones de selección rápida (**0, 1, 3, 5, 8, 10, 15**).
-- Configurar el debounce en **0 s** significa que el agente responde inmediatamente a cada mensaje.
-- Una **vista previa** visual debajo del deslizador muestra cómo se agrupan los mensajes del usuario durante la ventana de debounce antes de que el agente responda.
-
-<Note>
-El ajuste de debounce se oculta automáticamente para canales internos como el **Playground** y **Agent API**, ya que el agrupamiento no aplica a esos tipos de canal.
-</Note>
+Configura si el agente puede recibir y procesar archivos en cada canal. Los tipos de archivo soportados dependen del canal y pueden incluir imágenes, documentos, audio y video.
 
 <Tip>
-Comienza con un debounce de **3–5 segundos** para WhatsApp y canales similares. Esto da a los usuarios tiempo suficiente para terminar de escribir sin que el agente se sienta lento.
+  Usa la pestaña de Comportamiento de Mensajería para ajustar cómo se comunica tu agente en cada canal. Diferentes canales pueden necesitar diferentes tonos, tiempos de espera o mensajes de escalación.
 </Tip>
-
-### Preferencias de archivos
-
-Debajo de la sección de debounce, puedes activar o desactivar qué **tipos de archivo** puede recibir el agente en el canal seleccionado:
-
-| Tipo de archivo | Ejemplos |
-|---|---|
-| **Imágenes** | Fotos, capturas de pantalla, documentos escaneados |
-| **Documentos** | PDFs, archivos de Word, hojas de cálculo |
-| **Audio** | Notas de voz, grabaciones de audio |
-| **Video** | Clips de video, grabaciones de pantalla |
-
-Para cada tipo de archivo habilitado, configura:
-- **Tamaño máximo** — el tamaño máximo permitido del archivo (en MB)
-- **Instrucciones** — indicaciones que el agente sigue cuando recibe este tipo de archivo (ej. "Describe el contenido de la imagen y responde la pregunta del usuario basándote en ella")
-
-Los tipos de archivo deshabilitados son ignorados por el agente en ese canal.
-
-### Guardar cambios
-
-Después de ajustar el debounce o las preferencias de archivos de un canal, haz clic en **Guardar** en el área superior derecha. Aparecerá una breve confirmación cuando los ajustes se hayan guardado.
-
-<Note>
-El cierre automático de sesiones (cierre de conversaciones tras inactividad) ahora se configura en **IA proactiva > Enganche > Follow ups**. Consulta la documentación de [Follow ups](/contacts/es/seguimientos) para más detalles.
-</Note>

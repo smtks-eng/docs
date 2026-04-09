@@ -83,53 +83,57 @@ Once you have connected one or more accounts for a channel type, a **Channels (n
 
 ---
 
-## Messaging Behaviour tab
+## Integrations
 
-The **Messaging Behaviour** tab lets you fine-tune how the agent processes and responds to messages on each connected channel. Settings are configured **per channel**.
+The **Integrations** section shows third-party platforms your agent can connect to. Each integration card has a **Configure** button to set up the required credentials. Once configured, most integrations also show a **Channels** button that lets you manage the individual channels connected through that integration.
 
-### Selecting a channel
+### Intercom integration
 
-At the top of the tab you'll see a row of **channel selector pills** — one for each connected channel. Each pill shows the channel name, type, and identifier. Click a pill to select that channel; it highlights to indicate it's active.
+Intercom uses a **workspace-based** connection model. The setup is split into two parts:
 
-If no channels are connected yet, the tab displays a message prompting you to connect a channel first.
+#### 1. Configure the integration
 
-### Debounce time
+Click **Configure** on the Intercom card and provide:
 
-The **Debounce Time** setting controls how long the agent waits after receiving a message before processing and responding. This is useful for channels where users tend to send multiple short messages in rapid succession (like WhatsApp).
-
-- Adjust the slider between **0 s** and **15 s**, or use the quick-select buttons (**0, 1, 3, 5, 8, 10, 15**).
-- Setting debounce to **0 s** means the agent responds immediately to every message.
-- A visual **preview** below the slider shows how multiple user messages are batched during the debounce window before the agent responds.
+| Field | Description |
+|---|---|
+| **Client Secret** | The client secret from your Intercom private app. |
+| **Admin ID** | The ID of the Intercom admin that will be associated with the integration. |
 
 <Note>
-The debounce setting is automatically hidden for internal channels such as the **Playground** and **Agent API**, since batching does not apply to those channel types.
+  You can find the Admin ID in your Intercom Developer Hub. It identifies which admin account the agent operates under.
 </Note>
+
+#### 2. Manage workspaces
+
+Once the Intercom integration is configured, a **Workspaces** button appears on the card. Click it to open the Intercom Workspaces panel, where you can:
+
+- **View** all currently connected Intercom workspaces and their status.
+- **Add a workspace** — click **Add Workspace**, then enter the **Workspace ID** and the **Access Token** for that specific workspace. Each workspace has its own access token.
+- **Disconnect a workspace** — click the disconnect button next to any workspace to remove it.
 
 <Tip>
-Start with a debounce of **3–5 seconds** for WhatsApp and similar channels. This gives users enough time to finish typing without making the agent feel slow.
+  If you manage multiple Intercom workspaces (e.g., different brands or regions), you can connect each one individually. Every workspace needs its own Workspace ID and Access Token.
 </Tip>
 
-### File preferences
+---
 
-Below the debounce section, you can toggle which **file types** the agent is allowed to receive on the selected channel:
+## Messaging Behaviour tab
 
-| File type | Examples |
-|---|---|
-| **Images** | Photos, screenshots, scanned documents |
-| **Documents** | PDFs, Word files, spreadsheets |
-| **Audio** | Voice notes, audio recordings |
-| **Video** | Video clips, screen recordings |
+The **Messaging Behaviour** tab has two sub-tabs:
 
-For each enabled file type, configure:
-- **Max size** — the maximum allowed file size (in MB)
-- **Instructions** — guidance the agent follows when it receives this type of file (e.g. "Describe the image content and answer the user's question based on it")
+### Channels sub-tab
 
-Disabled file types are ignored by the agent on that channel.
+Here you see every channel your agent is connected to, along with its messaging settings. For each channel you can configure:
 
-### Saving changes
+- **Human escalation prompt** — the message shown when the conversation is handed off to a human.
+- **Conversation closing message** — the message sent when the agent ends the conversation.
+- **Inactivity settings** — how long the agent waits before closing an idle conversation, and the warning/closing messages.
 
-After adjusting debounce or file preferences for a channel, click **Save** in the top-right area. A brief confirmation appears once the settings are persisted.
+### Files sub-tab
 
-<Note>
-Session close (automatic conversation closing after inactivity) is now configured in **Proactive AI > Engagement > Follow ups**. See the [Follow ups](/contacts/en/followups) documentation for details.
-</Note>
+Configure whether the agent can receive and process files on each channel. Supported file types depend on the channel and may include images, documents, audio, and video.
+
+<Tip>
+  Use the Messaging Behaviour tab to fine-tune how your agent communicates on each channel. Different channels may need different tones, timeouts, or escalation messages.
+</Tip>
