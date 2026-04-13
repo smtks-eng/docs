@@ -20,6 +20,48 @@ The **Playground** is a dedicated space inside the Semantiks Console where you c
 - **Multilingual Support:** Test your Agent's responses across different languages (if enabled).
 - **Informational Banner:** When you open a new Playground session, a blue banner reminds you that you are testing on the Playground channel and recommends restarting the conversation after making changes to your agent. The banner dismisses automatically when you send your first message, or you can close it manually by clicking the **✕** button.
 - **File Attachments:** Send images, documents (PDF), audio, and video files directly in the Playground to test how your Agent handles media. This feature depends on your agent's web channel file preferences configuration.
+- **External User Override:** Simulate conversations as a specific end user by configuring a custom User ID, Profile Name, and metadata before starting a conversation. This is useful for testing personalization, memories, and user-specific behaviors.
+
+---
+
+## External User Configuration
+
+The Playground lets you override the default user identity that is sent to your agent's backend. This is especially helpful when you want to:
+
+- Test how your agent behaves with a **specific returning user** (by providing their User ID).
+- Verify **personalization features** like greeting the user by name (by setting a Profile Name).
+- Simulate conversations with **custom metadata** (e.g., `plan: premium`, `language: fr`) to test metadata-dependent logic in workflows or tools.
+
+### How to configure the external user
+
+<Steps>
+  <Step title="Open the External User modal">
+    In the Playground toolbar, click the **External User** button (the user-with-gear icon). A modal dialog will open.
+  </Step>
+  <Step title="Set the User ID (optional)">
+    Enter a custom **User ID**. If left empty, the Playground generates a random ID in the format `playground-<uuid>`.
+  </Step>
+  <Step title="Set the Profile Name (optional)">
+    Enter a custom **Profile Name**. If left empty, the default `Playground <timestamp>` label is used.
+  </Step>
+  <Step title="Add Metadata (optional)">
+    Click **Add property** to add key-value pairs. Each pair represents a metadata attribute sent alongside the conversation.
+    - Keys must be **unique** and **non-empty**.
+    - You can remove any pair by clicking the trash icon next to it.
+    - If no metadata is provided, the default metadata (`source: playground`, `session_id: <uuid>`) is used.
+  </Step>
+  <Step title="Save">
+    Click **Save** to apply the configuration. The next conversation will use the values you provided.
+  </Step>
+</Steps>
+
+<Tip>
+To go back to the default Playground identity, open the modal and click **Reset to defaults**. This clears all custom fields and restores the auto-generated User ID, Profile Name, and default metadata.
+</Tip>
+
+<Note>
+Changing the external user configuration does **not** restart the current conversation automatically. For the new identity to take effect, start a new thread by clicking the **New thread** button.
+</Note>
 
 ---
 
@@ -44,42 +86,13 @@ You can attach up to **3 files** per message, with a maximum size of **10 MB per
 If you don't see the **+** button, check that at least one file type (images, media, audio, or video) is enabled in your agent's web channel file preferences under **Connect > Channels > External Chat**.
 </Tip>
 
-Sent images are displayed inline as thumbnails in your user message bubble, so you can visually confirm what was sent.
-
----
-
-## When to Use the Playground
-
-Use the Playground whenever you want to:
-
-- Validate **new knowledge entries** before making them public.
-- Confirm that **capabilities** (integrations, tools, functions) are responding as expected.
-- Test how your agent handles **file and image attachments** before going live.
-- Train your team by showing them how the Agent behaves in controlled scenarios.
-- Debug issues spotted in production without needing to replicate them directly with live customers.
-
----
-
-## How to Access
-
-1. Go to **Agents > Playground** in the left navigation menu.  
-2. Select the Agent you want to test (e.g., *Customer Service – Ale*).  
-3. Read the informational banner at the top for a reminder about restarting after changes.  
-4. Type your query or click a suggested prompt to begin testing.  
-5. Use the **+** button to attach files if file types are enabled for your agent.  
-6. Use the **Restart Conversation** button on the top right to clear the session and start fresh.  
+Sent images render inline in the conversation. Other file types appear as downloadable badges.
 
 ---
 
 ## Best Practices
 
-- **Iterate Frequently:** Test small changes in the Playground before pushing multiple updates to production.  
-- **Restart After Changes:** As the banner suggests, restart the conversation after modifying your agent's configuration for the most accurate testing results.  
-- **Compare Scenarios:** Use similar inputs across sessions to measure improvements in responses.  
-- **Test with Attachments:** If your agent supports file handling, send sample images and documents in the Playground to verify behavior before enabling it on live channels.  
-- **Document Learnings:** Note issues or improvements needed and update the Agent's knowledge or capabilities accordingly.  
-- **Final Validation:** Always confirm in Playground that your Agent's responses align with your organization's tone and service goals before enabling changes on public channels.  
-
----
-
-By using the **Playground**, your team can confidently experiment, refine, and optimize Agents—ensuring that what goes live has already been tested for quality and reliability.
+- **Test after every change:** Whenever you update your Agent's identity, knowledge, or capabilities, open the Playground and run a quick test to verify the changes work as expected.
+- **Use the restart button:** After making adjustments, restart the conversation to clear context and start fresh.
+- **Simulate real scenarios:** Try asking the kinds of questions your real users would ask to uncover gaps in your Agent's knowledge.
+- **Test with different user identities:** Use the External User modal to simulate conversations as different users and verify personalization, memories, and metadata-based behavior.

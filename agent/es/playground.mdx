@@ -21,6 +21,48 @@ El **Playground** es un espacio dedicado dentro de la Consola de Semantiks donde
 - **Soporte Multilingüe:** Prueba las respuestas de tu Agente en diferentes idiomas (si está habilitado).
 - **Banner Informativo:** Al abrir una nueva sesión del Playground, un banner azul te recuerda que estás probando en el canal del Playground y recomienda reiniciar la conversación después de hacer cambios en tu agente. El banner se cierra automáticamente cuando envías tu primer mensaje, o puedes cerrarlo manualmente haciendo clic en el botón **✕**.
 - **Adjuntos de Archivos:** Envía imágenes, documentos (PDF), audio y video directamente en el Playground para probar cómo tu Agente maneja archivos multimedia. Esta funcionalidad depende de la configuración de preferencias de archivos del canal web de tu agente.
+- **Configuración de Usuario Externo:** Simula conversaciones como un usuario final específico configurando un ID de usuario, nombre de perfil y metadatos personalizados antes de iniciar una conversación. Esto es útil para probar personalización, memorias y comportamientos específicos por usuario.
+
+---
+
+## Configuración de Usuario Externo
+
+El Playground te permite sobrescribir la identidad de usuario por defecto que se envía al backend de tu agente. Esto es especialmente útil cuando quieres:
+
+- Probar cómo se comporta tu agente con un **usuario recurrente específico** (proporcionando su ID de usuario).
+- Verificar **funciones de personalización** como saludar al usuario por nombre (estableciendo un Nombre de perfil).
+- Simular conversaciones con **metadatos personalizados** (ej. `plan: premium`, `idioma: fr`) para probar lógica dependiente de metadatos en workflows o herramientas.
+
+### Cómo configurar el usuario externo
+
+<Steps>
+  <Step title="Abre el modal de Usuario Externo">
+    En la barra de herramientas del Playground, haz clic en el botón **Usuario externo** (el ícono de usuario con engranaje). Se abrirá un diálogo modal.
+  </Step>
+  <Step title="Establece el ID de usuario (opcional)">
+    Ingresa un **ID de usuario** personalizado. Si se deja vacío, el Playground genera un ID aleatorio en el formato `playground-<uuid>`.
+  </Step>
+  <Step title="Establece el Nombre de perfil (opcional)">
+    Ingresa un **Nombre de perfil** personalizado. Si se deja vacío, se usa la etiqueta por defecto `Playground <timestamp>`.
+  </Step>
+  <Step title="Agrega Metadatos (opcional)">
+    Haz clic en **Agregar propiedad** para añadir pares clave-valor. Cada par representa un atributo de metadatos enviado junto con la conversación.
+    - Las claves deben ser **únicas** y **no vacías**.
+    - Puedes eliminar cualquier par haciendo clic en el ícono de papelera junto a él.
+    - Si no se proporcionan metadatos, se usan los metadatos por defecto (`source: playground`, `session_id: <uuid>`).
+  </Step>
+  <Step title="Guardar">
+    Haz clic en **Guardar** para aplicar la configuración. La siguiente conversación usará los valores que proporcionaste.
+  </Step>
+</Steps>
+
+<Tip>
+Para volver a la identidad por defecto del Playground, abre el modal y haz clic en **Restablecer valores por defecto**. Esto limpia todos los campos personalizados y restaura el ID de usuario, nombre de perfil y metadatos generados automáticamente.
+</Tip>
+
+<Note>
+Cambiar la configuración de usuario externo **no** reinicia la conversación actual automáticamente. Para que la nueva identidad surta efecto, inicia un nuevo hilo haciendo clic en el botón **Nuevo hilo**.
+</Note>
 
 ---
 
@@ -45,42 +87,13 @@ Puedes adjuntar hasta **3 archivos** por mensaje, con un tamaño máximo de **10
 Si no ves el botón **+**, verifica que al menos un tipo de archivo (imágenes, media, audio o video) esté habilitado en las preferencias de archivos del canal web de tu agente en **Conecta > Canales > Chat Externo**.
 </Tip>
 
-Las imágenes enviadas se muestran en línea como miniaturas en tu burbuja de mensaje de usuario, para que puedas confirmar visualmente lo que se envió.
-
----
-
-## Cuándo Usar el Playground
-
-Usa el Playground cuando quieras:
-
-- Validar **nuevas entradas de conocimiento** antes de hacerlas públicas.
-- Confirmar que las **capacidades** (integraciones, herramientas, funciones) están respondiendo según lo esperado.
-- Probar cómo tu agente maneja **adjuntos de archivos e imágenes** antes de ir a producción.
-- Entrenar a tu equipo mostrándoles cómo se comporta el Agente en escenarios controlados.
-- Depurar problemas detectados en producción sin necesidad de replicarlos directamente con clientes en vivo.
-
----
-
-## Cómo Acceder
-
-1. Ve a **Agentes > Playground** en el menú de navegación izquierdo.
-2. Selecciona el Agente que deseas probar (por ejemplo, *Servicio al Cliente – Ale*).
-3. Lee el banner informativo en la parte superior como recordatorio de reiniciar después de hacer cambios.
-4. Escribe tu consulta o haz clic en un prompt sugerido para comenzar a probar.
-5. Usa el botón **+** para adjuntar archivos si los tipos de archivo están habilitados para tu agente.
-6. Usa el botón **Reiniciar Conversación** en la parte superior derecha para limpiar la sesión y comenzar de nuevo.
+Las imágenes enviadas se muestran en línea en la conversación. Otros tipos de archivos aparecen como insignias descargables.
 
 ---
 
 ## Mejores Prácticas
 
-- **Itera Frecuentemente:** Prueba pequeños cambios en el Playground antes de enviar múltiples actualizaciones a producción.
-- **Reinicia Después de Cambios:** Como sugiere el banner, reinicia la conversación después de modificar la configuración de tu agente para obtener los resultados de prueba más precisos.
-- **Compara Escenarios:** Usa entradas similares entre sesiones para medir mejoras en las respuestas.
-- **Prueba con Adjuntos:** Si tu agente soporta manejo de archivos, envía imágenes y documentos de ejemplo en el Playground para verificar el comportamiento antes de habilitarlo en canales en vivo.
-- **Documenta Aprendizajes:** Anota problemas o mejoras necesarias y actualiza el conocimiento o capacidades del Agente en consecuencia.
-- **Validación Final:** Siempre confirma en el Playground que las respuestas de tu Agente se alinean con el tono y los objetivos de servicio de tu organización antes de habilitar cambios en canales públicos.
-
----
-
-Al usar el **Playground**, tu equipo puede experimentar, refinar y optimizar Agentes con confianza, asegurando que lo que se implementa ya ha sido probado para garantizar calidad y confiabilidad.
+- **Prueba después de cada cambio:** Cada vez que actualices la identidad, conocimiento o capacidades de tu Agente, abre el Playground y ejecuta una prueba rápida para verificar que los cambios funcionan como se esperaba.
+- **Usa el botón de reiniciar:** Después de hacer ajustes, reinicia la conversación para limpiar el contexto y comenzar desde cero.
+- **Simula escenarios reales:** Intenta hacer las preguntas que tus usuarios reales harían para descubrir vacíos en el conocimiento de tu Agente.
+- **Prueba con diferentes identidades de usuario:** Usa el modal de Usuario Externo para simular conversaciones como diferentes usuarios y verificar personalización, memorias y comportamientos basados en metadatos.
