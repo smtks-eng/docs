@@ -53,121 +53,96 @@ Manage your AI agent's skills through two types of tools: predefined tools that 
     1. Go to **AI Agent > Design > Skills > Collect Information**.  
     2. Click **New Configuration** to start.  
     3. Enter a **Name** for your configuration (e.g., `registro_interesados`).  
-    4. Add any **Special Instructions** to guide the agent's behavior.  
-    5. Add your fields — including the **type** (text, number, date, boolean) and instructions.  
-    6. Click **Save** to activate the configuration.  
-    </Accordion>  
-
-    ---
-
-    ### **Human Escalation**  
-    - **Description:** Transfers the conversation to a live human agent when needed.  
-    - **Toggle:** Off by default.  
-    - **Configuration:** Requires an active **Freshchat** or **Zendesk** integration.  
-
-    <Warning>  
-    This tool only works with supported integrations. If no compatible integration is connected, it cannot be enabled.  
-    </Warning>  
+    4. Add any **Special Instructions** to guide the agent's behavior during data collection.  
+    </Accordion>
 
   </Tab>
 
   <Tab title="Custom Tools">
-    The **Custom Tools** tab allows you to create your own tools (skills) that extend what your AI agent can do. Custom tools let you connect your agent to external APIs so it can perform actions like looking up order statuses, querying databases, booking appointments, or any other HTTP-based operation.
+    **Custom Tools** let you extend your AI agent by connecting it to external APIs. You define the HTTP request (method, URL, headers, body, etc.) and the agent calls that endpoint when it determines the tool is needed during a conversation.
 
     ---
 
     ## Creating a Custom Tool
 
-    To create a new custom tool:
+    1. Go to **AI Agent > Design > Skills** and select the **Custom Tools** tab.
+    2. Click **New Tool**.
+    3. Fill in the tool details:
+       - **Name** — a descriptive label for the tool.
+       - **Description** — explain what the tool does so the agent knows when to use it.
+       - **HTTP Method** — GET, POST, PUT, PATCH, or DELETE.
+       - **URL** — the endpoint the agent will call.
+    4. Add **Properties** (parameters) the tool needs.
+    5. **Assign channels** where the tool should be available.
+    6. Click **Save**.
 
-    1. Go to **AI Agent > Design > Skills > Custom Tools**.  
-    2. Click **Create Tool**.  
-    3. Fill in the tool creation form (see below).  
-    4. Click **Save** to register the tool.  
+    ---
 
-    ### Tool Creation Form Fields
+    ## Tool Properties
 
-    | Field | Description |
-    |---|---|
-    | **Name** | A descriptive name for the tool. |
-    | **Description** | What this tool does — the agent uses this to decide when to invoke it. |
-    | **HTTP Method** | The HTTP verb: GET, POST, PUT, DELETE, or PATCH. |
-    | **URL** | The endpoint the tool will call. |
-    | **Output Format** | Expected response format: JSON, Text, XML, CSV, or HTML. |
-    | **Properties** | Input parameters for the API call (see below). |
-
-    ### Tool Properties
-
-    Each property defines an input parameter for your external API. When adding a property, you configure:
+    Each custom tool can have one or more **properties** — the parameters that get sent with the API request. When adding a property, you configure:
 
     | Setting | Description |
     |---|---|
-    | **Key** | The parameter name (e.g., `order_id`, `api_key`). |
-    | **Description** | Explains what this parameter is for. |
-    | **Value Type** | The data type: Text, Number, Date, Secret, or Object. |
-    | **Location** | Where the parameter is sent: **Header**, **Query**, **Cookie**, **Body**, **Path**, or **Auth Bearer**. |
-    | **Value At** | When/how the value is provided (see table below). |
-    | **Quantity** | Whether the parameter accepts a **Single** value or **Multiple** values. |
-    | **Required** | Whether this property must have a value for the tool to work. |
+    | **Key** | The parameter name (e.g., `order_id`, `Authorization`). |
+    | **Description** | Explains what the parameter is for. Helps the agent understand when and how to fill it. |
+    | **Parameter location** | Where the value is placed in the request — see table below. |
+    | **Value type** | The data type: `text`, `number`, `date`, `secret`, or `object`. |
+    | **Required** | Whether the property must be present for the request to be sent. |
 
-    #### Value At Options
+    ### Parameter location options
 
-    The **Value At** setting determines how and when the property value is provided:
-
-    | Option | Description |
+    | Location | Description |
     |---|---|
-    | **Configuration** | The value is set once during tool setup. Ideal for API keys, static IDs, or secrets that don't change per conversation. |
-    | **Conversation** | The value is provided dynamically each time the tool is invoked — the agent extracts it from the conversation context. |
-    | **End User** | The value is resolved at runtime from the end user associated with the channel. This is useful for passing user-specific identifiers (like an external user ID or metadata) without requiring the user to provide them in the conversation. |
+    | **Header** | Sent as an HTTP header. |
+    | **Cookie** | Sent as a cookie value. |
+    | **Query** | Appended to the URL as a query string parameter. |
+    | **Body** | Included in the request body (for POST/PUT/PATCH). |
+    | **Path** | Inserted into the URL path (e.g., `/orders/{order_id}`). |
+    | **Header Auth Bearer** | Sent as a `Bearer` token in the `Authorization` header. |
 
-    <Tip>
-    Use **Configuration** for secrets and static values, **Conversation** for dynamic data the user provides, and **End User** for user-specific identifiers that should be resolved automatically from the channel.
-    </Tip>
+    ### Value source
 
-    ---
-
-    ## Configuring a Custom Tool
-
-    After a custom tool is created and assigned to your agent, click **Configure** to set it up. The configuration dialog has two sections:
-
-    ### Configuration Values
-
-    For every property that has **Value At = Configuration**, you'll see an input field where you enter the static value (e.g., an API key or a base URL). Properties marked as required must be filled in for the tool to become active.
-
-    ### Channel Assignment
-
-    Select which channels should have access to this tool. You can enable or disable the tool per channel.
-
-    #### Per-Channel End User Values
-
-    If your tool has properties with **Value At = End User**, each selected channel will display an additional **End User Values** section. This lets you configure how each end-user property is resolved on a per-channel basis.
-
-    For each end-user property, you choose a **source**:
+    Each property also requires a **value source** — this tells the platform *where* the value comes from at runtime:
 
     | Source | Description |
     |---|---|
-    | **External User ID** | Uses the end user's external identifier as the value. This is the default. |
-    | **Metadata Key** | Reads the value from a specific key in the end user's metadata. When selected, an additional text field appears where you enter the metadata key name (e.g., `phone`, `account_id`, `plan`). |
-
-    <Note>
-    Each channel can map the same end-user property to a different source. For example, a WhatsApp channel might resolve a `customer_id` property from the External User ID, while a web channel might read it from a metadata key called `crm_id`.
-    </Note>
-
-    <Warning>
-    If a required end-user property is not configured for a channel, the tool status will show as **missing_config** and will not be active until all required properties are configured across all selected channels.
-    </Warning>
+    | **Configuration** | A fixed value you set when configuring the tool. It stays the same for every request (e.g., an API key or a static parameter). |
+    | **Conversation** | The agent extracts the value from the conversation with the user at runtime (e.g., the user provides an order number or email). |
+    | **End User** | The value is pulled automatically from the end user's profile data — no need to ask the user or hard-code it. |
 
     ---
 
-    ## Tool Status
+    ### End User value source
 
-    Each custom tool has a status indicator:
+    When you select **End User** as the value source, you must specify *which* piece of end-user data to use:
 
-    | Status | Meaning |
+    | End User Source | Description |
     |---|---|
-    | **Active** | All required properties have values and the tool is ready to use. |
-    | **Missing Config** | One or more required properties (configuration or end-user) are missing values. |
-    | **Review** | The tool needs review before it can be activated. |
+    | **External User ID** | Uses the end user's unique external identifier (the ID passed by the channel or set via the API/Playground). |
+    | **Metadata** | Uses a specific metadata key from the end user's profile. When you select this option, an additional **Metadata Key** field appears where you enter the exact key name (e.g., `plan`, `company_id`, `language`). |
+
+    <Tip>
+    The **End User** value source is ideal for personalizing API calls without asking the user for information they've already provided — for example, passing their account ID or subscription plan to an external system automatically.
+    </Tip>
+
+    <Note>
+    End-user data (external user ID and metadata) comes from how the user was identified on the channel. You can test this in the **Playground** using the **External User** configuration. See the [Playground docs](/agent/en/playground) for details.
+    </Note>
+
+    ---
+
+    ### Assigning channels and per-channel end-user mapping
+
+    When you assign a custom tool to channels, you can configure how **End User** properties are resolved on each channel. Because different channels may store user information differently, the platform lets you map each end-user property to the correct source on a per-channel basis.
+
+    ---
+
+    ## Key notes
+
+    - Custom tools are executed **server-side** — the agent decides when to call them based on the conversation context and the tool's description.
+    - Properties marked as **secret** are encrypted and never exposed in logs or conversation history.
+    - You can **edit or delete** custom tools at any time. Deleting a tool removes it from all assigned channels.
 
   </Tab>
 </Tabs>
