@@ -1,91 +1,56 @@
 ---
-title: "Web"
-description: "Configura y personaliza la experiencia web independiente para tu Agente"
-icon: "globe"
+title: "Chat Externo"
 language: es
+description: "Comparte un enlace de chat independiente para que los usuarios hablen con tu agente de IA desde cualquier navegador, sin necesidad de embeber."
 ---
 
-El **Canal Web** te permite implementar tu Agente como una página web independiente, accesible desde cualquier navegador. A diferencia de la Burbuja integrada, esta opción crea un enlace directo que puedes compartir con los clientes, facilitando que cualquiera interactúe con tu Agente sin necesidad de integrarlo en un sitio existente.
+El **Chat Externo** te da una URL compartible que abre un chat a página completa con tu agente de IA. Es la forma más rápida de poner a tu agente frente a los usuarios: solo copia el enlace y envíalo.
 
-## Diseño de la página
+## Características Principales
 
-Cuando abres la configuración del canal Web (**Canales > Web**), verás un **diseño de dos paneles**:
+- **Compartir al instante:** Copia la URL y compártela por correo electrónico, redes sociales, códigos QR o cualquier plataforma de mensajería.
+- **Sin necesidad de embeber:** El chat funciona en su propia página, sin cambios en tu sitio web.
+- **Experiencia de conversación completa:** Soporta texto, imágenes, adjuntos, píldoras de escalación y toma de control por agente humano.
 
-- **Panel izquierdo** — pestañas de configuración donde ajustas la apariencia y la configuración de dominio.
-- **Panel derecho** — una vista previa en vivo que se actualiza en tiempo real mientras haces cambios, mostrada dentro de una maqueta estilo navegador.
+### Agrupación de Mensajes
 
-Usa la **flecha de regreso** en la parte superior izquierda del panel para volver al listado de Canales.
+Los mensajes consecutivos del mismo remitente se **agrupan visualmente** para una vista de conversación más limpia:
+- Solo el **último mensaje** del grupo muestra la marca de tiempo.
+- Las formas de las burbujas se adaptan con diferentes bordes para el primer y último mensaje del grupo, creando una apariencia moderna de hilo.
+- Los grupos de diferentes remitentes se separan con un espacio mayor, mientras que los mensajes dentro del mismo grupo están más juntos.
 
----
+### Identidad del Agente Humano
 
-<Tabs>
-  <Tab title="Apariencia" icon="palette">
-    ## Apariencia
+Cuando una conversación se escala a un agente humano, los usuarios finales ven una identificación más rica del agente:
+- El **nombre del agente** se muestra sobre el primer mensaje de cada grupo de respuestas del agente humano.
+- Un **círculo avatar con las iniciales del agente** aparece junto al último mensaje del grupo (ej. "AB" para Ana Bermúdez).
+- Si no hay nombre disponible, se muestra la etiqueta por defecto "HA".
 
-    Personaliza la página web independiente donde vive tu Agente.
-    ![Configuración del canal web de Semantiks con enlace compartible, personalización de marca y vista previa del agente de chat de IA en vivo.](/images/channels/web/es/web-appearance-es.png)
+Esta transparencia ayuda a los usuarios a sentirse seguros de que están hablando con una persona real después de una escalación.
 
-    Navega a **Canales > Web > Apariencia** para configurar lo siguiente:
+<Tip>
+  Los nombres de los agentes humanos se obtienen automáticamente del perfil del miembro del equipo en Semantiks. Asegúrate de que tu equipo tenga sus nombres configurados en la plataforma.
+</Tip>
 
-    ### Modo Ícono vs Logo
+## Cómo Configurar
 
-    En la parte superior de la sección de Apariencia encontrarás un interruptor **"Preferir logo sobre ícono"**:
+<Steps>
+  <Step title="Ve a Conecta > Canales">
+    Abre tu agente y entra a la página **Conecta**.
+  </Step>
+  <Step title="Abre el Chat Externo">
+    Selecciona la tarjeta del canal de Chat Externo.
+  </Step>
+  <Step title="Copia la URL pública">
+    Usa la opción para compartir y copia el enlace generado.
+  </Step>
+  <Step title="Prueba como usuario final">
+    Abre el enlace en una ventana privada y valida casos de uso reales.
+  </Step>
+</Steps>
 
-    - **Desactivado (modo Ícono)** — Sube una imagen cuadrada que se muestra como un **ícono redondo** pequeño en el encabezado y como avatar circular en la pantalla de bienvenida.
-    - **Activado (modo Logo)** — Sube una **imagen de título / logo** más ancha que se muestra con bordes redondeados en el encabezado y a un tamaño configurable en la pantalla de bienvenida.
+## Notas Clave
 
-    Usa el modo que mejor se adapte a los activos de tu marca.
-
-    ### Tamaño del logo / ícono
-
-    Un **control deslizante de tamaño** te permite controlar qué tan grande aparece el logo o ícono en la pantalla de bienvenida (antes de que el usuario envíe su primer mensaje). Ajústalo para encontrar el equilibrio adecuado entre visibilidad de marca y espacio de chat.
-
-    ### Color de fondo
-
-    Establece el **color de fondo** de toda la página de chat. Este color se aplica detrás de los mensajes de chat y la pantalla de bienvenida. Se admiten colores sólidos y opciones de degradado:
-
-    - **Habilitar degradados** — elige un color secundario y selecciona dirección **Horizontal** o **Vertical**.
-    - **Intercambiar colores** — invierte rápidamente los colores primario y secundario del degradado.
-
-    ### Mensaje de bienvenida
-
-    Personaliza el primer mensaje que ven los usuarios cuando llegan.
-
-    ### Mensajes sugeridos
-
-    Predefine mensajes de inicio rápido que animan a los usuarios a interactuar con el Agente.
-
-    <Note>
-    Todos los cambios se pueden previsualizar en vivo en el panel de la derecha antes de guardar.
-    </Note>
-
-    ### Guardar cambios
-
-    Un **botón fijo de Guardar** aparece en la parte inferior de la pestaña de Apariencia. Haz clic para guardar los cambios. El botón muestra:
-    - **"Guardar cambios"** — listo para guardar.
-    - **"Guardando..."** con un spinner — guardado en proceso.
-    - **"Guardado" ✓** — guardado completado (se muestra por unos segundos).
-  </Tab>
-
-  <Tab title="Configuración de dominio" icon="globe">
-    ## Configuración de dominio
-
-    Conecta un dominio personalizado para que los usuarios vean tu propia URL en lugar del enlace predeterminado de Semantiks.
-
-    Navega a **Canales > Web > Configuración de dominio** para configurar.
-  </Tab>
-</Tabs>
-
----
-
-## Experiencia del Chat Externo
-
-Cuando los usuarios finales abren el enlace Web compartido, interactúan con una interfaz de chat a pantalla completa. Las características principales incluyen:
-
-- **Selector de idioma** — Los usuarios pueden cambiar el idioma de la interfaz del chat. El selector soporta **inglés, español y portugués**.
-- **Términos y Condiciones** — Un enlace en la parte inferior abre un diálogo que explica las prácticas de recopilación de datos.
-- **Nueva conversación** — Los usuarios pueden iniciar una conversación nueva en cualquier momento usando el botón en la esquina superior derecha.
-
-<Note>
-  El idioma seleccionado por el usuario solo afecta las etiquetas y placeholders de la interfaz del chat. El idioma de las respuestas del agente está determinado por la configuración de idioma del agente en la sección de Identidad.
-</Note>
+- El Chat Externo es ideal para demos, pilotos rápidos y compartir con usuarios que no visitan tu sitio web.
+- Las conversaciones iniciadas a través del Chat Externo aparecen en el panel de **Conversaciones** para supervisión.
+- Todas las funciones de escalación, seguimiento y memorias funcionan igual que en otros canales.

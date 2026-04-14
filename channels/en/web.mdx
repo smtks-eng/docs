@@ -1,91 +1,56 @@
 ---
-title: "Web"
-description: "Set up and customize the standalone web experience for your Agent"
-icon: "globe"
+title: "External Chat"
 language: en
+description: "Share a standalone chat link so users can talk to your AI agent from any browser—no embedding required."
 ---
 
-The **Web Channel** allows you to deploy your Agent as a standalone web page, accessible from any browser. Unlike the embedded Bubble, this option creates a direct link you can share with customers, making it simple for anyone to interact with your Agent without needing integration into an existing site.
+**External Chat** gives you a shareable URL that opens a full-page chat with your AI agent. It's the fastest way to get your agent in front of users—just copy the link and send it.
 
-## Page layout
+## Key Features
 
-When you open the Web channel settings (**Channels > Web**), you'll see a **two-panel layout**:
+- **Instant sharing:** Copy the URL and share it via email, social media, QR codes, or any messaging platform.
+- **No embedding needed:** The chat runs on its own page—no website changes required.
+- **Full conversation experience:** Supports text, images, file attachments, escalation pills, and human agent takeover.
 
-- **Left panel** — configuration tabs where you adjust appearance and domain settings.
-- **Right panel** — a live preview that updates in real time as you make changes, displayed inside a browser-style mockup.
+### Message Grouping
 
-Use the **back arrow** at the top-left of the panel to return to the Channels overview.
+Consecutive messages from the same sender are **visually grouped** together for a cleaner conversation view:
+- Only the **last message** in a group displays a timestamp.
+- Bubble shapes adapt with different border-radius for the first and last messages in a group, creating a modern threaded look.
+- Groups from different senders are separated by a larger gap, while messages within a group are tightly spaced.
 
----
+### Human Agent Identity
 
-<Tabs>
-  <Tab title="Appearance" icon="palette">
-    ## Appearance
+When a conversation is escalated to a human agent, end users see richer agent identification:
+- The **agent's name** is displayed above the first message in each group of human agent replies.
+- An **avatar circle with the agent's initials** appears next to the last message in the group (e.g., "AB" for Ana Bermúdez).
+- If no name is available, a default "HA" label is shown.
 
-    Customize the standalone web page where your Agent lives.
-    ![Semantiks Web Channel settings with shareable link, branding customization, and live AI chat agent preview.](/images/channels/web/en/web-appearance-en.png)
+This transparency helps users feel confident they are talking to a real person after an escalation.
 
-    Navigate to **Channels > Web > Appearance** to configure the following:
+<Tip>
+  Human agent names are automatically pulled from the team member's profile in Semantiks. Make sure your team has their names configured in the platform.
+</Tip>
 
-    ### Icon vs Logo mode
+## How to Set Up
 
-    At the top of the Appearance section you'll find a **"Prefer logo over icon"** toggle:
+<Steps>
+  <Step title="Go to Connect > Channels">
+    Open your agent and navigate to the Connect page.
+  </Step>
+  <Step title="Open External Chat">
+    Select the External Chat channel card.
+  </Step>
+  <Step title="Copy the public URL">
+    Click the share option and copy the generated link.
+  </Step>
+  <Step title="Test as an end user">
+    Open the link in an incognito window and run a few real use-case questions.
+  </Step>
+</Steps>
 
-    - **Off (Icon mode)** — Upload a square image that is displayed as a small **round icon** in the header and as a circular avatar on the welcome screen.
-    - **On (Logo mode)** — Upload a wider **title image / logo** that is displayed with rounded corners in the header and at a configurable size on the welcome screen.
+## Key Notes
 
-    Use whichever mode best matches your brand assets.
-
-    ### Logo / Icon size
-
-    A **size slider** lets you control how large the logo or icon appears on the welcome screen (before the user sends their first message). Drag it to find the right balance between brand visibility and chat space.
-
-    ### Background color
-
-    Set the **background color** of the entire chat page. This color is applied behind the chat messages and welcome screen. Solid color and gradient options are supported:
-
-    - **Enable gradients** — pick a secondary color and choose **Horizontal** or **Vertical** direction.
-    - **Swap colors** — quickly reverse primary and secondary gradient colors.
-
-    ### Welcome message
-
-    Personalize the first message users see when they arrive.
-
-    ### Suggested messages
-
-    Predefine quick-start prompts that encourage users to engage with the Agent.
-
-    <Note>
-    All changes can be previewed live in the right-hand panel before saving.
-    </Note>
-
-    ### Saving changes
-
-    A **sticky Save button** appears at the bottom of the Appearance tab. Click it to persist your changes. The button shows:
-    - **"Save changes"** — ready to save.
-    - **"Saving..."** with a spinner — save in progress.
-    - **"Saved" ✓** — save completed (shown for a few seconds).
-  </Tab>
-
-  <Tab title="Domain setup" icon="globe">
-    ## Domain setup
-
-    Connect a custom domain so users see your own URL instead of the default Semantiks link.
-
-    Navigate to **Channels > Web > Domain setup** to configure.
-  </Tab>
-</Tabs>
-
----
-
-## External Chat experience
-
-When end users open the shared Web link, they interact with a full-screen chat interface. Key features include:
-
-- **Language selector** — Users can switch the chat interface language. The selector supports **English, Spanish, and Portuguese**.
-- **Terms and Conditions** — A link at the bottom opens a dialog explaining data collection practices.
-- **New thread** — Users can start a fresh conversation at any time using the button in the top-right corner.
-
-<Note>
-  The language selected by the user only affects the chat interface labels and placeholders. The agent's response language is determined by the agent's language configuration in the Identity section.
-</Note>
+- External Chat is ideal for demos, quick pilots, and sharing with users who don't visit your website.
+- Conversations started through External Chat appear in the **Conversations** panel for supervision.
+- All escalation, follow-up, and memory features work the same as on other channels.

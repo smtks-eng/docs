@@ -1,171 +1,56 @@
 ---
-title: "Bubble"
-description: "Customize, configure, and embed the chat bubble to connect your Agent with website or app users"
-icon: "message-dot"
+title: "Web Bubble"
 language: en
+description: "Embed a chat widget on your website so visitors can talk to your AI agent without leaving the page."
 ---
 
-The **Chat Bubble** lets you connect your Agent directly to users on your website or app. You can customize its look, define its behavior, and embed it with a simple script.
+The **Web Bubble** is a floating chat widget you can embed directly on your website. It gives visitors instant access to your AI agent from any page—no redirects, no separate apps.
 
-When you open the Bubble channel settings (**Channels > Bubble**), you'll see a **two-panel layout**:
+## Key Features
 
-- **Left panel** — configuration tabs where you adjust content, appearance, and embedding.
-- **Right panel** — a live preview that updates in real time as you make changes.
+- **Embedded experience:** The bubble lives on your site, opening a chat window inline.
+- **Customizable appearance:** Configure brand colors, launcher style, and welcome messages from the Console.
+- **File attachments:** Users can send images and documents directly in the chat.
+- **Escalation support:** When a conversation is escalated to a human agent, users see a visual pill indicating the handoff.
 
-Use the tabs below to explore configuration options:
+### Message Grouping
 
-<Tabs>
-  <Tab title="Content" icon="text">
-    ## Content
+Consecutive messages from the same sender are **visually grouped** together. This means:
+- Only the **last message** in a group shows a timestamp, keeping the view clean.
+- Bubble shapes adapt: the first and last messages in a group have slightly different border-radius for a modern, threaded appearance.
+- A small gap separates different sender groups, while messages within the same group are closely spaced.
 
-    Configure the messages and text elements that appear inside your chat bubble.  
-    Navigate to **Channels > Bubble > Content** to adjust these settings.
+### Human Agent Identity
 
-    ### Welcome message
+When a conversation is escalated and a human agent responds through the bubble, end users see:
+- The **agent's name** displayed above the first message in a group.
+- An **avatar with the agent's initials** next to the last message in the group (e.g., "JD" for Jane Doe).
 
-    Set the first message your Agent displays when a user opens the chat. You can enable or disable the welcome message with a toggle.
-
-    ### Suggested messages
-
-    Predefine up to **5 quick-start suggestions** (each up to 100 characters) to help users engage faster. These appear as clickable pills below the welcome message. Toggle suggested messages on or off as needed.
-
-    ### Dismissible notice
-
-    Add an informational notice that appears at the bottom of the chat window (above the input field). This is useful for privacy disclaimers or terms-of-service reminders.
-
-    - Edit the notice text using the **rich text editor** — supports **bold**, *italic*, <u>underline</u>, ~~strikethrough~~, and links.
-    - If you leave the notice empty, a default privacy notice is shown automatically.
-    - If you explicitly clear the notice, nothing is displayed.
-
-    <Tip>
-    Use the dismissible notice to inform users that conversations are processed by AI, linking to your privacy policy for transparency.
-    </Tip>
-
-    The notice is automatically dismissed when the user sends their first message or clicks a suggested message pill.
-
-    ### Footer text
-
-    Customize the text displayed at the very bottom of the chat panel. Use the **rich text editor** to add formatted text and links (e.g., "Powered by [Your Brand]").
-
-    ### Feedback collection
-
-    Toggle whether users can provide feedback on Agent responses. *(Coming soon)*
-
-    <Note>
-    Preview updates in real time with the chat bubble widget shown on the right side of the Console.
-    </Note>
-  </Tab>
-
-  <Tab title="Appearance" icon="palette">
-    ## Appearance
-
-    Personalize the look and feel of your chat bubble so it matches your brand identity.  
-    Navigate to **Channels > Bubble > Appearance** to adjust these settings.
-
-    ![bubble-appearance.png](/images/channels/bubble/en/bubble-appearance.png)
-
-    ### Header
-
-    #### Display name
-
-    Toggle **Show display name** to control whether a name appears in the chat header. By default, your organization name is used. You can override it by entering a **custom header title** — this is the name users see at the top of the chat window.
-
-    #### Icon vs Logo mode
-
-    Use the **Prefer logo over icon** toggle to switch between two header image modes:
-
-    - **Off (Icon mode, default)** — Upload a square image displayed as a small **round icon** (32×32 circle) in the chat header.
-    - **On (Logo mode)** — Upload a wider **title image / logo** displayed in rectangular format in the header.
-
-    <Note>
-    When **Logo mode** is enabled, you must upload a logo image before you can save. If no logo is uploaded, saving is blocked and you'll see an error message.
-    </Note>
-
-    #### Header color
-
-    Choose the header background color:
-    - **Solid color:** Select from the color picker.
-    - **Gradient:** Enable gradient mode, pick a secondary color, and choose **Horizontal** or **Vertical** direction.
-
-    ### Bubble trigger
-
-    Customize the floating button that users click to open the chat:
-    - **Bubble color** — the background color of the trigger pill/icon.
-    - **Bubble text** — the label shown on the pill trigger (max 30 characters).
-    - **Alignment** — position the bubble on the **left** or **right** side of the screen.
-
-    <Note>
-    Preview updates in real-time with the chat bubble widget shown on the right side of the Console.
-    </Note>
-  </Tab>
-
-  <Tab title="Embed" icon="code">
-    ## Embed the Chat Bubble
-
-    To integrate the chat bubble into your website or app, copy the provided script snippets.  
-    You can find them under **Channels > Bubble > Embed**.
-
-    ![bubble-embed.png](/images/channels/bubble/en/bubble-embed.png)
-
-    ### 1. Add to the `<head>` of your site:
-    ```html
-    <script src="https://consola.semantiks.com/bubble-chat.js"></script>
-    ```
-
-    ### 2. Add to the `<body>` of your site:
-    ```html
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        window.BubbleChat.initWidget({
-          agent_id: 'your-agent-id',
-          position: 'bottom_right',
-          bubble_theme: 'simple_light',
-          api_key: 'Your API KEY here',
-        });
-      });
-    </script>
-    ```
-
-    ### 3. (Optional) Pass user information
-    ```javascript
-    window.BubbleChat.initWidget({
-      agent_id: 'your-agent-id',
-      position: 'bottom_right',
-      bubble_theme: 'simple_light',
-      api_key: 'Your API KEY here',
-      user: {
-        user_id: 'user_123',
-        profile_name: 'John Doe',
-        user_metadata: {
-          plan: 'premium',
-          company: 'Acme Inc'
-        }
-      }
-    });
-    ```
-
-    <Note>
-    If no user information is provided, the widget generates a guest user ID automatically and persists it across visits using the browser's local storage.
-    </Note>
-
-    <Tip>
-    Use the **Embed** tab in the Console to copy pre-filled snippets with your agent's actual ID and API key — no manual editing required.
-    </Tip>
-  </Tab>
-</Tabs>
-
----
-
-## Conversation behavior
-
-The chat bubble supports several message display modes:
-
-- **Writing** — messages appear with a typewriter animation.
-- **Streaming** — messages stream in as the Agent generates them.
-- **Dots** — a thinking indicator (animated dots) is shown while the Agent processes.
-
-Users can restart a conversation at any time using the refresh button in the chat header. This clears the current thread and starts a new session.
+This helps end users know exactly who they are speaking with after an escalation, creating a more transparent and personal support experience.
 
 <Tip>
-  Always test your bubble configuration using the live preview before saving. Once saved, the changes are reflected immediately on your website.
+  Human agent names are automatically pulled from the team member's profile in Semantiks. Make sure your team members have their names configured under **Settings**.
 </Tip>
+
+## How to Set Up
+
+<Steps>
+  <Step title="Open Bubble channel">
+    In **AI Agent > Connect > Channels**, open the Bubble card.
+  </Step>
+  <Step title="Generate credentials/snippets">
+    The Console provides the snippet and keys needed for embedding.
+  </Step>
+  <Step title="Add snippet to your website">
+    Paste the script where your implementation team manages site code.
+  </Step>
+  <Step title="Customize appearance">
+    Configure brand settings like launcher style and welcome behavior.
+  </Step>
+</Steps>
+
+## Key Notes
+
+- The bubble works on any website that supports JavaScript embeds.
+- Conversations started through the bubble appear in the **Conversations** panel for supervision.
+- The bubble supports the same escalation, follow-up, and memory features as other channels.
