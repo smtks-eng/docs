@@ -41,12 +41,16 @@ El **chat externo** te da una URL compartible para lanzar en minutos (en consola
     Selecciona la tarjeta de chat externo / *External chat*.
   </Step>
   <Step title="Copia la URL pública">
-    Usa la opción para compartir y copia el enlace generado.
+    En la pestaña **Domain setup**, busca la tarjeta **Default URL** y haz clic en el botón de copiar para copiar el enlace generado.
   </Step>
   <Step title="Prueba como usuario final">
     Abre el enlace en una ventana privada y valida casos de uso reales.
   </Step>
 </Steps>
+
+<Tip>
+  También puedes conectar un **dominio personalizado** para que los usuarios accedan a tu Chat Externo desde una URL de marca como `chat.ejemplo.com/ai-agent`. Consulta la página de [Chat Externo](/channels/es/web) para ver todos los detalles de la pestaña de configuración de dominio.
+</Tip>
 
 ### Burbuja web (embebido en tu sitio)
 
@@ -79,61 +83,29 @@ La página de Conecta siempre muestra una sección de **Meta** con tres tarjetas
 
 Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración de ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar el proceso de conexión en cualquier momento.
 
-Una vez que hayas conectado una o más cuentas para un tipo de canal, aparece un botón **Canales (n)** en la tarjeta mostrando el conteo de conexiones activas. Haz clic para ver, editar o reconectar tus conexiones existentes.
+Una vez que hayas conectado una o más cuentas para un tipo de canal, aparece un botón **Channels (n)** en la tarjeta mostrando el número de conexiones activas. Haz clic para ver, editar o reconectar tus conexiones existentes.
 
 ---
 
 ## Integraciones
 
-La sección de **Integraciones** muestra las plataformas de terceros a las que tu agente puede conectarse. Cada tarjeta de integración tiene un botón **Configurar** para ingresar las credenciales requeridas. Una vez configurada, la mayoría de las integraciones también muestran un botón **Canales** que te permite gestionar los canales individuales conectados a través de esa integración.
+La sección de **Integraciones** en la página Conecta te permite vincular plataformas de terceros a tu agente:
 
-### Integración de Intercom
-
-Intercom utiliza un modelo de conexión **basado en workspaces**. La configuración se divide en dos partes:
-
-#### 1. Configurar la integración
-
-Haz clic en **Configurar** en la tarjeta de Intercom y proporciona:
-
-| Campo | Descripción |
+| Integración | Descripción |
 |---|---|
-| **Client Secret** | El client secret de tu aplicación privada de Intercom. |
-| **Admin ID** | El ID del administrador de Intercom que se asociará con la integración. |
+| **Freshchat** | Conecta Freshchat para habilitar escalación y mensajería en vivo |
+| **Zendesk** | Conecta Zendesk para soporte basado en tickets y chat en vivo |
 
-<Note>
-  Puedes encontrar el Admin ID en tu Intercom Developer Hub. Identifica bajo qué cuenta de administrador opera el agente.
-</Note>
-
-#### 2. Gestionar workspaces
-
-Una vez que la integración de Intercom está configurada, aparece un botón **Workspaces** en la tarjeta. Haz clic para abrir el panel de Workspaces de Intercom, donde puedes:
-
-- **Ver** todos los workspaces de Intercom conectados actualmente y su estado.
-- **Agregar un workspace** — haz clic en **Agregar Workspace**, luego ingresa el **Workspace ID** y el **Access Token** de ese workspace específico. Cada workspace tiene su propio access token.
-- **Desconectar un workspace** — haz clic en el botón de desconectar junto a cualquier workspace para eliminarlo.
-
-<Tip>
-  Si gestionas múltiples workspaces de Intercom (por ejemplo, diferentes marcas o regiones), puedes conectar cada uno de forma individual. Cada workspace necesita su propio Workspace ID y Access Token.
-</Tip>
+Haz clic en una tarjeta de integración para comenzar la configuración. Necesitarás credenciales API de la plataforma de terceros.
 
 ---
 
 ## Pestaña de Comportamiento de Mensajería
 
-La pestaña de **Comportamiento de Mensajería** tiene dos sub-pestañas:
+La pestaña **Comportamiento de Mensajería** te permite configurar reglas por canal que controlan cómo tu agente procesa los mensajes entrantes. Estos ajustes afinan el comportamiento del agente para cada canal conectado.
 
-### Sub-pestaña de Canales
+---
 
-Aquí ves cada canal al que tu agente está conectado, junto con su configuración de mensajería. Para cada canal puedes configurar:
+## API
 
-- **Mensaje de escalación humana** — el mensaje que se muestra cuando la conversación se transfiere a un humano.
-- **Mensaje de cierre de conversación** — el mensaje que se envía cuando el agente termina la conversación.
-- **Configuración de inactividad** — cuánto tiempo espera el agente antes de cerrar una conversación inactiva, y los mensajes de advertencia/cierre.
-
-### Sub-pestaña de Archivos
-
-Configura si el agente puede recibir y procesar archivos en cada canal. Los tipos de archivo soportados dependen del canal y pueden incluir imágenes, documentos, audio y video.
-
-<Tip>
-  Usa la pestaña de Comportamiento de Mensajería para ajustar cómo se comunica tu agente en cada canal. Diferentes canales pueden necesitar diferentes tonos, tiempos de espera o mensajes de escalación.
-</Tip>
+La sección de **API** proporciona detalles de endpoints y claves de autenticación para enviar y recibir mensajes programáticamente. Úsalo cuando quieras integrar el agente en tus propias aplicaciones o sistemas backend.

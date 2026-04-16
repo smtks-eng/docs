@@ -1,7 +1,7 @@
 ---
 title: "External Chat"
 language: en
-description: "Share a standalone chat link so users can talk to your AI agent from any browser—no embedding required."
+description: "Share a standalone chat link so users can talk to your AI agent from any browser—no embedding required. Optionally serve it from your own custom domain."
 ---
 
 **External Chat** gives you a shareable URL that opens a full-page chat with your AI agent. It's the fastest way to get your agent in front of users—just copy the link and send it.
@@ -11,6 +11,7 @@ description: "Share a standalone chat link so users can talk to your AI agent fr
 - **Instant sharing:** Copy the URL and share it via email, social media, QR codes, or any messaging platform.
 - **No embedding needed:** The chat runs on its own page—no website changes required.
 - **Full conversation experience:** Supports text, images, file attachments, escalation pills, and human agent takeover.
+- **Custom domain support:** Serve the External Chat from your own domain (e.g. `chat.example.com/ai-agent`) for a branded experience.
 
 ### Message Grouping
 
@@ -49,8 +50,83 @@ This transparency helps users feel confident they are talking to a real person a
   </Step>
 </Steps>
 
+---
+
+## Domain Setup tab
+
+The External Chat configuration page has two tabs: **Appearance** (to customize the look and feel) and **Domain setup** (to manage URLs and custom domains).
+
+When you open the **Domain setup** tab you will see two sections:
+
+### Default URL
+
+Every External Chat is always reachable at a Semantiks-hosted URL in the format:
+
+```
+https://<your-console-origin>/external-chat?agent_id=<agent_id>
+```
+
+This URL is displayed in a card at the top of the Domain setup tab. You can:
+
+- **Copy** the URL to your clipboard using the copy button.
+- **Open** it in a new browser tab using the external-link button.
+
+<Note>
+  Adding a custom domain creates an alias—it does **not** replace the default URL. Your External Chat remains accessible at both addresses.
+</Note>
+
+### Custom Domain
+
+If you want users to reach your External Chat from your own branded domain (e.g. `chat.example.com`), you can connect a custom domain. Once active, the chat is served at:
+
+```
+https://your-domain/ai-agent
+```
+
+#### Connecting a custom domain
+
+<Steps>
+  <Step title="Enter your domain">
+    In the **Domain** field, type a fully-qualified subdomain you own (e.g. `chat.example.com`).
+  </Step>
+  <Step title="Click Connect domain">
+    A Cloudflare Domain Connect flow will start automatically. If your registrar doesn't support Domain Connect, Semantiks will display the CNAME record you need to add manually at your DNS provider.
+  </Step>
+  <Step title="Add DNS records (if required)">
+    If manual setup is needed, go to your domain registrar and add the DNS record shown in the console (type, name, and value are provided).
+  </Step>
+  <Step title="Check status">
+    Back in the console, click the **Check status** button next to your domain. Semantiks will verify DNS propagation and SSL provisioning.
+  </Step>
+</Steps>
+
+#### Domain statuses
+
+| Status | Meaning |
+|---|---|
+| **Pending DNS** | Waiting for you to add the required DNS records |
+| **Verifying** | DNS records detected; SSL certificate is being provisioned |
+| **Active** | Domain is fully connected and serving your External Chat |
+| **Failed** | Something went wrong—check the error message and retry |
+| **Disabled** | Domain has been disabled |
+
+<Tip>
+  DNS changes can take a few minutes to propagate. If your domain stays in **Pending DNS**, wait a moment and click **Check status** again.
+</Tip>
+
+#### Removing a custom domain
+
+Click the **trash icon** next to a domain to remove it. A confirmation dialog will appear—once confirmed, the External Chat will stop being served on that domain.
+
+<Warning>
+  Removing a custom domain is immediate. Any users accessing the chat through that domain will no longer be able to reach it.
+</Warning>
+
+---
+
 ## Key Notes
 
 - External Chat is ideal for demos, quick pilots, and sharing with users who don't visit your website.
 - Conversations started through External Chat appear in the **Conversations** panel for supervision.
 - All escalation, follow-up, and memory features work the same as on other channels.
+- You can have one or more custom domains connected to the same agent.

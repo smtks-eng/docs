@@ -1,7 +1,7 @@
 ---
 title: "Chat Externo"
 language: es
-description: "Comparte un enlace de chat independiente para que los usuarios hablen con tu agente de IA desde cualquier navegador, sin necesidad de embeber."
+description: "Comparte un enlace de chat independiente para que los usuarios hablen con tu agente de IA desde cualquier navegador, sin necesidad de embeber. Opcionalmente, sírvelo desde tu propio dominio personalizado."
 ---
 
 El **Chat Externo** te da una URL compartible que abre un chat a página completa con tu agente de IA. Es la forma más rápida de poner a tu agente frente a los usuarios: solo copia el enlace y envíalo.
@@ -11,6 +11,7 @@ El **Chat Externo** te da una URL compartible que abre un chat a página complet
 - **Compartir al instante:** Copia la URL y compártela por correo electrónico, redes sociales, códigos QR o cualquier plataforma de mensajería.
 - **Sin necesidad de embeber:** El chat funciona en su propia página, sin cambios en tu sitio web.
 - **Experiencia de conversación completa:** Soporta texto, imágenes, adjuntos, píldoras de escalación y toma de control por agente humano.
+- **Dominio personalizado:** Sirve el Chat Externo desde tu propio dominio (ej. `chat.ejemplo.com/ai-agent`) para una experiencia de marca.
 
 ### Agrupación de Mensajes
 
@@ -49,8 +50,83 @@ Esta transparencia ayuda a los usuarios a sentirse seguros de que están habland
   </Step>
 </Steps>
 
+---
+
+## Pestaña de Configuración de dominio
+
+La página de configuración del Chat Externo tiene dos pestañas: **Apariencia** (para personalizar el aspecto visual) y **Configuración de dominio** / *Domain setup* (para gestionar URLs y dominios personalizados).
+
+Al abrir la pestaña **Domain setup** verás dos secciones:
+
+### URL por defecto
+
+Todo Chat Externo es siempre accesible en una URL alojada por Semantiks con el formato:
+
+```
+https://<origen-de-tu-consola>/external-chat?agent_id=<agent_id>
+```
+
+Esta URL se muestra en una tarjeta en la parte superior de la pestaña. Puedes:
+
+- **Copiar** la URL al portapapeles usando el botón de copiar.
+- **Abrirla** en una nueva pestaña del navegador usando el botón de enlace externo.
+
+<Note>
+  Agregar un dominio personalizado crea un alias—**no** reemplaza la URL por defecto. Tu Chat Externo sigue siendo accesible en ambas direcciones.
+</Note>
+
+### Dominio personalizado
+
+Si quieres que los usuarios lleguen a tu Chat Externo desde tu propio dominio de marca (ej. `chat.ejemplo.com`), puedes conectar un dominio personalizado. Una vez activo, el chat se sirve en:
+
+```
+https://tu-dominio/ai-agent
+```
+
+#### Conectar un dominio personalizado
+
+<Steps>
+  <Step title="Ingresa tu dominio">
+    En el campo **Domain**, escribe un subdominio completamente cualificado que poseas (ej. `chat.ejemplo.com`).
+  </Step>
+  <Step title="Haz clic en Connect domain">
+    Se iniciará automáticamente un flujo de Cloudflare Domain Connect. Si tu registrador no soporta Domain Connect, Semantiks mostrará el registro CNAME que necesitas agregar manualmente en tu proveedor de DNS.
+  </Step>
+  <Step title="Agrega registros DNS (si es necesario)">
+    Si se requiere configuración manual, ve a tu registrador de dominio y agrega el registro DNS que se muestra en la consola (tipo, nombre y valor proporcionados).
+  </Step>
+  <Step title="Verifica el estado">
+    De vuelta en la consola, haz clic en el botón **Check status** junto a tu dominio. Semantiks verificará la propagación DNS y el aprovisionamiento del certificado SSL.
+  </Step>
+</Steps>
+
+#### Estados del dominio
+
+| Estado | Significado |
+|---|---|
+| **Pending DNS** | Esperando que agregues los registros DNS requeridos |
+| **Verifying** | Registros DNS detectados; el certificado SSL se está aprovisionando |
+| **Active** | Dominio completamente conectado y sirviendo tu Chat Externo |
+| **Failed** | Algo salió mal—revisa el mensaje de error y reintenta |
+| **Disabled** | El dominio ha sido deshabilitado |
+
+<Tip>
+  Los cambios de DNS pueden tardar unos minutos en propagarse. Si tu dominio se queda en **Pending DNS**, espera un momento y haz clic en **Check status** de nuevo.
+</Tip>
+
+#### Eliminar un dominio personalizado
+
+Haz clic en el **ícono de papelera** junto a un dominio para eliminarlo. Aparecerá un diálogo de confirmación—una vez confirmado, el Chat Externo dejará de servirse en ese dominio.
+
+<Warning>
+  La eliminación de un dominio personalizado es inmediata. Los usuarios que accedan al chat a través de ese dominio ya no podrán acceder.
+</Warning>
+
+---
+
 ## Notas Clave
 
 - El Chat Externo es ideal para demos, pilotos rápidos y compartir con usuarios que no visitan tu sitio web.
 - Las conversaciones iniciadas a través del Chat Externo aparecen en el panel de **Conversaciones** para supervisión.
 - Todas las funciones de escalación, seguimiento y memorias funcionan igual que en otros canales.
+- Puedes tener uno o más dominios personalizados conectados al mismo agente.

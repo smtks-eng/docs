@@ -41,12 +41,16 @@ The Channels tab is organized in 3 sections:
     Select the External Chat channel card.
   </Step>
   <Step title="Copy the public URL">
-    Click the share option and copy the generated link.
+    In the **Domain setup** tab, find the **Default URL** card and click the copy button to copy the generated link.
   </Step>
   <Step title="Test as an end user">
     Open the link in an incognito window and run a few real use-case questions.
   </Step>
 </Steps>
+
+<Tip>
+  You can also connect a **custom domain** so users reach your External Chat at a branded URL like `chat.example.com/ai-agent`. See the [External Chat](/channels/en/web) page for full details on the Domain setup tab.
+</Tip>
 
 ### Web Bubble (embed in your website)
 
@@ -85,55 +89,23 @@ Once you have connected one or more accounts for a channel type, a **Channels (n
 
 ## Integrations
 
-The **Integrations** section shows third-party platforms your agent can connect to. Each integration card has a **Configure** button to set up the required credentials. Once configured, most integrations also show a **Channels** button that lets you manage the individual channels connected through that integration.
+The **Integrations** section on the Connect page lets you link third-party platforms to your agent:
 
-### Intercom integration
-
-Intercom uses a **workspace-based** connection model. The setup is split into two parts:
-
-#### 1. Configure the integration
-
-Click **Configure** on the Intercom card and provide:
-
-| Field | Description |
+| Integration | Description |
 |---|---|
-| **Client Secret** | The client secret from your Intercom private app. |
-| **Admin ID** | The ID of the Intercom admin that will be associated with the integration. |
+| **Freshchat** | Connect Freshchat to enable live-chat escalation and messaging |
+| **Zendesk** | Connect Zendesk for ticket-based and live-chat support |
 
-<Note>
-  You can find the Admin ID in your Intercom Developer Hub. It identifies which admin account the agent operates under.
-</Note>
-
-#### 2. Manage workspaces
-
-Once the Intercom integration is configured, a **Workspaces** button appears on the card. Click it to open the Intercom Workspaces panel, where you can:
-
-- **View** all currently connected Intercom workspaces and their status.
-- **Add a workspace** — click **Add Workspace**, then enter the **Workspace ID** and the **Access Token** for that specific workspace. Each workspace has its own access token.
-- **Disconnect a workspace** — click the disconnect button next to any workspace to remove it.
-
-<Tip>
-  If you manage multiple Intercom workspaces (e.g., different brands or regions), you can connect each one individually. Every workspace needs its own Workspace ID and Access Token.
-</Tip>
+Click on an integration card to begin the setup. You'll need API credentials from the third-party platform.
 
 ---
 
 ## Messaging Behaviour tab
 
-The **Messaging Behaviour** tab has two sub-tabs:
+The **Messaging Behaviour** tab lets you configure per-channel rules that control how your agent processes incoming messages. These settings fine-tune the agent's behavior for each connected channel.
 
-### Channels sub-tab
+---
 
-Here you see every channel your agent is connected to, along with its messaging settings. For each channel you can configure:
+## API
 
-- **Human escalation prompt** — the message shown when the conversation is handed off to a human.
-- **Conversation closing message** — the message sent when the agent ends the conversation.
-- **Inactivity settings** — how long the agent waits before closing an idle conversation, and the warning/closing messages.
-
-### Files sub-tab
-
-Configure whether the agent can receive and process files on each channel. Supported file types depend on the channel and may include images, documents, audio, and video.
-
-<Tip>
-  Use the Messaging Behaviour tab to fine-tune how your agent communicates on each channel. Different channels may need different tones, timeouts, or escalation messages.
-</Tip>
+The **API** section provides endpoint details and authentication keys for sending and receiving messages programmatically. Use this when you want to integrate the agent into your own applications or backend systems.
