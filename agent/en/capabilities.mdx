@@ -53,96 +53,130 @@ Manage your AI agent's skills through two types of tools: predefined tools that 
     1. Go to **AI Agent > Design > Skills > Collect Information**.  
     2. Click **New Configuration** to start.  
     3. Enter a **Name** for your configuration (e.g., `registro_interesados`).  
-    4. Add any **Special Instructions** to guide the agent's behavior during data collection.  
-    </Accordion>
+    4. Add any **Special Instructions** to guide the agent during the collection process.  
+    5. Define the **fields** you want to collect from users.  
+    6. Click **Save** when you're done.  
+    </Accordion>  
+
+    ---
+
+    ### **Human Escalation**  
+    - **Description:** Allows the agent to transfer the conversation to a human agent when the user requests it or when the agent cannot resolve the query.  
+    - **Toggle:** Off by default.  
+    - **Configuration:** Connect a compatible integration (Freshchat or Zendesk) and configure escalation settings such as availability schedules.  
+
+    ---
+
+    ### **Retrieve Knowledge**  
+    - **Description:** Enables the agent to search your uploaded knowledge base during a conversation.  
+    - **Toggle:** Off by default.  
+    - **Configuration:** Make sure your agent has knowledge uploaded in the **Knowledge** section. No additional setup required beyond having content available.
 
   </Tab>
 
   <Tab title="Custom Tools">
-    **Custom Tools** let you extend your AI agent by connecting it to external APIs. You define the HTTP request (method, URL, headers, body, etc.) and the agent calls that endpoint when it determines the tool is needed during a conversation.
+    The **Custom Tools** tab lets you create your own tools to extend your agent's capabilities beyond the predefined set. Custom tools allow your agent to call external APIs, retrieve data from your systems, and perform actions tailored to your business logic.
 
     ---
 
     ## Creating a Custom Tool
 
-    1. Go to **AI Agent > Design > Skills** and select the **Custom Tools** tab.
-    2. Click **New Tool**.
-    3. Fill in the tool details:
-       - **Name** — a descriptive label for the tool.
-       - **Description** — explain what the tool does so the agent knows when to use it.
-       - **HTTP Method** — GET, POST, PUT, PATCH, or DELETE.
-       - **URL** — the endpoint the agent will call.
-    4. Add **Properties** (parameters) the tool needs.
-    5. **Assign channels** where the tool should be available.
-    6. Click **Save**.
+    1. Navigate to **AI Agent > Design > Skills**.  
+    2. Switch to the **Custom Tools** tab.  
+    3. Click **New Tool** to start creating a custom tool.  
+    4. Fill in the tool name, description, and configuration.  
+    5. Save your tool.
 
     ---
 
-    ## Tool Properties
+    ## Custom Tool Configuration
 
-    Each custom tool can have one or more **properties** — the parameters that get sent with the API request. When adding a property, you configure:
+    When you select a custom tool, a detail panel opens with two tabs: **Configuration** and **Channels**.
 
-    | Setting | Description |
+    ### Configuration Tab
+
+    The Configuration tab contains all the settings that control how your tool works. Depending on how the tool was set up, you may see a combination of standard input fields (text, secret, URL, dropdown, etc.) and advanced component editors described below.
+
+    #### Input Field Types
+
+    Configuration forms support several field types:
+
+    | Type | Description |
     |---|---|
-    | **Key** | The parameter name (e.g., `order_id`, `Authorization`). |
-    | **Description** | Explains what the parameter is for. Helps the agent understand when and how to fill it. |
-    | **Parameter location** | Where the value is placed in the request — see table below. |
-    | **Value type** | The data type: `text`, `number`, `date`, `secret`, or `object`. |
-    | **Required** | Whether the property must be present for the request to be sent. |
-
-    ### Parameter location options
-
-    | Location | Description |
-    |---|---|
-    | **Header** | Sent as an HTTP header. |
-    | **Cookie** | Sent as a cookie value. |
-    | **Query** | Appended to the URL as a query string parameter. |
-    | **Body** | Included in the request body (for POST/PUT/PATCH). |
-    | **Path** | Inserted into the URL path (e.g., `/orders/{order_id}`). |
-    | **Header Auth Bearer** | Sent as a `Bearer` token in the `Authorization` header. |
-
-    ### Value source
-
-    Each property also requires a **value source** — this tells the platform *where* the value comes from at runtime:
-
-    | Source | Description |
-    |---|---|
-    | **Configuration** | A fixed value you set when configuring the tool. It stays the same for every request (e.g., an API key or a static parameter). |
-    | **Conversation** | The agent extracts the value from the conversation with the user at runtime (e.g., the user provides an order number or email). |
-    | **End User** | The value is pulled automatically from the end user's profile data — no need to ask the user or hard-code it. |
+    | **Text** | A single-line text input for values like URLs or names. |
+    | **Number** | A numeric input field. Values are stored as real numbers so backend consumers receive the correct data type. |
+    | **Secret** | A masked input for sensitive values like API keys. Secrets are encrypted before being stored. |
+    | **Textarea** | A multi-line text area for longer content like instructions or templates. |
+    | **Options** | A dropdown selector for choosing from predefined values (e.g., timezone). |
 
     ---
 
-    ### End User value source
+    ### Property Editor
 
-    When you select **End User** as the value source, you must specify *which* piece of end-user data to use:
+    Tools that call external HTTP endpoints (such as the **Get User Context** tool) include a **Property Editor** component inside the Configuration tab. The property editor lets you define every parameter sent in the HTTP request and control where each value comes from at runtime.
 
-    | End User Source | Description |
+    #### HTTP Method
+
+    At the top of the property editor, select the **HTTP Method** used by the endpoint:
+
+    - `GET`
+    - `POST`
+    - `PUT`
+    - `DELETE`
+    - `PATCH`
+
+    #### Adding and Managing Properties
+
+    Click **Add Property** to add a new request parameter. Each property has the following fields:
+
+    | Field | Description |
     |---|---|
-    | **External User ID** | Uses the end user's unique external identifier (the ID passed by the channel or set via the API/Playground). |
-    | **Metadata** | Uses a specific metadata key from the end user's profile. When you select this option, an additional **Metadata Key** field appears where you enter the exact key name (e.g., `plan`, `company_id`, `language`). |
+    | **Key** | The parameter name (e.g., `user_id`, `X-Api-Key`). The placeholder changes depending on the property type to guide you. |
+    | **Description** | A short note for your own reference describing what this property does. |
+    | **Type** | Where the parameter is sent: **Header**, **Query**, **Cookie**, **Body**, **Path**, or **Auth Bearer**. Path parameters replace `{key}` placeholders in the URL. |
+    | **Value Type** | The data format: **Text**, **Number**, **Secret**, **Date**, or **Object**. |
+    | **Value At** | Where the value comes from at runtime (see table below). |
+    | **Quantity** | Whether the parameter accepts a **Single** value or **Multiple** values. |
+    | **Required** | Check this if the parameter is mandatory for the request to succeed. |
+
+    #### Value At Options
+
+    The **Value At** dropdown determines how the property's value is resolved when the tool runs:
+
+    | Option | Description |
+    |---|---|
+    | **Configuration** | The value is set here in the tool configuration and stays fixed. You will be prompted to enter the value in the **Configuration Values** section below the property list. |
+    | **External User ID** | The value is automatically filled with the end user's external ID at runtime. |
+    | **Metadata Key** | The value is read from the end user's metadata. When selected, an additional field appears where you enter the metadata key (e.g., `customer_id`). |
+    | **Conversation** | The agent extracts the value from the ongoing conversation context. |
 
     <Tip>
-    The **End User** value source is ideal for personalizing API calls without asking the user for information they've already provided — for example, passing their account ID or subscription plan to an external system automatically.
+    Properties marked as **Configuration** with a **Secret** value type will have their values encrypted before saving—ideal for API keys and tokens.
     </Tip>
 
+    #### Configuration Values Section
+
+    When one or more properties have **Value At** set to **Configuration**, a dedicated section appears below the property list. Here you enter the fixed value for each of those properties. Secret-type properties display a masked input for security.
+
+    #### Removing a Property
+
+    Click the **minus icon** (−) on the top-right corner of any property card to remove it.
+
+    ---
+
+    ### Error Handling
+
+    Some tools include an **Error Handling** section in the Configuration tab. Use the text area to describe how the agent should behave if the endpoint call fails—for example, showing a fallback message to the user or retrying the request.
+
+    ---
+
+    ### Channels Tab
+
+    The **Channels** tab lets you control which connected channels can use this tool. Enable or disable the tool for each channel independently.
+
     <Note>
-    End-user data (external user ID and metadata) comes from how the user was identified on the channel. You can test this in the **Playground** using the **External User** configuration. See the [Playground docs](/agent/en/playground) for details.
+    All configuration components (property editor, error handling, and standard inputs) share the same **Save** button. Make sure to click **Save** after making any changes.
     </Note>
-
-    ---
-
-    ### Assigning channels and per-channel end-user mapping
-
-    When you assign a custom tool to channels, you can configure how **End User** properties are resolved on each channel. Because different channels may store user information differently, the platform lets you map each end-user property to the correct source on a per-channel basis.
-
-    ---
-
-    ## Key notes
-
-    - Custom tools are executed **server-side** — the agent decides when to call them based on the conversation context and the tool's description.
-    - Properties marked as **secret** are encrypted and never exposed in logs or conversation history.
-    - You can **edit or delete** custom tools at any time. Deleting a tool removes it from all assigned channels.
 
   </Tab>
 </Tabs>

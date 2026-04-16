@@ -46,103 +46,137 @@ Administra las habilidades de tu agente de IA a través de dos tipos de herramie
     - **Configuración:** Define los campos que deseas que el agente recopile y dónde se debe almacenar la información.
 
     <Note>
-    Esta herramienta es **tan importante** que una vez habilitada, activa una **pestaña dedicada de Recopilar información** en la sección de Habilidades. Desde ahí puedes crear, editar y gestionar configuraciones de recopilación en detalle.
+    Esta herramienta es **tan importante** que una vez habilitada, activa una **pestaña dedicada de Recopilar información** en la sección de Habilidades. Desde allí puedes crear, editar y gestionar configuraciones de recopilación en detalle.
     </Note>
 
     <Accordion title="Cómo Configurar Recopilar Información">
-    1. Ve a **Agente IA > Diseño > Habilidades > Recopilar Información**.
+    1. Ve a **Agente IA > Diseño > Habilidades > Recopilar información**.
     2. Haz clic en **Nueva Configuración** para comenzar.
     3. Ingresa un **Nombre** para tu configuración (ej. `registro_interesados`).
-    4. Agrega **Instrucciones Especiales** para guiar el comportamiento del agente durante la recopilación de datos.
+    4. Agrega **Instrucciones Especiales** para guiar al agente durante el proceso de recopilación.
+    5. Define los **campos** que deseas recopilar de los usuarios.
+    6. Haz clic en **Guardar** cuando termines.
     </Accordion>
+
+    ---
+
+    ### **Escalación Humana**
+    - **Descripción:** Permite al agente transferir la conversación a un agente humano cuando el usuario lo solicita o cuando el agente no puede resolver la consulta.
+    - **Interruptor:** Desactivado por defecto.
+    - **Configuración:** Conecta una integración compatible (Freshchat o Zendesk) y configura ajustes de escalación como horarios de disponibilidad.
+
+    ---
+
+    ### **Recuperar Conocimiento**
+    - **Descripción:** Permite al agente buscar en tu base de conocimiento cargada durante una conversación.
+    - **Interruptor:** Desactivado por defecto.
+    - **Configuración:** Asegúrate de que tu agente tenga conocimiento cargado en la sección de **Conocimiento**. No se requiere configuración adicional más allá de tener contenido disponible.
 
   </Tab>
 
   <Tab title="Herramientas Personalizadas">
-    Las **Herramientas Personalizadas** te permiten extender tu agente de IA conectándolo a APIs externas. Defines la solicitud HTTP (método, URL, headers, cuerpo, etc.) y el agente llama a ese endpoint cuando determina que la herramienta es necesaria durante una conversación.
+    La pestaña **Herramientas Personalizadas** te permite crear tus propias herramientas para extender las capacidades de tu agente más allá del conjunto predefinido. Las herramientas personalizadas permiten que tu agente llame a APIs externas, recupere datos de tus sistemas y realice acciones adaptadas a tu lógica de negocio.
 
     ---
 
     ## Crear una Herramienta Personalizada
 
-    1. Ve a **Agente IA > Diseño > Habilidades** y selecciona la pestaña **Herramientas Personalizadas**.
-    2. Haz clic en **Nueva Herramienta**.
-    3. Completa los detalles de la herramienta:
-       - **Nombre** — una etiqueta descriptiva para la herramienta.
-       - **Descripción** — explica qué hace la herramienta para que el agente sepa cuándo usarla.
-       - **Método HTTP** — GET, POST, PUT, PATCH o DELETE.
-       - **URL** — el endpoint que el agente llamará.
-    4. Agrega **Propiedades** (parámetros) que la herramienta necesita.
-    5. **Asigna canales** donde la herramienta debe estar disponible.
-    6. Haz clic en **Guardar**.
+    1. Navega a **Agente IA > Diseño > Habilidades**.
+    2. Cambia a la pestaña **Herramientas Personalizadas**.
+    3. Haz clic en **Nueva Herramienta** para empezar.
+    4. Completa el nombre, descripción y configuración de la herramienta.
+    5. Guarda tu herramienta.
 
     ---
 
-    ## Propiedades de la herramienta
+    ## Configuración de Herramientas Personalizadas
 
-    Cada herramienta personalizada puede tener una o más **propiedades** — los parámetros que se envían con la solicitud API. Al agregar una propiedad, configuras:
+    Al seleccionar una herramienta personalizada, se abre un panel de detalles con dos pestañas: **Configuración** y **Canales**.
 
-    | Configuración | Descripción |
+    ### Pestaña de Configuración
+
+    La pestaña de Configuración contiene todos los ajustes que controlan cómo funciona tu herramienta. Dependiendo de cómo se creó la herramienta, puedes ver una combinación de campos de entrada estándar (texto, secreto, URL, desplegable, etc.) y editores de componentes avanzados que se describen a continuación.
+
+    #### Tipos de Campo de Entrada
+
+    Los formularios de configuración soportan varios tipos de campo:
+
+    | Tipo | Descripción |
     |---|---|
-    | **Clave** | El nombre del parámetro (ej. `order_id`, `Authorization`). |
-    | **Descripción** | Explica para qué es el parámetro. Ayuda al agente a entender cuándo y cómo completarlo. |
-    | **Ubicación del parámetro** | Dónde se coloca el valor en la solicitud — ver tabla a continuación. |
-    | **Tipo de valor** | El tipo de dato: `text`, `number`, `date`, `secret` u `object`. |
-    | **Requerido** | Si la propiedad debe estar presente para que la solicitud se envíe. |
-
-    ### Opciones de ubicación del parámetro
-
-    | Ubicación | Descripción |
-    |---|---|
-    | **Header** | Se envía como encabezado HTTP. |
-    | **Cookie** | Se envía como valor de cookie. |
-    | **Query** | Se agrega a la URL como parámetro de consulta. |
-    | **Body** | Se incluye en el cuerpo de la solicitud (para POST/PUT/PATCH). |
-    | **Path** | Se inserta en la ruta de la URL (ej. `/orders/{order_id}`). |
-    | **Header Auth Bearer** | Se envía como token `Bearer` en el encabezado `Authorization`. |
-
-    ### Origen del valor
-
-    Cada propiedad también requiere un **origen del valor** — esto indica a la plataforma *de dónde* proviene el valor en tiempo de ejecución:
-
-    | Origen | Descripción |
-    |---|---|
-    | **Configuración** | Un valor fijo que estableces al configurar la herramienta. Permanece igual para cada solicitud (ej. una API key o un parámetro estático). |
-    | **Conversación** | El agente extrae el valor de la conversación con el usuario en tiempo de ejecución (ej. el usuario proporciona un número de pedido o correo electrónico). |
-    | **Usuario Final** | El valor se obtiene automáticamente del perfil del usuario final — sin necesidad de preguntar al usuario ni codificarlo de forma fija. |
+    | **Texto** | Un campo de texto de una línea para valores como URLs o nombres. |
+    | **Número** | Un campo numérico. Los valores se almacenan como números reales para que los consumidores del backend reciban el tipo de dato correcto. |
+    | **Secreto** | Un campo enmascarado para valores sensibles como claves API. Los secretos se cifran antes de almacenarse. |
+    | **Área de texto** | Un área de texto multilínea para contenido más largo como instrucciones o plantillas. |
+    | **Opciones** | Un selector desplegable para elegir entre valores predefinidos (ej. zona horaria). |
 
     ---
 
-    ### Origen de valor: Usuario Final
+    ### Editor de Propiedades
 
-    Cuando seleccionas **Usuario Final** como origen del valor, debes especificar *qué* dato del usuario final usar:
+    Las herramientas que llaman a endpoints HTTP externos (como la herramienta **Obtener Contexto de Usuario**) incluyen un **Editor de Propiedades** dentro de la pestaña de Configuración. El editor de propiedades te permite definir cada parámetro enviado en la solicitud HTTP y controlar de dónde proviene cada valor en tiempo de ejecución.
 
-    | Fuente del Usuario Final | Descripción |
+    #### Método HTTP
+
+    En la parte superior del editor de propiedades, selecciona el **Método HTTP** utilizado por el endpoint:
+
+    - `GET`
+    - `POST`
+    - `PUT`
+    - `DELETE`
+    - `PATCH`
+
+    #### Agregar y Gestionar Propiedades
+
+    Haz clic en **Add Property** para agregar un nuevo parámetro de solicitud. Cada propiedad tiene los siguientes campos:
+
+    | Campo | Descripción |
     |---|---|
-    | **ID de Usuario Externo** | Usa el identificador externo único del usuario final (el ID proporcionado por el canal o configurado vía la API/Playground). |
-    | **Metadatos** | Usa una clave de metadatos específica del perfil del usuario final. Al seleccionar esta opción, aparece un campo adicional de **Clave de Metadatos** donde ingresas el nombre exacto de la clave (ej. `plan`, `company_id`, `idioma`). |
+    | **Key** | El nombre del parámetro (ej. `user_id`, `X-Api-Key`). El placeholder cambia según el tipo de propiedad para guiarte. |
+    | **Description** | Una nota corta de referencia describiendo qué hace esta propiedad. |
+    | **Type** | Dónde se envía el parámetro: **Header**, **Query**, **Cookie**, **Body**, **Path** o **Auth Bearer**. Los parámetros de tipo Path reemplazan los marcadores `{key}` en la URL. |
+    | **Value Type** | El formato de datos: **Text**, **Number**, **Secret**, **Date** u **Object**. |
+    | **Value At** | De dónde proviene el valor en tiempo de ejecución (ver tabla a continuación). |
+    | **Quantity** | Si el parámetro acepta un valor **Single** (único) o **Multiple** (múltiple). |
+    | **Required** | Marca esto si el parámetro es obligatorio para que la solicitud funcione. |
+
+    #### Opciones de Value At
+
+    El desplegable **Value At** determina cómo se resuelve el valor de la propiedad cuando la herramienta se ejecuta:
+
+    | Opción | Descripción |
+    |---|---|
+    | **Configuration** | El valor se establece aquí en la configuración de la herramienta y permanece fijo. Se te pedirá ingresarlo en la sección de **Valores de configuración** debajo de la lista de propiedades. |
+    | **External User ID** | El valor se completa automáticamente con el ID externo del usuario final en tiempo de ejecución. |
+    | **Metadata Key** | El valor se lee de los metadatos del usuario final. Al seleccionarlo, aparece un campo adicional donde ingresas la clave de metadatos (ej. `customer_id`). |
+    | **Conversation** | El agente extrae el valor del contexto de la conversación en curso. |
 
     <Tip>
-    El origen **Usuario Final** es ideal para personalizar llamadas API sin pedir al usuario información que ya proporcionó — por ejemplo, pasar su ID de cuenta o plan de suscripción a un sistema externo automáticamente.
+    Las propiedades marcadas como **Configuration** con tipo de valor **Secret** tendrán sus valores cifrados antes de guardar—ideal para claves API y tokens.
     </Tip>
 
+    #### Sección de Valores de Configuración
+
+    Cuando una o más propiedades tienen **Value At** establecido en **Configuration**, aparece una sección dedicada debajo de la lista de propiedades. Aquí ingresas el valor fijo para cada una de esas propiedades. Las propiedades de tipo secreto muestran un campo enmascarado por seguridad.
+
+    #### Eliminar una Propiedad
+
+    Haz clic en el **ícono de menos** (−) en la esquina superior derecha de cualquier tarjeta de propiedad para eliminarla.
+
+    ---
+
+    ### Manejo de Errores
+
+    Algunas herramientas incluyen una sección de **Manejo de Errores** en la pestaña de Configuración. Usa el área de texto para describir cómo debe comportarse el agente si la llamada al endpoint falla—por ejemplo, mostrando un mensaje alternativo al usuario o reintentando la solicitud.
+
+    ---
+
+    ### Pestaña de Canales
+
+    La pestaña de **Canales** te permite controlar qué canales conectados pueden usar esta herramienta. Habilita o deshabilita la herramienta para cada canal de forma independiente.
+
     <Note>
-    Los datos del usuario final (ID externo y metadatos) provienen de cómo se identificó al usuario en el canal. Puedes probar esto en el **Playground** usando la configuración de **Usuario Externo**. Consulta la [documentación del Playground](/agent/es/playground) para más detalles.
+    Todos los componentes de configuración (editor de propiedades, manejo de errores y campos estándar) comparten el mismo botón de **Guardar**. Asegúrate de hacer clic en **Guardar** después de realizar cualquier cambio.
     </Note>
-
-    ---
-
-    ### Asignación de canales y mapeo de usuario final por canal
-
-    Al asignar una herramienta personalizada a canales, puedes configurar cómo se resuelven las propiedades de **Usuario Final** en cada canal. Dado que diferentes canales pueden almacenar la información del usuario de forma distinta, la plataforma te permite mapear cada propiedad de usuario final a la fuente correcta por canal.
-
-    ---
-
-    ## Notas clave
-
-    - Las herramientas personalizadas se ejecutan **del lado del servidor** — el agente decide cuándo llamarlas según el contexto de la conversación y la descripción de la herramienta.
-    - Las propiedades marcadas como **secret** se cifran y nunca se exponen en registros o historial de conversaciones.
-    - Puedes **editar o eliminar** herramientas personalizadas en cualquier momento. Eliminar una herramienta la remueve de todos los canales asignados.
 
   </Tab>
 </Tabs>
