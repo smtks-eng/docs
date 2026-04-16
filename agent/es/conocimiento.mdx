@@ -11,6 +11,8 @@ Si estás aquí, ya **terminaste la incorporación** y tienes tu consola lista p
 **El conocimiento es un componente clave de tu agente.**\
 El agente solo responderá basándose en la información disponible en tu base de conocimientos. Esto significa que agregar datos irrelevantes o carecer de información esencial puede llevar a una mala experiencia del usuario. Es por eso que configurar correctamente tu base de conocimientos es uno de los pasos más críticos al configurar tu agente.
 
+La página de Conocimiento está organizada en pestañas. La pestaña **FAQs** es donde gestionas tus preguntas frecuentes, y la pestaña **Glosarios** es donde defines términos y definiciones para tu agente.
+
 ![knowledge-step-1.png](/images/agent/knowledge/knowledge-step-1.png)
 
 ### TEMAS
@@ -56,8 +58,8 @@ Mantiene el significado original intacto mientras mejora la gramática, claridad
 
 ![knowledge-step-6.png](/images/agent/knowledge/knowledge-step-6.png)
 
-**Al igual que el botón de Mejora Mágica, también existe el botón de Mejorar Estilo.**\
-Funciona de manera similar, con una diferencia clave: mejora la pregunta _o_ la respuesta de forma individual, en lugar de ambas al mismo tiempo.
+**Al igual que el botón de Mejora Mágica, también hay un botón de Mejorar Estilo.**\
+Funciona de manera similar, con una diferencia clave: mejora la pregunta _o_ la respuesta individualmente, en lugar de ambas al mismo tiempo.
 
 <Note>
   **¡No olvides guardar tus cambios haciendo clic en el botón Guardar\!**
@@ -66,56 +68,17 @@ Funciona de manera similar, con una diferencia clave: mejora la pregunta _o_ la 
 
 ---
 
-### Extraer FAQs de Documentos
+## Glosarios
 
-Puedes generar FAQs automáticamente subiendo un documento. Los tipos de archivo soportados son **PDF**, **TXT**, **DOC** y **DOCX**.
+La pestaña **Glosarios** te permite crear colecciones de términos y definiciones que tu agente puede consultar durante las conversaciones. Esto asegura que tu agente use terminología consistente y precisa — ya sean nombres de productos, jerga de la industria, siglas o vocabulario interno.
 
-Cuando seleccionas o arrastras un archivo, aparece un diálogo de **Configurar generación de FAQs**. Este diálogo te permite revisar y ajustar todos los parámetros de generación antes de iniciar el proceso.
+Los glosarios están organizados con una barra lateral para navegación y un panel principal para gestionar entradas. Puedes:
 
-#### Opciones de configuración
-
-El diálogo muestra el nombre del archivo seleccionado y las siguientes opciones:
-
-| Opción | Descripción |
-|---|---|
-| **El archivo contiene FAQs existentes** | Actívalo si tu documento ya tiene pares de pregunta-respuesta. El sistema los extraerá directamente en lugar de generar nuevos. |
-| **Mantener idioma original** | Cuando está activado, las FAQs generadas conservan el idioma del documento fuente en lugar de ser traducidas al idioma de tu consola. Solo se aplican correcciones gramaticales. |
-| **Corregir gramática** | Activado por defecto. Corrige ortografía, acentos, puntuación y errores gramaticales en las FAQs generadas. Desactívalo si deseas el texto extraído sin correcciones. |
-| **Número de temas** | Cuántos temas debe usar el sistema para organizar las FAQs. Déjalo en blanco para detección automática. Esta opción se deshabilita cuando "El archivo contiene FAQs existentes" está marcado. |
-| **FAQs por tema** | Cuántas FAQs generar por tema. Déjalo en blanco para detección automática. Esta opción se deshabilita cuando "El archivo contiene FAQs existentes" está marcado. |
-| **Instrucciones especiales** | Campo de texto libre donde puedes dar indicaciones adicionales para la generación de FAQs (ej., "Enfócate en preguntas de precios" o "Ignora la sección de anexos"). |
-
-Una vez que estés conforme con la configuración, haz clic en **Generar FAQs** para iniciar el proceso, o haz clic en **Cancelar** para abortar sin subir el archivo.
+- **Crear múltiples glosarios** para agrupar términos por categoría
+- **Agregar entradas manualmente** con un término y su definición
+- **Importar entradas desde documentos** (PDF, DOCX, TXT, CSV) usando extracción con IA
+- **Buscar y filtrar** entradas en todos los glosarios
 
 <Tip>
-  Usa **Mantener idioma original** cuando tu documento de conocimiento esté en un idioma específico y quieras que las FAQs permanezcan en ese mismo idioma en lugar de ser traducidas.
+  Para una guía completa sobre cómo crear, gestionar e importar glosarios, consulta la página dedicada de [Glosarios](/agent/es/glosarios).
 </Tip>
-
-<Tip>
-  La opción de **Corregir gramática** es ideal para limpiar documentos fuente informales o sin editar. Si tu archivo fuente ya está bien editado, puedes desactivarla para mantener la redacción original tal cual.
-</Tip>
-
-<Note>
-  El proceso de generación puede tardar unos momentos dependiendo del tamaño y complejidad de tu documento. Verás un indicador de carga en el archivo mientras se generan las FAQs.
-</Note>
-
----
-
-### Extraer FAQs de un Enlace
-
-También puedes generar FAQs proporcionando una URL. El sistema rastreará el contenido de la página y generará FAQs a partir de él, siguiendo la misma organización por temas.
-
----
-
-### Gestionando FAQs Generadas
-
-Después de que se generan las FAQs (desde un documento o enlace), aparecen organizadas por tema. Puedes:
-
-- **Seleccionar** FAQs individuales usando casillas de verificación
-- **Expandir o contraer** temas para navegar entre ellos
-- **Editar** cualquier FAQ antes de guardar
-- **Guardar** las FAQs seleccionadas en tu base de conocimientos
-
-<Warning>
-  Las FAQs generadas no se guardan automáticamente. Debes seleccionar las que deseas conservar y hacer clic en **Guardar** para agregarlas a tu base de conocimientos.
-</Warning>

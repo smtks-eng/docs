@@ -11,6 +11,8 @@ If you are here you already **finished the onboarding**  and have your console r
 **Knowledge is a key component of your agent.**\
 The agent will only respond based on the information available in your knowledge base. This means that adding irrelevant data or lacking essential information can lead to a poor user experience. That's why setting up your knowledge base correctly is one of the most critical steps when configuring your agent.
 
+The Knowledge page is organized into tabs. The **FAQs** tab is where you manage your frequently asked questions, and the **Glossaries** tab is where you define terms and definitions for your agent.
+
 ![knowledge-step-1.png](/images/agent/knowledge/knowledge-step-1.png)
 
 ### TOPICS
@@ -66,56 +68,17 @@ It works similarly, with one key difference: it improves either the question _or
 
 ---
 
-### Extract FAQs from Documents
+## Glossaries
 
-You can automatically generate FAQs by uploading a document. Supported file types are **PDF**, **TXT**, **DOC**, and **DOCX**.
+The **Glossaries** tab lets you create collections of terms and definitions that your agent can reference during conversations. This ensures your agent uses consistent, accurate terminology — whether it's product names, industry jargon, acronyms, or internal vocabulary.
 
-When you select or drag-and-drop a file, a **Configure FAQ Generation** dialog appears. This dialog lets you review and adjust all generation settings before the process begins.
+Glossaries are organized with a sidebar for navigation and a main panel for managing entries. You can:
 
-#### Configuration options
-
-The dialog shows the name of the selected file and the following options:
-
-| Option | Description |
-|---|---|
-| **File contains existing FAQs** | Enable this if your document already has question-answer pairs. The system will extract them directly instead of generating new ones. |
-| **Keep original language** | When enabled, the generated FAQs preserve the language of the source document instead of being translated to your console language. Only grammar corrections are applied. |
-| **Correct grammar** | Enabled by default. Fixes spelling, accents, punctuation, and grammar errors in the generated FAQs. Disable this if you want the raw extracted text without corrections. |
-| **Number of topics** | How many topics the system should organize the FAQs into. Leave blank for automatic detection. This option is disabled when "File contains existing FAQs" is checked. |
-| **FAQs per topic** | How many FAQs to generate per topic. Leave blank for automatic detection. This option is disabled when "File contains existing FAQs" is checked. |
-| **Special instructions** | Free-text field where you can provide additional guidance for FAQ generation (e.g., "Focus on pricing questions" or "Ignore the appendix section"). |
-
-Once you are happy with the settings, click **Generate FAQs** to start the process, or click **Cancel** to abort without uploading the file.
+- **Create multiple glossaries** to group terms by category
+- **Add entries manually** with a term and its definition
+- **Import entries from documents** (PDF, DOCX, TXT, CSV) using AI extraction
+- **Search and filter** entries across all glossaries
 
 <Tip>
-  Use **Keep original language** when your knowledge base document is in a specific language and you want the FAQs to stay in that same language rather than being translated.
+  For a complete guide on creating, managing, and importing glossaries, see the dedicated [Glossaries](/agent/en/glossaries) page.
 </Tip>
-
-<Tip>
-  The **Correct grammar** option is great for cleaning up raw or informal source documents. If your source file is already well-edited, you can disable it to keep the original phrasing exactly as-is.
-</Tip>
-
-<Note>
-  The generation process may take a few moments depending on the size and complexity of your document. You will see a loading indicator on the file while FAQs are being generated.
-</Note>
-
----
-
-### Extract FAQs from a Link
-
-You can also generate FAQs by providing a URL. The system will crawl the page content and generate FAQs from it, following the same topic-based organization.
-
----
-
-### Managing Generated FAQs
-
-After FAQs are generated (from a document or link), they appear organized by topic. You can:
-
-- **Select** individual FAQs using checkboxes
-- **Expand or collapse** topics to browse through them
-- **Edit** any FAQ before saving
-- **Save** selected FAQs to your knowledge base
-
-<Warning>
-  Generated FAQs are not automatically saved. You must select the ones you want to keep and click **Save** to add them to your knowledge base.
-</Warning>
