@@ -1,7 +1,7 @@
 ---
 title: "Identidad"
 language: es
-description: "Configura la personalidad y los atributos públicos de tu agente. Esto incluye nombre, saludo, tono, audiencia, disponibilidad y mensajes programados."
+description: "Configura la personalidad y los atributos públicos de tu agente. Esto incluye nombre, saludo, tono, audiencia, disponibilidad, mensajes programados e instrucciones de comportamiento."
 ---
 
 La identidad de tu agente es lo que forma la **primera impresión** que los usuarios obtienen al interactuar con él. Esta sección te permite definir cómo se presenta tu agente, desde el nombre y el saludo hasta el tono, el idioma y la disponibilidad. Configurar la identidad de tu agente ayuda a ofrecer una experiencia más humana, consistente y confiable.
@@ -51,59 +51,72 @@ En la pestaña **Idioma**, puedes configurar los idiomas que tu agente entiende 
   ![identity_agent-step-6.png](/images/agent/identity_agent/identity_agent-step-6.png)
 
 <Tip>
-  Mezcla y combina estilos y tonos basados en la personalidad de tu marca y las expectativas de los usuarios.
+  Mezcla y combina estilos y tonos basados en la personalidad de tu marca y las expectativas de tus usuarios.
 </Tip>
 
 ---
 
 ### Idioma de la Consola
 
-La Consola de Semantiks soporta **tres idiomas**: inglés, español y portugués. Puedes cambiar el idioma de la consola en cualquier momento usando el **selector de idioma** en la barra de navegación o el menú lateral. Esto cambia el idioma de todos los menús, etiquetas, botones y elementos de la interfaz en toda la plataforma.
+La Consola de Semantiks soporta **tres idiomas**: inglés, español y portugués. Puedes cambiar el idioma de la consola en cualquier momento usando el **selector de idioma** en la barra de navegación superior.
+
+---
+
+### Instrucciones de Comportamiento
+
+La pestaña **Instrucciones de comportamiento** te permite definir directrices breves y específicas que guían cómo se comporta tu agente durante las conversaciones. Piensa en ellas como reglas granulares que complementan las instrucciones generales de comunicación que configuras en la pestaña General.
+
+Mientras que el campo "Instrucciones especiales de comunicación" de la pestaña General es ideal para orientación amplia (tono, formalidad, etc.), las instrucciones de comportamiento te permiten agregar **reglas específicas** que pueden gestionarse, habilitarse o deshabilitarse individualmente sin modificar el resto de la configuración de tu agente.
 
 <Note>
-  El idioma de la consola es independiente de los idiomas que habla tu agente. Tu agente puede comunicarse en cualquier idioma configurado sin importar qué idioma uses para la consola.
+  Puedes tener hasta **20 instrucciones activas** al mismo tiempo. Cada instrucción puede tener hasta **350 caracteres** de longitud.
 </Note>
 
----
+#### Creando una instrucción de comportamiento
 
-### Audiencia
+<Steps>
+  <Step title="Abre la pestaña de Instrucciones de comportamiento">
+    Navega a **Agente IA > Diseño > Identidad** y selecciona la pestaña **Instrucciones de comportamiento**.
+  </Step>
+  <Step title="Haz clic en Agregar instrucción">
+    Haz clic en el botón **+ Agregar instrucción** en la barra de herramientas. Se abrirá un panel lateral.
+  </Step>
+  <Step title="Escribe tu instrucción">
+    Ingresa una directriz breve y clara en el campo **Instrucción**. Por ejemplo:
+    - *Responde siempre con un tono conciso y amable.*
+    - *Nunca compartas información de precios—redirige al usuario al equipo de ventas.*
+    - *Cuando el usuario pregunte sobre devoluciones, menciona siempre la política de 30 días.*
+    
+    Un contador de caracteres muestra cuántos caracteres te quedan (máximo 350).
+  </Step>
+  <Step title="Configura el estado">
+    Usa el interruptor **Activa** para decidir si esta instrucción estará activa inmediatamente. También puedes crearla en estado pausado y habilitarla después.
+  </Step>
+  <Step title="Guarda">
+    Haz clic en **Guardar** para crear la instrucción. Aparecerá en tu tabla de instrucciones.
+  </Step>
+</Steps>
 
-Usa la pestaña **Audiencia** para definir a quién está dirigido tu agente. Esto ayuda a ajustar el tono, la complejidad y el tipo de respuestas.
+#### Gestionando instrucciones de comportamiento
 
-![identity_agent-step-7.png](/images/agent/identity_agent/identity_agent-step-7.png)
+La tabla de instrucciones muestra todas tus instrucciones de comportamiento con su estado actual (**Activa** o **Pausada**). Desde aquí puedes:
 
-- **Audiencia objetivo**: Describe quién hablará con el agente (ej. clientes, empleados, estudiantes).
-- **Rango de edad**: Opcionalmente establece el rango de edad esperado de los usuarios.
-- **Ubicación de la audiencia**: Especifica la región o país de donde provienen principalmente tus usuarios.
+- **Buscar** — usa la barra de búsqueda para encontrar instrucciones por texto.
+- **Filtrar por estado** — usa las pestañas **Todas**, **Activas** o **Pausadas** para filtrar la lista.
+- **Activar/desactivar** — usa el interruptor en cada fila para habilitar o deshabilitar rápidamente una instrucción sin abrir el editor.
+- **Editar** — haz clic en el ícono de lápiz para abrir el panel lateral y modificar el texto de la instrucción o su estado.
+- **Eliminar** — haz clic en el ícono de papelera para eliminar una instrucción. Se te pedirá confirmación antes de eliminarla permanentemente.
+
+La barra de herramientas también muestra un contador indicando cuántas instrucciones están activas del máximo permitido (ej. `3/20`).
+
+<Warning>
+  Eliminar una instrucción de comportamiento es permanente y no se puede deshacer.
+</Warning>
 
 <Tip>
-  Cuanto más específico seas con tu audiencia, mejor se adaptará tu agente en lenguaje y complejidad.
+  Comienza con unas pocas instrucciones de alto impacto y pruébalas en el **Playground** antes de habilitar más. Esto facilita ver el efecto de cada regla en las respuestas de tu agente.
 </Tip>
 
----
+#### Límite de instrucciones activas
 
-### Disponibilidad
-
-En la pestaña **Disponibilidad**, puedes definir cuándo tu agente está activo y cómo se comporta fuera del horario laboral.
-
-![identity_agent-step-8.png](/images/agent/identity_agent/identity_agent-step-8.png)
-
-- **Siempre disponible**: Activa esto si quieres que tu agente esté disponible 24/7.
-- **Horario personalizado**: Define días y horas específicos cuando el agente debe estar activo.
-- **Mensaje fuera de horario**: Personaliza el mensaje que los usuarios ven cuando el agente no está disponible.
-
----
-
-### Mensajes Programados
-
-Los mensajes programados te permiten configurar mensajes recurrentes o únicos que tu agente envía en horarios específicos.
-
-- **Título**: Un nombre para identificar el mensaje programado.
-- **Mensaje**: El contenido que el agente enviará.
-- **Programación**: Define la hora y frecuencia (una vez, diario, semanal, etc.).
-- **Canales**: Selecciona a qué canales aplica el mensaje programado.
-- **Habilitado/Deshabilitado**: Activa o desactiva el mensaje programado.
-
-<Tip>
-  Usa los mensajes programados para saludos diarios, anuncios semanales o recordatorios periódicos.
-</Tip>
+Si ya tienes **20 instrucciones activas** e intentas habilitar otra, el sistema mostrará un mensaje de error pidiéndote que desactives una instrucción existente primero. Puedes seguir creando instrucciones nuevas en estado **pausado**—el límite solo aplica a instrucciones activas (habilitadas).
