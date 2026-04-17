@@ -1,153 +1,120 @@
 ---
 title: "Glossaries"
 language: en
-description: "Create and manage glossaries of terms and definitions so your AI agent uses consistent, accurate terminology in every conversation."
+description: "Create and manage glossaries with term-definition pairs to give your AI agent a precise vocabulary for your business domain."
 ---
 
-**Glossaries** let you define collections of terms and their definitions that your AI agent can reference during conversations. This ensures your agent uses the correct terminology for your industry, product, or organization — every time.
+**Glossaries** let you define the specific terms, jargon, and vocabulary your AI agent should know. Each glossary is a named collection of **term / definition** pairs that help the agent understand and use domain-specific language accurately.
 
-Glossaries are especially useful when your business has specific jargon, branded terms, acronyms, or technical vocabulary that the agent needs to understand and use accurately.
+This is especially useful when your business has internal terminology, product names, acronyms, or industry-specific concepts that a general-purpose language model might not know or might confuse.
 
 <Info>
-  Glossaries live inside the **Knowledge** section of your agent. Navigate to **AI Agent > Design > Knowledge > Glossaries** tab to get started.
+  You can access Glossaries from the **Knowledge** page by clicking the **Glossaries** tab.
 </Info>
 
 ---
 
-## Core concepts
+## How Glossaries Work
 
-### Glossaries
-A **glossary** is a named collection of term-definition pairs. You can create multiple glossaries to organize terms by category — for example, one glossary for product names, another for industry terms, and another for internal acronyms.
-
-### Entries
-An **entry** is a single term-definition pair inside a glossary. Each entry has:
-- **Term** — the word or phrase you want the agent to recognize
-- **Definition** — the meaning or explanation the agent should use when referencing that term
+Glossaries are organized as named groups. Inside each glossary you add **entries** — each entry is a **term** paired with its **definition**. The agent uses these entries as reference material when responding to users, ensuring it uses the correct meaning and phrasing for your domain.
 
 ---
 
-## The Glossaries interface
-
-The Glossaries tab is organized into two main areas:
-
-### Sidebar
-The left sidebar lists all your glossaries and provides quick navigation:
-- **All Glossaries** — view entries from every glossary at once
-- **Individual glossaries** — click any glossary name to filter and view only its entries
-- **Add glossary (+)** — create a new glossary directly from the sidebar
-- The sidebar can be **collapsed** to give more room to the main content area
-
-### Main panel
-The main content area shows your glossary entries, grouped by glossary when viewing "All". From here you can:
-- **Search** entries by term or definition using the search bar
-- **Add entries** manually using the "Add new entry" button at the bottom of each glossary group
-- **Edit entries** by clicking the pencil icon on any entry
-- **Delete entries** by clicking the trash icon on any entry
-- **Import entries from a document** using the "From document" button in the toolbar
-
----
-
-## Creating a glossary
+## Creating a Glossary
 
 <Steps>
-  <Step title="Open the Glossaries tab">
-    Navigate to **AI Agent > Design > Knowledge** and select the **Glossaries** tab.
+  <Step title="Navigate to Glossaries">
+    Go to **AI Agent > Design > Knowledge** and select the **Glossaries** tab.
   </Step>
-  <Step title="Click the + button">
-    In the sidebar, next to **All Glossaries**, click the **+** button.
+  <Step title="Add a new glossary">
+    In the left sidebar, click **Add Glossary**. Enter a name for your glossary (e.g. `Product Terms`, `Medical Vocabulary`, `Internal Acronyms`).
   </Step>
-  <Step title="Name your glossary">
-    Enter a descriptive name for the glossary (e.g. `Product Terms`, `Medical Vocabulary`, `Company Acronyms`) and click **Save**.
+  <Step title="Save the glossary">
+    Click **Save** to create the glossary. You can now start adding entries.
   </Step>
 </Steps>
 
 <Tip>
-  Choose clear, descriptive names for your glossaries. This makes it easier to find and manage terms as your knowledge base grows.
+  Use descriptive glossary names so your team can quickly identify which domain or topic each glossary covers.
 </Tip>
 
 ---
 
-## Adding entries manually
+## Managing Glossary Entries
 
-<Steps>
-  <Step title="Select a glossary">
-    In the sidebar, click the glossary where you want to add an entry — or stay on **All Glossaries** and use the "Add new entry" button under any group.
-  </Step>
-  <Step title="Open the entry dialog">
-    Click **Add new entry**. A dialog will open.
-  </Step>
-  <Step title="Fill in the details">
-    - **Glossary** — select or confirm which glossary this entry belongs to
-    - **Term** — enter the word or phrase
-    - **Definition** — provide the meaning or explanation
-  </Step>
-  <Step title="Save">
-    Click **Save** to add the entry to your glossary.
-  </Step>
-</Steps>
+### Adding an entry manually
 
----
+1. Select a glossary from the sidebar (or choose **ALL** to view entries across all glossaries).
+2. Click **Add New Entry**.
+3. Fill in the **Term** and **Definition** fields.
+4. Click **Save**.
 
-## Editing an entry
+### Editing an entry
 
-Click the **pencil icon** on any entry to open the edit dialog. You can update the term, definition, or move the entry to a different glossary. Click **Save** when you're done.
-
----
-
-## Deleting entries and glossaries
+Click on any existing entry in the table to open the **Edit Entry** panel. Update the term or definition and click **Save**.
 
 ### Deleting an entry
-Click the **trash icon** on any entry. You'll be asked to confirm the deletion.
 
-### Deleting a glossary
-When viewing a specific glossary, click the **Delete glossary** button in the header bar. You can also delete a glossary from the "All" view by clicking the trash icon next to the glossary group header.
+Click the delete action on an entry row. A confirmation dialog will appear:
 
 <Warning>
-  Deleting a glossary removes it **and all the entries it contains**. This action cannot be undone.
+  Deleting an entry removes it permanently. This action cannot be undone.
 </Warning>
+
+### Searching entries
+
+Use the **search bar** at the top of the entries table to filter entries by term or definition. The placeholder reads _"Search terms or definitions..."_.
 
 ---
 
-## Importing entries from a document
+## Importing Entries from a File
 
-You can automatically generate glossary entries from an uploaded file. The platform uses AI to extract terms and definitions from your document.
+You can bulk-import glossary entries by uploading a file. Semantiks will automatically extract terms and definitions for you.
 
 <Steps>
-  <Step title="Click 'From document'">
-    In the toolbar at the top of the Glossaries tab, click the **From document** button.
+  <Step title="Click Import from file">
+    Inside the Glossaries tab, click **Import from file**.
   </Step>
-  <Step title="Upload a file">
-    Select a file from your computer. Supported formats are **PDF**, **DOCX**, **TXT**, and **CSV**.
+  <Step title="Upload your file">
+    Select a document containing the terms and definitions you want to import.
   </Step>
-  <Step title="Review the preview">
-    After processing, a preview dialog shows all the extracted terms and definitions, organized by glossary. Each entry has a checkbox so you can select or deselect individual items.
+  <Step title="Review the import preview">
+    An **Import Preview** dialog will appear showing all extracted entries. You can:
+    - **Select all** or **Deselect all** entries
+    - Individually check or uncheck entries you want to include
   </Step>
-  <Step title="Select entries to import">
-    Use the checkboxes to choose which entries you want to keep. You can also use **Select all** / **Deselect all** to quickly toggle all entries.
-  </Step>
-  <Step title="Save the import">
-    Click **Save** to create the glossaries and entries. New glossaries will be created automatically if they don't already exist. If a glossary with the same name already exists, entries will be added to it.
+  <Step title="Save selected entries">
+    Click **Save** to add the selected entries to your glossary.
   </Step>
 </Steps>
 
 <Note>
-  The AI extraction works best with well-structured documents that contain clear term-definition patterns, such as glossary pages, data dictionaries, or FAQ-style content.
+  The import process uses AI to extract term-definition pairs from your document. Review the preview carefully to ensure accuracy before saving.
 </Note>
 
 ---
 
-## Searching and filtering
+## Editing or Deleting a Glossary
 
-- Use the **search bar** at the top to find entries by term or definition. The search is accent-insensitive and ignores punctuation.
-- Use the **sidebar** to filter entries by glossary. Click a specific glossary to see only its entries, or click **All Glossaries** to see everything.
+You can rename a glossary by clicking **Edit Glossary** in the sidebar.
+
+To delete an entire glossary, use the delete option on the glossary in the sidebar. A confirmation dialog will warn you:
+
+<Warning>
+  Deleting a glossary removes the glossary and **all entries** it contains. This action cannot be undone.
+</Warning>
 
 ---
 
-## Tips for effective glossaries
+## Filtering by Glossary
 
-<Tip>
-  - **Be specific** in your definitions. Include context that helps the agent understand when and how to use each term.
-  - **Keep terms atomic.** One term per entry — avoid combining multiple concepts.
-  - **Use multiple glossaries** to organize terms by domain or category.
-  - **Review imported entries** carefully before saving. AI extraction is helpful but may need manual adjustments.
-</Tip>
+The sidebar lists all your glossaries. Click any glossary name to filter the entries table to that glossary only. Click **ALL** to see entries from every glossary in a single view.
+
+---
+
+## Best Practices
+
+- **Keep definitions concise** — the agent uses them as quick reference, not as full articles.
+- **Group related terms** — create separate glossaries for different domains (e.g. one for product names, another for compliance terms).
+- **Update regularly** — as your business evolves, make sure your glossaries stay current so the agent always has accurate terminology.
+- **Use the import feature** for large term lists — it's much faster than adding entries one by one.

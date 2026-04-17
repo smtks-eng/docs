@@ -44,6 +44,7 @@
                     "pages": [
                       "agent/en/identity",
                       "agent/en/knowledge",
+                      "agent/en/glossaries",
                       "agent/en/capabilities",
                       "agent/en/memories",
                       "agent/en/workflows"
@@ -160,6 +161,7 @@
                     "pages": [
                       "agent/es/identidad",
                       "agent/es/conocimiento",
+                      "agent/es/glosarios",
                       "agent/es/capacidades",
                       "agent/es/memorias",
                       "agent/es/workflows"

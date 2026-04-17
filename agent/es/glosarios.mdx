@@ -1,153 +1,120 @@
 ---
 title: "Glosarios"
 language: es
-description: "Crea y gestiona glosarios de términos y definiciones para que tu agente de IA use terminología consistente y precisa en cada conversación."
+description: "Crea y gestiona glosarios con pares de término-definición para darle a tu agente de IA un vocabulario preciso de tu dominio de negocio."
 ---
 
-Los **Glosarios** te permiten definir colecciones de términos y sus definiciones que tu agente de IA puede consultar durante las conversaciones. Esto asegura que tu agente use la terminología correcta para tu industria, producto u organización — siempre.
+Los **Glosarios** te permiten definir los términos, jerga y vocabulario específico que tu agente de IA debe conocer. Cada glosario es una colección nombrada de pares **término / definición** que ayudan al agente a entender y usar el lenguaje de tu dominio de forma precisa.
 
-Los glosarios son especialmente útiles cuando tu negocio tiene jerga específica, términos de marca, siglas o vocabulario técnico que el agente necesita entender y usar con precisión.
+Esto es especialmente útil cuando tu negocio tiene terminología interna, nombres de productos, acrónimos o conceptos específicos de la industria que un modelo de lenguaje general podría no conocer o podría confundir.
 
 <Info>
-  Los glosarios se encuentran dentro de la sección **Conocimiento** de tu agente. Navega a **Agente IA > Diseño > Conocimiento > pestaña Glosarios** para comenzar.
+  Puedes acceder a los Glosarios desde la página de **Conocimiento** haciendo clic en la pestaña **Glosarios**.
 </Info>
 
 ---
 
-## Conceptos clave
+## Cómo Funcionan los Glosarios
 
-### Glosarios
-Un **glosario** es una colección con nombre de pares término-definición. Puedes crear múltiples glosarios para organizar términos por categoría — por ejemplo, un glosario para nombres de productos, otro para términos de la industria y otro para siglas internas.
-
-### Entradas
-Una **entrada** es un par término-definición dentro de un glosario. Cada entrada tiene:
-- **Término** — la palabra o frase que quieres que el agente reconozca
-- **Definición** — el significado o explicación que el agente debe usar al referirse a ese término
+Los glosarios se organizan como grupos con nombre. Dentro de cada glosario agregas **entradas** — cada entrada es un **término** emparejado con su **definición**. El agente usa estas entradas como material de referencia al responder a los usuarios, asegurando que utilice el significado y la redacción correcta para tu dominio.
 
 ---
 
-## La interfaz de Glosarios
-
-La pestaña de Glosarios está organizada en dos áreas principales:
-
-### Barra lateral
-La barra lateral izquierda lista todos tus glosarios y permite navegación rápida:
-- **Todos los glosarios** — ver entradas de todos los glosarios a la vez
-- **Glosarios individuales** — haz clic en el nombre de cualquier glosario para filtrar y ver solo sus entradas
-- **Agregar glosario (+)** — crea un nuevo glosario directamente desde la barra lateral
-- La barra lateral se puede **colapsar** para dar más espacio al área de contenido principal
-
-### Panel principal
-El área de contenido principal muestra las entradas de tu glosario, agrupadas por glosario cuando se visualiza "Todos". Desde aquí puedes:
-- **Buscar** entradas por término o definición usando la barra de búsqueda
-- **Agregar entradas** manualmente usando el botón "Agregar nueva entrada" al final de cada grupo de glosario
-- **Editar entradas** haciendo clic en el ícono de lápiz en cualquier entrada
-- **Eliminar entradas** haciendo clic en el ícono de papelera en cualquier entrada
-- **Importar entradas desde un documento** usando el botón "Desde documento" en la barra de herramientas
-
----
-
-## Crear un glosario
+## Creando un Glosario
 
 <Steps>
-  <Step title="Abre la pestaña de Glosarios">
-    Navega a **Agente IA > Diseño > Conocimiento** y selecciona la pestaña **Glosarios**.
+  <Step title="Navega a Glosarios">
+    Ve a **Agente IA > Diseño > Conocimiento** y selecciona la pestaña **Glosarios**.
   </Step>
-  <Step title="Haz clic en el botón +">
-    En la barra lateral, junto a **Todos los glosarios**, haz clic en el botón **+**.
+  <Step title="Agrega un nuevo glosario">
+    En la barra lateral izquierda, haz clic en **Agregar Glosario**. Ingresa un nombre para tu glosario (ej. `Términos de Producto`, `Vocabulario Médico`, `Acrónimos Internos`).
   </Step>
-  <Step title="Nombra tu glosario">
-    Ingresa un nombre descriptivo para el glosario (ej. `Términos de Producto`, `Vocabulario Médico`, `Siglas de la Empresa`) y haz clic en **Guardar**.
+  <Step title="Guarda el glosario">
+    Haz clic en **Guardar** para crear el glosario. Ahora puedes comenzar a agregar entradas.
   </Step>
 </Steps>
 
 <Tip>
-  Elige nombres claros y descriptivos para tus glosarios. Esto facilita encontrar y gestionar términos a medida que tu base de conocimiento crece.
+  Usa nombres descriptivos para los glosarios para que tu equipo pueda identificar rápidamente qué dominio o tema cubre cada uno.
 </Tip>
 
 ---
 
-## Agregar entradas manualmente
+## Gestionando Entradas del Glosario
 
-<Steps>
-  <Step title="Selecciona un glosario">
-    En la barra lateral, haz clic en el glosario donde quieres agregar una entrada — o quédate en **Todos los glosarios** y usa el botón "Agregar nueva entrada" debajo de cualquier grupo.
-  </Step>
-  <Step title="Abre el diálogo de entrada">
-    Haz clic en **Agregar nueva entrada**. Se abrirá un diálogo.
-  </Step>
-  <Step title="Completa los datos">
-    - **Glosario** — selecciona o confirma a qué glosario pertenece esta entrada
-    - **Término** — ingresa la palabra o frase
-    - **Definición** — proporciona el significado o explicación
-  </Step>
-  <Step title="Guardar">
-    Haz clic en **Guardar** para agregar la entrada a tu glosario.
-  </Step>
-</Steps>
+### Agregar una entrada manualmente
 
----
+1. Selecciona un glosario en la barra lateral (o elige **TODOS** para ver entradas de todos los glosarios).
+2. Haz clic en **Agregar Nueva Entrada**.
+3. Completa los campos **Término** y **Definición**.
+4. Haz clic en **Guardar**.
 
-## Editar una entrada
+### Editar una entrada
 
-Haz clic en el **ícono de lápiz** en cualquier entrada para abrir el diálogo de edición. Puedes actualizar el término, la definición o mover la entrada a un glosario diferente. Haz clic en **Guardar** cuando termines.
-
----
-
-## Eliminar entradas y glosarios
+Haz clic en cualquier entrada existente en la tabla para abrir el panel de **Editar Entrada**. Actualiza el término o la definición y haz clic en **Guardar**.
 
 ### Eliminar una entrada
-Haz clic en el **ícono de papelera** en cualquier entrada. Se te pedirá confirmar la eliminación.
 
-### Eliminar un glosario
-Cuando estés viendo un glosario específico, haz clic en el botón **Eliminar glosario** en la barra de encabezado. También puedes eliminar un glosario desde la vista "Todos" haciendo clic en el ícono de papelera junto al encabezado del grupo.
+Haz clic en la acción de eliminar en la fila de una entrada. Aparecerá un diálogo de confirmación:
 
 <Warning>
-  Eliminar un glosario borra el glosario **y todas las entradas que contiene**. Esta acción no se puede deshacer.
+  Eliminar una entrada la borra permanentemente. Esta acción no se puede deshacer.
 </Warning>
+
+### Buscar entradas
+
+Usa la **barra de búsqueda** en la parte superior de la tabla de entradas para filtrar por término o definición. El texto de ejemplo dice _"Buscar términos o definiciones..."_.
 
 ---
 
-## Importar entradas desde un documento
+## Importar Entradas desde un Archivo
 
-Puedes generar automáticamente entradas de glosario a partir de un archivo subido. La plataforma usa IA para extraer términos y definiciones de tu documento.
+Puedes importar entradas de glosario de forma masiva subiendo un archivo. Semantiks extraerá automáticamente los términos y definiciones por ti.
 
 <Steps>
-  <Step title="Haz clic en 'Desde documento'">
-    En la barra de herramientas en la parte superior de la pestaña de Glosarios, haz clic en el botón **Desde documento**.
+  <Step title="Haz clic en Importar desde archivo">
+    Dentro de la pestaña de Glosarios, haz clic en **Importar desde archivo**.
   </Step>
-  <Step title="Sube un archivo">
-    Selecciona un archivo de tu computadora. Los formatos soportados son **PDF**, **DOCX**, **TXT** y **CSV**.
+  <Step title="Sube tu archivo">
+    Selecciona un documento que contenga los términos y definiciones que deseas importar.
   </Step>
-  <Step title="Revisa la vista previa">
-    Después del procesamiento, un diálogo de vista previa muestra todos los términos y definiciones extraídos, organizados por glosario. Cada entrada tiene una casilla de verificación para que puedas seleccionar o deseleccionar elementos individuales.
+  <Step title="Revisa la vista previa de importación">
+    Aparecerá un diálogo de **Vista previa** mostrando todas las entradas extraídas. Puedes:
+    - **Seleccionar todos** o **Deseleccionar todos** las entradas
+    - Marcar o desmarcar individualmente las entradas que deseas incluir
   </Step>
-  <Step title="Selecciona las entradas a importar">
-    Usa las casillas de verificación para elegir qué entradas deseas conservar. También puedes usar **Seleccionar todo** / **Deseleccionar todo** para alternar rápidamente todas las entradas.
-  </Step>
-  <Step title="Guarda la importación">
-    Haz clic en **Guardar** para crear los glosarios y las entradas. Los glosarios nuevos se crearán automáticamente si no existen. Si ya existe un glosario con el mismo nombre, las entradas se agregarán a él.
+  <Step title="Guarda las entradas seleccionadas">
+    Haz clic en **Guardar** para agregar las entradas seleccionadas a tu glosario.
   </Step>
 </Steps>
 
 <Note>
-  La extracción con IA funciona mejor con documentos bien estructurados que contengan patrones claros de término-definición, como páginas de glosario, diccionarios de datos o contenido tipo FAQ.
+  El proceso de importación usa IA para extraer pares de término-definición de tu documento. Revisa la vista previa cuidadosamente para asegurar la precisión antes de guardar.
 </Note>
 
 ---
 
-## Búsqueda y filtrado
+## Editar o Eliminar un Glosario
 
-- Usa la **barra de búsqueda** en la parte superior para encontrar entradas por término o definición. La búsqueda ignora acentos y puntuación.
-- Usa la **barra lateral** para filtrar entradas por glosario. Haz clic en un glosario específico para ver solo sus entradas, o haz clic en **Todos los glosarios** para ver todo.
+Puedes renombrar un glosario haciendo clic en **Editar Glosario** en la barra lateral.
+
+Para eliminar un glosario completo, usa la opción de eliminar en el glosario en la barra lateral. Un diálogo de confirmación te advertirá:
+
+<Warning>
+  Eliminar un glosario borra el glosario y **todas las entradas** que contiene. Esta acción no se puede deshacer.
+</Warning>
 
 ---
 
-## Consejos para glosarios efectivos
+## Filtrar por Glosario
 
-<Tip>
-  - **Sé específico** en tus definiciones. Incluye contexto que ayude al agente a entender cuándo y cómo usar cada término.
-  - **Mantén los términos atómicos.** Un término por entrada — evita combinar múltiples conceptos.
-  - **Usa múltiples glosarios** para organizar términos por dominio o categoría.
-  - **Revisa las entradas importadas** cuidadosamente antes de guardar. La extracción con IA es útil pero puede necesitar ajustes manuales.
-</Tip>
+La barra lateral lista todos tus glosarios. Haz clic en cualquier nombre de glosario para filtrar la tabla de entradas solo a ese glosario. Haz clic en **TODOS** para ver las entradas de todos los glosarios en una sola vista.
+
+---
+
+## Mejores Prácticas
+
+- **Mantén las definiciones concisas** — el agente las usa como referencia rápida, no como artículos completos.
+- **Agrupa términos relacionados** — crea glosarios separados para diferentes dominios (ej. uno para nombres de productos, otro para términos de cumplimiento).
+- **Actualiza regularmente** — a medida que tu negocio evoluciona, asegúrate de que tus glosarios estén actualizados para que el agente siempre tenga terminología precisa.
+- **Usa la función de importación** para listas grandes de términos — es mucho más rápido que agregar entradas una por una.
