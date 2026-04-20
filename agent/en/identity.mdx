@@ -1,7 +1,7 @@
 ---
 title: "Identity"
 language: en
-description: "Configure the personality and public-facing attributes of your agent. This includes name, greeting, tone, audience, availability, scheduled messages, and behaviour instructions."
+description: "Configure the personality and public-facing attributes of your agent. This includes name, greeting, tone, audience, availability, scheduled messages, and communication instructions."
 ---
 
 Your agent's identity is what shapes the **first impression** users get when interacting with it. This section allows you to define how your agent presents itself—from name and greeting to tone, language, and availability. Setting up your agent's identity helps deliver a more human, consistent, and trustworthy experience.
@@ -34,6 +34,49 @@ In the **General** tab, you can upload a profile image, assign a name to your ag
 
 ---
 
+### Communication Instructions
+
+At the bottom of the **General** tab you'll find the **Communication Instructions** section. These are short, focused directives that steer how your agent communicates with users—for example, enforcing a concise tone, requiring formal language, or always greeting by name.
+
+- You can have up to **20 active** communication instructions at a time.
+- Each instruction can be up to **350 characters** long.
+- Every instruction requires a **Title** (up to 80 characters) and an **Instruction** body.
+- Instructions can be individually **enabled or paused** with a toggle, so you can keep drafts around without them affecting the agent.
+
+#### Creating an instruction
+
+<Steps>
+  <Step title="Click Add instruction">
+    In the Communication Instructions section, click the **+ Add instruction** button.
+  </Step>
+  <Step title="Fill in the Title">
+    Give the instruction a short, descriptive title (e.g. *Concise tone* or *Always greet by name*). The title helps you identify the instruction at a glance in the table.
+  </Step>
+  <Step title="Write the Instruction">
+    Enter the directive text. Be specific—e.g. "Always respond in a concise, friendly tone" or "Never use slang."
+  </Step>
+  <Step title="Set Enabled / Paused">
+    Use the toggle to decide whether the instruction is active right away.
+  </Step>
+  <Step title="Save">
+    Click **Save** to create the instruction. It will appear in the table immediately.
+  </Step>
+</Steps>
+
+#### Editing and deleting
+
+Each row in the instructions table shows the **Title**, **Instruction** text, **Status** (Active / Paused), and action buttons to **edit** or **delete** the instruction. You can also toggle an instruction on or off directly from the table.
+
+<Warning>
+  Deleting an instruction cannot be undone. If you're unsure, pause it instead.
+</Warning>
+
+<Note>
+  If you already have 20 active instructions, you must disable one before enabling another.
+</Note>
+
+---
+
 ### Language
 
 In the **Language** tab, you can configure the languages your agent understands and the way it communicates.
@@ -58,65 +101,4 @@ In the **Language** tab, you can configure the languages your agent understands 
 
 ### Console Language
 
-The Semantiks Console itself supports **three languages**: English, Spanish, and Portuguese. You can switch the console language at any time using the **language toggle** in the top navigation bar.
-
----
-
-### Behaviour Instructions
-
-The **Behaviour Instructions** tab lets you define short, specific directives that steer how your agent behaves during conversations. Think of them as granular rules that complement the general communication instructions you set in the General tab.
-
-While the General tab's "Special communication instructions" field is great for broad guidance (tone, formality, etc.), behaviour instructions let you add **targeted rules** that can be individually managed, enabled, or disabled without touching the rest of your agent's configuration.
-
-<Note>
-  You can have up to **20 active** behaviour instructions at a time. Each instruction can be up to **350 characters** long.
-</Note>
-
-#### Creating a behaviour instruction
-
-<Steps>
-  <Step title="Open the Behaviour Instructions tab">
-    Navigate to **AI Agent > Design > Identity** and select the **Behaviour Instructions** tab.
-  </Step>
-  <Step title="Click Add instruction">
-    Click the **+ Add instruction** button in the toolbar. A side panel will open.
-  </Step>
-  <Step title="Write your instruction">
-    Enter a short, clear directive in the **Instruction** field. For example:
-    - *Always respond in a concise, friendly tone.*
-    - *Never share pricing information—redirect the user to the sales team.*
-    - *When the user asks about returns, always mention the 30-day policy.*
-    
-    A character counter shows how many characters you have left (max 350).
-  </Step>
-  <Step title="Set the enabled toggle">
-    Use the **Enabled** toggle to decide whether this instruction is active immediately. You can also create it in a paused state and enable it later.
-  </Step>
-  <Step title="Save">
-    Click **Save** to create the instruction. It will appear in your instructions table.
-  </Step>
-</Steps>
-
-#### Managing behaviour instructions
-
-The instructions table shows all your behaviour instructions with their current status (**Active** or **Paused**). From here you can:
-
-- **Search** — use the search bar to find instructions by text.
-- **Filter by status** — use the **All**, **Active**, or **Paused** tabs to narrow the list.
-- **Toggle enabled/disabled** — use the switch on each row to quickly enable or disable an instruction without opening the editor.
-- **Edit** — click the pencil icon to open the side panel and modify the instruction text or enabled state.
-- **Delete** — click the trash icon to remove an instruction. You'll be asked to confirm before it's permanently deleted.
-
-The toolbar also displays a counter showing how many instructions are active out of the maximum (e.g. `3/20`).
-
-<Warning>
-  Deleting a behaviour instruction is permanent and cannot be undone.
-</Warning>
-
-<Tip>
-  Start with a handful of high-impact instructions and test them in the **Playground** before enabling more. This makes it easier to see the effect of each rule on your agent's responses.
-</Tip>
-
-#### Active instruction limit
-
-If you already have **20 active** instructions and try to enable another one, the system will show an error message asking you to disable an existing instruction first. You can still create new instructions in a **paused** state—the limit only applies to active (enabled) instructions.
+The Semantiks Console itself supports **three languages**: English, Spanish, and Portuguese. You can switch the console language at any time using the language selector in the top navigation bar.

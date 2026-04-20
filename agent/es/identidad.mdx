@@ -1,7 +1,7 @@
 ---
 title: "Identidad"
 language: es
-description: "Configura la personalidad y los atributos públicos de tu agente. Esto incluye nombre, saludo, tono, audiencia, disponibilidad, mensajes programados e instrucciones de comportamiento."
+description: "Configura la personalidad y los atributos públicos de tu agente. Esto incluye nombre, saludo, tono, audiencia, disponibilidad, mensajes programados e instrucciones de comunicación."
 ---
 
 La identidad de tu agente es lo que forma la **primera impresión** que los usuarios obtienen al interactuar con él. Esta sección te permite definir cómo se presenta tu agente, desde el nombre y el saludo hasta el tono, el idioma y la disponibilidad. Configurar la identidad de tu agente ayuda a ofrecer una experiencia más humana, consistente y confiable.
@@ -34,6 +34,49 @@ En la pestaña **General**, puedes subir una imagen de perfil, asignar un nombre
 
 ---
 
+### Instrucciones de Comunicación
+
+En la parte inferior de la pestaña **General** encontrarás la sección **Instrucciones de Comunicación**. Son directrices cortas y específicas que guían cómo tu agente se comunica con los usuarios—por ejemplo, imponer un tono conciso, requerir lenguaje formal, o siempre saludar por nombre.
+
+- Puedes tener hasta **20 instrucciones activas** al mismo tiempo.
+- Cada instrucción puede tener hasta **350 caracteres** de longitud.
+- Cada instrucción requiere un **Título** (hasta 80 caracteres) y un cuerpo de **Instrucción**.
+- Las instrucciones se pueden **activar o pausar** individualmente con un interruptor, para que puedas guardar borradores sin que afecten al agente.
+
+#### Crear una instrucción
+
+<Steps>
+  <Step title="Haz clic en Agregar instrucción">
+    En la sección de Instrucciones de Comunicación, haz clic en el botón **+ Agregar instrucción**.
+  </Step>
+  <Step title="Completa el Título">
+    Dale a la instrucción un título corto y descriptivo (ej. *Tono conciso* o *Siempre saludar por nombre*). El título te ayuda a identificar la instrucción de un vistazo en la tabla.
+  </Step>
+  <Step title="Escribe la Instrucción">
+    Ingresa el texto de la directriz. Sé específico—ej. "Responde siempre con un tono conciso y amable" o "Nunca uses jerga."
+  </Step>
+  <Step title="Configura Activa / Pausada">
+    Usa el interruptor para decidir si la instrucción estará activa de inmediato.
+  </Step>
+  <Step title="Guarda">
+    Haz clic en **Guardar** para crear la instrucción. Aparecerá en la tabla inmediatamente.
+  </Step>
+</Steps>
+
+#### Editar y eliminar
+
+Cada fila en la tabla de instrucciones muestra el **Título**, el texto de la **Instrucción**, el **Estado** (Activa / Pausada) y botones de acción para **editar** o **eliminar** la instrucción. También puedes activar o desactivar una instrucción directamente desde la tabla.
+
+<Warning>
+  Eliminar una instrucción no se puede deshacer. Si no estás seguro, paúsala en su lugar.
+</Warning>
+
+<Note>
+  Si ya tienes 20 instrucciones activas, debes desactivar una antes de activar otra.
+</Note>
+
+---
+
 ### Idioma
 
 En la pestaña **Idioma**, puedes configurar los idiomas que tu agente entiende y la forma en que se comunica.
@@ -51,72 +94,11 @@ En la pestaña **Idioma**, puedes configurar los idiomas que tu agente entiende 
   ![identity_agent-step-6.png](/images/agent/identity_agent/identity_agent-step-6.png)
 
 <Tip>
-  Mezcla y combina estilos y tonos basados en la personalidad de tu marca y las expectativas de tus usuarios.
+  Mezcla y combina estilos y tonos basados en la personalidad de tu marca y las expectativas de los usuarios.
 </Tip>
 
 ---
 
 ### Idioma de la Consola
 
-La Consola de Semantiks soporta **tres idiomas**: inglés, español y portugués. Puedes cambiar el idioma de la consola en cualquier momento usando el **selector de idioma** en la barra de navegación superior.
-
----
-
-### Instrucciones de Comportamiento
-
-La pestaña **Instrucciones de comportamiento** te permite definir directrices breves y específicas que guían cómo se comporta tu agente durante las conversaciones. Piensa en ellas como reglas granulares que complementan las instrucciones generales de comunicación que configuras en la pestaña General.
-
-Mientras que el campo "Instrucciones especiales de comunicación" de la pestaña General es ideal para orientación amplia (tono, formalidad, etc.), las instrucciones de comportamiento te permiten agregar **reglas específicas** que pueden gestionarse, habilitarse o deshabilitarse individualmente sin modificar el resto de la configuración de tu agente.
-
-<Note>
-  Puedes tener hasta **20 instrucciones activas** al mismo tiempo. Cada instrucción puede tener hasta **350 caracteres** de longitud.
-</Note>
-
-#### Creando una instrucción de comportamiento
-
-<Steps>
-  <Step title="Abre la pestaña de Instrucciones de comportamiento">
-    Navega a **Agente IA > Diseño > Identidad** y selecciona la pestaña **Instrucciones de comportamiento**.
-  </Step>
-  <Step title="Haz clic en Agregar instrucción">
-    Haz clic en el botón **+ Agregar instrucción** en la barra de herramientas. Se abrirá un panel lateral.
-  </Step>
-  <Step title="Escribe tu instrucción">
-    Ingresa una directriz breve y clara en el campo **Instrucción**. Por ejemplo:
-    - *Responde siempre con un tono conciso y amable.*
-    - *Nunca compartas información de precios—redirige al usuario al equipo de ventas.*
-    - *Cuando el usuario pregunte sobre devoluciones, menciona siempre la política de 30 días.*
-    
-    Un contador de caracteres muestra cuántos caracteres te quedan (máximo 350).
-  </Step>
-  <Step title="Configura el estado">
-    Usa el interruptor **Activa** para decidir si esta instrucción estará activa inmediatamente. También puedes crearla en estado pausado y habilitarla después.
-  </Step>
-  <Step title="Guarda">
-    Haz clic en **Guardar** para crear la instrucción. Aparecerá en tu tabla de instrucciones.
-  </Step>
-</Steps>
-
-#### Gestionando instrucciones de comportamiento
-
-La tabla de instrucciones muestra todas tus instrucciones de comportamiento con su estado actual (**Activa** o **Pausada**). Desde aquí puedes:
-
-- **Buscar** — usa la barra de búsqueda para encontrar instrucciones por texto.
-- **Filtrar por estado** — usa las pestañas **Todas**, **Activas** o **Pausadas** para filtrar la lista.
-- **Activar/desactivar** — usa el interruptor en cada fila para habilitar o deshabilitar rápidamente una instrucción sin abrir el editor.
-- **Editar** — haz clic en el ícono de lápiz para abrir el panel lateral y modificar el texto de la instrucción o su estado.
-- **Eliminar** — haz clic en el ícono de papelera para eliminar una instrucción. Se te pedirá confirmación antes de eliminarla permanentemente.
-
-La barra de herramientas también muestra un contador indicando cuántas instrucciones están activas del máximo permitido (ej. `3/20`).
-
-<Warning>
-  Eliminar una instrucción de comportamiento es permanente y no se puede deshacer.
-</Warning>
-
-<Tip>
-  Comienza con unas pocas instrucciones de alto impacto y pruébalas en el **Playground** antes de habilitar más. Esto facilita ver el efecto de cada regla en las respuestas de tu agente.
-</Tip>
-
-#### Límite de instrucciones activas
-
-Si ya tienes **20 instrucciones activas** e intentas habilitar otra, el sistema mostrará un mensaje de error pidiéndote que desactives una instrucción existente primero. Puedes seguir creando instrucciones nuevas en estado **pausado**—el límite solo aplica a instrucciones activas (habilitadas).
+La Consola de Semantiks soporta **tres idiomas**: inglés, español y portugués. Puedes cambiar el idioma de la consola en cualquier momento usando el selector de idioma en la barra de navegación superior.
