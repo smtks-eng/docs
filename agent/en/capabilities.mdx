@@ -53,64 +53,57 @@ Manage your AI agent's skills through two types of tools: predefined tools that 
     1. Go to **AI Agent > Design > Skills > Collect Information**.  
     2. Click **New Configuration** to start.  
     3. Enter a **Name** for your configuration (e.g., `registro_interesados`).  
-    4. Add any **Special Instructions** to guide the agent's behavior during the collection process.  
-    5. Add the **fields** you want to collect (e.g., Full Name, Email, Phone Number).  
-    6. **Save** the configuration.  
+    4. Add any **Special Instructions** to guide the agent's data-collection behavior.  
+    5. Define one or more **fields** to collect (e.g., Name, Email, Phone).  
+    6. Choose the **storage** or integration target for collected data.  
+    7. Click **Save** to activate the configuration.  
     </Accordion>  
 
     ---
 
-    ### **Human Escalation**  
-    - **Description:** Allows the agent to transfer the conversation to a human agent when needed.  
+    ### **Escalate to Human**  
+    - **Description:** Allows the agent to transfer the conversation to a live human agent when the user requests it, or when the agent cannot resolve the query.  
     - **Toggle:** Off by default.  
-    - **Configuration:** Requires a connected integration (Freshchat or Zendesk) and schedule setup.  
+    - **Configuration:** Requires a compatible integration (e.g., Freshchat or Zendesk) to be connected. You can also define escalation cases—specific situations where the agent should proactively trigger escalation.  
+
+    <Tip>
+    When configuring escalation cases, you'll see an informational hint reminding you that you can also **tag FAQs to force escalation on specific topics**. Click the **Manage FAQs** link in the hint to go directly to the [Knowledge](/agent/en/knowledge) page where you can set up FAQ-based escalation triggers.
+    </Tip>
+
+    <Accordion title="How to Configure Escalation Cases">  
+    1. Go to **AI Agent > Design > Skills** and enable the **Escalate to Human** tool.  
+    2. Click **Configuration** to open the escalation settings.  
+    3. Click **Add case** to create a new escalation case.  
+    4. For each case, provide a **name** and a **situation** description that tells the agent when to escalate.  
+    5. You can add multiple cases (up to the platform maximum).  
+    6. Click **Save** to apply your changes.  
+    </Accordion>  
 
     ---
 
-    ### **Escalation Cases**
-
-    Some escalation-type tools support **Escalation Cases** — a structured way to define the specific scenarios in which the tool should be triggered. Instead of relying on a single, generic instruction, you can list individual cases so the agent knows exactly when to activate the tool.
-
-    Each case consists of:
-    - **Title** — a short label for the scenario (e.g., *Refund request*, *Billing dispute*).
-    - **Situation description** — a detailed explanation of when the agent should use the tool for this particular case.
-
-    <Note>
-    You can add up to **20 escalation cases** per tool. Both the title and situation description are required for every case.
-    </Note>
-
-    #### How to configure Escalation Cases
-
-    <Steps>
-      <Step title="Open the tool configuration">
-        Navigate to **AI Agent > Design > Skills**, find the escalation tool you want to configure, and click **Configuration**.
-      </Step>
-      <Step title="Review the cases section">
-        If the tool supports escalation cases, you will see a dedicated section that reads: *"Define the scenarios in which this tool should be used. Add one case per distinct situation."*
-      </Step>
-      <Step title="Add a case">
-        Click **Add case**. A new card appears with two required fields:
-        - **Title** — give the case a short, descriptive name.
-        - **Situation description** — explain when the agent should trigger the tool for this scenario.
-      </Step>
-      <Step title="Add more cases as needed">
-        Repeat for each distinct situation. The counter at the bottom shows how many cases you have out of the maximum (20).
-      </Step>
-      <Step title="Remove a case">
-        Click the **trash icon** on any case card to delete it.
-      </Step>
-      <Step title="Save">
-        Save your changes when you are done. The agent will use the defined cases to decide when to activate the tool.
-      </Step>
-    </Steps>
-
-    <Tip>
-    Be specific in your situation descriptions. The more context you give, the better the agent can distinguish between scenarios and trigger the right escalation at the right time.
-    </Tip>
+    ### **Schedule Appointment**  
+    - **Description:** Enables the agent to help users book or schedule appointments.  
+    - **Toggle:** Off by default.  
+    - **Configuration:** Requires integration with a scheduling service or calendar system.  
 
   </Tab>
 
-  <Tab title="Custom Tools">
-    The **Custom Tools** tab lets you create your own tools to extend the agent's functionality beyond what predefined tools offer. Custom tools allow you to connect the agent to external APIs, internal systems, or any custom logic your business needs.
+  <Tab title="Tools (Custom)">
+    The **Tools (Custom)** tab lets you create your own tools to extend your agent's functionality beyond the predefined set. Custom tools allow your agent to call external APIs, perform calculations, or trigger specific actions during conversations.
+
+    ---
+
+    ## How to Create a Custom Tool
+
+    1. Navigate to **AI Agent > Design > Skills** in the left menu.  
+    2. Switch to the **Tools (Custom)** tab.  
+    3. Click **New Tool** to start creating.  
+    4. Fill in the tool's **Name**, **Description**, and configure the **API endpoint** or action it should trigger.  
+    5. Define any **parameters** the tool needs from the conversation.  
+    6. Click **Save** to make the tool available.  
+
+    <Note>  
+    Custom tools require technical knowledge to set up, including familiarity with REST APIs and JSON schemas.  
+    </Note>  
   </Tab>
 </Tabs>

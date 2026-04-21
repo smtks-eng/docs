@@ -51,66 +51,59 @@ Administra las habilidades de tu agente de IA a través de dos tipos de herramie
 
     <Accordion title="Cómo Configurar Recopilar Información">
     1. Ve a **Agente IA > Diseño > Habilidades > Recopilar Información**.
-    2. Haz clic en **Nueva Configuración** para comenzar.
-    3. Ingresa un **Nombre** para tu configuración (ej., `registro_interesados`).
-    4. Agrega cualquier **Instrucción Especial** para guiar el comportamiento del agente durante el proceso de recopilación.
-    5. Agrega los **campos** que deseas recopilar (ej., Nombre Completo, Correo Electrónico, Número de Teléfono).
-    6. **Guarda** la configuración.
+    2. Haz clic en **Nueva Configuración** para empezar.
+    3. Ingresa un **Nombre** para tu configuración (ej. `registro_interesados`).
+    4. Agrega **Instrucciones Especiales** para guiar el comportamiento del agente.
+    5. Define uno o más **campos** a recopilar (ej. Nombre, Email, Teléfono).
+    6. Elige el **almacenamiento** o integración destino para los datos recopilados.
+    7. Haz clic en **Guardar** para activar la configuración.
     </Accordion>
 
     ---
 
-    ### **Escalación Humana**
-    - **Descripción:** Permite al agente transferir la conversación a un agente humano cuando sea necesario.
+    ### **Escalar a Humano**
+    - **Descripción:** Permite al agente transferir la conversación a un agente humano en vivo cuando el usuario lo solicita, o cuando el agente no puede resolver la consulta.
     - **Interruptor:** Desactivado por defecto.
-    - **Configuración:** Requiere una integración conectada (Freshchat o Zendesk) y configuración de horarios.
+    - **Configuración:** Requiere una integración compatible (ej. Freshchat o Zendesk) conectada. También puedes definir casos de escalación—situaciones específicas donde el agente debe activar la escalación de forma proactiva.
+
+    <Tip>
+    Al configurar los casos de escalación, verás un aviso informativo que te recuerda que también puedes **taggear FAQs para forzar la escalación en temas específicos**. Haz clic en el enlace **Gestionar FAQs** del aviso para ir directamente a la página de [Conocimiento](/agent/es/conocimiento) donde puedes configurar triggers de escalación basados en FAQs.
+    </Tip>
+
+    <Accordion title="Cómo Configurar Casos de Escalación">
+    1. Ve a **Agente IA > Diseño > Habilidades** y habilita la herramienta **Escalar a Humano**.
+    2. Haz clic en **Configuración** para abrir los ajustes de escalación.
+    3. Haz clic en **Agregar caso** para crear un nuevo caso de escalación.
+    4. Para cada caso, proporciona un **nombre** y una descripción de la **situación** que le indica al agente cuándo escalar.
+    5. Puedes agregar múltiples casos (hasta el máximo de la plataforma).
+    6. Haz clic en **Guardar** para aplicar los cambios.
+    </Accordion>
 
     ---
 
-    ### **Casos de Escalación**
-
-    Algunas herramientas de tipo escalación admiten **Casos de Escalación** — una forma estructurada de definir los escenarios específicos en los que la herramienta debe activarse. En lugar de depender de una única instrucción genérica, puedes listar casos individuales para que el agente sepa exactamente cuándo activar la herramienta.
-
-    Cada caso consiste en:
-    - **Título** — una etiqueta corta para el escenario (ej., *Solicitud de reembolso*, *Disputa de facturación*).
-    - **Descripción de la situación** — una explicación detallada de cuándo el agente debe usar la herramienta para este caso particular.
-
-    <Note>
-    Puedes agregar hasta **20 casos de escalación** por herramienta. Tanto el título como la descripción de la situación son obligatorios para cada caso.
-    </Note>
-
-    #### Cómo configurar Casos de Escalación
-
-    <Steps>
-      <Step title="Abre la configuración de la herramienta">
-        Navega a **Agente IA > Diseño > Habilidades**, busca la herramienta de escalación que deseas configurar y haz clic en **Configuración**.
-      </Step>
-      <Step title="Revisa la sección de casos">
-        Si la herramienta admite casos de escalación, verás una sección dedicada que dice: *"Define los escenarios en los que se debe usar esta herramienta. Agrega un caso por cada situación distinta."*
-      </Step>
-      <Step title="Agrega un caso">
-        Haz clic en **Agregar caso**. Aparecerá una nueva tarjeta con dos campos obligatorios:
-        - **Título** — dale al caso un nombre corto y descriptivo.
-        - **Descripción de la situación** — explica cuándo el agente debe activar la herramienta para este escenario.
-      </Step>
-      <Step title="Agrega más casos según sea necesario">
-        Repite para cada situación distinta. El contador en la parte inferior muestra cuántos casos tienes del máximo permitido (20).
-      </Step>
-      <Step title="Elimina un caso">
-        Haz clic en el **ícono de papelera** en cualquier tarjeta de caso para eliminarlo.
-      </Step>
-      <Step title="Guarda">
-        Guarda tus cambios cuando hayas terminado. El agente usará los casos definidos para decidir cuándo activar la herramienta.
-      </Step>
-    </Steps>
-
-    <Tip>
-    Sé específico en las descripciones de situación. Cuanto más contexto proporciones, mejor podrá el agente distinguir entre escenarios y activar la escalación correcta en el momento adecuado.
-    </Tip>
+    ### **Agendar Cita**
+    - **Descripción:** Permite al agente ayudar a los usuarios a reservar o agendar citas.
+    - **Interruptor:** Desactivado por defecto.
+    - **Configuración:** Requiere integración con un servicio de agendamiento o sistema de calendario.
 
   </Tab>
 
-  <Tab title="Herramientas Personalizadas">
-    La pestaña **Herramientas Personalizadas** te permite crear tus propias herramientas para extender la funcionalidad del agente más allá de lo que ofrecen las herramientas predefinidas. Las herramientas personalizadas te permiten conectar el agente a APIs externas, sistemas internos o cualquier lógica personalizada que necesite tu negocio.
+  <Tab title="Herramientas (Personalizadas)">
+    La pestaña **Herramientas (Personalizadas)** te permite crear tus propias herramientas para extender la funcionalidad de tu agente más allá del conjunto predefinido. Las herramientas personalizadas permiten a tu agente llamar APIs externas, realizar cálculos o disparar acciones específicas durante las conversaciones.
+
+    ---
+
+    ## Cómo Crear una Herramienta Personalizada
+
+    1. Navega a **Agente IA > Diseño > Habilidades** en el menú lateral.
+    2. Cambia a la pestaña **Herramientas (Personalizadas)**.
+    3. Haz clic en **Nueva Herramienta** para empezar a crear.
+    4. Completa el **Nombre**, la **Descripción** y configura el **endpoint de API** o la acción que debe disparar.
+    5. Define los **parámetros** que la herramienta necesita de la conversación.
+    6. Haz clic en **Guardar** para que la herramienta esté disponible.
+
+    <Note>
+    Las herramientas personalizadas requieren conocimientos técnicos para su configuración, incluyendo familiaridad con APIs REST y esquemas JSON.
+    </Note>
   </Tab>
 </Tabs>
