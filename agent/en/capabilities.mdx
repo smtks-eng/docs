@@ -53,130 +53,64 @@ Manage your AI agent's skills through two types of tools: predefined tools that 
     1. Go to **AI Agent > Design > Skills > Collect Information**.  
     2. Click **New Configuration** to start.  
     3. Enter a **Name** for your configuration (e.g., `registro_interesados`).  
-    4. Add any **Special Instructions** to guide the agent during the collection process.  
-    5. Define the **fields** you want to collect from users.  
-    6. Click **Save** when you're done.  
+    4. Add any **Special Instructions** to guide the agent's behavior during the collection process.  
+    5. Add the **fields** you want to collect (e.g., Full Name, Email, Phone Number).  
+    6. **Save** the configuration.  
     </Accordion>  
 
     ---
 
     ### **Human Escalation**  
-    - **Description:** Allows the agent to transfer the conversation to a human agent when the user requests it or when the agent cannot resolve the query.  
+    - **Description:** Allows the agent to transfer the conversation to a human agent when needed.  
     - **Toggle:** Off by default.  
-    - **Configuration:** Connect a compatible integration (Freshchat or Zendesk) and configure escalation settings such as availability schedules.  
+    - **Configuration:** Requires a connected integration (Freshchat or Zendesk) and schedule setup.  
 
     ---
 
-    ### **Retrieve Knowledge**  
-    - **Description:** Enables the agent to search your uploaded knowledge base during a conversation.  
-    - **Toggle:** Off by default.  
-    - **Configuration:** Make sure your agent has knowledge uploaded in the **Knowledge** section. No additional setup required beyond having content available.
+    ### **Escalation Cases**
+
+    Some escalation-type tools support **Escalation Cases** — a structured way to define the specific scenarios in which the tool should be triggered. Instead of relying on a single, generic instruction, you can list individual cases so the agent knows exactly when to activate the tool.
+
+    Each case consists of:
+    - **Title** — a short label for the scenario (e.g., *Refund request*, *Billing dispute*).
+    - **Situation description** — a detailed explanation of when the agent should use the tool for this particular case.
+
+    <Note>
+    You can add up to **20 escalation cases** per tool. Both the title and situation description are required for every case.
+    </Note>
+
+    #### How to configure Escalation Cases
+
+    <Steps>
+      <Step title="Open the tool configuration">
+        Navigate to **AI Agent > Design > Skills**, find the escalation tool you want to configure, and click **Configuration**.
+      </Step>
+      <Step title="Review the cases section">
+        If the tool supports escalation cases, you will see a dedicated section that reads: *"Define the scenarios in which this tool should be used. Add one case per distinct situation."*
+      </Step>
+      <Step title="Add a case">
+        Click **Add case**. A new card appears with two required fields:
+        - **Title** — give the case a short, descriptive name.
+        - **Situation description** — explain when the agent should trigger the tool for this scenario.
+      </Step>
+      <Step title="Add more cases as needed">
+        Repeat for each distinct situation. The counter at the bottom shows how many cases you have out of the maximum (20).
+      </Step>
+      <Step title="Remove a case">
+        Click the **trash icon** on any case card to delete it.
+      </Step>
+      <Step title="Save">
+        Save your changes when you are done. The agent will use the defined cases to decide when to activate the tool.
+      </Step>
+    </Steps>
+
+    <Tip>
+    Be specific in your situation descriptions. The more context you give, the better the agent can distinguish between scenarios and trigger the right escalation at the right time.
+    </Tip>
 
   </Tab>
 
   <Tab title="Custom Tools">
-    The **Custom Tools** tab lets you create your own tools to extend your agent's capabilities beyond the predefined set. Custom tools allow your agent to call external APIs, retrieve data from your systems, and perform actions tailored to your business logic.
-
-    ---
-
-    ## Creating a Custom Tool
-
-    1. Navigate to **AI Agent > Design > Skills**.  
-    2. Switch to the **Custom Tools** tab.  
-    3. Click **New Tool** to start creating a custom tool.  
-    4. Fill in the tool name, description, and configuration.  
-    5. Save your tool.
-
-    ---
-
-    ## Custom Tool Configuration
-
-    When you select a custom tool, a detail panel opens with two tabs: **Configuration** and **Channels**.
-
-    ### Configuration Tab
-
-    The Configuration tab contains all the settings that control how your tool works. Depending on how the tool was set up, you may see a combination of standard input fields (text, secret, URL, dropdown, etc.) and advanced component editors described below.
-
-    #### Input Field Types
-
-    Configuration forms support several field types:
-
-    | Type | Description |
-    |---|---|
-    | **Text** | A single-line text input for values like URLs or names. |
-    | **Number** | A numeric input field. Values are stored as real numbers so backend consumers receive the correct data type. |
-    | **Secret** | A masked input for sensitive values like API keys. Secrets are encrypted before being stored. |
-    | **Textarea** | A multi-line text area for longer content like instructions or templates. |
-    | **Options** | A dropdown selector for choosing from predefined values (e.g., timezone). |
-
-    ---
-
-    ### Property Editor
-
-    Tools that call external HTTP endpoints (such as the **Get User Context** tool) include a **Property Editor** component inside the Configuration tab. The property editor lets you define every parameter sent in the HTTP request and control where each value comes from at runtime.
-
-    #### HTTP Method
-
-    At the top of the property editor, select the **HTTP Method** used by the endpoint:
-
-    - `GET`
-    - `POST`
-    - `PUT`
-    - `DELETE`
-    - `PATCH`
-
-    #### Adding and Managing Properties
-
-    Click **Add Property** to add a new request parameter. Each property has the following fields:
-
-    | Field | Description |
-    |---|---|
-    | **Key** | The parameter name (e.g., `user_id`, `X-Api-Key`). The placeholder changes depending on the property type to guide you. |
-    | **Description** | A short note for your own reference describing what this property does. |
-    | **Type** | Where the parameter is sent: **Header**, **Query**, **Cookie**, **Body**, **Path**, or **Auth Bearer**. Path parameters replace `{key}` placeholders in the URL. |
-    | **Value Type** | The data format: **Text**, **Number**, **Secret**, **Date**, or **Object**. |
-    | **Value At** | Where the value comes from at runtime (see table below). |
-    | **Quantity** | Whether the parameter accepts a **Single** value or **Multiple** values. |
-    | **Required** | Check this if the parameter is mandatory for the request to succeed. |
-
-    #### Value At Options
-
-    The **Value At** dropdown determines how the property's value is resolved when the tool runs:
-
-    | Option | Description |
-    |---|---|
-    | **Configuration** | The value is set here in the tool configuration and stays fixed. You will be prompted to enter the value in the **Configuration Values** section below the property list. |
-    | **External User ID** | The value is automatically filled with the end user's external ID at runtime. |
-    | **Metadata Key** | The value is read from the end user's metadata. When selected, an additional field appears where you enter the metadata key (e.g., `customer_id`). |
-    | **Conversation** | The agent extracts the value from the ongoing conversation context. |
-
-    <Tip>
-    Properties marked as **Configuration** with a **Secret** value type will have their values encrypted before saving—ideal for API keys and tokens.
-    </Tip>
-
-    #### Configuration Values Section
-
-    When one or more properties have **Value At** set to **Configuration**, a dedicated section appears below the property list. Here you enter the fixed value for each of those properties. Secret-type properties display a masked input for security.
-
-    #### Removing a Property
-
-    Click the **minus icon** (−) on the top-right corner of any property card to remove it.
-
-    ---
-
-    ### Error Handling
-
-    Some tools include an **Error Handling** section in the Configuration tab. Use the text area to describe how the agent should behave if the endpoint call fails—for example, showing a fallback message to the user or retrying the request.
-
-    ---
-
-    ### Channels Tab
-
-    The **Channels** tab lets you control which connected channels can use this tool. Enable or disable the tool for each channel independently.
-
-    <Note>
-    All configuration components (property editor, error handling, and standard inputs) share the same **Save** button. Make sure to click **Save** after making any changes.
-    </Note>
-
+    The **Custom Tools** tab lets you create your own tools to extend the agent's functionality beyond what predefined tools offer. Custom tools allow you to connect the agent to external APIs, internal systems, or any custom logic your business needs.
   </Tab>
 </Tabs>
