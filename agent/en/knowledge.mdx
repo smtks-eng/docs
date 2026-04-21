@@ -21,6 +21,50 @@ The Knowledge page is organized into tabs:
 
 ![knowledge-step-1.png](/images/agent/knowledge/knowledge-step-1.png)
 
+---
+
+## Knowledge Review
+
+The **Knowledge Review** is an AI-powered audit tool that scans your agent's entire knowledge base—FAQs, glossary entries, communication instructions, and special instructions—and returns actionable suggestions to improve quality and consistency.
+
+### Opening the Knowledge Review
+
+Click the **✨ (sparkle) icon** in the top-right area of the header bar. The icon appears whenever you have an agent selected. A sidebar panel slides open on the right side of the screen.
+
+<Tip>
+  The review button is available from **any page** inside the agent section—not just the Knowledge page—so you can trigger an audit at any time.
+</Tip>
+
+### How it works
+
+1. **Run the review** — When you open the sidebar for the first time (or click **Run review again**), the platform sends your agent's knowledge to an AI model that analyzes it for issues like duplicates, contradictions, outdated content, and gaps.
+2. **Read the summary** — At the top of the sidebar you'll see a brief AI-generated summary of your knowledge base's overall health.
+3. **Browse suggestions** — Below the summary, each suggestion card shows:
+   - An **icon** indicating the target area (FAQ, glossary, communication instruction, or special instructions).
+   - A **title** describing the suggestion.
+   - An **action badge** (`edit`, `merge`, `delete`, or `review`) so you know what kind of cleanup is recommended.
+   - A **reason** explaining why the change is suggested.
+4. **Jump to the item** — Click the link at the bottom of an expanded suggestion card to navigate directly to the affected entry. The platform will **highlight** the relevant items on the destination page so you can find them instantly.
+
+### Suggestion targets
+
+| Target | Where it navigates | What gets highlighted |
+|---|---|---|
+| **FAQ** | Knowledge page → FAQs tab | The referenced FAQ cards are expanded and highlighted with a colored ring |
+| **Glossary** | Knowledge page → Glossaries tab | The referenced glossary entry cards are highlighted |
+| **Communication instruction** | Identity page → General tab | The referenced instruction rows in the table are highlighted |
+| **Special instructions** | Identity page → General tab | The special-instructions text area is focused and highlighted |
+
+<Note>
+  For special-instructions suggestions, the sidebar also shows a **diff view** with the previous text (in red) and the suggested text (in green) so you can compare before navigating.
+</Note>
+
+### Refreshing the review
+
+Click the **Run review again** button at the bottom of the sidebar to re-scan the knowledge base. This is useful after you've acted on several suggestions and want to verify improvements.
+
+---
+
 ### TOPICS
 
 **You can organize your FAQs into different topics.**\
@@ -61,14 +105,3 @@ Enter the question, provide the answer, and click save.
 
 **The Magic Improve button automatically enhances both the question and the answer.**\
 It keeps the original meaning intact while improving grammar, clarity, and overall phrasing to ensure everything is well-written and easy to understand.
-
-### FAQ File Attachments
-
-You can attach files to individual FAQs to give your agent additional context when answering that specific question. Attached files are listed inside the FAQ editor dialog.
-
-- **Clickable file names** — if a file has a URL, its name is displayed as a clickable link that opens in a new tab, making it easy to review the attached content.
-- **Reference note** — when one or more files are attached, an informational banner appears stating: *"This file will be referenced when the agent answers this FAQ."* This means the agent will use the attached file as supporting context whenever it responds to that particular question.
-
-<Note>
-  You must save the FAQ before you can attach files to it.
-</Note>

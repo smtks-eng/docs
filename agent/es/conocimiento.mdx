@@ -21,6 +21,50 @@ La página de Conocimiento está organizada en pestañas:
 
 ![knowledge-step-1.png](/images/agent/knowledge/knowledge-step-1.png)
 
+---
+
+## Revisión de Conocimiento
+
+La **Revisión de Conocimiento** es una herramienta de auditoría impulsada por IA que analiza toda la base de conocimientos de tu agente—preguntas frecuentes, entradas de glosario, instrucciones de comunicación e instrucciones especiales—y devuelve sugerencias accionables para mejorar la calidad y consistencia.
+
+### Abrir la Revisión de Conocimiento
+
+Haz clic en el **ícono ✨ (destello)** en la esquina superior derecha de la barra de encabezado. El ícono aparece siempre que tengas un agente seleccionado. Un panel lateral se desliza abierto en el lado derecho de la pantalla.
+
+<Tip>
+  El botón de revisión está disponible desde **cualquier página** dentro de la sección del agente—no solo desde la página de Conocimiento—para que puedas ejecutar una auditoría en cualquier momento.
+</Tip>
+
+### Cómo funciona
+
+1. **Ejecuta la revisión** — Cuando abres el panel por primera vez (o haces clic en **Ejecutar revisión de nuevo**), la plataforma envía el conocimiento de tu agente a un modelo de IA que lo analiza en busca de duplicados, contradicciones, contenido desactualizado y vacíos.
+2. **Lee el resumen** — En la parte superior del panel verás un breve resumen generado por IA sobre el estado general de tu base de conocimientos.
+3. **Explora las sugerencias** — Debajo del resumen, cada tarjeta de sugerencia muestra:
+   - Un **ícono** que indica el área objetivo (FAQ, glosario, instrucción de comunicación o instrucciones especiales).
+   - Un **título** que describe la sugerencia.
+   - Una **etiqueta de acción** (`editar`, `fusionar`, `eliminar` o `revisar`) para saber qué tipo de limpieza se recomienda.
+   - Una **razón** explicando por qué se sugiere el cambio.
+4. **Navega al elemento** — Haz clic en el enlace en la parte inferior de una tarjeta de sugerencia expandida para ir directamente a la entrada afectada. La plataforma **resaltará** los elementos relevantes en la página de destino para que los encuentres al instante.
+
+### Objetivos de las sugerencias
+
+| Objetivo | A dónde navega | Qué se resalta |
+|---|---|---|
+| **FAQ** | Página de Conocimiento → pestaña FAQs | Las tarjetas de FAQ referenciadas se expanden y resaltan con un anillo de color |
+| **Glosario** | Página de Conocimiento → pestaña Glosarios | Las tarjetas de entradas de glosario referenciadas se resaltan |
+| **Instrucción de comunicación** | Página de Identidad → pestaña General | Las filas de instrucciones referenciadas en la tabla se resaltan |
+| **Instrucciones especiales** | Página de Identidad → pestaña General | El área de texto de instrucciones especiales se enfoca y resalta |
+
+<Note>
+  Para sugerencias de instrucciones especiales, el panel también muestra una **vista de diferencias** con el texto anterior (en rojo) y el texto sugerido (en verde) para que puedas comparar antes de navegar.
+</Note>
+
+### Actualizar la revisión
+
+Haz clic en el botón **Ejecutar revisión de nuevo** en la parte inferior del panel para volver a analizar la base de conocimientos. Esto es útil después de haber actuado sobre varias sugerencias y querer verificar las mejoras.
+
+---
+
 ### TEMAS
 
 **Puedes organizar tus preguntas frecuentes en diferentes temas.**\
@@ -61,14 +105,3 @@ Ingresa la pregunta, proporciona la respuesta y haz clic en guardar.
 
 **El botón de Mejora Mágica mejora automáticamente tanto la pregunta como la respuesta.**\
 Mantiene el significado original intacto mientras mejora la gramática, claridad y redacción general para asegurar que todo esté bien escrito y sea fácil de entender.
-
-### Archivos Adjuntos en FAQs
-
-Puedes adjuntar archivos a preguntas frecuentes individuales para dar a tu agente contexto adicional al responder esa pregunta específica. Los archivos adjuntos se muestran dentro del diálogo del editor de FAQ.
-
-- **Nombres de archivo clicables** — si un archivo tiene una URL, su nombre se muestra como un enlace clicable que se abre en una nueva pestaña, facilitando la revisión del contenido adjunto.
-- **Nota de referencia** — cuando hay uno o más archivos adjuntos, aparece un banner informativo que indica: *"Este archivo se incluirá como referencia cuando el agente responda a esta pregunta."* Esto significa que el agente usará el archivo adjunto como contexto de apoyo cada vez que responda a esa pregunta en particular.
-
-<Note>
-  Debes guardar la FAQ antes de poder adjuntar archivos.
-</Note>
