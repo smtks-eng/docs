@@ -1,0 +1,85 @@
+---
+title: "Facturación y Suscripción"
+language: es
+description: "Entiende el estado de tu suscripción, los estados de contrato y cómo resolver problemas de facturación como contratos pausados o créditos agotados."
+---
+
+La sección de **Facturación** en Configuración te permite ver el estado actual de tu suscripción, gestionar métodos de pago y monitorear el uso de créditos en tus contratos.
+
+---
+
+## Indicador de Estado de Suscripción
+
+En toda la Consola de Semantiks, se muestra un **indicador de estado de suscripción** cerca del nombre de tu agente. Este indicador te da una vista rápida de tu estado de facturación—incluyendo tu plan actual, créditos restantes y cualquier acción requerida.
+
+El indicador puede mostrar diferentes mensajes según el estado de tu cuenta:
+
+| Estado | Qué ves | Qué significa |
+|---|---|---|
+| **Activo** | Indicador verde con créditos restantes | Tu suscripción está activa y hay créditos disponibles. |
+| **Prueba Gratuita** | Barra de progreso de créditos de prueba | Estás usando créditos de prueba gratuita. La barra muestra cuánto has consumido. |
+| **Créditos Bajos** | Texto rojo con saldo restante | Tus créditos se están agotando. Considera agregar un método de pago o actualizar tu plan. |
+| **Créditos Agotados** | Texto de advertencia en rojo | Todos los créditos han sido usados. Tu agente puede dejar de responder hasta que se repongan los créditos. |
+| **Pausado — Sin Método de Pago** | Botón rojo: *"Agregar método de pago para reactivar"* | Tus créditos gratuitos se agotaron y no hay método de pago registrado. Tu contrato está pausado. |
+| **Cargos Pendientes** | Monto adeudado con enlace *"Corregir facturación"* | Hay facturas sin pagar en tu cuenta. |
+
+---
+
+## Contrato Pausado (Créditos Agotados, Sin Método de Pago)
+
+Si tu organización estaba en **prueba gratuita** y los créditos de prueba se consumieron completamente sin tener un método de pago registrado, tu contrato será **pausado automáticamente**.
+
+Cuando esto sucede:
+
+- El indicador de estado de suscripción se torna **rojo** y muestra **"Agregar método de pago para reactivar"**.
+- La **Tarjeta de Contrato** en la página de Facturación muestra **$0.00 restantes** en rojo.
+- Tu agente **deja de procesar conversaciones** hasta que se resuelva el problema.
+
+### Cómo resolver un contrato pausado
+
+<Steps>
+  <Step title="Haz clic en el indicador de estado o botón CTA">
+    Haz clic en el botón rojo **"Agregar método de pago para reactivar"** que se muestra en el área de estado de suscripción. Esto te lleva directamente a la pestaña de **Detalles de Facturación**.
+  </Step>
+  <Step title="Agrega un método de pago">
+    En la pestaña de **Detalles de Facturación**, agrega un método de pago válido (tarjeta de crédito u otro método soportado).
+  </Step>
+  <Step title="El contrato se reanuda automáticamente">
+    Una vez que haya un método de pago registrado, tu contrato se reactivará y tu agente volverá a atender conversaciones.
+  </Step>
+</Steps>
+
+<Warning>
+  Mientras tu contrato esté pausado, tu agente **no responderá** mensajes en ningún canal conectado. Resuelve el problema de facturación lo antes posible para evitar interrupciones.
+</Warning>
+
+---
+
+## Tarjeta de Contrato
+
+La **Tarjeta de Contrato** en la página de Facturación muestra información clave sobre cada uno de tus contratos:
+
+- **Estado del contrato** — mostrado como una insignia de color:
+  - 🟢 **Activo** — el contrato funciona normalmente
+  - 🔴 **Expirado / Créditos Agotados / Pausado** — el contrato necesita atención
+  - ⚪ **Inactivo** — el contrato no está en uso actualmente
+- **Créditos restantes** — el monto en dólares de créditos aún disponibles. Cuando tu contrato está pausado por créditos agotados, esto muestra **$0.00** en rojo.
+- **Desglose de uso de créditos** — detalles de cómo se han consumido los créditos en los diferentes buckets de tu contrato.
+
+<Tip>
+  Puedes navegar a la página de Facturación en cualquier momento desde **Configuración > Facturación**, o haciendo clic en el indicador de estado de suscripción cuando muestre una acción de facturación.
+</Tip>
+
+---
+
+## Créditos de Prueba Gratuita
+
+Cuando tu organización inicia una prueba gratuita, recibes una cantidad determinada de créditos de prueba. El indicador de estado de suscripción muestra una **barra de progreso** que indica cuánto de tu asignación de prueba ha sido consumido.
+
+- La barra de progreso es **verde** cuando los créditos están en buen estado.
+- Se torna **roja** cuando los créditos están bajos o agotados.
+- Una vez que todos los créditos de prueba se consumen sin un método de pago, tu contrato es **pausado** (ver arriba).
+
+<Note>
+  Para continuar usando tu agente después de la prueba gratuita, agrega un método de pago e inicia una suscripción desde la página de facturación.
+</Note>

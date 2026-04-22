@@ -117,6 +117,7 @@
           {
             "group": "Settings",
             "pages": [
+              "settings/en/billing",
               "settings/en/system-status"
             ]
           },
@@ -234,6 +235,7 @@
           {
             "group": "Configuración",
             "pages": [
+              "settings/es/facturacion",
               "settings/es/estado-del-sistema"
             ]
           },

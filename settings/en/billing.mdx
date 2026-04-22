@@ -1,0 +1,85 @@
+---
+title: "Billing & Subscription"
+language: en
+description: "Understand your subscription status, contract states, and how to resolve billing issues like paused contracts or exhausted credits."
+---
+
+The **Billing** section in Settings lets you view your current subscription status, manage payment methods, and monitor credit usage across your contracts.
+
+---
+
+## Subscription Status Pill
+
+Throughout the Semantiks Console, a **subscription status pill** is displayed near your agent's name. This pill gives you a quick overview of your billing health—including your current plan, remaining credits, and any action required.
+
+The pill may show different messages depending on your account state:
+
+| State | What you see | What it means |
+|---|---|---|
+| **Active** | Green indicator with remaining credits | Your subscription is active and credits are available. |
+| **Free Trial** | Trial credits progress bar | You are using free trial credits. The bar shows how much you've consumed. |
+| **Low Credits** | Red text with remaining balance | Your credits are running low. Consider adding a payment method or upgrading. |
+| **Credits Exhausted** | Red warning text | All credits have been used. Your agent may stop responding until credits are replenished. |
+| **Paused — No Payment Method** | Red button: *"Add payment method to unpause"* | Your free credits ran out and no payment method is on file. Your contract is paused. |
+| **Pending Charges** | Amount due with *"Fix billing"* link | There are unpaid invoices on your account. |
+
+---
+
+## Paused Contract (Credits Exhausted, No Payment Method)
+
+If your organization was on a **free trial** and the trial credits are fully consumed without a payment method on file, your contract will be **automatically paused**.
+
+When this happens:
+
+- The subscription status pill turns **red** and displays **"Add payment method to unpause"**.
+- The **Contract Card** on the Billing page shows **$0.00 remaining** in red.
+- Your agent **stops processing conversations** until the issue is resolved.
+
+### How to resolve a paused contract
+
+<Steps>
+  <Step title="Click the status pill or CTA button">
+    Click the red **"Add payment method to unpause"** button displayed in the subscription status area. This takes you directly to the **Billing Details** tab.
+  </Step>
+  <Step title="Add a payment method">
+    On the **Billing Details** tab, add a valid payment method (credit card or other supported method).
+  </Step>
+  <Step title="Contract resumes automatically">
+    Once a payment method is on file, your contract will be reactivated and your agent will resume handling conversations.
+  </Step>
+</Steps>
+
+<Warning>
+  While your contract is paused, your agent will **not respond** to messages on any connected channel. Resolve the billing issue as soon as possible to avoid disruption.
+</Warning>
+
+---
+
+## Contract Card
+
+The **Contract Card** on the Billing page displays key information about each of your contracts:
+
+- **Contract status** — shown as a colored badge:
+  - 🟢 **Active** — contract is running normally
+  - 🔴 **Expired / Credits Exhausted / Paused** — contract needs attention
+  - ⚪ **Inactive** — contract is not currently in use
+- **Credits remaining** — the dollar amount of credits still available. When your contract is paused due to exhausted credits, this shows **$0.00** in red.
+- **Credit usage breakdown** — details of how credits have been consumed across your contract's credit buckets.
+
+<Tip>
+  You can navigate to the Billing page at any time from **Settings > Billing**, or by clicking the subscription status pill when it shows a billing action.
+</Tip>
+
+---
+
+## Free Trial Credits
+
+When your organization starts a free trial, you receive a set amount of trial credits. The subscription status pill displays a **progress bar** showing how much of your trial allowance has been consumed.
+
+- The progress bar is **green** when credits are healthy.
+- It turns **red** when credits are low or exhausted.
+- Once all trial credits are consumed without a payment method, your contract is **paused** (see above).
+
+<Note>
+  To continue using your agent after the free trial, add a payment method and start a subscription from the billing page.
+</Note>
