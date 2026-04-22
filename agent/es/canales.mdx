@@ -81,31 +81,73 @@ La página de Conecta siempre muestra una sección de **Meta** con tres tarjetas
 | **Messenger** | Canal de Facebook Messenger vía Meta |
 | **Instagram** | Canal de mensajería de Instagram vía Meta |
 
-Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración de ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar el proceso de conexión en cualquier momento.
+Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración del canal correspondiente. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar la conexión en cualquier momento.
 
-Una vez que hayas conectado una o más cuentas para un tipo de canal, aparece un botón **Channels (n)** en la tarjeta mostrando el número de conexiones activas. Haz clic para ver, editar o reconectar tus conexiones existentes.
-
----
-
-## Integraciones
-
-La sección de **Integraciones** en la página Conecta te permite vincular plataformas de terceros a tu agente:
-
-| Integración | Descripción |
-|---|---|
-| **Freshchat** | Conecta Freshchat para habilitar escalación y mensajería en vivo |
-| **Zendesk** | Conecta Zendesk para soporte basado en tickets y chat en vivo |
-
-Haz clic en una tarjeta de integración para comenzar la configuración. Necesitarás credenciales API de la plataforma de terceros.
+<Tip>
+  Para instrucciones paso a paso de integración con Meta, consulta la [guía de integración de WhatsApp](/integration-guides/es/como-integrar-whatsapp).
+</Tip>
 
 ---
 
 ## Pestaña de Comportamiento de Mensajería
 
-La pestaña **Comportamiento de Mensajería** te permite configurar reglas por canal que controlan cómo tu agente procesa los mensajes entrantes. Estos ajustes afinan el comportamiento del agente para cada canal conectado.
+La pestaña **Comportamiento de Mensajería** te permite ajustar cómo tu agente maneja los mensajes en cada canal conectado. Selecciona un canal de la lista para configurarlo.
+
+### Tiempo de espera (debounce)
+
+Define cuántos segundos espera el agente antes de procesar un nuevo mensaje después de recibir el último. Esto permite agrupar mensajes consecutivos rápidos en un solo lote de procesamiento.
+
+### Preferencias de manejo de archivos
+
+Para cada tipo de archivo — **Imágenes**, **Documentos**, **Audio** y **Video** — puedes:
+
+1. **Activar o desactivar** el procesamiento con un interruptor.
+2. **Definir tarjetas de escenario** que le indiquen al agente cómo manejar archivos de ese tipo en distintas situaciones.
+
+#### Tarjetas de escenario
+
+Cuando un tipo de archivo está activado, puedes crear una o más **tarjetas de escenario** para darle al agente instrucciones específicas para diferentes casos. Cada tarjeta tiene:
+
+| Campo | Descripción |
+|---|---|
+| **Título** | Una etiqueta corta que identifica el escenario (ej. "Procesamiento de facturas", "Verificación de identidad"). |
+| **Instrucciones** | Instrucciones detalladas que le dicen al agente qué hacer cuando aplique este escenario. |
+
+Esto te permite manejar múltiples casos de uso por tipo de archivo. Por ejemplo, bajo **Imágenes** podrías tener un escenario para "Identificación de foto de producto" y otro para "Extracción OCR de recibos".
+
+<Steps>
+  <Step title="Activa un tipo de archivo">
+    Activa el interruptor junto al tipo de archivo que deseas configurar (ej. Imágenes).
+  </Step>
+  <Step title="Añade tu primer escenario">
+    Haz clic en **Añade tu primer escenario** en el mensaje del estado vacío, o haz clic en la tarjeta **Añadir escenario** si ya existen escenarios.
+  </Step>
+  <Step title="Completa la tarjeta">
+    Dale al escenario un **título** descriptivo y escribe las **instrucciones** que el agente debe seguir.
+  </Step>
+  <Step title="Añade más escenarios (opcional)">
+    Haz clic en la tarjeta **+ Añadir escenario** al final de la fila para crear tarjetas adicionales. Las tarjetas se desplazan horizontalmente — usa los botones de flecha para navegar cuando tengas varias.
+  </Step>
+  <Step title="Elimina un escenario">
+    Haz clic en el **ícono de papelera** de cualquier tarjeta para eliminarla.
+  </Step>
+  <Step title="Guarda">
+    Haz clic en **Guardar** para aplicar los cambios en el canal seleccionado.
+  </Step>
+</Steps>
+
+<Tip>
+  Si anteriormente tenías una instrucción única para un tipo de archivo, aparecerá automáticamente como una tarjeta de escenario "Default" — no se pierde información durante la transición.
+</Tip>
+
+<Note>
+  Las tarjetas de escenario vacías (sin título ni instrucciones) se descartan automáticamente al guardar.
+</Note>
 
 ---
 
-## API
+## Notas clave
 
-La sección de **API** proporciona detalles de endpoints y claves de autenticación para enviar y recibir mensajes programáticamente. Úsalo cuando quieras integrar el agente en tus propias aplicaciones o sistemas backend.
+- Puedes configurar diferentes escenarios de manejo de archivos **por canal** — selecciona primero el canal y luego ajusta.
+- Los ajustes de Comportamiento de Mensajería se guardan individualmente por canal. Cambiar uno no afecta a los demás.
+- Asegúrate de hacer clic en **Guardar** después de realizar cambios en la configuración de cualquier canal.

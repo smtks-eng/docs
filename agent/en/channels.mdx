@@ -81,31 +81,73 @@ The Connect page always displays a **Meta** section with three channel cards:
 | **Messenger** | Facebook Messenger channel via Meta |
 | **Instagram** | Instagram messaging channel via Meta |
 
-Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection process at any time.
+Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection at any time.
 
-Once you have connected one or more accounts for a channel type, a **Channels (n)** button appears on the card showing the count of active connections. Click it to view, edit, or reconnect your existing connections.
-
----
-
-## Integrations
-
-The **Integrations** section on the Connect page lets you link third-party platforms to your agent:
-
-| Integration | Description |
-|---|---|
-| **Freshchat** | Connect Freshchat to enable live-chat escalation and messaging |
-| **Zendesk** | Connect Zendesk for ticket-based and live-chat support |
-
-Click on an integration card to begin the setup. You'll need API credentials from the third-party platform.
+<Tip>
+  For step-by-step Meta integration instructions, see the [WhatsApp integration guide](/integration-guides/en/how-to-integrate-to-whatsapp).
+</Tip>
 
 ---
 
 ## Messaging Behaviour tab
 
-The **Messaging Behaviour** tab lets you configure per-channel rules that control how your agent processes incoming messages. These settings fine-tune the agent's behavior for each connected channel.
+The **Messaging Behaviour** tab lets you fine-tune how your agent handles messages on each connected channel. Select a channel from the list to configure its settings.
+
+### Debounce time
+
+Set how long the agent waits (in seconds) before processing a new message after the last one was received. This helps group rapid consecutive messages into a single processing batch.
+
+### File handling preferences
+
+For each file type — **Images**, **Documents**, **Audio**, and **Video** — you can:
+
+1. **Enable or disable** processing with a toggle switch.
+2. **Define scenario cards** that tell the agent how to handle files of that type in different situations.
+
+#### Scenario cards
+
+When a file type is enabled, you can create one or more **scenario cards** to give the agent specific instructions for different cases. Each card has:
+
+| Field | Description |
+|---|---|
+| **Title** | A short label identifying the scenario (e.g. "Invoice processing", "ID verification"). |
+| **Instructions** | Detailed instructions telling the agent what to do when this scenario applies. |
+
+This lets you handle multiple use cases per file type. For example, under **Images** you might have one scenario for "Product photo identification" and another for "Receipt OCR extraction".
+
+<Steps>
+  <Step title="Enable a file type">
+    Toggle the switch next to the file type you want to configure (e.g. Images).
+  </Step>
+  <Step title="Add your first scenario">
+    Click **Add your first scenario** in the empty-state prompt, or click the **Add scenario** card if scenarios already exist.
+  </Step>
+  <Step title="Fill in the card">
+    Give the scenario a descriptive **title** and write the **instructions** the agent should follow.
+  </Step>
+  <Step title="Add more scenarios (optional)">
+    Click the **+ Add scenario** card at the end of the row to create additional scenario cards. Cards scroll horizontally — use the arrow buttons to navigate when you have several.
+  </Step>
+  <Step title="Remove a scenario">
+    Click the **trash icon** on any card to delete it.
+  </Step>
+  <Step title="Save">
+    Click **Save** to persist your changes for the selected channel.
+  </Step>
+</Steps>
+
+<Tip>
+  If you previously had a single instruction for a file type, it will automatically appear as a "Default" scenario card — no data is lost during the transition.
+</Tip>
+
+<Note>
+  Empty scenario cards (no title and no instructions) are automatically discarded when you save.
+</Note>
 
 ---
 
-## API
+## Key notes
 
-The **API** section provides endpoint details and authentication keys for sending and receiving messages programmatically. Use this when you want to integrate the agent into your own applications or backend systems.
+- You can configure different file handling scenarios **per channel** — select the channel first, then adjust.
+- Messaging Behaviour settings are saved individually per channel. Changing one channel does not affect others.
+- Make sure to click **Save** after making changes to any channel's configuration.
