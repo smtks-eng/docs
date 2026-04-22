@@ -23,6 +23,24 @@ The Knowledge page is organized into tabs:
 
 ---
 
+## FAQs
+
+The FAQs tab lets you create, organize, and manage the frequently asked questions your agent uses to respond to users. FAQs are grouped by **topics**, and each FAQ consists of a question and an answer.
+
+### Filtering FAQs by escalation
+
+If your FAQs include entries that are configured to **escalate to a human agent**, you can quickly isolate them using the **Escalations** filter button in the toolbar.
+
+- Click the **Escalations** button (identified by a person icon) to show **only** the FAQs that have the escalation flag enabled.
+- The button displays a count in parentheses showing how many FAQs in the current topic (or across all topics) are set to escalate.
+- Click the button again to remove the filter and see all FAQs.
+
+<Tip>
+  Use the Escalations filter together with the search bar and topic selector to quickly audit which questions hand off to a live agent.
+</Tip>
+
+---
+
 ## Knowledge Review
 
 The **Knowledge Review** is an AI-powered audit tool that scans your agent's entire knowledge base—FAQs, glossary entries, communication instructions, and special instructions—and returns actionable suggestions to improve quality and consistency.
@@ -48,60 +66,9 @@ Click the **✨ (sparkle) icon** in the top-right area of the header bar. The ic
 
 ### Suggestion targets
 
-| Target | Where it navigates | What gets highlighted |
-|---|---|---|
-| **FAQ** | Knowledge page → FAQs tab | The referenced FAQ cards are expanded and highlighted with a colored ring |
-| **Glossary** | Knowledge page → Glossaries tab | The referenced glossary entry cards are highlighted |
-| **Communication instruction** | Identity page → General tab | The referenced instruction rows in the table are highlighted |
-| **Special instructions** | Identity page → General tab | The special-instructions text area is focused and highlighted |
-
-<Note>
-  For special-instructions suggestions, the sidebar also shows a **diff view** with the previous text (in red) and the suggested text (in green) so you can compare before navigating.
-</Note>
-
-### Refreshing the review
-
-Click the **Run review again** button at the bottom of the sidebar to re-scan the knowledge base. This is useful after you've acted on several suggestions and want to verify improvements.
-
----
-
-### TOPICS
-
-**You can organize your FAQs into different topics.**\
-This helps the agent find answers more efficiently and accurately, while also making it easier for humans to locate, manage, and add new frequently asked questions.
-
-![knowledge-step-2.png](/images/agent/knowledge/knowledge-step-2.png)
-
-#### Deleting a Topic
-
-You can delete a topic directly from the Knowledge page. When viewing **All** topics, each topic header displays a **trash icon button** (🗑️) next to the "Add new FAQ" button. Clicking it will prompt you to confirm the deletion of that topic.
-
-<Warning>
-  Deleting a topic removes it and all the FAQs it contains. This action cannot be undone.
-</Warning>
-
-### Adding FAQs
-
-**You have three different options to build your knowledge base:**
-
-- Manually insert FAQs
-- Extract FAQs from documents **(Automatically generates Topics)**
-- Extract FAQs from a link **(Automatically generates Topics)**
-
-In this quick setup guide, we'll walk you through all three methods of generating knowledge for your agent.
-
-### FAQs Manual Insert
-
-**Manual FAQ insertion is extremely easy and involves just three simple steps:**\
-Enter the question, provide the answer, and click save.
-
-![knowledge-step-3.png](/images/agent/knowledge/knowledge-step-3.png)
-
-![knowledge-step-4.png](/images/agent/knowledge/knowledge-step-4.png)
-
-**Semantiks is full of Life Haks** and thats why we added this magic improve button.
-
-![knowledge-step-5.png](/images/agent/knowledge/knowledge-step-5.png)
-
-**The Magic Improve button automatically enhances both the question and the answer.**\
-It keeps the original meaning intact while improving grammar, clarity, and overall phrasing to ensure everything is well-written and easy to understand.
+| Target | Where it links |
+|---|---|
+| **FAQ** | Knowledge → FAQs tab — the referenced FAQ row is highlighted |
+| **Glossary** | Glossaries page — the matching glossary entry is highlighted |
+| **Communication Instruction** | Identity page → Communication Instructions section — the matching row is highlighted |
+| **Special Instructions** | Identity page → Special Instructions text area — the field opens, scrolls into view, and is highlighted |

@@ -23,6 +23,24 @@ La página de Conocimiento está organizada en pestañas:
 
 ---
 
+## FAQs
+
+La pestaña de FAQs te permite crear, organizar y gestionar las preguntas frecuentes que tu agente usa para responder a los usuarios. Las FAQs se agrupan por **temas**, y cada FAQ consiste en una pregunta y una respuesta.
+
+### Filtrar FAQs por escalamiento
+
+Si tus FAQs incluyen entradas configuradas para **escalar a un agente humano**, puedes aislarlas rápidamente usando el botón de filtro **Escalamientos** en la barra de herramientas.
+
+- Haz clic en el botón **Escalamientos** (identificado por un ícono de persona) para mostrar **solo** las FAQs que tienen habilitada la opción de escalamiento.
+- El botón muestra un conteo entre paréntesis indicando cuántas FAQs del tema actual (o de todos los temas) están configuradas para escalar.
+- Haz clic de nuevo en el botón para quitar el filtro y ver todas las FAQs.
+
+<Tip>
+  Usa el filtro de Escalamientos junto con la barra de búsqueda y el selector de temas para auditar rápidamente qué preguntas derivan a un agente humano.
+</Tip>
+
+---
+
 ## Revisión de Conocimiento
 
 La **Revisión de Conocimiento** es una herramienta de auditoría impulsada por IA que analiza toda la base de conocimientos de tu agente—preguntas frecuentes, entradas de glosario, instrucciones de comunicación e instrucciones especiales—y devuelve sugerencias accionables para mejorar la calidad y consistencia.
@@ -43,65 +61,14 @@ Haz clic en el **ícono ✨ (destello)** en la esquina superior derecha de la ba
    - Un **ícono** que indica el área objetivo (FAQ, glosario, instrucción de comunicación o instrucciones especiales).
    - Un **título** que describe la sugerencia.
    - Una **etiqueta de acción** (`editar`, `fusionar`, `eliminar` o `revisar`) para saber qué tipo de limpieza se recomienda.
-   - Una **razón** explicando por qué se sugiere el cambio.
-4. **Navega al elemento** — Haz clic en el enlace en la parte inferior de una tarjeta de sugerencia expandida para ir directamente a la entrada afectada. La plataforma **resaltará** los elementos relevantes en la página de destino para que los encuentres al instante.
+   - Una **razón** que explica por qué se sugiere el cambio.
+4. **Ir al elemento** — Haz clic en el enlace en la parte inferior de una tarjeta de sugerencia expandida para navegar directamente a la entrada afectada. La plataforma **resaltará** los elementos relevantes en la página de destino para que los encuentres al instante.
 
 ### Objetivos de las sugerencias
 
-| Objetivo | A dónde navega | Qué se resalta |
-|---|---|---|
-| **FAQ** | Página de Conocimiento → pestaña FAQs | Las tarjetas de FAQ referenciadas se expanden y resaltan con un anillo de color |
-| **Glosario** | Página de Conocimiento → pestaña Glosarios | Las tarjetas de entradas de glosario referenciadas se resaltan |
-| **Instrucción de comunicación** | Página de Identidad → pestaña General | Las filas de instrucciones referenciadas en la tabla se resaltan |
-| **Instrucciones especiales** | Página de Identidad → pestaña General | El área de texto de instrucciones especiales se enfoca y resalta |
-
-<Note>
-  Para sugerencias de instrucciones especiales, el panel también muestra una **vista de diferencias** con el texto anterior (en rojo) y el texto sugerido (en verde) para que puedas comparar antes de navegar.
-</Note>
-
-### Actualizar la revisión
-
-Haz clic en el botón **Ejecutar revisión de nuevo** en la parte inferior del panel para volver a analizar la base de conocimientos. Esto es útil después de haber actuado sobre varias sugerencias y querer verificar las mejoras.
-
----
-
-### TEMAS
-
-**Puedes organizar tus preguntas frecuentes en diferentes temas.**\
-Esto ayuda al agente a encontrar respuestas de manera más eficiente y precisa, mientras que también facilita a los humanos localizar, gestionar y agregar nuevas preguntas frecuentes.
-
-![knowledge-step-2.png](/images/agent/knowledge/knowledge-step-2.png)
-
-#### Eliminar un Tema
-
-Puedes eliminar un tema directamente desde la página de Conocimiento. Al visualizar **Todos** los temas, cada encabezado de tema muestra un **botón con ícono de papelera** (🗑️) junto al botón "Agregar nueva FAQ". Al hacer clic, se te pedirá confirmar la eliminación de ese tema.
-
-<Warning>
-  Eliminar un tema borra el tema y todas las preguntas frecuentes que contiene. Esta acción no se puede deshacer.
-</Warning>
-
-### Agregando Preguntas Frecuentes
-
-**Tienes tres opciones diferentes para construir tu base de conocimientos:**
-
-- Insertar preguntas frecuentes manualmente
-- Extraer preguntas frecuentes de documentos **(Genera Temas Automáticamente)**
-- Extraer preguntas frecuentes de un enlace **(Genera Temas Automáticamente)**
-
-En esta guía rápida de configuración, te guiaremos a través de los tres métodos para generar conocimiento para tu agente.
-
-### Inserción Manual de Preguntas Frecuentes
-
-**La inserción manual de preguntas frecuentes es extremadamente fácil y consiste en solo tres pasos simples:**\
-Ingresa la pregunta, proporciona la respuesta y haz clic en guardar.
-
-![knowledge-step-3.png](/images/agent/knowledge/knowledge-step-3.png)
-
-![knowledge-step-4.png](/images/agent/knowledge/knowledge-step-4.png)
-
-**Semantiks está lleno de trucos útiles** y por eso agregamos este botón mágico de mejora.
-
-![knowledge-step-5.png](/images/agent/knowledge/knowledge-step-5.png)
-
-**El botón de Mejora Mágica mejora automáticamente tanto la pregunta como la respuesta.**\
-Mantiene el significado original intacto mientras mejora la gramática, claridad y redacción general para asegurar que todo esté bien escrito y sea fácil de entender.
+| Objetivo | A dónde enlaza |
+|---|---|
+| **FAQ** | Conocimiento → pestaña FAQs — la fila de FAQ referenciada se resalta |
+| **Glosario** | Página de Glosarios — la entrada correspondiente se resalta |
+| **Instrucción de comunicación** | Página de Identidad → sección Instrucciones de Comunicación — la fila correspondiente se resalta |
+| **Instrucciones especiales** | Página de Identidad → área de texto de Instrucciones Especiales — el campo se abre, se desplaza a la vista y se resalta |
