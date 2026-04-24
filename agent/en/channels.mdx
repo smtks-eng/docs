@@ -81,73 +81,51 @@ The Connect page always displays a **Meta** section with three channel cards:
 | **Messenger** | Facebook Messenger channel via Meta |
 | **Instagram** | Instagram messaging channel via Meta |
 
-Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection at any time.
+Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection process directly.
+
+#### Connecting Instagram
+
+Instagram uses Meta's secure authentication to connect your Instagram Business Account. The process is streamlined — your account is detected automatically after authentication.
+
+<Steps>
+  <Step title="Click Connect on the Instagram card">
+    In the Meta section, click the **Connect** button on the Instagram card. A modal dialog opens.
+  </Step>
+  <Step title="Authenticate with Meta">
+    Click the **Connect with Instagram** button in the modal. Meta's secure login window will open, asking you to authorize access to your Instagram Business Account.
+  </Step>
+  <Step title="Authorize and connect">
+    Once you authorize the connection, Semantiks automatically detects your Instagram Business Account and completes the setup. There is no need to manually select a page — everything is handled for you.
+  </Step>
+</Steps>
+
+<Note>
+  You need an **Instagram Business Account** linked to your Meta account. If your account is not detected, make sure it is properly configured as a Business account in Meta's settings.
+</Note>
+
+Once connected, the Instagram card shows:
+- A **Connected** status badge with a green indicator.
+- Your **Instagram User ID**.
+- Your **Instagram username** (displayed as `@username`).
+
+To disconnect, open the Instagram card and click **Disconnect**.
 
 <Tip>
-  For step-by-step Meta integration instructions, see the [WhatsApp integration guide](/integration-guides/en/how-to-integrate-to-whatsapp).
+  After connecting, test the integration by sending a message to your Instagram Business Account and checking that your agent responds in the **Conversations** dashboard.
 </Tip>
 
 ---
 
 ## Messaging Behaviour tab
 
-The **Messaging Behaviour** tab lets you fine-tune how your agent handles messages on each connected channel. Select a channel from the list to configure its settings.
-
-### Debounce time
-
-Set how long the agent waits (in seconds) before processing a new message after the last one was received. This helps group rapid consecutive messages into a single processing batch.
-
-### File handling preferences
-
-For each file type — **Images**, **Documents**, **Audio**, and **Video** — you can:
-
-1. **Enable or disable** processing with a toggle switch.
-2. **Define scenario cards** that tell the agent how to handle files of that type in different situations.
-
-#### Scenario cards
-
-When a file type is enabled, you can create one or more **scenario cards** to give the agent specific instructions for different cases. Each card has:
-
-| Field | Description |
-|---|---|
-| **Title** | A short label identifying the scenario (e.g. "Invoice processing", "ID verification"). |
-| **Instructions** | Detailed instructions telling the agent what to do when this scenario applies. |
-
-This lets you handle multiple use cases per file type. For example, under **Images** you might have one scenario for "Product photo identification" and another for "Receipt OCR extraction".
-
-<Steps>
-  <Step title="Enable a file type">
-    Toggle the switch next to the file type you want to configure (e.g. Images).
-  </Step>
-  <Step title="Add your first scenario">
-    Click **Add your first scenario** in the empty-state prompt, or click the **Add scenario** card if scenarios already exist.
-  </Step>
-  <Step title="Fill in the card">
-    Give the scenario a descriptive **title** and write the **instructions** the agent should follow.
-  </Step>
-  <Step title="Add more scenarios (optional)">
-    Click the **+ Add scenario** card at the end of the row to create additional scenario cards. Cards scroll horizontally — use the arrow buttons to navigate when you have several.
-  </Step>
-  <Step title="Remove a scenario">
-    Click the **trash icon** on any card to delete it.
-  </Step>
-  <Step title="Save">
-    Click **Save** to persist your changes for the selected channel.
-  </Step>
-</Steps>
-
-<Tip>
-  If you previously had a single instruction for a file type, it will automatically appear as a "Default" scenario card — no data is lost during the transition.
-</Tip>
-
-<Note>
-  Empty scenario cards (no title and no instructions) are automatically discarded when you save.
-</Note>
+The **Messaging Behaviour** tab lets you configure how your agent handles messages on each connected channel. This includes settings like response delays, typing indicators, and message formatting options.
 
 ---
 
-## Key notes
+## What's next?
 
-- You can configure different file handling scenarios **per channel** — select the channel first, then adjust.
-- Messaging Behaviour settings are saved individually per channel. Changing one channel does not affect others.
-- Make sure to click **Save** after making changes to any channel's configuration.
+Once your agent is connected to at least one channel, it's live. Head to:
+
+- [Conversations](/dashboards/en/conversations) to monitor real-time chats.
+- [Playground](/agent/en/playground) to keep testing in a safe environment.
+- [External Chat](/channels/en/web) or [Web Bubble](/channels/en/bubble) for detailed channel configuration.

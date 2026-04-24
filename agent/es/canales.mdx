@@ -81,73 +81,51 @@ La página de Conecta siempre muestra una sección de **Meta** con tres tarjetas
 | **Messenger** | Canal de Facebook Messenger vía Meta |
 | **Instagram** | Canal de mensajería de Instagram vía Meta |
 
-Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración del canal correspondiente. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar la conexión en cualquier momento.
+Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración de ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre son visibles para que puedas iniciar el proceso de conexión directamente.
+
+#### Conectar Instagram
+
+Instagram usa la autenticación segura de Meta para conectar tu Cuenta de Empresa de Instagram. El proceso es simplificado — tu cuenta se detecta automáticamente después de la autenticación.
+
+<Steps>
+  <Step title="Haz clic en Conectar en la tarjeta de Instagram">
+    En la sección de Meta, haz clic en el botón **Conectar** de la tarjeta de Instagram. Se abrirá un diálogo modal.
+  </Step>
+  <Step title="Autentícate con Meta">
+    Haz clic en el botón **Connect with Instagram** en el modal. Se abrirá la ventana de inicio de sesión seguro de Meta, pidiéndote autorizar el acceso a tu Cuenta de Empresa de Instagram.
+  </Step>
+  <Step title="Autoriza y conecta">
+    Una vez que autorices la conexión, Semantiks detecta automáticamente tu Cuenta de Empresa de Instagram y completa la configuración. No necesitas seleccionar una página manualmente — todo se gestiona por ti.
+  </Step>
+</Steps>
+
+<Note>
+  Necesitas una **Cuenta de Empresa de Instagram** vinculada a tu cuenta de Meta. Si tu cuenta no es detectada, asegúrate de que esté correctamente configurada como cuenta de Empresa en los ajustes de Meta.
+</Note>
+
+Una vez conectado, la tarjeta de Instagram muestra:
+- Un indicador de estado **Conectado** con un badge verde.
+- Tu **ID de usuario de Instagram**.
+- Tu **nombre de usuario de Instagram** (mostrado como `@nombredeusuario`).
+
+Para desconectar, abre la tarjeta de Instagram y haz clic en **Desconectar**.
 
 <Tip>
-  Para instrucciones paso a paso de integración con Meta, consulta la [guía de integración de WhatsApp](/integration-guides/es/como-integrar-whatsapp).
+  Después de conectar, prueba la integración enviando un mensaje a tu Cuenta de Empresa de Instagram y verificando que tu agente responde en el panel de **Conversaciones**.
 </Tip>
 
 ---
 
 ## Pestaña de Comportamiento de Mensajería
 
-La pestaña **Comportamiento de Mensajería** te permite ajustar cómo tu agente maneja los mensajes en cada canal conectado. Selecciona un canal de la lista para configurarlo.
-
-### Tiempo de espera (debounce)
-
-Define cuántos segundos espera el agente antes de procesar un nuevo mensaje después de recibir el último. Esto permite agrupar mensajes consecutivos rápidos en un solo lote de procesamiento.
-
-### Preferencias de manejo de archivos
-
-Para cada tipo de archivo — **Imágenes**, **Documentos**, **Audio** y **Video** — puedes:
-
-1. **Activar o desactivar** el procesamiento con un interruptor.
-2. **Definir tarjetas de escenario** que le indiquen al agente cómo manejar archivos de ese tipo en distintas situaciones.
-
-#### Tarjetas de escenario
-
-Cuando un tipo de archivo está activado, puedes crear una o más **tarjetas de escenario** para darle al agente instrucciones específicas para diferentes casos. Cada tarjeta tiene:
-
-| Campo | Descripción |
-|---|---|
-| **Título** | Una etiqueta corta que identifica el escenario (ej. "Procesamiento de facturas", "Verificación de identidad"). |
-| **Instrucciones** | Instrucciones detalladas que le dicen al agente qué hacer cuando aplique este escenario. |
-
-Esto te permite manejar múltiples casos de uso por tipo de archivo. Por ejemplo, bajo **Imágenes** podrías tener un escenario para "Identificación de foto de producto" y otro para "Extracción OCR de recibos".
-
-<Steps>
-  <Step title="Activa un tipo de archivo">
-    Activa el interruptor junto al tipo de archivo que deseas configurar (ej. Imágenes).
-  </Step>
-  <Step title="Añade tu primer escenario">
-    Haz clic en **Añade tu primer escenario** en el mensaje del estado vacío, o haz clic en la tarjeta **Añadir escenario** si ya existen escenarios.
-  </Step>
-  <Step title="Completa la tarjeta">
-    Dale al escenario un **título** descriptivo y escribe las **instrucciones** que el agente debe seguir.
-  </Step>
-  <Step title="Añade más escenarios (opcional)">
-    Haz clic en la tarjeta **+ Añadir escenario** al final de la fila para crear tarjetas adicionales. Las tarjetas se desplazan horizontalmente — usa los botones de flecha para navegar cuando tengas varias.
-  </Step>
-  <Step title="Elimina un escenario">
-    Haz clic en el **ícono de papelera** de cualquier tarjeta para eliminarla.
-  </Step>
-  <Step title="Guarda">
-    Haz clic en **Guardar** para aplicar los cambios en el canal seleccionado.
-  </Step>
-</Steps>
-
-<Tip>
-  Si anteriormente tenías una instrucción única para un tipo de archivo, aparecerá automáticamente como una tarjeta de escenario "Default" — no se pierde información durante la transición.
-</Tip>
-
-<Note>
-  Las tarjetas de escenario vacías (sin título ni instrucciones) se descartan automáticamente al guardar.
-</Note>
+La pestaña de **Comportamiento de Mensajería** te permite configurar cómo tu agente maneja los mensajes en cada canal conectado. Esto incluye ajustes como retrasos de respuesta, indicadores de escritura y opciones de formato de mensajes.
 
 ---
 
-## Notas clave
+## ¿Qué sigue?
 
-- Puedes configurar diferentes escenarios de manejo de archivos **por canal** — selecciona primero el canal y luego ajusta.
-- Los ajustes de Comportamiento de Mensajería se guardan individualmente por canal. Cambiar uno no afecta a los demás.
-- Asegúrate de hacer clic en **Guardar** después de realizar cambios en la configuración de cualquier canal.
+Una vez que tu agente está conectado a al menos un canal, está en producción. Dirígete a:
+
+- [Conversaciones](/dashboards/es/conversaciones) para monitorear chats en tiempo real.
+- [Playground](/agent/es/playground) para seguir probando en un entorno seguro.
+- [Chat Externo](/channels/es/web) o [Burbuja Web](/channels/es/burbuja) para configuración detallada del canal.
