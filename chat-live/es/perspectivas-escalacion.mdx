@@ -1,12 +1,132 @@
 ---
 title: "Perspectivas de Escalación"
-description: "Analiza patrones de escalación, identifica desencadenantes comunes y optimiza la capacidad de tu agente para resolver conversaciones de forma autónoma."
+language: es
+description: "Analiza cuándo, por qué y con qué frecuencia se escalan conversaciones a agentes humanos—con desgloses por tema, canal, asignado y puntuaciones de calidad."
 ---
 
-El panel de **Perspectivas de Escalación** te ayuda a entender cuándo y por qué las conversaciones se escalan del agente de IA a agentes humanos, para que puedas mejorar la configuración de tu agente y reducir escalaciones innecesarias.
+**Perspectivas de Escalación** es un panel analítico dentro de la sección **Centro de Contacto > Chat en Vivo** que te da visibilidad completa sobre las conversaciones que fueron escaladas de tu agente de IA a un operador humano. Úsalo para entender patrones de escalación, identificar temas problemáticos, monitorear la carga de trabajo del equipo y rastrear métricas de calidad de conversaciones escaladas.
 
 <Note>
-Esta función estará **disponible próximamente**. El panel de Perspectivas de Escalación está actualmente en desarrollo y estará disponible en una versión futura.
+Perspectivas de Escalación requiere un agente activo con integraciones compatibles con escalación (ej., Freshchat o Zendesk). Si no han ocurrido escalaciones en el período seleccionado, los gráficos mostrarán un estado vacío.
 </Note>
 
-Mantente atento a las actualizaciones de esta función.
+---
+
+## Acceder a Perspectivas de Escalación
+
+Navega a **Centro de Contacto > Chat en Vivo > Perspectivas de Escalación** en el menú lateral.
+
+---
+
+## Rango de fechas y granularidad
+
+En la parte superior de la página encontrarás dos controles que aplican a todas las secciones:
+
+| Control | Opciones | Descripción |
+|---|---|---|
+| **Rango de fechas** | Últimos 7 días, Últimos 30 días, Últimos 90 días | Filtra todos los datos al período seleccionado |
+| **Granularidad** | Día, Semana, Mes | Controla cómo la gráfica temporal agrupa los datos |
+
+Cambiar el rango de fechas reinicia la tabla de conversaciones a la página 1.
+
+---
+
+## Indicadores clave (KPIs)
+
+Cinco métricas principales aparecen en la parte superior del panel:
+
+| KPI | Qué muestra |
+|---|---|
+| **Total de Escalaciones** | Número de conversaciones escaladas a un agente humano en el período seleccionado |
+| **Tasa de Escalación** | Porcentaje del total de conversaciones que fueron escaladas. Una flecha de color indica si la tasa es alta (roja, por encima del 25%) o saludable (verde) |
+| **Total de Conversaciones** | Número total de conversaciones (escaladas + no escaladas) para contexto |
+| **Tiempo hasta Escalar (P50)** | Mediana del tiempo desde el inicio de la conversación hasta la escalación |
+| **Tiempo hasta Escalar (P90)** | Percentil 90 del tiempo hasta la escalación—útil para detectar valores atípicos |
+
+<Tip>
+Vigila el KPI de **Tasa de Escalación**. Una tasa consistentemente por encima del 25% puede indicar vacíos en la base de conocimiento de tu agente o preguntas frecuentes faltantes.
+</Tip>
+
+---
+
+## Escalaciones a lo largo del tiempo
+
+Un **gráfico de líneas** traza dos series a lo largo del rango de fechas seleccionado:
+
+- **Escalaciones** (eje izquierdo) — conteo absoluto de conversaciones escaladas por periodo
+- **Tasa de Escalación** (eje derecho, línea punteada) — porcentaje de conversaciones escaladas por periodo
+
+Usa este gráfico para detectar tendencias: ¿están aumentando las escalaciones después de un lanzamiento de producto? ¿Una actualización de conocimiento redujo la tasa?
+
+---
+
+## Escalaciones por tema
+
+Un **gráfico de barras horizontales** muestra los principales temas que generan escalaciones, clasificados por cantidad. Los temas se clasifican automáticamente a partir del contenido de la conversación.
+
+<Tip>
+Si un solo tema domina las escalaciones, considera agregar o mejorar las preguntas frecuentes e instrucciones del agente para ese tema en tu base de **Conocimiento**.
+</Tip>
+
+---
+
+## Escalaciones por canal
+
+Un **gráfico de barras verticales** desglosa el conteo de escalaciones por canal de integración. Esto te ayuda a entender si ciertos canales (ej., WhatsApp vs. Web) producen más escalaciones que otros.
+
+---
+
+## Escalaciones por asignado
+
+Una **vista de lista** muestra los agentes humanos que manejan conversaciones escaladas. Cada fila muestra:
+
+- **Nombre del agente** (o ID truncado si el nombre no está disponible)
+- **Tiempo promedio de resolución** — cuánto tarda el agente en resolver conversaciones escaladas
+- **Conteo de escalaciones** — cuántas conversaciones escaladas están asignadas a este agente
+
+Úsalo para balancear la carga de trabajo e identificar agentes que puedan necesitar apoyo o capacitación adicional.
+
+---
+
+## Distribuciones de calidad
+
+Tres **visualizaciones de barras apiladas** muestran cómo puntúan las conversaciones escaladas en dimensiones de calidad:
+
+| Dimensión | Qué mide |
+|---|---|
+| **Éxito de Tarea** | Si la solicitud del usuario fue finalmente resuelta |
+| **CSAT** | Distribución de puntuación de satisfacción del cliente |
+| **Sentimiento** | Distribución de sentimiento del usuario (positivo, neutral, negativo) |
+
+Cada barra está segmentada por grupo y dimensionada proporcionalmente al conteo. Pasa el cursor sobre un segmento para ver el conteo exacto y porcentaje.
+
+---
+
+## Tabla de conversaciones escaladas
+
+Debajo de los gráficos, una **tabla paginada** lista las conversaciones escaladas individuales con las siguientes columnas:
+
+| Columna | Descripción |
+|---|---|
+| **Fecha de creación** | Cuándo inició la conversación |
+| **Tema** | El tema auto-clasificado (mostrado como insignia en mayúsculas) |
+| **Resumen** | Un breve resumen generado por IA de la conversación |
+| **Sentimiento** | El sentimiento detectado del usuario |
+| **Éxito de Tarea** | Si la tarea fue resuelta |
+| **CSAT** | La puntuación de satisfacción (si se recopiló) |
+
+- Haz clic en cualquier fila para navegar a la página de **Analíticas de Conversación** con esa conversación preseleccionada.
+- Usa los botones **Anterior** / **Siguiente** en la parte inferior para navegar entre páginas.
+
+<Tip>
+Revisa las conversaciones escaladas para encontrar patrones. Si muchas conversaciones escaladas comparten el mismo tema y sentimiento negativo, esa es un área de alta prioridad para mejorar.
+</Tip>
+
+---
+
+## Flujos de trabajo comunes
+
+- **Reducir la tasa de escalación** — Filtra por los últimos 30 días, revisa el gráfico "Por Tema" y actualiza el conocimiento de tu agente para los principales temas de escalación.
+- **Monitorear rendimiento del equipo** — Revisa la sección "Por Asignado" para ver tiempos de resolución y redistribuir la carga si es necesario.
+- **Rastrear mejoras** — Después de actualizar el conocimiento o instrucciones de tu agente, compara la tasa de escalación de 7 días con el período anterior para medir el impacto.
+- **Investigar calidad** — Usa la sección de distribuciones para ver si las conversaciones escaladas tienden a tener CSAT bajo o sentimiento negativo, y profundiza en conversaciones específicas desde la tabla.

@@ -1,12 +1,132 @@
 ---
 title: "Escalation Insights"
-description: "Analyze escalation patterns, identify common triggers, and optimize your agent's ability to resolve conversations autonomously."
+language: en
+description: "Analyze when, why, and how often conversations are escalated to human agents—with breakdowns by topic, channel, assignee, and quality scores."
 ---
 
-The **Escalation Insights** dashboard helps you understand when and why conversations are escalated from the AI agent to human agents, so you can improve your agent's configuration and reduce unnecessary escalations.
+**Escalation Insights** is an analytics dashboard inside the **Contact Center > Live Chat** section that gives you full visibility into conversations that were escalated from your AI agent to a human operator. Use it to understand escalation patterns, identify problematic topics, monitor team workload, and track quality metrics for escalated conversations.
 
 <Note>
-This feature is **coming soon**. The Escalation Insights dashboard is currently under development and will be available in a future release.
+Escalation Insights requires an active agent with escalation-capable integrations (e.g., Freshchat or Zendesk). If no escalations have occurred in the selected period, the charts will display an empty state.
 </Note>
 
-Stay tuned for updates on this feature.
+---
+
+## Accessing Escalation Insights
+
+Navigate to **Contact Center > Live Chat > Escalation Insights** in the left sidebar.
+
+---
+
+## Date range and granularity
+
+At the top of the page you'll find two controls that apply to all sections:
+
+| Control | Options | Description |
+|---|---|---|
+| **Date range** | Last 7 days, Last 30 days, Last 90 days | Filters all data to the selected period |
+| **Granularity** | Day, Week, Month | Controls how the over-time chart buckets data points |
+
+Changing the date range resets the conversation table back to page 1.
+
+---
+
+## KPI tiles
+
+Five headline metrics appear at the top of the dashboard:
+
+| KPI | What it shows |
+|---|---|
+| **Total Escalations** | Number of conversations escalated to a human agent in the selected period |
+| **Escalation Rate** | Percentage of total conversations that were escalated. A colored arrow indicates whether the rate is high (red, above 25%) or healthy (green) |
+| **Total Conversations** | Total number of conversations (escalated + non-escalated) for context |
+| **Time to Escalate (P50)** | Median time from conversation start to escalation |
+| **Time to Escalate (P90)** | 90th-percentile time to escalation—useful for spotting outliers |
+
+<Tip>
+Keep an eye on the **Escalation Rate** KPI. A rate consistently above 25% may indicate gaps in your agent's knowledge base or missing FAQ entries.
+</Tip>
+
+---
+
+## Escalations over time
+
+A **line chart** plots two series across the selected date range:
+
+- **Escalations** (left axis) — absolute count of escalated conversations per bucket
+- **Escalation Rate** (right axis, dashed line) — percentage of conversations escalated per bucket
+
+Use this chart to spot trends: are escalations increasing after a product launch? Did a knowledge update reduce the rate?
+
+---
+
+## Escalations by topic
+
+A **horizontal bar chart** shows the top topics that trigger escalations, ranked by count. Topics are auto-classified from conversation content.
+
+<Tip>
+If a single topic dominates escalations, consider adding or improving FAQ entries and agent instructions for that topic in your **Knowledge** base.
+</Tip>
+
+---
+
+## Escalations by channel
+
+A **vertical bar chart** breaks down escalation counts by integration channel. This helps you understand whether certain channels (e.g., WhatsApp vs. Web) produce more escalations than others.
+
+---
+
+## Escalations by assignee
+
+A **list view** shows the human agents who handle escalated conversations. Each row displays:
+
+- **Agent name** (or truncated ID if the name isn't available)
+- **Average resolution time** — how long it takes the agent to resolve escalated conversations
+- **Escalation count** — how many escalated conversations are assigned to this agent
+
+Use this to balance workload and identify agents who may need additional support or training.
+
+---
+
+## Quality distributions
+
+Three **stacked bar visualizations** show how escalated conversations score across quality dimensions:
+
+| Dimension | What it measures |
+|---|---|
+| **Task Success** | Whether the user's request was ultimately resolved |
+| **CSAT** | Customer satisfaction score distribution |
+| **Sentiment** | User sentiment distribution (positive, neutral, negative) |
+
+Each bar is segmented by bucket and sized proportionally to the count. Hover over a segment to see the exact count and percentage.
+
+---
+
+## Escalated conversations table
+
+Below the charts, a **paginated table** lists individual escalated conversations with the following columns:
+
+| Column | Description |
+|---|---|
+| **Created at** | When the conversation started |
+| **Topic** | The auto-classified topic (shown as an uppercase badge) |
+| **Summary** | A short AI-generated summary of the conversation |
+| **Sentiment** | The detected user sentiment |
+| **Task Success** | Whether the task was resolved |
+| **CSAT** | The satisfaction score (if collected) |
+
+- Click any row to navigate to the **Conversation Analytics** page with that conversation pre-selected.
+- Use the **Previous** / **Next** buttons at the bottom to navigate through pages.
+
+<Tip>
+Sort through escalated conversations to find patterns. If many escalated conversations share the same topic and negative sentiment, that's a high-priority area to improve.
+</Tip>
+
+---
+
+## Common workflows
+
+- **Reduce escalation rate** — Filter by the last 30 days, check the "By Topic" chart, and update your agent's knowledge for the top escalation topics.
+- **Monitor team performance** — Review the "By Assignee" section to see resolution times and redistribute workload if needed.
+- **Track improvement** — After updating your agent's knowledge or instructions, compare the 7-day escalation rate to the previous period to measure impact.
+- **Investigate quality** — Use the distributions section to see if escalated conversations tend to have low CSAT or negative sentiment, and drill into specific conversations from the table.

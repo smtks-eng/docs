@@ -1,12 +1,102 @@
 ---
 title: "Performance"
-description: "Track response times, resolution rates, and agent performance metrics for your live chat operations."
+language: en
+description: "Monitor your live chat team's performance with agent leaderboards, throughput charts, shift coverage, and channel mix breakdowns."
 ---
 
-The **Performance** dashboard provides analytics and metrics about your live chat operations, helping you understand response times, resolution rates, and overall team performance.
+**Performance** is a dashboard inside the **Contact Center > Live Chat** section that gives you an overview of how your human support team is handling escalated conversations. Track individual agent metrics, monitor daily throughput, check shift coverage, and understand which channels drive the most live-chat volume.
 
 <Note>
-This feature is **coming soon**. The Performance dashboard is currently under development and will be available in a future release.
+The Performance dashboard currently displays **sample data** to preview the upcoming analytics experience. Live data integration is under active development and will be available soon.
 </Note>
 
-Stay tuned for updates on this feature.
+---
+
+## Accessing Performance
+
+Navigate to **Contact Center > Live Chat > Performance** in the left sidebar.
+
+---
+
+## Date range
+
+At the top of the page, a date-range selector lets you choose between:
+
+- **Last 7 days**
+- **Last 30 days**
+- **Last 90 days**
+
+The selected range applies to all KPIs, charts, and tables on the page.
+
+---
+
+## KPI tiles
+
+Six headline metrics appear at the top of the dashboard:
+
+| KPI | What it shows |
+|---|---|
+| **Total Handled** | Total conversations handled by your human support team |
+| **Avg First Response** | Average time for a human agent to send their first reply after an escalation |
+| **Avg Resolution** | Average time to fully resolve an escalated conversation |
+| **Team CSAT** | Average customer satisfaction score across all agents |
+| **Online Agents** | Number of agents currently with "online" status |
+| **Escalation Ratio** | Percentage of total throughput that came from escalations |
+
+Each KPI tile may include a **trend indicator** showing the percentage change compared to the previous period (green ▲ for improvement, red ▼ for decline).
+
+---
+
+## Agent leaderboard
+
+A table listing each human support agent with the following columns:
+
+| Column | Description |
+|---|---|
+| **Agent** | Name and avatar with a colored status dot (green = online, amber = away, gray = offline) |
+| **Handled** | Number of conversations this agent handled |
+| **Avg First Response** | Average first-response time for this agent |
+| **Avg Resolution** | Average resolution time |
+| **CSAT** | This agent's average CSAT score |
+| **Trend** | Performance trend compared to the previous period (▲ or ▼ with percentage) |
+
+Use the leaderboard to identify top performers and agents who may need coaching.
+
+---
+
+## Daily throughput
+
+A **stacked bar chart** shows the number of conversations handled vs. escalated per day of the week. This helps you:
+
+- Identify peak days for live-chat volume
+- Understand the ratio of handled-to-escalated conversations
+- Plan staffing around high-volume days
+
+---
+
+## Shift coverage
+
+An **area chart** displays the number of agents online by hour of the day (in 2-hour intervals). Use this to:
+
+- Verify that staffing levels match demand patterns
+- Identify coverage gaps during high-traffic hours
+- Optimize shift schedules
+
+---
+
+## Channel mix
+
+A **pie chart** breaks down live-chat volume by channel (e.g., WhatsApp, Instagram, Web, Messenger). This shows you where your users prefer to interact and helps you prioritize channel-specific improvements.
+
+---
+
+## Common workflows
+
+- **Optimize staffing** — Compare the shift coverage chart with the daily throughput chart to ensure you have enough agents online during peak hours.
+- **Coach agents** — Use the leaderboard to find agents with above-average resolution times or below-average CSAT, and provide targeted training.
+- **Channel strategy** — Review the channel mix to decide where to invest in automation vs. human support.
+- **Track team improvement** — Switch between 7-day, 30-day, and 90-day views to monitor whether KPIs are trending in the right direction.
+
+<Tip>
+Pair this dashboard with **Escalation Insights** for a complete picture: Escalation Insights shows you *why* conversations are being escalated, while Performance shows you *how well* your team handles them.
+</Tip>
