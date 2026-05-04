@@ -81,51 +81,61 @@ The Connect page always displays a **Meta** section with three channel cards:
 | **Messenger** | Facebook Messenger channel via Meta |
 | **Instagram** | Instagram messaging channel via Meta |
 
-Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection process directly.
-
-#### Connecting Instagram
-
-Instagram uses Meta's secure authentication to connect your Instagram Business Account. The process is streamlined — your account is detected automatically after authentication.
-
-<Steps>
-  <Step title="Click Connect on the Instagram card">
-    In the Meta section, click the **Connect** button on the Instagram card. A modal dialog opens.
-  </Step>
-  <Step title="Authenticate with Meta">
-    Click the **Connect with Instagram** button in the modal. Meta's secure login window will open, asking you to authorize access to your Instagram Business Account.
-  </Step>
-  <Step title="Authorize and connect">
-    Once you authorize the connection, Semantiks automatically detects your Instagram Business Account and completes the setup. There is no need to manually select a page — everything is handled for you.
-  </Step>
-</Steps>
-
-<Note>
-  You need an **Instagram Business Account** linked to your Meta account. If your account is not detected, make sure it is properly configured as a Business account in Meta's settings.
-</Note>
-
-Once connected, the Instagram card shows:
-- A **Connected** status badge with a green indicator.
-- Your **Instagram User ID**.
-- Your **Instagram username** (displayed as `@username`).
-
-To disconnect, open the Instagram card and click **Disconnect**.
-
-<Tip>
-  After connecting, test the integration by sending a message to your Instagram Business Account and checking that your agent responds in the **Conversations** dashboard.
-</Tip>
+Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection process from here.
 
 ---
 
 ## Messaging Behaviour tab
 
-The **Messaging Behaviour** tab lets you configure how your agent handles messages on each connected channel. This includes settings like response delays, typing indicators, and message formatting options.
+The **Messaging Behaviour** tab lets you configure how your agent handles different message types on each connected channel. This includes file-handling preferences — for example, what the agent should do when a user sends an image, a document, an audio clip, or a video.
+
+### File preferences & scenarios
+
+For each file type (images, documents, audio, video), you can:
+
+- **Enable or disable** handling for that file type.
+- **Define scenarios** — specific cases with instructions that tell the agent how to react.
+
+Scenarios are displayed as a **vertical list**. Each row shows the scenario title and its instructions at a glance.
+
+#### Adding a scenario
+
+1. Click the **Add scenario** button (or **Add first scenario** if no scenarios exist yet) to create a new entry.
+2. A new row appears in editing mode so you can type a **title** and **instructions** right away.
+3. Click the **✓ (check)** button when you're done editing.
+
+#### Editing a scenario
+
+- Click the **pencil icon** on any scenario row to enter editing mode.
+- Change the title or instructions inline.
+- Click the **✓ (check)** button to confirm your changes.
+
+#### Deleting a scenario
+
+- Click the **trash icon** on the scenario row.
+- A **confirmation dialog** appears asking you to confirm the deletion.
+- Click **Delete** to remove the scenario, or **Cancel** to keep it.
+
+<Note>
+  The deletion only takes effect after you click **Save**. Until then, you can still undo the change by not saving.
+</Note>
+
+#### Validation: at least one scenario required
+
+When you save, the platform checks that every **enabled** file type has at least one scenario with a non-empty title or instructions. If any enabled file type has no scenarios defined, an error message will appear listing the file types that need attention.
+
+<Warning>
+  You cannot save messaging behaviour settings if an enabled file type has zero scenarios. Either add a scenario or disable the file type first.
+</Warning>
 
 ---
 
-## What's next?
+## Tips
 
-Once your agent is connected to at least one channel, it's live. Head to:
+<Tip>
+  Use clear, descriptive scenario titles so your team can quickly identify each case — for example, "Receipt photo" or "Product inquiry image".
+</Tip>
 
-- [Conversations](/dashboards/en/conversations) to monitor real-time chats.
-- [Playground](/agent/en/playground) to keep testing in a safe environment.
-- [External Chat](/channels/en/web) or [Web Bubble](/channels/en/bubble) for detailed channel configuration.
+<Tip>
+  Test your file-handling scenarios in the **Playground** before going live. Send sample images, documents, and audio to confirm the agent responds as expected.
+</Tip>

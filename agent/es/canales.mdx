@@ -81,51 +81,61 @@ La página de Conecta siempre muestra una sección de **Meta** con tres tarjetas
 | **Messenger** | Canal de Facebook Messenger vía Meta |
 | **Instagram** | Canal de mensajería de Instagram vía Meta |
 
-Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración de ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre son visibles para que puedas iniciar el proceso de conexión directamente.
-
-#### Conectar Instagram
-
-Instagram usa la autenticación segura de Meta para conectar tu Cuenta de Empresa de Instagram. El proceso es simplificado — tu cuenta se detecta automáticamente después de la autenticación.
-
-<Steps>
-  <Step title="Haz clic en Conectar en la tarjeta de Instagram">
-    En la sección de Meta, haz clic en el botón **Conectar** de la tarjeta de Instagram. Se abrirá un diálogo modal.
-  </Step>
-  <Step title="Autentícate con Meta">
-    Haz clic en el botón **Connect with Instagram** en el modal. Se abrirá la ventana de inicio de sesión seguro de Meta, pidiéndote autorizar el acceso a tu Cuenta de Empresa de Instagram.
-  </Step>
-  <Step title="Autoriza y conecta">
-    Una vez que autorices la conexión, Semantiks detecta automáticamente tu Cuenta de Empresa de Instagram y completa la configuración. No necesitas seleccionar una página manualmente — todo se gestiona por ti.
-  </Step>
-</Steps>
-
-<Note>
-  Necesitas una **Cuenta de Empresa de Instagram** vinculada a tu cuenta de Meta. Si tu cuenta no es detectada, asegúrate de que esté correctamente configurada como cuenta de Empresa en los ajustes de Meta.
-</Note>
-
-Una vez conectado, la tarjeta de Instagram muestra:
-- Un indicador de estado **Conectado** con un badge verde.
-- Tu **ID de usuario de Instagram**.
-- Tu **nombre de usuario de Instagram** (mostrado como `@nombredeusuario`).
-
-Para desconectar, abre la tarjeta de Instagram y haz clic en **Desconectar**.
-
-<Tip>
-  Después de conectar, prueba la integración enviando un mensaje a tu Cuenta de Empresa de Instagram y verificando que tu agente responde en el panel de **Conversaciones**.
-</Tip>
+Cada tarjeta muestra un botón de **Conectar** que abre el flujo de configuración para ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar el proceso de conexión desde aquí.
 
 ---
 
 ## Pestaña de Comportamiento de Mensajería
 
-La pestaña de **Comportamiento de Mensajería** te permite configurar cómo tu agente maneja los mensajes en cada canal conectado. Esto incluye ajustes como retrasos de respuesta, indicadores de escritura y opciones de formato de mensajes.
+La pestaña de **Comportamiento de Mensajería** te permite configurar cómo tu agente maneja diferentes tipos de mensajes en cada canal conectado. Esto incluye las preferencias de manejo de archivos — por ejemplo, qué debe hacer el agente cuando un usuario envía una imagen, un documento, un audio o un video.
+
+### Preferencias de archivos y escenarios
+
+Para cada tipo de archivo (imágenes, documentos, audio, video), puedes:
+
+- **Habilitar o deshabilitar** el manejo de ese tipo de archivo.
+- **Definir escenarios** — casos específicos con instrucciones que le indican al agente cómo reaccionar.
+
+Los escenarios se muestran como una **lista vertical**. Cada fila muestra el título del escenario y sus instrucciones de un vistazo.
+
+#### Agregar un escenario
+
+1. Haz clic en el botón **Agregar escenario** (o **Agregar primer escenario** si aún no existe ninguno) para crear una nueva entrada.
+2. Aparece una nueva fila en modo de edición para que puedas escribir un **título** e **instrucciones** de inmediato.
+3. Haz clic en el botón **✓ (check)** cuando termines de editar.
+
+#### Editar un escenario
+
+- Haz clic en el **ícono de lápiz** en cualquier fila de escenario para entrar en modo de edición.
+- Modifica el título o las instrucciones en línea.
+- Haz clic en el botón **✓ (check)** para confirmar los cambios.
+
+#### Eliminar un escenario
+
+- Haz clic en el **ícono de papelera** en la fila del escenario.
+- Aparece un **diálogo de confirmación** pidiéndote que confirmes la eliminación.
+- Haz clic en **Eliminar** para borrar el escenario, o **Cancelar** para conservarlo.
+
+<Note>
+  La eliminación solo se aplica después de hacer clic en **Guardar**. Hasta entonces, puedes deshacer el cambio sin guardar.
+</Note>
+
+#### Validación: se requiere al menos un escenario
+
+Al guardar, la plataforma verifica que cada tipo de archivo **habilitado** tenga al menos un escenario con un título o instrucciones no vacíos. Si algún tipo de archivo habilitado no tiene escenarios definidos, aparecerá un mensaje de error listando los tipos que necesitan atención.
+
+<Warning>
+  No puedes guardar la configuración de comportamiento de mensajería si un tipo de archivo habilitado tiene cero escenarios. Agrega un escenario o deshabilita el tipo de archivo primero.
+</Warning>
 
 ---
 
-## ¿Qué sigue?
+## Consejos
 
-Una vez que tu agente está conectado a al menos un canal, está en producción. Dirígete a:
+<Tip>
+  Usa títulos de escenario claros y descriptivos para que tu equipo identifique rápidamente cada caso — por ejemplo, «Foto de recibo» o «Imagen de consulta de producto».
+</Tip>
 
-- [Conversaciones](/dashboards/es/conversaciones) para monitorear chats en tiempo real.
-- [Playground](/agent/es/playground) para seguir probando en un entorno seguro.
-- [Chat Externo](/channels/es/web) o [Burbuja Web](/channels/es/burbuja) para configuración detallada del canal.
+<Tip>
+  Prueba tus escenarios de manejo de archivos en el **Playground** antes de salir en vivo. Envía imágenes, documentos y audios de ejemplo para confirmar que el agente responde como se espera.
+</Tip>
