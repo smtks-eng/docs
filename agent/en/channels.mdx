@@ -81,61 +81,52 @@ The Connect page always displays a **Meta** section with three channel cards:
 | **Messenger** | Facebook Messenger channel via Meta |
 | **Instagram** | Instagram messaging channel via Meta |
 
-Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection process from here.
+Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection process directly.
 
 ---
 
 ## Messaging Behaviour tab
 
-The **Messaging Behaviour** tab lets you configure how your agent handles different message types on each connected channel. This includes file-handling preferences — for example, what the agent should do when a user sends an image, a document, an audio clip, or a video.
+The **Messaging Behaviour** tab lets you fine-tune how your agent processes and responds to messages on each connected channel. Settings like debounce time and file-type preferences are configured **per channel**, so you can tailor behavior for WhatsApp differently than for your web widget.
 
-### File preferences & scenarios
+### Selecting a channel
 
-For each file type (images, documents, audio, video), you can:
+At the top of the tab you'll find a **Channel** dropdown. Open it and choose the channel you want to configure. Each option shows the channel name, type, and identifier so you can easily tell them apart.
 
-- **Enable or disable** handling for that file type.
-- **Define scenarios** — specific cases with instructions that tell the agent how to react.
+### Copy configuration from another channel
 
-Scenarios are displayed as a **vertical list**. Each row shows the scenario title and its instructions at a glance.
+When you have **two or more channels** connected, a second dropdown — **Copy configuration from** — appears next to the channel selector. This lets you quickly replicate another channel's messaging settings (debounce time and file preferences) into the one you're currently editing.
 
-#### Adding a scenario
+<Steps>
+  <Step title="Select your target channel">
+    Use the **Channel** dropdown to pick the channel you want to update.
+  </Step>
+  <Step title="Choose a source channel">
+    Open the **Copy configuration from** dropdown and select the channel whose settings you want to copy.
+  </Step>
+  <Step title="Review the changes">
+    An amber banner will appear confirming that the configuration from the source channel has been staged. The banner reads:
+    *"Copying configuration from {source} → {target}. Review and Save to apply."*
+    At this point the settings are loaded into the editor but **have not been saved yet**.
+  </Step>
+  <Step title="Save or discard">
+    - Click **Save copy** to persist the copied settings.
+    - Click **Discard** in the banner to revert to the channel's original configuration.
+  </Step>
+</Steps>
 
-1. Click the **Add scenario** button (or **Add first scenario** if no scenarios exist yet) to create a new entry.
-2. A new row appears in editing mode so you can type a **title** and **instructions** right away.
-3. Click the **✓ (check)** button when you're done editing.
+<Tip>
+  The copy is not applied automatically — you always get a chance to review and adjust before saving. Switching to another channel also discards any unsaved copy.
+</Tip>
 
-#### Editing a scenario
+### Debounce time
 
-- Click the **pencil icon** on any scenario row to enter editing mode.
-- Change the title or instructions inline.
-- Click the **✓ (check)** button to confirm your changes.
+The **debounce time** setting controls how long the agent waits after the user's last message before it starts generating a response. This is useful on channels like WhatsApp where users often send multiple short messages in a row.
 
-#### Deleting a scenario
+### File preferences
 
-- Click the **trash icon** on the scenario row.
-- A **confirmation dialog** appears asking you to confirm the deletion.
-- Click **Delete** to remove the scenario, or **Cancel** to keep it.
+File preferences let you control which types of files (images, documents, audio, video) the agent can receive and process on each channel. Toggle each file type on or off depending on your use case.
 
 <Note>
-  The deletion only takes effect after you click **Save**. Until then, you can still undo the change by not saving.
+  Debounce and file-preference controls are hidden for internal channels like the Playground and API agent.
 </Note>
-
-#### Validation: at least one scenario required
-
-When you save, the platform checks that every **enabled** file type has at least one scenario with a non-empty title or instructions. If any enabled file type has no scenarios defined, an error message will appear listing the file types that need attention.
-
-<Warning>
-  You cannot save messaging behaviour settings if an enabled file type has zero scenarios. Either add a scenario or disable the file type first.
-</Warning>
-
----
-
-## Tips
-
-<Tip>
-  Use clear, descriptive scenario titles so your team can quickly identify each case — for example, "Receipt photo" or "Product inquiry image".
-</Tip>
-
-<Tip>
-  Test your file-handling scenarios in the **Playground** before going live. Send sample images, documents, and audio to confirm the agent responds as expected.
-</Tip>

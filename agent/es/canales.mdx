@@ -81,61 +81,52 @@ La página de Conecta siempre muestra una sección de **Meta** con tres tarjetas
 | **Messenger** | Canal de Facebook Messenger vía Meta |
 | **Instagram** | Canal de mensajería de Instagram vía Meta |
 
-Cada tarjeta muestra un botón de **Conectar** que abre el flujo de configuración para ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar el proceso de conexión desde aquí.
+Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración de ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar el proceso de conexión directamente.
 
 ---
 
 ## Pestaña de Comportamiento de Mensajería
 
-La pestaña de **Comportamiento de Mensajería** te permite configurar cómo tu agente maneja diferentes tipos de mensajes en cada canal conectado. Esto incluye las preferencias de manejo de archivos — por ejemplo, qué debe hacer el agente cuando un usuario envía una imagen, un documento, un audio o un video.
+La pestaña **Comportamiento de Mensajería** te permite ajustar cómo tu agente procesa y responde mensajes en cada canal conectado. Configuraciones como el tiempo de espera (*debounce*) y las preferencias de archivos se establecen **por canal**, lo que te permite adaptar el comportamiento de WhatsApp de forma diferente al de tu widget web.
 
-### Preferencias de archivos y escenarios
+### Seleccionar un canal
 
-Para cada tipo de archivo (imágenes, documentos, audio, video), puedes:
+En la parte superior de la pestaña encontrarás un desplegable de **Canal**. Ábrelo y elige el canal que deseas configurar. Cada opción muestra el nombre del canal, su tipo e identificador para que puedas distinguirlos fácilmente.
 
-- **Habilitar o deshabilitar** el manejo de ese tipo de archivo.
-- **Definir escenarios** — casos específicos con instrucciones que le indican al agente cómo reaccionar.
+### Copiar configuración desde otro canal
 
-Los escenarios se muestran como una **lista vertical**. Cada fila muestra el título del escenario y sus instrucciones de un vistazo.
+Cuando tienes **dos o más canales** conectados, aparece un segundo desplegable — **Copiar configuración desde** — junto al selector de canal. Esto te permite replicar rápidamente las configuraciones de mensajería de otro canal (tiempo de espera y preferencias de archivos) en el canal que estás editando.
 
-#### Agregar un escenario
+<Steps>
+  <Step title="Selecciona el canal destino">
+    Usa el desplegable de **Canal** para elegir el canal que deseas actualizar.
+  </Step>
+  <Step title="Elige un canal origen">
+    Abre el desplegable **Copiar configuración desde** y selecciona el canal cuyas configuraciones deseas copiar.
+  </Step>
+  <Step title="Revisa los cambios">
+    Aparecerá un banner ámbar confirmando que la configuración del canal origen ha sido cargada. El banner dice:
+    *«Copiando configuración de {origen} → {destino}. Revisa y guarda para aplicar.»*
+    En este punto los ajustes están cargados en el editor pero **aún no se han guardado**.
+  </Step>
+  <Step title="Guarda o descarta">
+    - Haz clic en **Guardar copia** para persistir los ajustes copiados.
+    - Haz clic en **Descartar** en el banner para volver a la configuración original del canal.
+  </Step>
+</Steps>
 
-1. Haz clic en el botón **Agregar escenario** (o **Agregar primer escenario** si aún no existe ninguno) para crear una nueva entrada.
-2. Aparece una nueva fila en modo de edición para que puedas escribir un **título** e **instrucciones** de inmediato.
-3. Haz clic en el botón **✓ (check)** cuando termines de editar.
+<Tip>
+  La copia no se aplica automáticamente — siempre tienes la oportunidad de revisar y ajustar antes de guardar. Cambiar a otro canal también descarta cualquier copia no guardada.
+</Tip>
 
-#### Editar un escenario
+### Tiempo de espera (debounce)
 
-- Haz clic en el **ícono de lápiz** en cualquier fila de escenario para entrar en modo de edición.
-- Modifica el título o las instrucciones en línea.
-- Haz clic en el botón **✓ (check)** para confirmar los cambios.
+El **tiempo de espera** controla cuánto espera el agente después del último mensaje del usuario antes de generar una respuesta. Es útil en canales como WhatsApp donde los usuarios suelen enviar varios mensajes cortos seguidos.
 
-#### Eliminar un escenario
+### Preferencias de archivos
 
-- Haz clic en el **ícono de papelera** en la fila del escenario.
-- Aparece un **diálogo de confirmación** pidiéndote que confirmes la eliminación.
-- Haz clic en **Eliminar** para borrar el escenario, o **Cancelar** para conservarlo.
+Las preferencias de archivos te permiten controlar qué tipos de archivo (imágenes, documentos, audio, video) puede recibir y procesar el agente en cada canal. Activa o desactiva cada tipo de archivo según tu caso de uso.
 
 <Note>
-  La eliminación solo se aplica después de hacer clic en **Guardar**. Hasta entonces, puedes deshacer el cambio sin guardar.
+  Los controles de tiempo de espera y preferencias de archivos están ocultos para canales internos como el Playground y el agente API.
 </Note>
-
-#### Validación: se requiere al menos un escenario
-
-Al guardar, la plataforma verifica que cada tipo de archivo **habilitado** tenga al menos un escenario con un título o instrucciones no vacíos. Si algún tipo de archivo habilitado no tiene escenarios definidos, aparecerá un mensaje de error listando los tipos que necesitan atención.
-
-<Warning>
-  No puedes guardar la configuración de comportamiento de mensajería si un tipo de archivo habilitado tiene cero escenarios. Agrega un escenario o deshabilita el tipo de archivo primero.
-</Warning>
-
----
-
-## Consejos
-
-<Tip>
-  Usa títulos de escenario claros y descriptivos para que tu equipo identifique rápidamente cada caso — por ejemplo, «Foto de recibo» o «Imagen de consulta de producto».
-</Tip>
-
-<Tip>
-  Prueba tus escenarios de manejo de archivos en el **Playground** antes de salir en vivo. Envía imágenes, documentos y audios de ejemplo para confirmar que el agente responde como se espera.
-</Tip>
