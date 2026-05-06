@@ -48,59 +48,30 @@ Haz clic en cualquier etapa del lienzo para abrir el panel de **Configuración d
 | **Búsqueda de temas** | Interruptor para habilitar la búsqueda en la base de conocimiento, con filtrado opcional por temas. |
 | **Transiciones** | Todas las transiciones salientes de esta etapa, cada una con su destino y condición. |
 
+### Guardar cambios de etapa
+
+En la parte inferior del panel de Configuración de Etapa encontrarás el botón **Guardar Etapa**. Este botón está **deshabilitado** (en gris) cuando la configuración actual de la etapa y sus transiciones son idénticas a los valores que tenían cuando se abrió el panel. Se **habilita** en cuanto modificas cualquier campo — nombre de la etapa, instrucciones, fragmentos de conocimiento, configuración de temas o condiciones de transición.
+
+<Tip>
+Si realizas cambios y luego los deshaces para que la etapa quede igual que al inicio, el botón se deshabilitará automáticamente de nuevo. Esto te ayuda a evitar guardados innecesarios.
+</Tip>
+
 ### Gestión de transiciones
 
 Las transiciones se configuran **dentro del panel de configuración de la etapa origen**, en la sección **Transiciones**:
 
 1. **Crear una transición**: dibuja una conexión de una etapa a otra en el lienzo. Al conectar dos etapas, el panel de configuración de la etapa origen se abre automáticamente para que puedas definir la condición de inmediato.
-2. **Editar una condición**: abre la configuración de la etapa origen y ve a la sección de Transiciones. Cada transición saliente muestra el nombre de la etapa destino y un campo de texto para la condición.
-3. **Eliminar una transición**: usa el ícono de papelera junto a la transición en el panel.
+2. **Editar una condición**: abre la configuración de la etapa origen y desplázate hasta la sección de Transiciones. Cada transición muestra su etapa destino y un campo editable para la condición.
+3. **Eliminar una transición**: haz clic en el botón de eliminar junto a ella en la lista de transiciones, o selecciona la arista en el lienzo y presiona `Delete` / `Backspace`.
 
-<Tip>
-Las transiciones con condiciones vacías se resaltan con un borde rojo punteado para ayudarte a detectarlas antes de guardar.
-</Tip>
+<Warning>
+Las transiciones con **condiciones vacías** bloquearán el guardado del workflow. Asegúrate de que cada transición tenga una condición válida antes de guardar.
+</Warning>
 
-## Crear un workflow
+### Controles del lienzo
 
-<Steps>
-  <Step title="Ve a Workflows">
-    Navega a **Agente IA > Diseño > Workflows** en el menú lateral.
-  </Step>
-  <Step title="Crea un nuevo workflow">
-    Haz clic en **New Workflow**. Se crea un workflow nuevo y se abre el editor visual.
-  </Step>
-  <Step title="Agrega etapas">
-    En el editor, agrega etapas que representen cada paso de la conversación. Dale a cada etapa un nombre claro — se generará un identificador único automáticamente a partir del nombre.
-  </Step>
-  <Step title="Define transiciones">
-    Conecta las etapas dibujando aristas entre ellas en el lienzo. Al crear una conexión, el panel de configuración de la etapa origen se abre para que puedas escribir la condición de transición de inmediato.
-  </Step>
-  <Step title="Asigna canales">
-    En la configuración del workflow, asigna los canales donde debe ejecutarse. El canal Playground se asigna automáticamente para que puedas probar inmediatamente.
-  </Step>
-  <Step title="Guarda y prueba">
-    Guarda y ve al **Playground** para probar el flujo de conversación completo.
-  </Step>
-</Steps>
-
-## Validaciones al guardar
-
-Al guardar un workflow, el editor valida:
-
-- **Sin condiciones vacías** — Toda transición debe tener una condición. Si alguna transición no tiene condición, verás un mensaje de error indicando qué conexión necesita atención (ej. *Etapa A → Etapa B*).
-- **Sin identificadores duplicados** — Cada etapa debe tener un identificador único. Si dos o más etapas comparten el mismo identificador, se te pedirá renombrar una antes de guardar.
-
-## Probar un workflow
-
-Usa el **Playground** (Agente IA > Diseño > Playground) para probar tu workflow antes de ponerlo en producción. El canal Playground se asigna automáticamente al crear un workflow para que puedas simular el flujo completo.
-
-<Tip>
-Prueba tu workflow exhaustivamente en cada transición. Intenta dar respuestas inesperadas para asegurarte de que el agente maneja los casos extremos antes de asignarlo a un canal en vivo.
-</Tip>
-
-## Notas clave
-
-- Un canal solo puede ejecutar **un workflow** a la vez.
-- Los **workflows** operan **junto con** la identidad, conocimiento y habilidades del agente — no los reemplazan.
-- Los identificadores de etapa se generan automáticamente a partir del nombre y deben ser únicos dentro del workflow.
-- Eliminar un workflow **no afecta** las conversaciones ya en curso en ese canal.
+- **Acercar/alejar** con la rueda del ratón o los controles en la esquina inferior izquierda del lienzo.
+- **Desplazar** haciendo clic y arrastrando en un área vacía del lienzo.
+- **Seleccionar una etapa** haciendo clic en ella. Las etapas seleccionadas se resaltan.
+- **Eliminar una etapa** seleccionándola y presionando `Delete` / `Backspace`, o usando la opción de eliminar en el menú contextual de la etapa.
+- **Selección múltiple** manteniendo `Shift` y haciendo clic, o arrastrando un recuadro de selección.

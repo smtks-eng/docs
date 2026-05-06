@@ -48,59 +48,30 @@ Click any stage on the canvas to open the **Stage Settings** panel on the right.
 | **Topics Search** | Toggle to enable searching the knowledge base, with optional topic filtering. |
 | **Transitions** | All outgoing transitions from this stage, each with its target and condition. |
 
+### Saving stage changes
+
+At the bottom of the Stage Settings panel you'll find the **Save Stage** button. This button is **disabled** (grayed out) when the current stage settings and transitions are identical to their values when the panel was opened. It becomes **enabled** as soon as you modify any field — stage name, instructions, knowledge snippets, topic settings, or transition conditions.
+
+<Tip>
+If you make changes and then undo them so the stage matches its original state, the button will automatically disable again. This helps you avoid unnecessary saves.
+</Tip>
+
 ### Managing Transitions
 
 Transitions are configured **inside the source stage's settings panel**, in the **Transitions** section:
 
 1. **Create a transition** by drawing a connection from one stage to another on the canvas. When you connect two stages, the source stage's settings panel opens automatically so you can define the condition right away.
-2. **Edit a condition** by opening the source stage's settings and scrolling to the Transitions section. Each outgoing transition shows the target stage name and a text field for the condition.
-3. **Delete a transition** using the trash icon next to the transition in the panel.
+2. **Edit a condition** by opening the source stage's settings and scrolling to the Transitions section. Each transition shows its target stage and an editable condition field.
+3. **Delete a transition** by clicking the delete button next to it in the transitions list, or by selecting the edge on the canvas and pressing `Delete` / `Backspace`.
 
-<Tip>
-Transitions with empty conditions are highlighted with a red dashed border to help you spot them before saving.
-</Tip>
+<Warning>
+Transitions with **empty conditions** will block saving the workflow. Make sure every transition has a meaningful condition before saving.
+</Warning>
 
-## Creating a Workflow
+### Canvas Controls
 
-<Steps>
-  <Step title="Go to Workflows">
-    Navigate to **AI Agent > Design > Workflows** in the left sidebar.
-  </Step>
-  <Step title="Create a new workflow">
-    Click **New Workflow**. A new workflow is created automatically and you're taken to the visual editor.
-  </Step>
-  <Step title="Add stages">
-    In the editor, add stages to represent each step of the conversation. Give each stage a clear name — a unique identifier is generated automatically from the name.
-  </Step>
-  <Step title="Define transitions">
-    Connect stages by drawing edges between them on the canvas. When you create a connection, the source stage's settings panel opens so you can immediately write the transition condition.
-  </Step>
-  <Step title="Assign channels">
-    In the workflow settings, assign the channels where this workflow should run. The Playground channel is auto-assigned on creation so you can test immediately.
-  </Step>
-  <Step title="Save and test">
-    Save the workflow and head to the **Playground** to test the full conversation flow end to end.
-  </Step>
-</Steps>
-
-## Validation on Save
-
-When you save a workflow, the editor validates:
-
-- **No empty conditions** — Every transition must have a non-empty condition. If a transition is missing a condition, you'll see an error toast showing which connection needs attention (e.g. *Stage A → Stage B*).
-- **No duplicate identifiers** — Each stage must have a unique identifier. If two or more stages share the same identifier, you'll be asked to rename one before saving.
-
-## Testing a Workflow
-
-Use the **Playground** (AI Agent > Design > Playground) to test your workflow before going live. The Playground channel is automatically assigned when you create a workflow, so you can simulate the full conversation flow right away.
-
-<Tip>
-Test your workflow thoroughly at each transition. Try giving unexpected answers to make sure the agent handles edge cases gracefully before assigning it to a live channel.
-</Tip>
-
-## Key notes
-
-- A channel can only run **one workflow** at a time.
-- **Workflows** operate alongside the agent's identity, knowledge, and skills — they don't replace them.
-- Stage identifiers are generated automatically from the stage name and must be unique within a workflow.
-- Deleting a workflow does **not** affect conversations already in progress on that channel.
+- **Zoom in/out** with the scroll wheel or the controls at the bottom-left of the canvas.
+- **Pan** by clicking and dragging on an empty area of the canvas.
+- **Select a stage** by clicking on it. Selected stages are highlighted.
+- **Delete a stage** by selecting it and pressing `Delete` / `Backspace`, or by using the delete option in the stage's context menu.
+- **Multi-select** stages by holding `Shift` and clicking, or by dragging a selection box.
