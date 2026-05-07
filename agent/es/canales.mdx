@@ -81,52 +81,51 @@ La página de Conecta siempre muestra una sección de **Meta** con tres tarjetas
 | **Messenger** | Canal de Facebook Messenger vía Meta |
 | **Instagram** | Canal de mensajería de Instagram vía Meta |
 
-Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración de ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar el proceso de conexión directamente.
+Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración para ese canal específico. No necesitas configurar primero la integración de Meta — las tarjetas siempre están visibles para que puedas iniciar la conexión en cualquier momento.
 
 ---
 
 ## Pestaña de Comportamiento de Mensajería
 
-La pestaña **Comportamiento de Mensajería** te permite ajustar cómo tu agente procesa y responde mensajes en cada canal conectado. Configuraciones como el tiempo de espera (*debounce*) y las preferencias de archivos se establecen **por canal**, lo que te permite adaptar el comportamiento de WhatsApp de forma diferente al de tu widget web.
+La pestaña **Comportamiento de Mensajería** te permite ajustar cómo tu agente procesa los mensajes entrantes en cada canal conectado. Selecciona un canal del menú desplegable en la parte superior de la pestaña para configurar sus ajustes.
 
-### Seleccionar un canal
+La pestaña se organiza en dos secciones de configuración principales que se muestran **una al lado de la otra** en pantallas grandes (y apiladas en pantallas más pequeñas). Ambas secciones son **colapsables** — haz clic en el encabezado de la sección para expandirla o contraerla, para que puedas enfocarte en los ajustes que necesitas.
 
-En la parte superior de la pestaña encontrarás un desplegable de **Canal**. Ábrelo y elige el canal que deseas configurar. Cada opción muestra el nombre del canal, su tipo e identificador para que puedas distinguirlos fácilmente.
+### Importar configuración desde otro canal
 
-### Copiar configuración desde otro canal
-
-Cuando tienes **dos o más canales** conectados, aparece un segundo desplegable — **Copiar configuración desde** — junto al selector de canal. Esto te permite replicar rápidamente las configuraciones de mensajería de otro canal (tiempo de espera y preferencias de archivos) en el canal que estás editando.
-
-<Steps>
-  <Step title="Selecciona el canal destino">
-    Usa el desplegable de **Canal** para elegir el canal que deseas actualizar.
-  </Step>
-  <Step title="Elige un canal origen">
-    Abre el desplegable **Copiar configuración desde** y selecciona el canal cuyas configuraciones deseas copiar.
-  </Step>
-  <Step title="Revisa los cambios">
-    Aparecerá un banner ámbar confirmando que la configuración del canal origen ha sido cargada. El banner dice:
-    *«Copiando configuración de {origen} → {destino}. Revisa y guarda para aplicar.»*
-    En este punto los ajustes están cargados en el editor pero **aún no se han guardado**.
-  </Step>
-  <Step title="Guarda o descarta">
-    - Haz clic en **Guardar copia** para persistir los ajustes copiados.
-    - Haz clic en **Descartar** en el banner para volver a la configuración original del canal.
-  </Step>
-</Steps>
+Cuando tienes más de un canal conectado, puedes replicar ajustes rápidamente **importando** la configuración de otro canal. Usa el desplegable **"Importar configuración desde"** para seleccionar un canal de origen. Aparece un banner de confirmación mostrando desde qué canal se importará la configuración y hacia cuál canal destino. Revisa los valores importados y haz clic en **Guardar importación** para aplicar, o **Descartar** para revertir.
 
 <Tip>
-  La copia no se aplica automáticamente — siempre tienes la oportunidad de revisar y ajustar antes de guardar. Cambiar a otro canal también descarta cualquier copia no guardada.
+  Importar es útil cuando quieres un comportamiento consistente entre canales — configura un canal primero y luego importa su configuración a los demás.
 </Tip>
 
-### Tiempo de espera (debounce)
+### Debounce de mensajes
 
-El **tiempo de espera** controla cuánto espera el agente después del último mensaje del usuario antes de generar una respuesta. Es útil en canales como WhatsApp donde los usuarios suelen enviar varios mensajes cortos seguidos.
+La sección **Debounce de mensajes** (marcada con un ícono ⚡) controla cuánto tiempo espera el agente antes de procesar una ráfaga de mensajes consecutivos del usuario como una sola entrada. Esto es especialmente útil en plataformas de mensajería donde los usuarios tienden a enviar varios mensajes cortos seguidos.
 
-### Preferencias de archivos
-
-Las preferencias de archivos te permiten controlar qué tipos de archivo (imágenes, documentos, audio, video) puede recibir y procesar el agente en cada canal. Activa o desactiva cada tipo de archivo según tu caso de uso.
+- Usa el **deslizador** o los **botones preestablecidos** (0s, 1s, 3s, 5s, 8s, 10s, 15s) para ajustar la ventana de debounce.
+- Una **vista previa en vivo** muestra cómo se agrupan varios mensajes y cuándo responde el agente.
+- Cuando el debounce está por encima de 0 segundos, una advertencia te recuerda que el agente esperará antes de responder.
 
 <Note>
-  Los controles de tiempo de espera y preferencias de archivos están ocultos para canales internos como el Playground y el agente API.
+  La sección de debounce está oculta para canales internos como el Playground y el API Agent, donde la agrupación de mensajes no aplica.
 </Note>
+
+### Preferencias de archivos (Multimodal)
+
+La sección **Preferencias de archivos** (marcada con un ícono de 📄 archivos apilados) te permite controlar qué tipos de archivo puede recibir y procesar tu agente en el canal seleccionado. Los tipos de archivo soportados incluyen:
+
+| Tipo de archivo | Descripción |
+|---|---|
+| **Documentos** | PDFs, archivos Word y otros documentos de texto |
+| **Imágenes** | Fotos y archivos de imagen |
+| **Audio** | Notas de voz y grabaciones de audio |
+| **Video** | Archivos y clips de video |
+
+Para cada tipo de archivo puedes:
+- **Activar o desactivar** la recepción con un interruptor.
+- **Configurar escenarios** — definir instrucciones específicas de cómo el agente debe manejar archivos de ese tipo.
+
+<Tip>
+  Las preferencias de archivos configuradas aquí afectan el comportamiento del agente en el canal seleccionado. Recuerda configurarlas para cada canal donde desees soporte multimodal.
+</Tip>

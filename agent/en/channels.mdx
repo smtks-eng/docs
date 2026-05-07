@@ -81,52 +81,51 @@ The Connect page always displays a **Meta** section with three channel cards:
 | **Messenger** | Facebook Messenger channel via Meta |
 | **Instagram** | Instagram messaging channel via Meta |
 
-Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection process directly.
+Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection at any time.
 
 ---
 
 ## Messaging Behaviour tab
 
-The **Messaging Behaviour** tab lets you fine-tune how your agent processes and responds to messages on each connected channel. Settings like debounce time and file-type preferences are configured **per channel**, so you can tailor behavior for WhatsApp differently than for your web widget.
+The **Messaging Behaviour** tab lets you fine-tune how your agent processes incoming messages on each connected channel. Select a channel from the dropdown at the top of the tab to configure its settings.
 
-### Selecting a channel
+The tab is organized into two main configuration sections displayed **side by side** on larger screens (and stacked on smaller screens). Both sections are **collapsible** — click the section header to expand or collapse it, so you can focus on the settings you need.
 
-At the top of the tab you'll find a **Channel** dropdown. Open it and choose the channel you want to configure. Each option shows the channel name, type, and identifier so you can easily tell them apart.
+### Import configuration from another channel
 
-### Copy configuration from another channel
-
-When you have **two or more channels** connected, a second dropdown — **Copy configuration from** — appears next to the channel selector. This lets you quickly replicate another channel's messaging settings (debounce time and file preferences) into the one you're currently editing.
-
-<Steps>
-  <Step title="Select your target channel">
-    Use the **Channel** dropdown to pick the channel you want to update.
-  </Step>
-  <Step title="Choose a source channel">
-    Open the **Copy configuration from** dropdown and select the channel whose settings you want to copy.
-  </Step>
-  <Step title="Review the changes">
-    An amber banner will appear confirming that the configuration from the source channel has been staged. The banner reads:
-    *"Copying configuration from {source} → {target}. Review and Save to apply."*
-    At this point the settings are loaded into the editor but **have not been saved yet**.
-  </Step>
-  <Step title="Save or discard">
-    - Click **Save copy** to persist the copied settings.
-    - Click **Discard** in the banner to revert to the channel's original configuration.
-  </Step>
-</Steps>
+When you have more than one channel connected, you can quickly replicate settings by **importing** the configuration from another channel. Use the **"Import configuration from"** dropdown to select a source channel. A confirmation banner appears showing which channel's settings will be imported and into which target channel. Review the imported values, then click **Save import** to apply, or **Discard** to revert.
 
 <Tip>
-  The copy is not applied automatically — you always get a chance to review and adjust before saving. Switching to another channel also discards any unsaved copy.
+  Importing is useful when you want consistent behaviour across channels — set up one channel first, then import its configuration into the others.
 </Tip>
 
-### Debounce time
+### Message Debounce
 
-The **debounce time** setting controls how long the agent waits after the user's last message before it starts generating a response. This is useful on channels like WhatsApp where users often send multiple short messages in a row.
+The **Message Debounce** section (marked with a ⚡ icon) controls how long the agent waits before processing a burst of consecutive user messages as a single input. This is especially useful on messaging platforms where users tend to send several short messages in a row.
 
-### File preferences
-
-File preferences let you control which types of files (images, documents, audio, video) the agent can receive and process on each channel. Toggle each file type on or off depending on your use case.
+- Use the **slider** or the **preset buttons** (0s, 1s, 3s, 5s, 8s, 10s, 15s) to set the debounce window.
+- A **live preview** shows how multiple messages are grouped and when the agent responds.
+- When the debounce is set above 0 seconds, a warning reminds you that the agent will wait before replying.
 
 <Note>
-  Debounce and file-preference controls are hidden for internal channels like the Playground and API agent.
+  The debounce section is hidden for internal channels like the Playground and API Agent, where message grouping is not applicable.
 </Note>
+
+### File Preferences (Multimodal)
+
+The **File Preferences** section (marked with a 📄 stacked-files icon) lets you control which file types your agent can receive and process on the selected channel. Supported file types include:
+
+| File type | Description |
+|---|---|
+| **Documents** | PDFs, Word files, and other text documents |
+| **Images** | Photos and image files |
+| **Audio** | Voice notes and audio recordings |
+| **Video** | Video files and clips |
+
+For each file type you can:
+- **Enable or disable** reception with a toggle switch.
+- **Configure scenarios** — define specific instructions for how the agent should handle files of that type.
+
+<Tip>
+  File preferences configured here affect the agent's behaviour on the selected channel. Remember to configure them for each channel where you want multimodal support.
+</Tip>
