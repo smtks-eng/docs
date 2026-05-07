@@ -22,7 +22,7 @@ A bar chart showing the volume of tool invocations per day across the selected d
 
 ### Invocations table
 A detailed table with one row per tool invocation. Each row shows:
-- **Tool name** — which skill or tool was called
+- **Tool name** — which skill or tool was called. For **custom tools**, the custom tool's own name is displayed; for **predefined (builtin) tools**, the predefined tool name is shown.
 - **Status** — success, error, or timeout
 - **Timestamp** — when the invocation occurred
 - **Request / Response** — expand any row to inspect the exact input and output of the call
@@ -32,7 +32,7 @@ A detailed table with one row per tool invocation. Each row shows:
 Use the filters at the top of the page to narrow down the log:
 
 - **Date range** — filter by a specific period (today, last 7 days, month-to-date, custom)
-- **Tools** — filter by specific tools or skills (only tools with activity in the selected period appear)
+- **Tools** — filter by specific tools or skills. The dropdown lists both **predefined** and **custom** tools that had activity in the selected period. Each option shows the tool name followed by a type label (*Builtin* or *Custom*) so you can tell them apart at a glance.
 - **Status** — filter by execution result (success, error, timeout)
 
 <Tip>
