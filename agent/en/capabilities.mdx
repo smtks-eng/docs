@@ -53,57 +53,117 @@ Manage your AI agent's skills through two types of tools: predefined tools that 
     1. Go to **AI Agent > Design > Skills > Collect Information**.  
     2. Click **New Configuration** to start.  
     3. Enter a **Name** for your configuration (e.g., `registro_interesados`).  
-    4. Add any **Special Instructions** to guide the agent's data-collection behavior.  
-    5. Define one or more **fields** to collect (e.g., Name, Email, Phone).  
-    6. Choose the **storage** or integration target for collected data.  
-    7. Click **Save** to activate the configuration.  
+    4. Add any **Special Instructions** to guide the agent's behavior while collecting data.  
+    5. Add **Fields** to specify the data points you want to collect:  
+       - **Field name** (e.g., `Full name`)  
+       - **Field type** (text, number, date, boolean, or enum)  
+       - **Instructions** for the agent (e.g., "Ask politely for the user's full name")  
+       - **Required / Optional** toggle  
+       - **Validation** — for text or number fields, you can add a **regular expression** (regex) to validate the user's input before accepting it  
+    6. Choose the **Channels** where this configuration should be active.  
+    7. Click **Save** to activate.  
     </Accordion>  
 
     ---
 
-    ### **Escalate to Human**  
-    - **Description:** Allows the agent to transfer the conversation to a live human agent when the user requests it, or when the agent cannot resolve the query.  
+    ### **Search Links (Web Search)**  
+    - **Description:** Allows the agent to search the web for real-time information. The agent will use external web searches to supplement its responses when necessary.  
     - **Toggle:** Off by default.  
-    - **Configuration:** Requires a compatible integration (e.g., Freshchat or Zendesk) to be connected. You can also define escalation cases—specific situations where the agent should proactively trigger escalation.  
-
-    <Tip>
-    When configuring escalation cases, you'll see an informational hint reminding you that you can also **tag FAQs to force escalation on specific topics**. Click the **Manage FAQs** link in the hint to go directly to the [Knowledge](/agent/en/knowledge) page where you can set up FAQ-based escalation triggers.
-    </Tip>
-
-    <Accordion title="How to Configure Escalation Cases">  
-    1. Go to **AI Agent > Design > Skills** and enable the **Escalate to Human** tool.  
-    2. Click **Configuration** to open the escalation settings.  
-    3. Click **Add case** to create a new escalation case.  
-    4. For each case, provide a **name** and a **situation** description that tells the agent when to escalate.  
-    5. You can add multiple cases (up to the platform maximum).  
-    6. Click **Save** to apply your changes.  
-    </Accordion>  
+    - **Configuration:** No setup required.  
 
     ---
 
-    ### **Schedule Appointment**  
-    - **Description:** Enables the agent to help users book or schedule appointments.  
+    ### **Human Escalation**  
+    - **Description:** Enables the agent to hand off a conversation to a live human agent when it cannot resolve the user's request.  
     - **Toggle:** Off by default.  
-    - **Configuration:** Requires integration with a scheduling service or calendar system.  
+    - **Channel support:** This tool only appears and is configurable if you have an active integration with **Freshchat** or **Zendesk**.  
+    - **Configuration:** Select which integration should handle the escalation.  
+
+    ---
+
+    ### **Send Email**  
+    - **Description:** Allows the agent to send emails on behalf of your organization during a conversation.  
+    - **Toggle:** Off by default.  
+    - **Configuration:** Email settings (sender address, templates, etc.) must be configured before the agent can send emails.  
 
   </Tab>
 
-  <Tab title="Tools (Custom)">
-    The **Tools (Custom)** tab lets you create your own tools to extend your agent's functionality beyond the predefined set. Custom tools allow your agent to call external APIs, perform calculations, or trigger specific actions during conversations.
+  <Tab title="Custom Tools">
+    The **Custom Tools** tab allows you to create your own tools that extend what your AI agent can do. Unlike predefined tools, custom tools connect your agent to **external APIs and services** — enabling it to look up data, trigger actions, or interact with your internal systems during a conversation.
 
     ---
 
-    ## How to Create a Custom Tool
+    ## What is a Custom Tool?
 
-    1. Navigate to **AI Agent > Design > Skills** in the left menu.  
-    2. Switch to the **Tools (Custom)** tab.  
-    3. Click **New Tool** to start creating.  
-    4. Fill in the tool's **Name**, **Description**, and configure the **API endpoint** or action it should trigger.  
-    5. Define any **parameters** the tool needs from the conversation.  
-    6. Click **Save** to make the tool available.  
+    A custom tool is an HTTP-based integration that your agent can call mid-conversation. You define:
+    - The **endpoint URL** your agent should call
+    - The **HTTP method** (GET, POST, PUT, DELETE, PATCH)
+    - The **headers** and **authentication** needed
+    - The **input parameters** the agent should extract from the conversation
+    - The **output fields** the agent should use from the response
 
-    <Note>  
-    Custom tools require technical knowledge to set up, including familiarity with REST APIs and JSON schemas.  
-    </Note>  
+    When the agent determines that a custom tool is relevant to the user's request, it automatically extracts the required parameters from the conversation, calls the endpoint, and uses the response to continue the interaction.
+
+    ---
+
+    ## Creating a Custom Tool
+
+    <Steps>
+      <Step title="Go to Skills > Custom Tools">
+        Navigate to **AI Agent > Design > Skills** and select the **Custom Tools** tab.
+      </Step>
+      <Step title="Click New Tool">
+        Click the **New Tool** button to open the tool creation form.
+      </Step>
+      <Step title="Fill in the general information">
+        Provide the following details:
+        - **Name** — a unique identifier for the tool (used internally by the agent). Use lowercase and underscores (e.g., `check_order_status`).
+        - **Title** — an optional human-readable label for the tool. When set, this title is displayed in dashboards (such as the Task Log) instead of the internal name, making it easier to identify tools at a glance.
+        - **Description** — explain what the tool does. This helps the agent decide when to use it.
+      </Step>
+      <Step title="Configure the HTTP request">
+        - Select the **HTTP method** (GET, POST, etc.)
+        - Enter the **endpoint URL**
+        - Add any required **headers** (e.g., `Authorization: Bearer <token>`)
+        - Choose the **authentication type** if needed
+      </Step>
+      <Step title="Define input parameters">
+        Add the parameters the agent needs to extract from the conversation:
+        - **Parameter name** — the key expected by the API
+        - **Type** — string, number, boolean, etc.
+        - **Description** — how the agent should identify this value in the conversation
+        - **Required** — whether the parameter is mandatory
+      </Step>
+      <Step title="Define output fields">
+        Specify which fields from the API response the agent should use:
+        - **Field name** — the key in the response JSON
+        - **Description** — what this field represents (helps the agent use it naturally in conversation)
+      </Step>
+      <Step title="Save">
+        Click **Save** to create the tool. It will be available for your agent to use immediately.
+      </Step>
+    </Steps>
+
+    <Tip>
+      Write clear, specific descriptions for both the tool and its parameters. The better the agent understands what the tool does and what each parameter means, the more accurately it will use the tool during conversations.
+    </Tip>
+
+    <Tip>
+      Use the **Title** field to give your tool a friendly, descriptive label (e.g., "Check Order Status"). This title appears in the Task Log and other dashboards, making it much easier to monitor tool activity without needing to remember internal names.
+    </Tip>
+
+    ---
+
+    ## Managing Custom Tools
+
+    From the Custom Tools tab, you can:
+    - **Edit** any existing tool by clicking on it
+    - **Delete** tools that are no longer needed
+    - **Test** tools directly from the Playground to verify they work as expected
+
+    <Note>
+    Custom tools are scoped to your **organization**. All agents in your organization can potentially use any custom tool you create.
+    </Note>
+
   </Tab>
 </Tabs>

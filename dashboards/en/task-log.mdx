@@ -22,10 +22,14 @@ A bar chart showing the volume of tool invocations per day across the selected d
 
 ### Invocations table
 A detailed table with one row per tool invocation. Each row shows:
-- **Tool name** — which skill or tool was called. For **custom tools**, the custom tool's own name is displayed; for **predefined (builtin) tools**, the predefined tool name is shown.
+- **Tool name** — which skill or tool was called. For **custom tools**, the tool's **title** is displayed if one has been set; otherwise the tool's internal name is shown. For **predefined (builtin) tools**, the predefined tool name is shown.
 - **Status** — success, error, or timeout
 - **Timestamp** — when the invocation occurred
 - **Request / Response** — expand any row to inspect the exact input and output of the call
+
+<Tip>
+  If you have many custom tools, giving each one a descriptive **Title** (set in **Skills > Custom Tools**) makes it much easier to identify them in the Task Log.
+</Tip>
 
 ## Filters
 
