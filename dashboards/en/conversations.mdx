@@ -45,36 +45,52 @@ Below the KPIs, you will find a table with all recorded conversations. Each row 
 - **First Response Time (FRT):** The time elapsed between the user's first message and the agent's first reply. Displayed in a human-readable format (e.g., `45s`, `2m 30s`, `1h 15m`).  
 - **Average Response Time (ART):** The average time the agent took to respond across all messages in the conversation. Uses the same human-readable format as FRT.  
 - **Start:** Date and time when the conversation started.  
-- **Control:** Indicates who handled the conversation. For AI-handled conversations, a generic label is shown (e.g., "AI"). For human-handled conversations, the **name of the specialist attending** is displayed instead of a generic "Human" label—so you can see exactly which team member took over. If no team member is assigned, the generic human label is shown as a fallback.  
-- **Status:** Current status of the conversation (Active, Ended).  
-- **Tag:** Labels or categories assigned to the conversation.  
-- **Flag:** A quality flag (Good, Bad, Needs Attention) you can assign to a conversation.
+- **Control:** Indicates who handled the conversation. For AI-handled conversations, a generic label is shown (e.g., "AI"). For human-handled conversations, the **name of the specialist** who took over is displayed.
+- **Flag:** A quality flag assigned to the conversation (Good, Bad, or Needs Attention).
+
+### Column Visibility & Reordering
+
+You can customize the table to focus on the data that matters most:
+
+- **Show or hide columns** — Click the columns menu and toggle visibility by clicking the column name or the eye icon next to it.
+- **Reorder columns** — Drag columns in the columns menu to rearrange their order in the table.
 
 ---
 
-## Conversation Panel (Explorer Drawer)
+## Filters
 
-Click any row in the Conversations Table to open a side panel with the full conversation details. The panel includes two tabs:
+The Conversations Explorer includes a powerful filter bar that lets you slice the data across multiple dimensions:
 
-### Chat tab
-Displays the complete message transcript for the selected conversation, including both user and agent messages.
-
-### Details tab
-
-When opening a conversation from the **Conversations Explorer**, the Details tab shows a **compact summary** with the most relevant information at a glance:
-
-| Field | Description |
-|---|---|
-| **ID** | The unique conversation identifier |
-| **Client** | The external user ID |
-| **Channel** | The integration name and channel type |
-| **Messages** | Total number of messages exchanged |
-| **FRT** | First Response Time (in seconds) |
-| **ART** | Average Response Time (in seconds) |
-| **Flag** | The quality flag assigned to the conversation (Good, Bad, Needs Attention) |
-| **Metadata** | Any additional user metadata passed from the channel, shown as formatted JSON |
-| **Happened** | The date and time the conversation was created |
+- **Date range** — Use presets (Today, Last 7 days, Month-to-date, Quarter-to-date, Year-to-date) or pick a custom range.
+- **Channel** — Filter by one or more communication channels. Each channel option displays its recognizable icon for quick identification.
+- **Status** — Filter by conversation status (Active, Ended, etc.).
+- **Control** — Filter by who handled the conversation (AI or human).
+- **Flag** — Filter by conversation quality flag (Good, Bad, Needs Attention).
+- **Tools** — Filter by the tools/skills used during the conversation.
+- **Metadata** — Add key-value metadata filters for advanced segmentation.
+- **Search** — Free-text search across conversations.
 
 <Tip>
-The compact details view is designed for quick triage. It lets you assess key conversation metrics without leaving the explorer table.
+**Your filters are remembered.** The platform automatically saves your filter selections per agent so the next time you return to the Conversations dashboard, your previous view is restored exactly as you left it. Date presets like "Last 7 days" stay relative, so they always show the most recent data. The free-text search field is the only filter that is intentionally not persisted.
 </Tip>
+
+---
+
+## Conversation Panel
+
+When you click on a conversation row, a detailed side panel opens showing:
+
+- **Conversation details** — Status (shown with color-coded badges: green for active, purple for ended), channel, start time, message counts, response times, and quality flag.
+- **Flag indicator** — Flags are displayed as styled badges with intuitive icons: a thumbs-up for Good, thumbs-down for Bad, and a flag icon for Needs Attention.
+- **Chat transcript** — The full conversation between the user and the agent.
+- **Metadata** — If additional metadata was captured (e.g., handoff data), it is displayed in a syntax-highlighted JSON view with keys visually distinguished for easy reading.
+
+<Tip>
+Use the conversation panel to quickly audit individual sessions without navigating away from the table.
+</Tip>
+
+---
+
+## Exporting Data
+
+You can export the filtered conversation data for offline analysis or reporting.

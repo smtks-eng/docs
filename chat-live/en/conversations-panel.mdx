@@ -1,51 +1,43 @@
 ---
 title: "Conversations Panel"
-language: en
-description: "Monitor and participate in live conversations between your AI agent and users. View escalated chats, reply as a human agent, and manage ongoing interactions."
+description: "Manage live conversations with users across all channels from a unified inbox."
 ---
 
-The **Conversations Panel** is where you monitor and manage all active conversations between your AI agent and end users. It's the primary workspace for human agents who handle escalations and provide live support.
+The **Conversations Panel** is the central workspace for live chat operators. It provides a real-time view of all active and recent conversations, letting your team monitor, join, and manage user interactions across every connected channel.
 
-## Overview
+## Inbox Overview
 
-The panel shows a list of conversations on the left, and the selected conversation's details on the right. Each conversation includes the full message history—messages from the AI agent, the end user, and any human agent replies.
+The inbox displays a list of conversations on the left and a chat view on the right. Each conversation entry shows:
+
+- **User name** (if available from the channel)
+- **Channel icon** — indicating where the conversation is happening
+- **Last message preview**
+- **Timestamp** of the most recent message
+- **Assignment status** — who is currently handling the conversation
+
+## Filters
+
+Use the filter bar above the conversation list to narrow down what you see:
+
+- **Status** — Filter by conversation status (e.g., Active, Ended). Multi-select.
+- **Channel** — Filter by communication channel (e.g., WhatsApp, Web Bubble, Freshchat). Single-select.
+- **Assignment** — Filter by assignment type: conversations handled by AI, escalated to humans, assigned to you, or assigned to a specific team member. Multi-select.
+
+<Tip>
+**Your filters are remembered.** The platform automatically saves your inbox filter selections per agent. When you return to the Live Chat inbox, your previous filter choices (status, channel, and assignment) are restored so you can pick up right where you left off. This is especially useful for operators who consistently work with the same filter view.
+</Tip>
 
 ## Conversation View
 
-When you open a conversation, you see:
-- **All messages** in chronological order, including AI agent responses, user messages, and human agent replies.
-- **Escalation indicators** — visual pills that mark when a conversation was escalated to a human agent or unassigned back to the AI.
-- **Timestamps** on messages so you can track response times.
+Click any conversation to open the full chat view. From here you can:
 
-### Human Agent Identity in Messages
-
-When a human agent replies to a conversation, their messages display:
-- The **agent's name** as it appears in their Semantiks team profile.
-- An **avatar with initials** next to their messages (visible to the end user in External Chat and Web Bubble channels).
-
-This means end users can see who is helping them, making the support experience more personal and transparent. If the agent's name is not available, a default label is shown.
-
-<Note>
-  The sender name is automatically included when you reply from the Conversations Panel. Make sure your team member profile has a name configured so it displays correctly to end users.
-</Note>
-
-### Message Grouping
-
-Messages from the same sender are visually grouped together in the end-user chat interfaces (External Chat and Web Bubble). Consecutive messages appear with tighter spacing, and timestamps are shown only on the last message of each group for a cleaner reading experience.
-
-## Replying to Conversations
-
-When a conversation is escalated:
-1. Select it from the conversation list.
-2. Type your reply in the message composer at the bottom.
-3. Send your message — it will appear to the end user with your name and initials.
-
-<Tip>
-  Your reply is sent in real time. The end user sees it immediately in their active chat session.
-</Tip>
+- **Read the full transcript** between the user and the AI agent (and any human operators)
+- **Send messages** directly to the user
+- **View conversation details** — status, channel, timestamps, response metrics, quality flag, and metadata
+- **Assign or reassign** the conversation to another team member
 
 ## Key Notes
 
-- Human agent replies are visually distinct from AI agent messages in the end-user interface (different colors and styling).
-- Escalation pills clearly mark transitions between AI and human agents.
-- You can review the full conversation history, including what the AI agent said before the escalation.
+- The inbox updates in real time — new messages and conversations appear automatically.
+- Conversations are scoped to the currently selected agent.
+- The assignment filter defaults to showing conversations assigned to you, so you see your workload first.

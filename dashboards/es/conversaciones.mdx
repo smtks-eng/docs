@@ -44,37 +44,53 @@ Debajo de los indicadores encontrarás una tabla con todas las conversaciones re
 - **Número de mensajes:** Total de mensajes intercambiados (con el Agente de IA).  
 - **Tiempo de primera respuesta (FRT):** El tiempo transcurrido entre el primer mensaje del usuario y la primera respuesta del agente. Se muestra en un formato legible (p. ej. `45s`, `2m 30s`, `1h 15m`).  
 - **Tiempo promedio de respuesta (ART):** El tiempo promedio que el agente tardó en responder a lo largo de todos los mensajes de la conversación. Usa el mismo formato legible que el FRT.  
-- **Inicio:** Fecha y hora en que comenzó la conversación.  
-- **Control:** Indica quién atendió la conversación. Para conversaciones atendidas por IA, se muestra una etiqueta genérica (p. ej. "IA"). Para conversaciones atendidas por un humano, se muestra el **nombre del especialista que la atendió** en lugar de una etiqueta genérica de "Humano", para que puedas ver exactamente qué miembro del equipo tomó el control. Si no hay un miembro asignado, se muestra la etiqueta genérica de humano como respaldo.  
-- **Estado:** Estado actual de la conversación (Activa, Terminada).  
-- **Etiqueta:** Categorías asignadas a la conversación.  
-- **Bandera:** Una bandera de calidad (Buena, Mala, Necesita Atención) que puedes asignar a una conversación.
+- **Inicio:** Fecha y hora de inicio de la conversación.  
+- **Control:** Indica quién atendió la conversación. Para las atendidas por IA, se muestra una etiqueta genérica (p. ej. "IA"). Para las atendidas por humanos, se muestra el **nombre del especialista** que tomó la conversación.
+- **Bandera:** Una bandera de calidad asignada a la conversación (Buena, Mala o Necesita Atención).
+
+### Visibilidad y reordenamiento de columnas
+
+Puedes personalizar la tabla para enfocarte en los datos que más importan:
+
+- **Mostrar u ocultar columnas** — Haz clic en el menú de columnas y cambia la visibilidad haciendo clic en el nombre de la columna o en el ícono de ojo junto a ella.
+- **Reordenar columnas** — Arrastra las columnas en el menú para reorganizar su orden en la tabla.
 
 ---
 
-## Panel de conversación (cajón del Explorador)
+## Filtros
 
-Haz clic en cualquier fila de la tabla de conversaciones para abrir un panel lateral con los detalles completos. El panel incluye dos pestañas:
+El Explorador de Conversaciones incluye una potente barra de filtros que te permite segmentar los datos en múltiples dimensiones:
 
-### Pestaña Chat
-Muestra la transcripción completa de mensajes de la conversación seleccionada, incluyendo mensajes del usuario y del agente.
-
-### Pestaña Detalles
-
-Al abrir una conversación desde el **Explorador de Conversaciones**, la pestaña Detalles muestra un **resumen compacto** con la información más relevante de un vistazo:
-
-| Campo | Descripción |
-|---|---|
-| **ID** | El identificador único de la conversación |
-| **Cliente** | El ID del usuario externo |
-| **Canal** | El nombre de la integración y tipo de canal |
-| **Mensajes** | Número total de mensajes intercambiados |
-| **FRT** | Tiempo de primera respuesta (en segundos) |
-| **ART** | Tiempo promedio de respuesta (en segundos) |
-| **Bandera** | La bandera de calidad asignada a la conversación (Buena, Mala, Necesita Atención) |
-| **Metadatos** | Cualquier metadato adicional del usuario enviado desde el canal, mostrado como JSON formateado |
-| **Sucedió** | La fecha y hora en que se creó la conversación |
+- **Rango de fechas** — Usa presets (Hoy, Últimos 7 días, Mes hasta la fecha, Trimestre hasta la fecha, Año hasta la fecha) o selecciona un rango personalizado.
+- **Canal** — Filtra por uno o más canales de comunicación. Cada opción de canal muestra su ícono reconocible para una identificación rápida.
+- **Estado** — Filtra por estado de la conversación (Activa, Finalizada, etc.).
+- **Control** — Filtra por quién atendió la conversación (IA o humano).
+- **Bandera** — Filtra por bandera de calidad (Buena, Mala, Necesita Atención).
+- **Herramientas** — Filtra por las herramientas/skills usadas durante la conversación.
+- **Metadatos** — Agrega filtros de metadatos clave-valor para segmentación avanzada.
+- **Búsqueda** — Búsqueda de texto libre entre conversaciones.
 
 <Tip>
-La vista compacta de detalles está diseñada para una evaluación rápida. Te permite revisar las métricas clave de la conversación sin salir de la tabla del explorador.
+**Tus filtros se recuerdan.** La plataforma guarda automáticamente tus selecciones de filtros por agente, de modo que la próxima vez que regreses al panel de Conversaciones, tu vista anterior se restaura exactamente como la dejaste. Los presets de fecha como "Últimos 7 días" se mantienen relativos, por lo que siempre muestran los datos más recientes. El campo de búsqueda de texto libre es el único filtro que intencionalmente no se persiste.
 </Tip>
+
+---
+
+## Panel de Conversación
+
+Cuando haces clic en una fila de conversación, se abre un panel lateral detallado que muestra:
+
+- **Detalles de la conversación** — Estado (mostrado con insignias de colores: verde para activa, morado para finalizada), canal, hora de inicio, conteos de mensajes, tiempos de respuesta y bandera de calidad.
+- **Indicador de bandera** — Las banderas se muestran como insignias estilizadas con íconos intuitivos: un pulgar hacia arriba para Buena, pulgar hacia abajo para Mala, y un ícono de bandera para Necesita Atención.
+- **Transcripción del chat** — La conversación completa entre el usuario y el agente.
+- **Metadatos** — Si se capturaron metadatos adicionales (p. ej. datos de handoff), se muestran en una vista JSON con resaltado de sintaxis donde las claves se distinguen visualmente para facilitar la lectura.
+
+<Tip>
+Usa el panel de conversación para auditar sesiones individuales rápidamente sin salir de la tabla.
+</Tip>
+
+---
+
+## Exportar Datos
+
+Puedes exportar los datos de conversaciones filtrados para análisis sin conexión o reportes.
