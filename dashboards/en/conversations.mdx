@@ -45,43 +45,36 @@ Below the KPIs, you will find a table with all recorded conversations. Each row 
 - **First Response Time (FRT):** The time elapsed between the user's first message and the agent's first reply. Displayed in a human-readable format (e.g., `45s`, `2m 30s`, `1h 15m`).  
 - **Average Response Time (ART):** The average time the agent took to respond across all messages in the conversation. Uses the same human-readable format as FRT.  
 - **Start:** Date and time when the conversation started.  
-- **Control:** Indicates who ended the conversation (agent or human).  
+- **Control:** Indicates who handled the conversation. For AI-handled conversations, a generic label is shown (e.g., "AI"). For human-handled conversations, the **name of the specialist attending** is displayed instead of a generic "Human" label—so you can see exactly which team member took over. If no team member is assigned, the generic human label is shown as a fallback.  
 - **Status:** Current status of the conversation (Active, Ended).  
 - **Tag:** Labels or categories assigned to the conversation.  
-- **Bubble:** Opens the **Conversation Panel** for more details.  
+- **Flag:** A quality flag (Good, Bad, Needs Attention) you can assign to a conversation.
+
+---
+
+## Conversation Panel (Explorer Drawer)
+
+Click any row in the Conversations Table to open a side panel with the full conversation details. The panel includes two tabs:
+
+### Chat tab
+Displays the complete message transcript for the selected conversation, including both user and agent messages.
+
+### Details tab
+
+When opening a conversation from the **Conversations Explorer**, the Details tab shows a **compact summary** with the most relevant information at a glance:
+
+| Field | Description |
+|---|---|
+| **ID** | The unique conversation identifier |
+| **Client** | The external user ID |
+| **Channel** | The integration name and channel type |
+| **Messages** | Total number of messages exchanged |
+| **FRT** | First Response Time (in seconds) |
+| **ART** | Average Response Time (in seconds) |
+| **Flag** | The quality flag assigned to the conversation (Good, Bad, Needs Attention) |
+| **Metadata** | Any additional user metadata passed from the channel, shown as formatted JSON |
+| **Happened** | The date and time the conversation was created |
 
 <Tip>
-**FRT** and **ART** help you measure how quickly your agent is responding to users. Both columns are sortable, so you can quickly identify conversations with unusually long response times and investigate further.
+The compact details view is designed for quick triage. It lets you assess key conversation metrics without leaving the explorer table.
 </Tip>
-
----
-
-### Filters & Search
-
-The dashboard allows you to quickly find relevant conversations:
-
-- **Search Bar:** Search by conversation content, external user ID, or messages.
-- **Filters:**
-  - **Channel** – Filter by the communication channel (e.g., Bubble, Platform, WhatsApp).
-  - **Status** – Active or Ended conversations.
-  - **Tags** – Filter by tags assigned to conversations.
-  - **Date range** – Select a time period for conversations.
-
----
-
-### Exporting Conversations
-
-You can export your conversations to a CSV file. The export includes all visible columns, including **First Response Time** and **Average Response Time** (shown in seconds in the exported file).
-
----
-
-### Conversation Panel
-
-Clicking on a conversation row (or the bubble icon) opens the **Conversation Panel** on the right side. This panel shows:
-
-- Full conversation transcript
-- User and agent message details
-- Metadata and context information
-- Tags and status
-
-Use this panel to review individual conversations without leaving the main dashboard view.
