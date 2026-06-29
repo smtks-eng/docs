@@ -1,43 +1,60 @@
 ---
 title: "Conversations Panel"
-description: "Manage live conversations with users across all channels from a unified inbox."
+language: en
+icon: "comments"
+description: "View, filter, and manage all live chat conversations between your users and human agents in real time."
 ---
 
-The **Conversations Panel** is the central workspace for live chat operators. It provides a real-time view of all active and recent conversations, letting your team monitor, join, and manage user interactions across every connected channel.
+The **Conversations Panel** is the main workspace for your live chat operation. It displays all conversations that have been escalated from the AI agent to human agents, allowing your team to monitor and respond in real time.
 
-## Inbox Overview
+---
 
-The inbox displays a list of conversations on the left and a chat view on the right. Each conversation entry shows:
+## Conversation List
 
-- **User name** (if available from the channel)
-- **Channel icon** — indicating where the conversation is happening
-- **Last message preview**
-- **Timestamp** of the most recent message
-- **Assignment status** — who is currently handling the conversation
+The left sidebar shows a scrollable list of conversations. Each conversation item displays:
+
+| Element | Description |
+|---|---|
+| **Avatar** | The contact's avatar with a small channel-glyph badge (e.g. WhatsApp, Web) |
+| **Contact name** | The user's name (if known) or their external ID |
+| **Last message preview** | A truncated preview of the most recent message |
+| **Timestamp** | When the last message was sent |
+| **Preassigned badge** | An amber "Take" badge appears on conversations that are preassigned and waiting for a human agent to claim them |
+
+### Visual indicators
+
+- **Active conversations** are highlighted with a **pink left border** so you can quickly spot them in the list.
+- The **selected conversation** has a highlighted background to indicate it is currently open in the main panel.
+
+<Tip>
+  Use the filters at the top of the conversation list to narrow down by status, channel, or assigned agent.
+</Tip>
+
+---
+
+## Conversation Detail
+
+Click any conversation in the list to open it in the main area. From here you can:
+
+- Read the full message history between the user and the agent(s)
+- Send replies as a human agent
+- View contact details and metadata in the right sidebar
+- See which channel the conversation is happening on
+
+---
 
 ## Filters
 
-Use the filter bar above the conversation list to narrow down what you see:
+Use the filter controls at the top of the conversation list to find specific conversations:
 
-- **Status** — Filter by conversation status (e.g., Active, Ended). Multi-select.
-- **Channel** — Filter by communication channel (e.g., WhatsApp, Web Bubble, Freshchat). Single-select.
-- **Assignment** — Filter by assignment type: conversations handled by AI, escalated to humans, assigned to you, or assigned to a specific team member. Multi-select.
+- **Status** — filter by conversation status (active, closed, etc.)
+- **Channel** — show only conversations from a specific channel
+- **Assigned agent** — filter by the human agent handling the conversation
 
-<Tip>
-**Your filters are remembered.** The platform automatically saves your inbox filter selections per agent. When you return to the Live Chat inbox, your previous filter choices (status, channel, and assignment) are restored so you can pick up right where you left off. This is especially useful for operators who consistently work with the same filter view.
-</Tip>
+---
 
-## Conversation View
+## Key notes
 
-Click any conversation to open the full chat view. From here you can:
-
-- **Read the full transcript** between the user and the AI agent (and any human operators)
-- **Send messages** directly to the user
-- **View conversation details** — status, channel, timestamps, response metrics, quality flag, and metadata
-- **Assign or reassign** the conversation to another team member
-
-## Key Notes
-
-- The inbox updates in real time — new messages and conversations appear automatically.
-- Conversations are scoped to the currently selected agent.
-- The assignment filter defaults to showing conversations assigned to you, so you see your workload first.
+- Conversations appear in the panel as soon as they are escalated from the AI agent or created directly by a human agent.
+- The panel updates in **real time** — new messages and status changes appear instantly.
+- You can handle multiple conversations simultaneously by switching between them in the list.

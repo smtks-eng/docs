@@ -1,43 +1,60 @@
 ---
 title: "Panel de Conversaciones"
-description: "Gestiona conversaciones en vivo con usuarios en todos los canales desde una bandeja unificada."
+language: es
+icon: "comments"
+description: "Visualiza, filtra y gestiona todas las conversaciones de chat en vivo entre tus usuarios y agentes humanos en tiempo real."
 ---
 
-El **Panel de Conversaciones** es el espacio de trabajo central para los operadores de chat en vivo. Ofrece una vista en tiempo real de todas las conversaciones activas y recientes, permitiendo a tu equipo monitorear, unirse y gestionar las interacciones con usuarios en todos los canales conectados.
+El **Panel de Conversaciones** es el espacio de trabajo principal para tu operación de chat en vivo. Muestra todas las conversaciones que han sido escaladas del agente de IA a agentes humanos, permitiendo a tu equipo monitorear y responder en tiempo real.
 
-## Vista General de la Bandeja
+---
 
-La bandeja de entrada muestra una lista de conversaciones a la izquierda y una vista del chat a la derecha. Cada entrada de conversación muestra:
+## Lista de Conversaciones
 
-- **Nombre del usuario** (si está disponible desde el canal)
-- **Ícono de canal** — indica dónde está ocurriendo la conversación
-- **Vista previa del último mensaje**
-- **Marca de tiempo** del mensaje más reciente
-- **Estado de asignación** — quién está atendiendo la conversación actualmente
+La barra lateral izquierda muestra una lista desplazable de conversaciones. Cada elemento de conversación muestra:
+
+| Elemento | Descripción |
+|---|---|
+| **Avatar** | El avatar del contacto con una insignia pequeña del canal (ej. WhatsApp, Web) |
+| **Nombre del contacto** | El nombre del usuario (si se conoce) o su ID externo |
+| **Vista previa del último mensaje** | Una vista previa truncada del mensaje más reciente |
+| **Marca de tiempo** | Cuándo se envió el último mensaje |
+| **Insignia de preasignación** | Una insignia ámbar "Take" aparece en las conversaciones que están preasignadas y esperando que un agente humano las reclame |
+
+### Indicadores visuales
+
+- Las **conversaciones activas** se resaltan con un **borde izquierdo rosa** para que puedas identificarlas rápidamente en la lista.
+- La **conversación seleccionada** tiene un fondo resaltado para indicar que está actualmente abierta en el panel principal.
+
+<Tip>
+  Usa los filtros en la parte superior de la lista de conversaciones para filtrar por estado, canal o agente asignado.
+</Tip>
+
+---
+
+## Detalle de Conversación
+
+Haz clic en cualquier conversación de la lista para abrirla en el área principal. Desde aquí puedes:
+
+- Leer el historial completo de mensajes entre el usuario y el/los agente(s)
+- Enviar respuestas como agente humano
+- Ver detalles del contacto y metadatos en la barra lateral derecha
+- Ver en qué canal está ocurriendo la conversación
+
+---
 
 ## Filtros
 
-Usa la barra de filtros encima de la lista de conversaciones para refinar lo que ves:
+Usa los controles de filtro en la parte superior de la lista de conversaciones para encontrar conversaciones específicas:
 
-- **Estado** — Filtra por estado de la conversación (p. ej., Activa, Finalizada). Selección múltiple.
-- **Canal** — Filtra por canal de comunicación (p. ej., WhatsApp, Burbuja Web, Freshchat). Selección única.
-- **Asignación** — Filtra por tipo de asignación: conversaciones manejadas por IA, escaladas a humanos, asignadas a ti o asignadas a un miembro específico del equipo. Selección múltiple.
+- **Estado** — filtra por estado de la conversación (activa, cerrada, etc.)
+- **Canal** — muestra solo conversaciones de un canal específico
+- **Agente asignado** — filtra por el agente humano que maneja la conversación
 
-<Tip>
-**Tus filtros se recuerdan.** La plataforma guarda automáticamente tus selecciones de filtros de la bandeja por agente. Cuando regreses al Chat en Vivo, tus filtros anteriores (estado, canal y asignación) se restauran para que puedas continuar exactamente donde lo dejaste. Esto es especialmente útil para operadores que trabajan consistentemente con la misma vista de filtros.
-</Tip>
+---
 
-## Vista de Conversación
+## Notas clave
 
-Haz clic en cualquier conversación para abrir la vista completa del chat. Desde aquí puedes:
-
-- **Leer la transcripción completa** entre el usuario y el agente de IA (y cualquier operador humano)
-- **Enviar mensajes** directamente al usuario
-- **Ver detalles de la conversación** — estado, canal, marcas de tiempo, métricas de respuesta, bandera de calidad y metadatos
-- **Asignar o reasignar** la conversación a otro miembro del equipo
-
-## Notas Clave
-
-- La bandeja se actualiza en tiempo real — los nuevos mensajes y conversaciones aparecen automáticamente.
-- Las conversaciones están limitadas al agente seleccionado actualmente.
-- El filtro de asignación muestra por defecto las conversaciones asignadas a ti, para que veas tu carga de trabajo primero.
+- Las conversaciones aparecen en el panel tan pronto como son escaladas desde el agente de IA o creadas directamente por un agente humano.
+- El panel se actualiza en **tiempo real** — nuevos mensajes y cambios de estado aparecen instantáneamente.
+- Puedes manejar múltiples conversaciones simultáneamente alternando entre ellas en la lista.
