@@ -46,103 +46,80 @@ Below the KPIs, you will find a table with all recorded conversations. Each row 
 - **External ID:** User ID from the channel.
 - **Number of Messages:** Total messages exchanged (with the AI agent).
 - **First Response Time (FRT):** The time elapsed between the user's first message and the agent's first reply. Displayed in a human-readable format (e.g., `45s`, `2m 30s`, `1h 15m`).
-- **Average Response Time (ART):** The average time the agent took to respond across all messages in the conversation. Uses the same human-readable format as FRT.
-- **Flag:** Conversation quality flag (Good, Bad, or Needs Attention).
-
-### Sorting Columns
-
-You can sort the conversations table by clicking on any **sortable column header**. Sortable columns include:
-
-- **Status**
-- **Start** (date)
-- **Channel**
-- **Control**
-- **Profile Name**
-- **External ID**
-- **Flag**
-
-Click a column header once to sort in **ascending** order (an upward arrow appears). Click again to switch to **descending** order (a downward arrow appears). Click a third time to remove the sort and return to the default ordering.
+- **Average Response Time (ART):** The average time the agent takes to respond across all turns in the conversation.
 
 <Tip>
-Sort by **Start** in descending order to see the most recent conversations first, or sort by **Flag** to quickly surface conversations that need attention.
+Click on any row to expand the conversation panel on the right.
 </Tip>
-
-### Customizing Columns
-
-You can customize which columns are visible and their display order:
-
-- **Reorder columns** by dragging them using the grip handle on each column header.
-- **Show or hide columns** using the column visibility controls.
 
 ---
 
 ## Conversation Panel
 
-When you click on a conversation row in the table, a **detail panel** slides in from the right side of the screen. The panel has two tabs: **Chat** and **Details**.
+When you select a conversation from the table, a detailed panel opens on the right side. The panel has two tabs: **Chat** and **Details**.
 
-### Chat Tab
+### Chat tab
 
-The Chat tab displays the full message thread of the conversation. Messages are shown as chat bubbles with visual cues to distinguish between participants:
+The Chat tab shows the full conversation transcript. Messages are displayed chronologically, with visual cues that differentiate senders:
 
-- **AI Agent** messages appear with a pink/magenta avatar labeled "AI".
-- **User** messages appear on the right side with a blue-tinted avatar showing the user's initials.
-- **Human Agent (Specialist)** messages appear with a purple avatar showing the specialist's initials.
+- **AI Agent** messages appear on the left with an "AI" avatar.
+- **Customer** messages appear on the right.
+- **Specialist** (human agent) messages are also displayed on the left, labeled with the specialist's actual name when available.
+- **System events** (such as escalations or handoffs) appear as centered, muted labels.
 
-Each message shows:
-- The **sender name** and **role label** (e.g., Client, Specialist).
-- The **message content**, including any attached media (images, videos, audio, documents).
-- A **timestamp** showing the time the message was sent.
+#### Tool execution cards
 
-System actions (such as escalations or handoffs) are displayed as centered system messages within the thread.
+When the AI agent executes a tool during a conversation, a **tool card** is interleaved in the timeline at the exact moment the tool was invoked. Each card shows:
 
-A **date label** at the top of the chat shows the date of the conversation.
+- **Tool icon** — the tool's custom icon if one is configured, or a default wrench icon.
+- **Tool name** — the name of the tool that was executed.
+- **"Tool" tag** — a small label identifying the card as a tool invocation.
+- **Result** — the output or message returned by the tool (truncated if very long).
+- **Timestamp** — the exact time (with seconds) the tool was called.
 
-### Details Tab
+If the tool execution failed, the card is styled with an error indicator so you can quickly spot problems.
 
-The Details tab shows structured information about the conversation, organized into clearly labeled groups:
+<Tip>
+Tool cards let you see exactly what your agent did "behind the scenes" during the conversation, making it easy to debug unexpected responses or verify that tools are working correctly.
+</Tip>
+
+### Details tab
+
+The Details tab provides structured metadata about the conversation, organized in collapsible groups:
 
 #### Identification
 - **ID** — The unique conversation identifier.
-- **Client** — The external user ID associated with the conversation.
-- **Channel** — The integration and channel type (e.g., "WhatsApp Meta · whatsapp").
-- **Date** — When the conversation was created.
+- **Client** — The external user ID from the channel.
+- **Profile** — The user's profile name as captured by the channel (e.g., their WhatsApp display name).
+- **Channel** — The integration and channel type used.
 
 #### Metrics
 - **Messages** — Total number of messages exchanged.
-- **FRT (First Response Time)** — Time to the agent's first reply.
-- **ART (Average Response Time)** — Average agent response time across the conversation.
-
-#### Classification & Actions
-- **Flag** — The conversation quality flag (Good, Bad, or Needs Attention), displayed with a color-coded icon.
-- **Sentiment** — The detected user sentiment (if available).
-- **CSAT** — Customer satisfaction score shown as a row of dots (filled dots represent the score out of 5).
-- **Last Control** — Shows whether the conversation was last handled by the AI Agent or a human Specialist, with a matching avatar.
+- **First Response Time (FRT)** — Time until the agent's first reply.
+- **Average Response Time (ART)** — Average reply time across the conversation.
+- **Flag** — Conversation quality flag (Good, Bad, or Needs Attention), shown as a color-coded badge.
+- **Sentiment** — Detected sentiment tags for the conversation.
+- **Tools** — A list of all tools the agent used during the conversation, each displayed with its icon and name.
+- **Last Control** — Who last handled the conversation: either "AI Agent" or the **specialist's name** (resolved from the team member who was assigned).
 
 #### Metadata
 
-If the end user has additional metadata (for example, data passed during a handoff), it is displayed in a dark-themed JSON code block at the bottom of the Details tab under a **Metadata · Handoff** section.
+The metadata section shows additional user metadata passed from the integrated channel (e.g., custom attributes, handoff data). The section handles three states:
 
-<Tip>
-Use the Chat tab to read the full conversation thread, then switch to Details to see performance metrics, flags, and metadata—all without leaving the table view.
-</Tip>
+- **Loading** — While metadata is being fetched, a loading indicator is shown.
+- **No metadata** — If no metadata is available for the user, an informational message is displayed.
+- **Error** — If metadata could not be loaded, an error message appears.
+- **Metadata present** — When metadata exists, it is displayed as syntax-highlighted JSON.
 
----
-
-## Filtering Conversations
-
-Use the filter bar above the table to narrow down your view:
-
-- **Search** — Free-text search across conversations.
-- **Channel** — Filter by communication channel.
-- **Status** — Filter by conversation status (Active, Ended, Not Started).
-- **Control** — Filter by who handled the conversation (AI or Human).
-- **Flag** — Filter by quality flag.
-- **Tools** — Filter by tools used during the conversation.
-- **Metadata** — Filter by user metadata keys.
-- **Date range** — Filter by a specific time period.
+<Note>
+Metadata availability depends on what your integrated channels send. Some channels may not pass any custom user attributes.
+</Note>
 
 ---
 
-## Pagination
+## Common Actions
 
-At the bottom of the table you can navigate between pages and adjust the number of conversations displayed per page.
+- **Search conversations** — Use the search bar to filter conversations by keyword.
+- **Filter by date range** — Narrow results to a specific time period.
+- **Export** — Download conversation data for offline analysis.
+- **Navigate to related views** — From any conversation, you can jump to the user's contact record or the relevant evaluation.

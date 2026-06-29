@@ -44,105 +44,82 @@ Debajo de los indicadores encontrarás una tabla con todas las conversaciones re
 - **Control:** Indica quién gestionó la conversación. Para conversaciones manejadas por IA se muestra una etiqueta genérica (ej. "IA"). Para conversaciones con agente humano, se muestra el **nombre del especialista** que atendió.
 - **Nombre de perfil:** Nombre del usuario (si el canal lo captura).
 - **ID externo:** ID del usuario del canal.
-- **Número de mensajes:** Total de mensajes intercambiados (con el Agente de IA).
-- **Tiempo de primera respuesta (FRT):** El tiempo transcurrido entre el primer mensaje del usuario y la primera respuesta del agente. Se muestra en un formato legible (p. ej. `45s`, `2m 30s`, `1h 15m`).
-- **Tiempo promedio de respuesta (ART):** El tiempo promedio que el agente tardó en responder a lo largo de todos los mensajes de la conversación. Usa el mismo formato que FRT.
-- **Flag:** Indicador de calidad de la conversación (Buena, Mala o Necesita atención).
-
-### Ordenar columnas
-
-Puedes ordenar la tabla de conversaciones haciendo clic en cualquier **encabezado de columna ordenable**. Las columnas ordenables incluyen:
-
-- **Estado**
-- **Inicio** (fecha)
-- **Canal**
-- **Control**
-- **Nombre de perfil**
-- **ID externo**
-- **Flag**
-
-Haz clic en un encabezado una vez para ordenar en orden **ascendente** (aparece una flecha hacia arriba). Haz clic de nuevo para cambiar a orden **descendente** (aparece una flecha hacia abajo). Haz clic una tercera vez para quitar el ordenamiento y volver al orden predeterminado.
+- **Número de mensajes:** Total de mensajes intercambiados (con el agente de IA).
+- **Tiempo de primera respuesta (FRT):** El tiempo transcurrido entre el primer mensaje del usuario y la primera respuesta del agente. Se muestra en un formato legible (ej. `45s`, `2m 30s`, `1h 15m`).
+- **Tiempo promedio de respuesta (ART):** El tiempo promedio que el agente tarda en responder en todos los turnos de la conversación.
 
 <Tip>
-Ordena por **Inicio** en orden descendente para ver primero las conversaciones más recientes, o por **Flag** para encontrar rápidamente las conversaciones que necesitan atención.
+Haz clic en cualquier fila para expandir el panel de conversación a la derecha.
 </Tip>
-
-### Personalizar columnas
-
-Puedes personalizar qué columnas se muestran y su orden:
-
-- **Reordena columnas** arrastrándolas con el ícono de agarre en cada encabezado.
-- **Muestra u oculta columnas** usando los controles de visibilidad de columnas.
 
 ---
 
 ## Panel de Conversación
 
-Al hacer clic en una fila de la tabla, se desliza desde la derecha un **panel de detalle**. Este panel tiene dos pestañas: **Chat** y **Detalles**.
+Al seleccionar una conversación de la tabla, se abre un panel detallado en el lado derecho. El panel tiene dos pestañas: **Chat** y **Detalles**.
 
-### Pestaña Chat
+### Pestaña de Chat
 
-La pestaña de Chat muestra el hilo completo de mensajes de la conversación. Los mensajes aparecen como burbujas de chat con indicadores visuales para distinguir a los participantes:
+La pestaña de Chat muestra la transcripción completa de la conversación. Los mensajes se muestran cronológicamente, con indicadores visuales que diferencian a los participantes:
 
-- Los mensajes del **Agente IA** aparecen con un avatar rosa/magenta etiquetado "AI".
-- Los mensajes del **Usuario** aparecen a la derecha con un avatar azulado mostrando las iniciales del usuario.
-- Los mensajes del **Agente Humano (Especialista)** aparecen con un avatar morado mostrando las iniciales del especialista.
+- Los mensajes del **Agente IA** aparecen a la izquierda con un avatar "AI".
+- Los mensajes del **Cliente** aparecen a la derecha.
+- Los mensajes del **Especialista** (agente humano) también se muestran a la izquierda, etiquetados con el nombre real del especialista cuando está disponible.
+- Los **eventos del sistema** (como escalaciones o traspasos) aparecen como etiquetas centradas y atenuadas.
 
-Cada mensaje muestra:
-- El **nombre del remitente** y la **etiqueta de rol** (ej. Cliente, Especialista).
-- El **contenido del mensaje**, incluyendo cualquier medio adjunto (imágenes, videos, audio, documentos).
-- Una **marca de tiempo** con la hora en que se envió el mensaje.
+#### Tarjetas de ejecución de herramientas
 
-Las acciones del sistema (como escalaciones o traspasos) se muestran como mensajes de sistema centrados dentro del hilo.
+Cuando el agente de IA ejecuta una herramienta durante una conversación, una **tarjeta de herramienta** se intercala en la línea de tiempo en el momento exacto en que se invocó la herramienta. Cada tarjeta muestra:
 
-Una **etiqueta de fecha** en la parte superior del chat muestra la fecha de la conversación.
+- **Ícono de la herramienta** — el ícono personalizado de la herramienta si está configurado, o un ícono de llave predeterminado.
+- **Nombre de la herramienta** — el nombre de la herramienta ejecutada.
+- **Etiqueta "Herramienta"** — una etiqueta pequeña que identifica la tarjeta como una invocación de herramienta.
+- **Resultado** — la salida o mensaje devuelto por la herramienta (truncado si es muy largo).
+- **Marca de tiempo** — la hora exacta (con segundos) en que se llamó la herramienta.
 
-### Pestaña Detalles
+Si la ejecución de la herramienta falló, la tarjeta se muestra con un indicador de error para que puedas detectar problemas rápidamente.
 
-La pestaña de Detalles muestra información estructurada de la conversación, organizada en grupos claramente etiquetados:
+<Tip>
+Las tarjetas de herramientas te permiten ver exactamente lo que tu agente hizo "detrás de cámaras" durante la conversación, lo que facilita depurar respuestas inesperadas o verificar que las herramientas funcionan correctamente.
+</Tip>
+
+### Pestaña de Detalles
+
+La pestaña de Detalles proporciona metadatos estructurados sobre la conversación, organizados en grupos colapsables:
 
 #### Identificación
 - **ID** — El identificador único de la conversación.
-- **Cliente** — El ID de usuario externo asociado a la conversación.
-- **Canal** — La integración y tipo de canal (ej. "WhatsApp Meta · whatsapp").
-- **Fecha** — Cuándo se creó la conversación.
+- **Cliente** — El ID de usuario externo del canal.
+- **Perfil** — El nombre de perfil del usuario tal como lo capturó el canal (p. ej., su nombre en WhatsApp).
+- **Canal** — La integración y tipo de canal utilizado.
 
 #### Métricas
 - **Mensajes** — Número total de mensajes intercambiados.
-- **FRT (Tiempo de primera respuesta)** — Tiempo hasta la primera respuesta del agente.
-- **ART (Tiempo promedio de respuesta)** — Tiempo promedio de respuesta del agente durante la conversación.
-
-#### Clasificación y acciones
-- **Flag** — El indicador de calidad de la conversación (Buena, Mala o Necesita atención), mostrado con un ícono con código de color.
-- **Sentimiento** — El sentimiento del usuario detectado (si está disponible).
-- **CSAT** — Puntuación de satisfacción del cliente mostrada como una fila de puntos (los puntos llenos representan la puntuación sobre 5).
-- **Último control** — Muestra si la conversación fue gestionada por última vez por el Agente IA o un Especialista humano, con un avatar correspondiente.
+- **Tiempo de primera respuesta (FRT)** — Tiempo hasta la primera respuesta del agente.
+- **Tiempo promedio de respuesta (ART)** — Tiempo promedio de respuesta en toda la conversación.
+- **Bandera** — Bandera de calidad de la conversación (Buena, Mala o Necesita Atención), mostrada como una insignia con código de color.
+- **Sentimiento** — Etiquetas de sentimiento detectadas para la conversación.
+- **Herramientas** — Una lista de todas las herramientas que el agente usó durante la conversación, cada una mostrada con su ícono y nombre.
+- **Último control** — Quién gestionó la conversación por última vez: ya sea "Agente IA" o el **nombre del especialista** (resuelto a partir del miembro del equipo asignado).
 
 #### Metadatos
 
-Si el usuario final tiene metadatos adicionales (por ejemplo, datos pasados durante un handoff), se muestran en un bloque de código JSON con tema oscuro al final de la pestaña de Detalles, bajo una sección **Metadatos · Handoff**.
+La sección de metadatos muestra los atributos adicionales del usuario enviados desde el canal integrado (p. ej., atributos personalizados, datos de handoff). La sección maneja tres estados:
 
-<Tip>
-Usa la pestaña de Chat para leer el hilo completo, luego cambia a Detalles para ver métricas de rendimiento, flags y metadatos—todo sin salir de la vista de tabla.
-</Tip>
+- **Cargando** — Mientras se obtienen los metadatos, se muestra un indicador de carga.
+- **Sin metadatos** — Si no hay metadatos disponibles para el usuario, se muestra un mensaje informativo.
+- **Error** — Si los metadatos no pudieron cargarse, aparece un mensaje de error.
+- **Metadatos presentes** — Cuando existen metadatos, se muestran como JSON con resaltado de sintaxis.
 
----
-
-## Filtrar Conversaciones
-
-Usa la barra de filtros sobre la tabla para acotar tu vista:
-
-- **Búsqueda** — Búsqueda de texto libre en las conversaciones.
-- **Canal** — Filtra por canal de comunicación.
-- **Estado** — Filtra por estado de la conversación (Activa, Terminada, Sin iniciar).
-- **Control** — Filtra por quién gestionó la conversación (IA o Humano).
-- **Flag** — Filtra por indicador de calidad.
-- **Herramientas** — Filtra por herramientas utilizadas durante la conversación.
-- **Metadatos** — Filtra por claves de metadatos del usuario.
-- **Rango de fechas** — Filtra por un período de tiempo específico.
+<Note>
+La disponibilidad de metadatos depende de lo que envíen tus canales integrados. Algunos canales pueden no enviar atributos personalizados del usuario.
+</Note>
 
 ---
 
-## Paginación
+## Acciones Comunes
 
-En la parte inferior de la tabla puedes navegar entre páginas y ajustar la cantidad de conversaciones mostradas por página.
+- **Buscar conversaciones** — Usa la barra de búsqueda para filtrar conversaciones por palabra clave.
+- **Filtrar por rango de fechas** — Limita los resultados a un periodo específico.
+- **Exportar** — Descarga los datos de conversaciones para análisis offline.
+- **Navegar a vistas relacionadas** — Desde cualquier conversación, puedes saltar al registro de contacto del usuario o a la evaluación relevante.
