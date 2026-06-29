@@ -45,81 +45,67 @@ Debajo de los indicadores encontrarás una tabla con todas las conversaciones re
 - **Nombre de perfil:** Nombre del usuario (si el canal lo captura).
 - **ID externo:** ID del usuario del canal.
 - **Número de mensajes:** Total de mensajes intercambiados (con el agente de IA).
-- **Tiempo de primera respuesta (FRT):** El tiempo transcurrido entre el primer mensaje del usuario y la primera respuesta del agente. Se muestra en un formato legible (ej. `45s`, `2m 30s`, `1h 15m`).
-- **Tiempo promedio de respuesta (ART):** El tiempo promedio que el agente tarda en responder en todos los turnos de la conversación.
+- **Tiempo de primera respuesta (FRT):** Tiempo transcurrido entre el primer mensaje del usuario y la primera respuesta del agente. Se muestra en formato legible (ej. `45s`, `2m 30s`, `1h 15m`).
+- **Tiempo promedio de respuesta (ART):** Tiempo promedio que el agente tarda en responder en todos los mensajes de la conversación.
 
-<Tip>
-Haz clic en cualquier fila para expandir el panel de conversación a la derecha.
-</Tip>
+### Controles de la tabla
+
+- **Búsqueda:** Filtra conversaciones por palabra clave en múltiples campos.
+- **Rango de fechas:** Selecciona un preset (Hoy, 7D, 30D, Año) o define un rango personalizado.
+- **Columnas:** Muestra u oculta columnas con el selector de visibilidad.
+- **Paginación:** Navega entre páginas de resultados.
 
 ---
 
-## Panel de Conversación
+## Panel de Conversación (vista de detalle lateral)
 
-Al seleccionar una conversación de la tabla, se abre un panel detallado en el lado derecho. El panel tiene dos pestañas: **Chat** y **Detalles**.
-
-### Pestaña de Chat
-
-La pestaña de Chat muestra la transcripción completa de la conversación. Los mensajes se muestran cronológicamente, con indicadores visuales que diferencian a los participantes:
-
-- Los mensajes del **Agente IA** aparecen a la izquierda con un avatar "AI".
-- Los mensajes del **Cliente** aparecen a la derecha.
-- Los mensajes del **Especialista** (agente humano) también se muestran a la izquierda, etiquetados con el nombre real del especialista cuando está disponible.
-- Los **eventos del sistema** (como escalaciones o traspasos) aparecen como etiquetas centradas y atenuadas.
-
-#### Tarjetas de ejecución de herramientas
-
-Cuando el agente de IA ejecuta una herramienta durante una conversación, una **tarjeta de herramienta** se intercala en la línea de tiempo en el momento exacto en que se invocó la herramienta. Cada tarjeta muestra:
-
-- **Ícono de la herramienta** — el ícono personalizado de la herramienta si está configurado, o un ícono de llave predeterminado.
-- **Nombre de la herramienta** — el nombre de la herramienta ejecutada.
-- **Etiqueta "Herramienta"** — una etiqueta pequeña que identifica la tarjeta como una invocación de herramienta.
-- **Resultado** — la salida o mensaje devuelto por la herramienta (truncado si es muy largo).
-- **Marca de tiempo** — la hora exacta (con segundos) en que se llamó la herramienta.
-
-Si la ejecución de la herramienta falló, la tarjeta se muestra con un indicador de error para que puedas detectar problemas rápidamente.
-
-<Tip>
-Las tarjetas de herramientas te permiten ver exactamente lo que tu agente hizo "detrás de cámaras" durante la conversación, lo que facilita depurar respuestas inesperadas o verificar que las herramientas funcionan correctamente.
-</Tip>
+Al hacer clic en cualquier fila de la tabla se abre un **panel lateral derecho** con tres pestañas: **Detalles**, **Chat** y **Resumen**.
 
 ### Pestaña de Detalles
 
-La pestaña de Detalles proporciona metadatos estructurados sobre la conversación, organizados en grupos colapsables:
+Muestra los metadatos de la conversación:
 
-#### Identificación
-- **ID** — El identificador único de la conversación.
-- **Cliente** — El ID de usuario externo del canal.
-- **Perfil** — El nombre de perfil del usuario tal como lo capturó el canal (p. ej., su nombre en WhatsApp).
-- **Canal** — La integración y tipo de canal utilizado.
+- **Inició:** Fecha y hora en que comenzó la conversación.
+- **Estado:** Activa, Terminada o Sin iniciar.
+- **Canal:** Canal donde ocurrió la conversación.
+- **CSAT:** Puntuación de satisfacción del cliente (si está disponible).
+- **Cantidad de mensajes:** Número total de mensajes intercambiados.
 
-#### Métricas
-- **Mensajes** — Número total de mensajes intercambiados.
-- **Tiempo de primera respuesta (FRT)** — Tiempo hasta la primera respuesta del agente.
-- **Tiempo promedio de respuesta (ART)** — Tiempo promedio de respuesta en toda la conversación.
-- **Bandera** — Bandera de calidad de la conversación (Buena, Mala o Necesita Atención), mostrada como una insignia con código de color.
-- **Sentimiento** — Etiquetas de sentimiento detectadas para la conversación.
-- **Herramientas** — Una lista de todas las herramientas que el agente usó durante la conversación, cada una mostrada con su ícono y nombre.
-- **Último control** — Quién gestionó la conversación por última vez: ya sea "Agente IA" o el **nombre del especialista** (resuelto a partir del miembro del equipo asignado).
+### Pestaña de Chat
 
-#### Metadatos
+Muestra la transcripción completa de la conversación. Los mensajes se presentan con un diseño tipo chat:
 
-La sección de metadatos muestra los atributos adicionales del usuario enviados desde el canal integrado (p. ej., atributos personalizados, datos de handoff). La sección maneja tres estados:
+- **Mensajes del usuario** a un lado y **mensajes del agente** al otro.
+- **Mensajes de especialistas humanos** se distinguen cuando hubo un traspaso.
+- **Invocaciones de herramientas** se muestran en línea con una sección expandible que revela el nombre de la herramienta, la entrada y la salida.
 
-- **Cargando** — Mientras se obtienen los metadatos, se muestra un indicador de carga.
-- **Sin metadatos** — Si no hay metadatos disponibles para el usuario, se muestra un mensaje informativo.
-- **Error** — Si los metadatos no pudieron cargarse, aparece un mensaje de error.
-- **Metadatos presentes** — Cuando existen metadatos, se muestran como JSON con resaltado de sintaxis.
+#### Mensajes de Campaña / Proactivos
 
-<Note>
-La disponibilidad de metadatos depende de lo que envíen tus canales integrados. Algunos canales pueden no enviar atributos personalizados del usuario.
-</Note>
+Los mensajes enviados a través de **Campañas** o **mensajería proactiva** (incluyendo plantillas de WhatsApp) se distinguen visualmente en la transcripción del chat:
+
+- Aparecen en una **burbuja de estilo verde** para diferenciarlos de las respuestas regulares del agente.
+- Se muestra una **insignia "Campaña"** con un ícono de megáfono en la parte superior de la burbuja del mensaje.
+
+Esto facilita identificar qué mensajes fueron enviados proactivamente por una campaña en lugar de ser parte de un flujo de conversación orgánico.
+
+<Tip>
+Usa la insignia de Campaña para auditar rápidamente qué mensajes salientes fueron activados por tus campañas al revisar una conversación.
+</Tip>
+
+### Pestaña de Resumen
+
+Proporciona un resumen generado por IA de la conversación, incluyendo:
+
+- **Tema:** El tema auto-clasificado.
+- **Sentimiento:** Sentimiento del usuario (positivo, neutral, negativo).
+- **Éxito de tarea:** Si el agente resolvió la solicitud del usuario.
+- **Puntos clave:** Resumen en viñetas de los puntos destacados de la conversación.
 
 ---
 
 ## Acciones Comunes
 
-- **Buscar conversaciones** — Usa la barra de búsqueda para filtrar conversaciones por palabra clave.
-- **Filtrar por rango de fechas** — Limita los resultados a un periodo específico.
-- **Exportar** — Descarga los datos de conversaciones para análisis offline.
-- **Navegar a vistas relacionadas** — Desde cualquier conversación, puedes saltar al registro de contacto del usuario o a la evaluación relevante.
+- **Revisar el desempeño del agente** — Abre conversaciones individuales para leer transcripciones y evaluar las respuestas del agente.
+- **Identificar patrones** — Usa los indicadores y filtros de la tabla para detectar tendencias en volumen, duración o distribución por canal.
+- **Auditar uso de herramientas** — Revisa qué herramientas invocó el agente durante una conversación y si se ejecutaron correctamente.
+- **Verificar mensajes de campaña** — Busca la insignia verde de Campaña en las transcripciones para confirmar que los mensajes proactivos se entregaron correctamente.
