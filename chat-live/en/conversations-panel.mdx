@@ -1,75 +1,58 @@
 ---
 title: "Conversations Panel"
-description: "Manage live conversations between your AI agent, your team members, and end users in real time."
+description: "Manage and respond to live chat conversations escalated from your AI agent to human support."
 ---
 
-The **Conversations Panel** is the central hub of the Contact Center. It gives your team a real-time view of every active conversation your AI agent is handling, and lets members step in, take over, or reassign conversations as needed.
+The **Conversations Panel** is the main workspace for your support team when handling live conversations. It shows every conversation that has been escalated from the AI agent to a human, and lets your team take, reply, reassign, and resolve them in real time.
 
 ## Conversation list
 
-On the left side of the panel you'll see a list of all conversations, organized by status:
+On the left side of the panel you'll see the list of active conversations. Each entry shows:
 
-| Status | Meaning |
-|---|---|
-| **Active** | The conversation is ongoing — either handled by the AI agent or by a human member |
-| **Closed** | The conversation has ended (resolved or timed out) |
+- **Contact name** and **channel** (e.g. WhatsApp, Web Bubble)
+- **Last message preview**
+- **Assignment status** — whether the conversation is unassigned, pre-assigned, or being handled by a specific team member
 
-Click any conversation to open its detail view on the right.
+Use the filters and search bar at the top to narrow the list by status, channel, or assignee.
+
+## Taking & assigning conversations
+
+When a conversation is escalated, it appears as **unassigned** (loose) in the panel. Team members can pick it up or pass it to a colleague.
+
+### Who can take a conversation
+
+| Scenario | Member | Admin / Owner |
+|---|---|---|
+| Conversation is **unassigned** | ✅ Can take | ✅ Can take |
+| Conversation is **assigned to you** | ✅ Can take back | ✅ Can take back |
+| Conversation is **assigned to someone else** | ❌ Cannot take | ✅ Can take |
+
+- **Members** can only take conversations that are unassigned or already assigned to themselves.
+- **Admins** and **Owners** can take any conversation, including ones currently assigned to another team member. This is useful for supervisors who need to step in, redistribute workload, or handle escalations directly.
+
+### Passing conversations
+
+Any team member—regardless of role—can **pass** (reassign) a conversation to another available member. When passing, the member list shows all available colleagues. If you cannot take the conversation yourself (because it is assigned to someone else and you are not an admin/owner), you will not appear in the assignee list.
+
+### Pre-assignment
+
+A conversation can be **pre-assigned** to a member while the AI agent is still handling it. In this state the `handled_by` field remains `agent` but the `assigned_to` is already set. The AI continues replying until the human explicitly takes over.
 
 ## Conversation detail
 
-When you select a conversation, you'll see:
+Click any conversation to open the detail view on the right. Here you can:
 
-- **Message thread** — the full exchange between the user, the AI agent, and any human members who participated
-- **Contact info** — name, channel, external ID, and any memories collected
-- **Conversation metadata** — status, assigned member, channel, timestamps
-
-## Taking a conversation
-
-When the AI agent is handling a conversation, any team member can **take** it to respond manually. Taking a conversation pauses the AI agent and lets the member reply directly.
-
-**Who can take a conversation:**
-
-- Any member can take an **unassigned** conversation (one that has no member assigned to it).
-- If a conversation is **assigned to you**, you can take it.
-- If a conversation is **assigned to another member**, you cannot take it directly — only the assigned member can.
-
-<Note>
-The "Take conversation" button is only available when you are allowed to take the conversation based on the rules above.
-</Note>
-
-## Assigning & passing conversations
-
-You can assign an active, agent-handled conversation to any available team member using the **Assign** dropdown. This is useful for routing conversations to the right person based on expertise or availability.
-
-**Key behavior:**
-
-- **Any member** can use the assign dropdown to pass a conversation to another team member, even if the conversation is already assigned to someone else.
-- If you **cannot take** the conversation yourself (because it is assigned to another member), you will not appear in the assignable members list — but you can still pass it to others.
-- When a conversation is **pre-assigned** (assigned to a member but still being handled by the AI agent), the assigned member sees a "Take conversation" call-to-action to step in.
-
-<Tip>
-Use conversation assignment to coordinate handoffs between team members. For example, a first-line support agent can pass a technical question to a specialist without needing admin privileges.
-</Tip>
-
-## Handling a conversation
-
-Once a member takes a conversation:
-
-1. The AI agent stops replying automatically.
-2. The member can read the full history and reply directly.
-3. When finished, the member can **return the conversation to the AI agent** or **close** it.
-
-## Returning to the AI agent
-
-If a member decides the AI agent should continue handling the conversation, they can return it. The agent picks up where it left off, using the full conversation context.
-
-## Closing a conversation
-
-Members can manually close a conversation when the issue is resolved. Closed conversations move to the **Closed** tab and are available for review in the conversation history.
+- **Read the full message history** between the contact and the agent/human
+- **Send replies** as a human agent
+- **View contact info** — name, channel, external ID, and collected memories
+- **Reassign or resolve** the conversation using the action buttons
 
 ## Key notes
 
-- Any team member can pass conversations to other members, regardless of their role.
-- Only unassigned conversations or conversations assigned to you can be taken directly.
-- The AI agent remains aware of the full conversation history, even after a human member intervenes and returns control.
+- Conversations stay in the panel until they are **resolved** (closed).
+- Admins and owners have broader assignment privileges to support team supervision and workload management.
+- The panel updates in **real time** — new messages and status changes appear instantly.
+
+<Tip>
+Use the **Performance** and **Escalation Insights** pages alongside the Conversations Panel to monitor your team's response times and identify patterns in escalated topics.
+</Tip>
