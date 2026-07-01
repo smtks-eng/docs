@@ -1,60 +1,69 @@
 ---
 title: "Conversations Panel"
-language: en
-icon: "comments"
-description: "View, filter, and manage all live chat conversations between your users and human agents in real time."
+description: "View and manage all live conversations from a single inbox—filter, assign, take over, and reply in real time."
 ---
 
-The **Conversations Panel** is the main workspace for your live chat operation. It displays all conversations that have been escalated from the AI agent to human agents, allowing your team to monitor and respond in real time.
+The **Conversations Panel** is the main workspace for your Contact Center team. It shows every active and recent conversation across all connected channels, and lets agents take over from the AI, reply to users, and manage assignments—all from one place.
 
----
+## Conversation list
 
-## Conversation List
+The left side of the panel shows a scrollable list of conversations. Each entry displays:
 
-The left sidebar shows a scrollable list of conversations. Each conversation item displays:
+- **Contact name** (or external ID if no name is available)
+- **Channel** the conversation is on
+- **Last message preview**
+- **Status badge** — *Active*, *Ended*, or *Pre-assigned*
+- **Handled by** — whether the conversation is currently managed by the AI agent or a human team member
 
-| Element | Description |
-|---|---|
-| **Avatar** | The contact's avatar with a small channel-glyph badge (e.g. WhatsApp, Web) |
-| **Contact name** | The user's name (if known) or their external ID |
-| **Last message preview** | A truncated preview of the most recent message |
-| **Timestamp** | When the last message was sent |
-| **Preassigned badge** | An amber "Take" badge appears on conversations that are preassigned and waiting for a human agent to claim them |
+Click any conversation to open its detail view on the right.
 
-### Visual indicators
+## Conversation detail
 
-- **Active conversations** are highlighted with a **pink left border** so you can quickly spot them in the list.
-- The **selected conversation** has a highlighted background to indicate it is currently open in the main panel.
+The right side shows the full message thread and conversation controls:
+
+- **Message history** — the complete transcript between the user and the agent (AI or human)
+- **Conversation metadata** — channel, status, assigned member, timestamps
+- **Reply input** — type and send messages when the conversation is under human control
+
+## Assigning & taking conversations
+
+Conversations can be **assigned** to a specific team member. Assignment can happen automatically (e.g., via the Semantiks Contact Centre tool) or manually from the conversation detail.
+
+### Pre-assigned conversations
+
+A conversation is **pre-assigned** when it has an `assigned_to_member_id` set but `handled_by` is still `"agent"` — meaning the AI keeps replying until a human takes over. Pre-assigned conversations show an amber badge in the conversation detail.
+
+### Taking a conversation
+
+To take over a pre-assigned conversation (flipping `handled_by` from AI to human so the LLM stops replying), click the **Take conversation** button that appears in the conversation header.
+
+<Note>
+**Permission rules for taking conversations:**
+- **Owners and Admins** can take any pre-assigned conversation, regardless of who it is assigned to.
+- **Other team members** can only take conversations that are assigned to them. If a conversation is assigned to a different member, the Take button will not appear for you.
+</Note>
+
+### Sending messages on assigned conversations
+
+The same permission rules apply when starting or re-engaging a conversation (e.g., sending a WhatsApp template or opening a new thread):
+
+- **Owners and Admins** can send messages on any assigned conversation.
+- **Other members** can only send messages on conversations assigned to them. If the conversation is assigned to someone else, the message input area is replaced by a notice: *"This conversation is assigned to another member."*
 
 <Tip>
-  Use the filters at the top of the conversation list to narrow down by status, channel, or assigned agent.
+If you see the "assigned to another member" notice and believe you should handle the conversation, ask an **Owner** or **Admin** on your team to reassign it to you.
 </Tip>
-
----
-
-## Conversation Detail
-
-Click any conversation in the list to open it in the main area. From here you can:
-
-- Read the full message history between the user and the agent(s)
-- Send replies as a human agent
-- View contact details and metadata in the right sidebar
-- See which channel the conversation is happening on
-
----
 
 ## Filters
 
-Use the filter controls at the top of the conversation list to find specific conversations:
+Use the filter controls at the top of the conversation list to narrow down what you see:
 
-- **Status** — filter by conversation status (active, closed, etc.)
-- **Channel** — show only conversations from a specific channel
-- **Assigned agent** — filter by the human agent handling the conversation
-
----
+- **Status** — active, ended
+- **Channel** — filter by a specific channel
+- **Assigned to** — show only conversations assigned to a specific member
 
 ## Key notes
 
-- Conversations appear in the panel as soon as they are escalated from the AI agent or created directly by a human agent.
-- The panel updates in **real time** — new messages and status changes appear instantly.
-- You can handle multiple conversations simultaneously by switching between them in the list.
+- The Conversations Panel updates in **real time** — new messages and status changes appear automatically.
+- A conversation under **human control** will not receive AI-generated replies until it is released back to the agent.
+- Pre-assigned conversations let the AI continue responding while a human is designated, ensuring no user message goes unanswered.

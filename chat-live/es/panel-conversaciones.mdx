@@ -1,60 +1,69 @@
 ---
 title: "Panel de Conversaciones"
-language: es
-icon: "comments"
-description: "Visualiza, filtra y gestiona todas las conversaciones de chat en vivo entre tus usuarios y agentes humanos en tiempo real."
+description: "Visualiza y gestiona todas las conversaciones en vivo desde una sola bandeja—filtra, asigna, toma el control y responde en tiempo real."
 ---
 
-El **Panel de Conversaciones** es el espacio de trabajo principal para tu operación de chat en vivo. Muestra todas las conversaciones que han sido escaladas del agente de IA a agentes humanos, permitiendo a tu equipo monitorear y responder en tiempo real.
+El **Panel de Conversaciones** es el espacio de trabajo principal de tu equipo de Centro de Contacto. Muestra todas las conversaciones activas y recientes en todos los canales conectados, y permite a los agentes tomar el control del AI, responder a usuarios y gestionar asignaciones—todo desde un solo lugar.
 
----
+## Lista de conversaciones
 
-## Lista de Conversaciones
+El lado izquierdo del panel muestra una lista desplazable de conversaciones. Cada entrada muestra:
 
-La barra lateral izquierda muestra una lista desplazable de conversaciones. Cada elemento de conversación muestra:
+- **Nombre del contacto** (o ID externo si no hay nombre disponible)
+- **Canal** en el que se desarrolla la conversación
+- **Vista previa del último mensaje**
+- **Insignia de estado** — *Activa*, *Terminada* o *Pre-asignada*
+- **Gestionada por** — si la conversación la maneja actualmente el agente de IA o un miembro humano del equipo
 
-| Elemento | Descripción |
-|---|---|
-| **Avatar** | El avatar del contacto con una insignia pequeña del canal (ej. WhatsApp, Web) |
-| **Nombre del contacto** | El nombre del usuario (si se conoce) o su ID externo |
-| **Vista previa del último mensaje** | Una vista previa truncada del mensaje más reciente |
-| **Marca de tiempo** | Cuándo se envió el último mensaje |
-| **Insignia de preasignación** | Una insignia ámbar "Take" aparece en las conversaciones que están preasignadas y esperando que un agente humano las reclame |
+Haz clic en cualquier conversación para abrir su vista de detalle a la derecha.
 
-### Indicadores visuales
+## Detalle de la conversación
 
-- Las **conversaciones activas** se resaltan con un **borde izquierdo rosa** para que puedas identificarlas rápidamente en la lista.
-- La **conversación seleccionada** tiene un fondo resaltado para indicar que está actualmente abierta en el panel principal.
+El lado derecho muestra el hilo completo de mensajes y los controles de la conversación:
+
+- **Historial de mensajes** — la transcripción completa entre el usuario y el agente (IA o humano)
+- **Metadatos de la conversación** — canal, estado, miembro asignado, marcas de tiempo
+- **Campo de respuesta** — escribe y envía mensajes cuando la conversación está bajo control humano
+
+## Asignación y toma de conversaciones
+
+Las conversaciones pueden ser **asignadas** a un miembro específico del equipo. La asignación puede ocurrir automáticamente (ej. mediante la herramienta de Centro de Contacto de Semantiks) o manualmente desde el detalle de la conversación.
+
+### Conversaciones pre-asignadas
+
+Una conversación está **pre-asignada** cuando tiene un `assigned_to_member_id` establecido pero `handled_by` sigue siendo `"agent"` — es decir, la IA continúa respondiendo hasta que un humano tome el control. Las conversaciones pre-asignadas muestran una insignia ámbar en el detalle.
+
+### Tomar una conversación
+
+Para tomar el control de una conversación pre-asignada (cambiando `handled_by` de IA a humano para que el LLM deje de responder), haz clic en el botón **Tomar conversación** que aparece en el encabezado de la conversación.
+
+<Note>
+**Reglas de permisos para tomar conversaciones:**
+- **Propietarios y Administradores** pueden tomar cualquier conversación pre-asignada, sin importar a quién esté asignada.
+- **Otros miembros del equipo** solo pueden tomar conversaciones que estén asignadas a ellos. Si la conversación está asignada a otro miembro, el botón de Tomar no aparecerá.
+</Note>
+
+### Enviar mensajes en conversaciones asignadas
+
+Las mismas reglas de permisos aplican al iniciar o reanudar una conversación (ej. enviar una plantilla de WhatsApp o abrir un nuevo hilo):
+
+- **Propietarios y Administradores** pueden enviar mensajes en cualquier conversación asignada.
+- **Otros miembros** solo pueden enviar mensajes en conversaciones asignadas a ellos. Si la conversación está asignada a otra persona, el área de entrada de mensajes se reemplaza por un aviso: *"Esta conversación está asignada a otro miembro."*
 
 <Tip>
-  Usa los filtros en la parte superior de la lista de conversaciones para filtrar por estado, canal o agente asignado.
+Si ves el aviso de "asignada a otro miembro" y crees que deberías gestionar la conversación, pide a un **Propietario** o **Administrador** de tu equipo que te la reasigne.
 </Tip>
-
----
-
-## Detalle de Conversación
-
-Haz clic en cualquier conversación de la lista para abrirla en el área principal. Desde aquí puedes:
-
-- Leer el historial completo de mensajes entre el usuario y el/los agente(s)
-- Enviar respuestas como agente humano
-- Ver detalles del contacto y metadatos en la barra lateral derecha
-- Ver en qué canal está ocurriendo la conversación
-
----
 
 ## Filtros
 
-Usa los controles de filtro en la parte superior de la lista de conversaciones para encontrar conversaciones específicas:
+Usa los controles de filtro en la parte superior de la lista de conversaciones para refinar lo que ves:
 
-- **Estado** — filtra por estado de la conversación (activa, cerrada, etc.)
-- **Canal** — muestra solo conversaciones de un canal específico
-- **Agente asignado** — filtra por el agente humano que maneja la conversación
-
----
+- **Estado** — activa, terminada
+- **Canal** — filtra por un canal específico
+- **Asignada a** — muestra solo conversaciones asignadas a un miembro específico
 
 ## Notas clave
 
-- Las conversaciones aparecen en el panel tan pronto como son escaladas desde el agente de IA o creadas directamente por un agente humano.
-- El panel se actualiza en **tiempo real** — nuevos mensajes y cambios de estado aparecen instantáneamente.
-- Puedes manejar múltiples conversaciones simultáneamente alternando entre ellas en la lista.
+- El Panel de Conversaciones se actualiza en **tiempo real** — los nuevos mensajes y cambios de estado aparecen automáticamente.
+- Una conversación bajo **control humano** no recibirá respuestas generadas por IA hasta que se devuelva al agente.
+- Las conversaciones pre-asignadas permiten que la IA siga respondiendo mientras se designa a un humano, asegurando que ningún mensaje de usuario quede sin respuesta.
