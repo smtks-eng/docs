@@ -1,69 +1,75 @@
 ---
 title: "Panel de Conversaciones"
-description: "Visualiza y gestiona todas las conversaciones en vivo desde una sola bandeja—filtra, asigna, toma el control y responde en tiempo real."
+description: "Gestiona las conversaciones en vivo entre tu agente de IA, los miembros de tu equipo y los usuarios finales en tiempo real."
 ---
 
-El **Panel de Conversaciones** es el espacio de trabajo principal de tu equipo de Centro de Contacto. Muestra todas las conversaciones activas y recientes en todos los canales conectados, y permite a los agentes tomar el control del AI, responder a usuarios y gestionar asignaciones—todo desde un solo lugar.
+El **Panel de Conversaciones** es el centro principal del Centro de Contacto. Ofrece a tu equipo una vista en tiempo real de cada conversación activa que tu agente de IA está manejando, y permite a los miembros intervenir, tomar el control o reasignar conversaciones según sea necesario.
 
 ## Lista de conversaciones
 
-El lado izquierdo del panel muestra una lista desplazable de conversaciones. Cada entrada muestra:
+En el lado izquierdo del panel verás una lista de todas las conversaciones, organizadas por estado:
 
-- **Nombre del contacto** (o ID externo si no hay nombre disponible)
-- **Canal** en el que se desarrolla la conversación
-- **Vista previa del último mensaje**
-- **Insignia de estado** — *Activa*, *Terminada* o *Pre-asignada*
-- **Gestionada por** — si la conversación la maneja actualmente el agente de IA o un miembro humano del equipo
+| Estado | Significado |
+|---|---|
+| **Activa** | La conversación está en curso — manejada por el agente de IA o por un miembro humano |
+| **Cerrada** | La conversación ha terminado (resuelta o expirada) |
 
 Haz clic en cualquier conversación para abrir su vista de detalle a la derecha.
 
-## Detalle de la conversación
+## Detalle de conversación
 
-El lado derecho muestra el hilo completo de mensajes y los controles de la conversación:
+Cuando seleccionas una conversación, verás:
 
-- **Historial de mensajes** — la transcripción completa entre el usuario y el agente (IA o humano)
-- **Metadatos de la conversación** — canal, estado, miembro asignado, marcas de tiempo
-- **Campo de respuesta** — escribe y envía mensajes cuando la conversación está bajo control humano
+- **Hilo de mensajes** — el intercambio completo entre el usuario, el agente de IA y cualquier miembro humano que haya participado
+- **Información del contacto** — nombre, canal, ID externo y memorias recopiladas
+- **Metadatos de la conversación** — estado, miembro asignado, canal, marcas de tiempo
 
-## Asignación y toma de conversaciones
+## Tomar una conversación
 
-Las conversaciones pueden ser **asignadas** a un miembro específico del equipo. La asignación puede ocurrir automáticamente (ej. mediante la herramienta de Centro de Contacto de Semantiks) o manualmente desde el detalle de la conversación.
+Cuando el agente de IA está manejando una conversación, cualquier miembro del equipo puede **tomarla** para responder manualmente. Tomar una conversación pausa el agente de IA y permite al miembro responder directamente.
 
-### Conversaciones pre-asignadas
+**Quién puede tomar una conversación:**
 
-Una conversación está **pre-asignada** cuando tiene un `assigned_to_member_id` establecido pero `handled_by` sigue siendo `"agent"` — es decir, la IA continúa respondiendo hasta que un humano tome el control. Las conversaciones pre-asignadas muestran una insignia ámbar en el detalle.
-
-### Tomar una conversación
-
-Para tomar el control de una conversación pre-asignada (cambiando `handled_by` de IA a humano para que el LLM deje de responder), haz clic en el botón **Tomar conversación** que aparece en el encabezado de la conversación.
+- Cualquier miembro puede tomar una conversación **no asignada** (sin ningún miembro asignado).
+- Si una conversación está **asignada a ti**, puedes tomarla.
+- Si una conversación está **asignada a otro miembro**, no puedes tomarla directamente — solo el miembro asignado puede hacerlo.
 
 <Note>
-**Reglas de permisos para tomar conversaciones:**
-- **Propietarios y Administradores** pueden tomar cualquier conversación pre-asignada, sin importar a quién esté asignada.
-- **Otros miembros del equipo** solo pueden tomar conversaciones que estén asignadas a ellos. Si la conversación está asignada a otro miembro, el botón de Tomar no aparecerá.
+El botón "Tomar conversación" solo está disponible cuando tienes permiso para tomar la conversación según las reglas anteriores.
 </Note>
 
-### Enviar mensajes en conversaciones asignadas
+## Asignar y pasar conversaciones
 
-Las mismas reglas de permisos aplican al iniciar o reanudar una conversación (ej. enviar una plantilla de WhatsApp o abrir un nuevo hilo):
+Puedes asignar una conversación activa manejada por el agente a cualquier miembro disponible del equipo usando el menú desplegable de **Asignar**. Esto es útil para dirigir conversaciones a la persona indicada según su experiencia o disponibilidad.
 
-- **Propietarios y Administradores** pueden enviar mensajes en cualquier conversación asignada.
-- **Otros miembros** solo pueden enviar mensajes en conversaciones asignadas a ellos. Si la conversación está asignada a otra persona, el área de entrada de mensajes se reemplaza por un aviso: *"Esta conversación está asignada a otro miembro."*
+**Comportamiento clave:**
+
+- **Cualquier miembro** puede usar el menú de asignación para pasar una conversación a otro miembro del equipo, incluso si la conversación ya está asignada a otra persona.
+- Si **no puedes tomar** la conversación tú mismo (porque está asignada a otro miembro), no aparecerás en la lista de miembros asignables — pero aún puedes pasarla a otros.
+- Cuando una conversación está **preasignada** (asignada a un miembro pero aún manejada por el agente de IA), el miembro asignado ve un botón de "Tomar conversación" para intervenir.
 
 <Tip>
-Si ves el aviso de "asignada a otro miembro" y crees que deberías gestionar la conversación, pide a un **Propietario** o **Administrador** de tu equipo que te la reasigne.
+Usa la asignación de conversaciones para coordinar traspasos entre miembros del equipo. Por ejemplo, un agente de soporte de primera línea puede pasar una pregunta técnica a un especialista sin necesidad de privilegios de administrador.
 </Tip>
 
-## Filtros
+## Manejar una conversación
 
-Usa los controles de filtro en la parte superior de la lista de conversaciones para refinar lo que ves:
+Una vez que un miembro toma una conversación:
 
-- **Estado** — activa, terminada
-- **Canal** — filtra por un canal específico
-- **Asignada a** — muestra solo conversaciones asignadas a un miembro específico
+1. El agente de IA deja de responder automáticamente.
+2. El miembro puede leer el historial completo y responder directamente.
+3. Al terminar, el miembro puede **devolver la conversación al agente de IA** o **cerrarla**.
+
+## Devolver al agente de IA
+
+Si un miembro decide que el agente de IA debe continuar manejando la conversación, puede devolverla. El agente retoma donde se quedó, usando el contexto completo de la conversación.
+
+## Cerrar una conversación
+
+Los miembros pueden cerrar manualmente una conversación cuando el problema está resuelto. Las conversaciones cerradas pasan a la pestaña de **Cerradas** y están disponibles para revisión en el historial.
 
 ## Notas clave
 
-- El Panel de Conversaciones se actualiza en **tiempo real** — los nuevos mensajes y cambios de estado aparecen automáticamente.
-- Una conversación bajo **control humano** no recibirá respuestas generadas por IA hasta que se devuelva al agente.
-- Las conversaciones pre-asignadas permiten que la IA siga respondiendo mientras se designa a un humano, asegurando que ningún mensaje de usuario quede sin respuesta.
+- Cualquier miembro del equipo puede pasar conversaciones a otros miembros, sin importar su rol.
+- Solo las conversaciones no asignadas o asignadas a ti pueden ser tomadas directamente.
+- El agente de IA mantiene el contexto completo del historial de la conversación, incluso después de que un miembro humano interviene y devuelve el control.
