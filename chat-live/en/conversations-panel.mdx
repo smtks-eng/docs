@@ -1,58 +1,58 @@
 ---
 title: "Conversations Panel"
-description: "Manage and respond to live chat conversations escalated from your AI agent to human support."
+description: "Manage live conversations with your contacts in real time. Take control from the AI, reply to users, and collaborate with your team."
 ---
 
-The **Conversations Panel** is the main workspace for your support team when handling live conversations. It shows every conversation that has been escalated from the AI agent to a human, and lets your team take, reply, reassign, and resolve them in real time.
+The **Conversations Panel** is your team's real-time workspace for handling live conversations that have been escalated from the AI agent or that require human intervention.
 
-## Conversation list
+From here you can monitor ongoing conversations, take control when needed, send replies, and hand conversations back to the AI.
 
-On the left side of the panel you'll see the list of active conversations. Each entry shows:
+## Viewing conversations
 
-- **Contact name** and **channel** (e.g. WhatsApp, Web Bubble)
-- **Last message preview**
-- **Assignment status** — whether the conversation is unassigned, pre-assigned, or being handled by a specific team member
+The left sidebar lists all active and recent conversations. Each entry shows:
+- The **contact name** and **channel** (WhatsApp, Web, Freshchat, etc.)
+- A preview of the **last message**
+- The **status** of the conversation (active, ended, waiting, etc.)
+- The **assigned member**, if someone has taken the conversation
 
-Use the filters and search bar at the top to narrow the list by status, channel, or assignee.
+Click any conversation to open it in the main panel.
 
-## Taking & assigning conversations
+## Taking a conversation
 
-When a conversation is escalated, it appears as **unassigned** (loose) in the panel. Team members can pick it up or pass it to a colleague.
+When a conversation is escalated or you want to intervene, click the **Take** button to assign it to yourself. This switches the conversation to **human-controlled** mode, meaning the AI agent will stop responding automatically.
 
-### Who can take a conversation
+- **Owners** and **Admins** can take any conversation, even if it's already assigned to another member.
+- **Members** can take unassigned conversations. If a conversation is already assigned to someone else, members cannot take it—but they can still reassign it to another team member (excluding themselves).
 
-| Scenario | Member | Admin / Owner |
-|---|---|---|
-| Conversation is **unassigned** | ✅ Can take | ✅ Can take |
-| Conversation is **assigned to you** | ✅ Can take back | ✅ Can take back |
-| Conversation is **assigned to someone else** | ❌ Cannot take | ✅ Can take |
+## Replying to a conversation
 
-- **Members** can only take conversations that are unassigned or already assigned to themselves.
-- **Admins** and **Owners** can take any conversation, including ones currently assigned to another team member. This is useful for supervisors who need to step in, redistribute workload, or handle escalations directly.
+Once a conversation is in human-controlled mode, the chat input becomes available **only to the team member who is assigned to it**. Owners and admins can also reply to any human-controlled conversation, regardless of assignment.
 
-### Passing conversations
+<Warning>
+If you are not assigned to a conversation and you are not an owner or admin, the reply input will be disabled. You must take or be assigned the conversation before you can send messages.
+</Warning>
 
-Any team member—regardless of role—can **pass** (reassign) a conversation to another available member. When passing, the member list shows all available colleagues. If you cannot take the conversation yourself (because it is assigned to someone else and you are not an admin/owner), you will not appear in the assignee list.
+Type your message and press **Send** to reply to the user directly.
 
-### Pre-assignment
+### Notes mode
 
-A conversation can be **pre-assigned** to a member while the AI agent is still handling it. In this state the `handled_by` field remains `agent` but the `assigned_to` is already set. The AI continues replying until the human explicitly takes over.
+Toggle **Notes mode** to write internal notes that are visible only to your team—these messages are never sent to the contact.
 
-## Conversation detail
+## Reassigning a conversation
 
-Click any conversation to open the detail view on the right. Here you can:
+You can reassign a conversation to another team member using the assignment menu. This is useful for routing conversations to specialists or handing off between shifts.
 
-- **Read the full message history** between the contact and the agent/human
-- **Send replies** as a human agent
-- **View contact info** — name, channel, external ID, and collected memories
-- **Reassign or resolve** the conversation using the action buttons
+- **Owners** and **Admins** can reassign any conversation to any member.
+- **Members** can reassign conversations to other team members but cannot assign a conversation to themselves unless it is unassigned.
 
-## Key notes
+## Handing back to the AI
 
-- Conversations stay in the panel until they are **resolved** (closed).
-- Admins and owners have broader assignment privileges to support team supervision and workload management.
-- The panel updates in **real time** — new messages and status changes appear instantly.
+When you're done, click **Hand back to AI** (or the equivalent action) to return control to the AI agent. The agent will resume responding to the user automatically.
+
+## Ending a conversation
+
+You can manually end a conversation when the issue is resolved. Ended conversations move to the history and are no longer active.
 
 <Tip>
-Use the **Performance** and **Escalation Insights** pages alongside the Conversations Panel to monitor your team's response times and identify patterns in escalated topics.
+Use the **Conversations Panel** together with the **Performance** and **Escalation Insights** pages to track your team's response quality and identify patterns in escalations.
 </Tip>
