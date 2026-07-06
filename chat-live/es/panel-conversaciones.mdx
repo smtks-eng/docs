@@ -1,58 +1,69 @@
 ---
 title: "Panel de Conversaciones"
-description: "Gestiona conversaciones en vivo con tus contactos en tiempo real. Toma el control del agente IA, responde a usuarios y colabora con tu equipo."
+language: es
+icon: "headset"
+description: "Gestiona conversaciones en vivo, toma el control del agente IA, responde a usuarios y reengancha contactos a través del panel de Chat en Vivo."
 ---
 
-El **Panel de Conversaciones** es el espacio de trabajo en tiempo real de tu equipo para manejar conversaciones en vivo que han sido escaladas desde el agente de IA o que requieren intervención humana.
+El **Panel de Conversaciones** es el centro de operaciones de chat en vivo de tu equipo. Desde aquí, los miembros del equipo pueden monitorear conversaciones activas, tomar el control del agente IA, responder a usuarios y gestionar interacciones escaladas.
 
-Desde aquí puedes monitorear conversaciones en curso, tomar el control cuando sea necesario, enviar respuestas y devolver las conversaciones al agente de IA.
+## Resumen del panel
 
-## Ver conversaciones
+El Panel de Conversaciones se divide en tres áreas:
 
-La barra lateral izquierda muestra todas las conversaciones activas y recientes. Cada entrada muestra:
-- El **nombre del contacto** y el **canal** (WhatsApp, Web, Freshchat, etc.)
-- Una vista previa del **último mensaje**
-- El **estado** de la conversación (activa, finalizada, en espera, etc.)
-- El **miembro asignado**, si alguien ha tomado la conversación
+| Área | Descripción |
+|---|---|
+| **Lista de conversaciones** (izquierda) | Muestra todas las conversaciones con filtros de estado, canal y asignación. |
+| **Vista de chat** (centro) | El hilo de conversación activo donde lees mensajes y respondes. |
+| **Detalle de conversación** (derecha) | Información del contacto, metadatos de la conversación y acciones como asignar, transferir o cerrar. |
 
-Haz clic en cualquier conversación para abrirla en el panel principal.
+---
 
 ## Tomar una conversación
 
-Cuando una conversación es escalada o deseas intervenir, haz clic en el botón **Tomar** para asignártela. Esto cambia la conversación a modo de **control humano**, lo que significa que el agente de IA dejará de responder automáticamente.
+Cuando el agente IA escala una conversación o quieres intervenir manualmente, puedes **tomar el control** de la conversación. Esto pone la conversación en modo controlado por humano, lo que significa que el agente IA deja de responder y un miembro del equipo se encarga de las respuestas.
 
-- Los **Propietarios** y **Administradores** pueden tomar cualquier conversación, incluso si ya está asignada a otro miembro.
-- Los **Miembros** pueden tomar conversaciones no asignadas. Si una conversación ya está asignada a otra persona, los miembros no pueden tomarla, pero sí pueden reasignarla a otro compañero de equipo (excluyéndose a sí mismos).
+- Haz clic en el botón **Tomar conversación** en el panel de detalle de la conversación.
+- Una vez tomada, la conversación se te asigna y puedes empezar a escribir respuestas.
 
-## Responder a una conversación
+---
 
-Una vez que una conversación está en modo de control humano, el campo de entrada de chat se habilita **solo para el miembro del equipo que está asignado a ella**. Los propietarios y administradores también pueden responder a cualquier conversación bajo control humano, sin importar la asignación.
+## Responder a usuarios
 
-<Warning>
-Si no estás asignado a una conversación y no eres propietario ni administrador, el campo de respuesta estará deshabilitado. Debes tomar o ser asignado a la conversación antes de poder enviar mensajes.
-</Warning>
+Solo el miembro del equipo que está **asignado a la conversación** puede escribir respuestas. Los propietarios y administradores también pueden responder a cualquier conversación sin importar la asignación.
 
-Escribe tu mensaje y presiona **Enviar** para responder directamente al usuario.
+Si no eres el miembro asignado y no tienes privilegios de propietario/administrador, el área de respuesta estará deshabilitada.
 
-### Modo de notas
+---
 
-Activa el **Modo de notas** para escribir notas internas que solo son visibles para tu equipo; estos mensajes nunca se envían al contacto.
+## Reenganchar contactos (Iniciar nueva)
 
-## Reasignar una conversación
+Puedes reenganchar a un contacto iniciando una nueva conversación o enviando un mensaje de plantilla de WhatsApp. Esto es útil para dar seguimiento a usuarios después de que una conversación previa haya terminado.
 
-Puedes reasignar una conversación a otro miembro del equipo usando el menú de asignación. Esto es útil para dirigir conversaciones a especialistas o hacer traspasos entre turnos.
+<Note>
+La capacidad de iniciar una nueva conversación o reenganchar a un contacto está restringida al **miembro del equipo asignado**, o a usuarios con rol de **propietario** o **administrador**. Si la conversación no está asignada a ti y no eres propietario o administrador, verás un mensaje de advertencia en lugar de los controles de reenganche.
+</Note>
 
-- Los **Propietarios** y **Administradores** pueden reasignar cualquier conversación a cualquier miembro.
-- Los **Miembros** pueden reasignar conversaciones a otros compañeros, pero no pueden asignarse una conversación a sí mismos a menos que esté sin asignar.
+---
 
-## Devolver al agente de IA
+## Transferir conversaciones
 
-Cuando hayas terminado, haz clic en **Devolver al agente de IA** (o la acción equivalente) para devolver el control al agente. El agente reanudará las respuestas al usuario automáticamente.
+Puedes transferir una conversación a otro miembro del equipo si alguien más está mejor preparado para manejar la solicitud. Usa la opción de **transferir** en el panel de detalle de la conversación.
 
-## Finalizar una conversación
+---
 
-Puedes finalizar manualmente una conversación cuando el asunto esté resuelto. Las conversaciones finalizadas pasan al historial y dejan de estar activas.
+## Cerrar conversaciones
 
-<Tip>
-Usa el **Panel de Conversaciones** junto con las páginas de **Desempeño** y **Perspectivas de Escalación** para rastrear la calidad de respuesta de tu equipo e identificar patrones en las escalaciones.
-</Tip>
+Una vez que una conversación está resuelta, puedes cerrarla manualmente. Las conversaciones cerradas salen de la lista activa pero permanecen accesibles en el historial de conversaciones.
+
+---
+
+## Permisos clave
+
+| Acción | Quién puede hacerlo |
+|---|---|
+| **Tomar una conversación** | Cualquier miembro del equipo disponible |
+| **Responder** | Miembro asignado, propietario o administrador |
+| **Iniciar nueva / Reenganchar** | Miembro asignado, propietario o administrador |
+| **Transferir** | Miembro asignado, propietario o administrador |
+| **Cerrar** | Miembro asignado, propietario o administrador |

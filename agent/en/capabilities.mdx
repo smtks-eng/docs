@@ -53,117 +53,66 @@ Manage your AI agent's skills through two types of tools: predefined tools that 
     1. Go to **AI Agent > Design > Skills > Collect Information**.  
     2. Click **New Configuration** to start.  
     3. Enter a **Name** for your configuration (e.g., `registro_interesados`).  
-    4. Add any **Special Instructions** to guide the agent's behavior while collecting data.  
-    5. Add **Fields** to specify the data points you want to collect:  
-       - **Field name** (e.g., `Full name`)  
-       - **Field type** (text, number, date, boolean, or enum)  
-       - **Instructions** for the agent (e.g., "Ask politely for the user's full name")  
-       - **Required / Optional** toggle  
-       - **Validation** — for text or number fields, you can add a **regular expression** (regex) to validate the user's input before accepting it  
-    6. Choose the **Channels** where this configuration should be active.  
+    4. Add any **Special Instructions** to guide the agent's behavior during collection.  
+    5. Define the **Fields** you want to collect, including the field name, type, and prompt instructions.  
+    6. Assign the configuration to one or more **Channels**.  
     7. Click **Save** to activate.  
     </Accordion>  
 
     ---
 
-    ### **Search Links (Web Search)**  
-    - **Description:** Allows the agent to search the web for real-time information. The agent will use external web searches to supplement its responses when necessary.  
-    - **Toggle:** Off by default.  
-    - **Configuration:** No setup required.  
+    ### **Get Contact from HubSpot**
+    - **Description:** Allows the agent to look up a contact in your connected HubSpot CRM during a conversation. The agent can retrieve contact details (such as name, email, company, lifecycle stage, etc.) and use them to personalize responses or route conversations.
+    - **Toggle:** Off by default.
+    - **Configuration:** Specify which HubSpot contact properties the agent should retrieve.
+
+    <Note>
+    This tool requires an active **HubSpot integration** configured in **AI Agent > Connect > Integrations**. Make sure your HubSpot account is connected before enabling this skill.
+    </Note>
+
+    <Accordion title="How to Configure Get Contact from HubSpot">
+    1. Go to **AI Agent > Design > Skills** and enable the **Get Contact from HubSpot** tool.
+    2. Click **Configuration** to open the properties editor.
+    3. You will see an inline list editor where you can define which HubSpot contact properties the agent should retrieve.
+    4. Click the **+** button to add a new property.
+    5. Type the **HubSpot property identifier** (the internal name used by HubSpot, e.g. `firstname`, `email`, `company`, `lifecyclestage`).
+    6. Use the **pencil icon** to edit an existing property, or the **trash icon** to remove one.
+    7. Press **Enter** or click the **checkmark icon** to confirm your edit.
+    8. Click **Save** when you're done.
+
+    If you leave the properties list empty, the agent will use a default set of properties.
+    </Accordion>
+
+    <Tip>
+    You can find a list of available HubSpot contact properties in your HubSpot account under **Settings > Properties > Contact properties**. Use the **internal name** (not the label) when adding properties here.
+    </Tip>
 
     ---
 
     ### **Human Escalation**  
-    - **Description:** Enables the agent to hand off a conversation to a live human agent when it cannot resolve the user's request.  
+    - **Description:** Enables the agent to escalate a conversation to a live human agent when it detects the need.  
     - **Toggle:** Off by default.  
-    - **Channel support:** This tool only appears and is configurable if you have an active integration with **Freshchat** or **Zendesk**.  
-    - **Configuration:** Select which integration should handle the escalation.  
+    - **Configuration:** Requires a compatible integration (Freshchat, Zendesk, or the built-in Live Chat). Define when and how the agent should escalate.  
 
     ---
-
-    ### **Send Email**  
-    - **Description:** Allows the agent to send emails on behalf of your organization during a conversation.  
-    - **Toggle:** Off by default.  
-    - **Configuration:** Email settings (sender address, templates, etc.) must be configured before the agent can send emails.  
 
   </Tab>
 
   <Tab title="Custom Tools">
-    The **Custom Tools** tab allows you to create your own tools that extend what your AI agent can do. Unlike predefined tools, custom tools connect your agent to **external APIs and services** — enabling it to look up data, trigger actions, or interact with your internal systems during a conversation.
+    **Custom Tools** allow you to extend your agent's capabilities beyond the built-in predefined tools. You can create tools that call external APIs, perform calculations, or trigger actions in third-party systems.
 
-    ---
-
-    ## What is a Custom Tool?
-
-    A custom tool is an HTTP-based integration that your agent can call mid-conversation. You define:
-    - The **endpoint URL** your agent should call
-    - The **HTTP method** (GET, POST, PUT, DELETE, PATCH)
-    - The **headers** and **authentication** needed
-    - The **input parameters** the agent should extract from the conversation
-    - The **output fields** the agent should use from the response
-
-    When the agent determines that a custom tool is relevant to the user's request, it automatically extracts the required parameters from the conversation, calls the endpoint, and uses the response to continue the interaction.
+    Custom tools are defined using a JSON schema that describes the tool's inputs, outputs, and execution logic.
 
     ---
 
     ## Creating a Custom Tool
 
-    <Steps>
-      <Step title="Go to Skills > Custom Tools">
-        Navigate to **AI Agent > Design > Skills** and select the **Custom Tools** tab.
-      </Step>
-      <Step title="Click New Tool">
-        Click the **New Tool** button to open the tool creation form.
-      </Step>
-      <Step title="Fill in the general information">
-        Provide the following details:
-        - **Name** — a unique identifier for the tool (used internally by the agent). Use lowercase and underscores (e.g., `check_order_status`).
-        - **Title** — an optional human-readable label for the tool. When set, this title is displayed in dashboards (such as the Task Log) instead of the internal name, making it easier to identify tools at a glance.
-        - **Description** — explain what the tool does. This helps the agent decide when to use it.
-      </Step>
-      <Step title="Configure the HTTP request">
-        - Select the **HTTP method** (GET, POST, etc.)
-        - Enter the **endpoint URL**
-        - Add any required **headers** (e.g., `Authorization: Bearer <token>`)
-        - Choose the **authentication type** if needed
-      </Step>
-      <Step title="Define input parameters">
-        Add the parameters the agent needs to extract from the conversation:
-        - **Parameter name** — the key expected by the API
-        - **Type** — string, number, boolean, etc.
-        - **Description** — how the agent should identify this value in the conversation
-        - **Required** — whether the parameter is mandatory
-      </Step>
-      <Step title="Define output fields">
-        Specify which fields from the API response the agent should use:
-        - **Field name** — the key in the response JSON
-        - **Description** — what this field represents (helps the agent use it naturally in conversation)
-      </Step>
-      <Step title="Save">
-        Click **Save** to create the tool. It will be available for your agent to use immediately.
-      </Step>
-    </Steps>
-
-    <Tip>
-      Write clear, specific descriptions for both the tool and its parameters. The better the agent understands what the tool does and what each parameter means, the more accurately it will use the tool during conversations.
-    </Tip>
-
-    <Tip>
-      Use the **Title** field to give your tool a friendly, descriptive label (e.g., "Check Order Status"). This title appears in the Task Log and other dashboards, making it much easier to monitor tool activity without needing to remember internal names.
-    </Tip>
-
-    ---
-
-    ## Managing Custom Tools
-
-    From the Custom Tools tab, you can:
-    - **Edit** any existing tool by clicking on it
-    - **Delete** tools that are no longer needed
-    - **Test** tools directly from the Playground to verify they work as expected
-
-    <Note>
-    Custom tools are scoped to your **organization**. All agents in your organization can potentially use any custom tool you create.
-    </Note>
+    1. Navigate to **AI Agent > Design > Skills**.  
+    2. Switch to the **Custom Tools** tab.  
+    3. Click **New Tool** to start building.  
+    4. Define the tool's **name**, **description**, and **parameters**.  
+    5. Configure the **API endpoint** or execution logic.  
+    6. Save and test using the **Playground**.  
 
   </Tab>
 </Tabs>

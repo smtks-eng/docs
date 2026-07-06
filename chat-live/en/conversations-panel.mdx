@@ -1,58 +1,69 @@
 ---
 title: "Conversations Panel"
-description: "Manage live conversations with your contacts in real time. Take control from the AI, reply to users, and collaborate with your team."
+language: en
+icon: "headset"
+description: "Manage live conversations, take over from the AI agent, reply to users, and re-engage contacts through the Live Chat panel."
 ---
 
-The **Conversations Panel** is your team's real-time workspace for handling live conversations that have been escalated from the AI agent or that require human intervention.
+The **Conversations Panel** is the central hub for your team's live chat operations. From here, team members can monitor active conversations, take over from the AI agent, reply to users, and manage escalated interactions.
 
-From here you can monitor ongoing conversations, take control when needed, send replies, and hand conversations back to the AI.
+## Panel overview
 
-## Viewing conversations
+The Conversations Panel is divided into three areas:
 
-The left sidebar lists all active and recent conversations. Each entry shows:
-- The **contact name** and **channel** (WhatsApp, Web, Freshchat, etc.)
-- A preview of the **last message**
-- The **status** of the conversation (active, ended, waiting, etc.)
-- The **assigned member**, if someone has taken the conversation
+| Area | Description |
+|---|---|
+| **Conversation list** (left) | Shows all conversations with filters for status, channel, and assignment. |
+| **Chat view** (center) | The active conversation thread where you read messages and reply. |
+| **Conversation detail** (right) | Contact info, conversation metadata, and actions like assign, transfer, or close. |
 
-Click any conversation to open it in the main panel.
+---
 
-## Taking a conversation
+## Taking over a conversation
 
-When a conversation is escalated or you want to intervene, click the **Take** button to assign it to yourself. This switches the conversation to **human-controlled** mode, meaning the AI agent will stop responding automatically.
+When the AI agent escalates a conversation or you want to intervene manually, you can **take over** the conversation. This puts the conversation into human-controlled mode, meaning the AI agent stops responding and a team member handles replies.
 
-- **Owners** and **Admins** can take any conversation, even if it's already assigned to another member.
-- **Members** can take unassigned conversations. If a conversation is already assigned to someone else, members cannot take it—but they can still reassign it to another team member (excluding themselves).
+- Click the **Take conversation** button in the conversation detail panel.
+- Once taken, the conversation is assigned to you and you can start typing replies.
 
-## Replying to a conversation
+---
 
-Once a conversation is in human-controlled mode, the chat input becomes available **only to the team member who is assigned to it**. Owners and admins can also reply to any human-controlled conversation, regardless of assignment.
+## Replying to users
 
-<Warning>
-If you are not assigned to a conversation and you are not an owner or admin, the reply input will be disabled. You must take or be assigned the conversation before you can send messages.
-</Warning>
+Only the team member who is **assigned to the conversation** can type replies. Owners and admins can also reply to any conversation regardless of assignment.
 
-Type your message and press **Send** to reply to the user directly.
+If you are not the assigned member and do not have owner/admin privileges, the reply area will be disabled.
 
-### Notes mode
+---
 
-Toggle **Notes mode** to write internal notes that are visible only to your team—these messages are never sent to the contact.
+## Re-engaging contacts (Start New)
 
-## Reassigning a conversation
+You can re-engage a contact by starting a new conversation or sending a WhatsApp template message. This is useful for following up with users after a previous conversation has ended.
 
-You can reassign a conversation to another team member using the assignment menu. This is useful for routing conversations to specialists or handing off between shifts.
+<Note>
+The ability to start a new conversation or re-engage a contact is restricted to the **assigned team member**, or users with **owner** or **admin** roles. If the conversation is not assigned to you and you are not an owner or admin, you will see a warning message instead of the re-engage controls.
+</Note>
 
-- **Owners** and **Admins** can reassign any conversation to any member.
-- **Members** can reassign conversations to other team members but cannot assign a conversation to themselves unless it is unassigned.
+---
 
-## Handing back to the AI
+## Transferring conversations
 
-When you're done, click **Hand back to AI** (or the equivalent action) to return control to the AI agent. The agent will resume responding to the user automatically.
+You can transfer a conversation to another team member if someone else is better suited to handle the request. Use the **transfer** option in the conversation detail panel.
 
-## Ending a conversation
+---
 
-You can manually end a conversation when the issue is resolved. Ended conversations move to the history and are no longer active.
+## Closing conversations
 
-<Tip>
-Use the **Conversations Panel** together with the **Performance** and **Escalation Insights** pages to track your team's response quality and identify patterns in escalations.
-</Tip>
+Once a conversation is resolved, you can close it manually. Closed conversations move out of the active list but remain accessible in conversation history.
+
+---
+
+## Key permissions
+
+| Action | Who can do it |
+|---|---|
+| **Take a conversation** | Any available team member |
+| **Reply** | Assigned member, owner, or admin |
+| **Start new / Re-engage** | Assigned member, owner, or admin |
+| **Transfer** | Assigned member, owner, or admin |
+| **Close** | Assigned member, owner, or admin |
