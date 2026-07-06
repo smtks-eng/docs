@@ -1,85 +1,47 @@
 ---
-title: "Billing & Subscription"
-language: en
-description: "Understand your subscription status, contract states, and how to resolve billing issues like paused contracts or exhausted credits."
+title: "Billing"
+description: "View your subscription details, download invoices, and manage your plan from the Billing page."
+icon: "credit-card"
 ---
 
-The **Billing** section in Settings lets you view your current subscription status, manage payment methods, and monitor credit usage across your contracts.
+The **Billing** page gives you a clear view of your current subscription for the selected agent. You can review your plan, track usage costs, and download invoices—all in one place.
 
----
+## Subscription overview
 
-## Subscription Status Pill
+When you open Billing, you'll see a summary card for your active contract:
 
-Throughout the Semantiks Console, a **subscription status pill** is displayed near your agent's name. This pill gives you a quick overview of your billing health—including your current plan, remaining credits, and any action required.
+- **Plan name** — the rate card or contract name associated with this agent.
+- **Status badge** — shows whether the subscription is active.
+- **Total usage cost** — accumulated cost for the current billing cycle.
+- **Billing period** — start and end dates of the current cycle.
 
-The pill may show different messages depending on your account state:
+## Invoices
 
-| State | What you see | What it means |
-|---|---|---|
-| **Active** | Green indicator with remaining credits | Your subscription is active and credits are available. |
-| **Free Trial** | Trial credits progress bar | You are using free trial credits. The bar shows how much you've consumed. |
-| **Low Credits** | Red text with remaining balance | Your credits are running low. Consider adding a payment method or upgrading. |
-| **Credits Exhausted** | Red warning text | All credits have been used. Your agent may stop responding until credits are replenished. |
-| **Paused — No Payment Method** | Red button: *"Add payment method to unpause"* | Your free credits ran out and no payment method is on file. Your contract is paused. |
-| **Pending Charges** | Amount due with *"Fix billing"* link | There are unpaid invoices on your account. |
+Below the summary you'll find a list of invoices for the contract. Expand any invoice to see its details, then click **Download invoice** to get a PDF.
 
----
+## Cancel a subscription
 
-## Paused Contract (Credits Exhausted, No Payment Method)
-
-If your organization was on a **free trial** and the trial credits are fully consumed without a payment method on file, your contract will be **automatically paused**.
-
-When this happens:
-
-- The subscription status pill turns **red** and displays **"Add payment method to unpause"**.
-- The **Contract Card** on the Billing page shows **$0.00 remaining** in red.
-- Your agent **stops processing conversations** until the issue is resolved.
-
-### How to resolve a paused contract
-
-<Steps>
-  <Step title="Click the status pill or CTA button">
-    Click the red **"Add payment method to unpause"** button displayed in the subscription status area. This takes you directly to the **Billing Details** tab.
-  </Step>
-  <Step title="Add a payment method">
-    On the **Billing Details** tab, add a valid payment method (credit card or other supported method).
-  </Step>
-  <Step title="Contract resumes automatically">
-    Once a payment method is on file, your contract will be reactivated and your agent will resume handling conversations.
-  </Step>
-</Steps>
+If you need to cancel your agent's subscription, click the **Cancel subscription** button next to the active status badge.
 
 <Warning>
-  While your contract is paused, your agent will **not respond** to messages on any connected channel. Resolve the billing issue as soon as possible to avoid disruption.
+  Cancelling a subscription cannot be undone. The contract will end at the close of the current billing cycle and the agent will be disabled. After cancellation you can delete the agent.
 </Warning>
 
----
+### How it works
 
-## Contract Card
+1. Click **Cancel subscription** on the subscription card.
+2. A confirmation dialog will appear explaining what happens next.
+3. Click **Yes, cancel subscription** to confirm, or **Keep subscription** to go back.
+4. Once confirmed, the contract is scheduled to end at the close of the current cycle and the agent status changes to **disabled**.
 
-The **Contract Card** on the Billing page displays key information about each of your contracts:
+### Usage commitment restriction
 
-- **Contract status** — shown as a colored badge:
-  - 🟢 **Active** — contract is running normally
-  - 🔴 **Expired / Credits Exhausted / Paused** — contract needs attention
-  - ⚪ **Inactive** — contract is not currently in use
-- **Credits remaining** — the dollar amount of credits still available. When your contract is paused due to exhausted credits, this shows **$0.00** in red.
-- **Credit usage breakdown** — details of how credits have been consumed across your contract's credit buckets.
+If your contract includes an active usage commitment, the **Cancel subscription** button will be disabled. You'll see a tooltip explaining:
 
-<Tip>
-  You can navigate to the Billing page at any time from **Settings > Billing**, or by clicking the subscription status pill when it shows a billing action.
-</Tip>
+> "You can't cancel while there is an active usage commitment."
 
----
-
-## Free Trial Credits
-
-When your organization starts a free trial, you receive a set amount of trial credits. The subscription status pill displays a **progress bar** showing how much of your trial allowance has been consumed.
-
-- The progress bar is **green** when credits are healthy.
-- It turns **red** when credits are low or exhausted.
-- Once all trial credits are consumed without a payment method, your contract is **paused** (see above).
+You must wait until the usage commitment period ends before you can cancel.
 
 <Note>
-  To continue using your agent after the free trial, add a payment method and start a subscription from the billing page.
+  If you need to cancel a subscription with an active commitment, please contact support.
 </Note>
