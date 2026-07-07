@@ -45,67 +45,36 @@ Debajo de los indicadores encontrarás una tabla con todas las conversaciones re
 - **Nombre de perfil:** Nombre del usuario (si el canal lo captura).
 - **ID externo:** ID del usuario del canal.
 - **Número de mensajes:** Total de mensajes intercambiados (con el agente de IA).
-- **Tiempo de primera respuesta (FRT):** Tiempo transcurrido entre el primer mensaje del usuario y la primera respuesta del agente. Se muestra en formato legible (ej. `45s`, `2m 30s`, `1h 15m`).
-- **Tiempo promedio de respuesta (ART):** Tiempo promedio que el agente tarda en responder en todos los mensajes de la conversación.
-
-### Controles de la tabla
-
-- **Búsqueda:** Filtra conversaciones por palabra clave en múltiples campos.
-- **Rango de fechas:** Selecciona un preset (Hoy, 7D, 30D, Año) o define un rango personalizado.
-- **Columnas:** Muestra u oculta columnas con el selector de visibilidad.
-- **Paginación:** Navega entre páginas de resultados.
-
----
-
-## Panel de Conversación (vista de detalle lateral)
-
-Al hacer clic en cualquier fila de la tabla se abre un **panel lateral derecho** con tres pestañas: **Detalles**, **Chat** y **Resumen**.
-
-### Pestaña de Detalles
-
-Muestra los metadatos de la conversación:
-
-- **Inició:** Fecha y hora en que comenzó la conversación.
-- **Estado:** Activa, Terminada o Sin iniciar.
-- **Canal:** Canal donde ocurrió la conversación.
-- **CSAT:** Puntuación de satisfacción del cliente (si está disponible).
-- **Cantidad de mensajes:** Número total de mensajes intercambiados.
-
-### Pestaña de Chat
-
-Muestra la transcripción completa de la conversación. Los mensajes se presentan con un diseño tipo chat:
-
-- **Mensajes del usuario** a un lado y **mensajes del agente** al otro.
-- **Mensajes de especialistas humanos** se distinguen cuando hubo un traspaso.
-- **Invocaciones de herramientas** se muestran en línea con una sección expandible que revela el nombre de la herramienta, la entrada y la salida.
-
-#### Mensajes de Campaña / Proactivos
-
-Los mensajes enviados a través de **Campañas** o **mensajería proactiva** (incluyendo plantillas de WhatsApp) se distinguen visualmente en la transcripción del chat:
-
-- Aparecen en una **burbuja de estilo verde** para diferenciarlos de las respuestas regulares del agente.
-- Se muestra una **insignia "Campaña"** con un ícono de megáfono en la parte superior de la burbuja del mensaje.
-
-Esto facilita identificar qué mensajes fueron enviados proactivamente por una campaña en lugar de ser parte de un flujo de conversación orgánico.
+- **Tiempo de primera respuesta (FRT):** El tiempo transcurrido entre el primer mensaje del usuario y la primera respuesta del agente. Se muestra en formato legible (ej. `45s`, `2m 30s`, `1h 15m`).
+- **Tiempo promedio de respuesta (ART):** El tiempo promedio que el agente tarda en responder a lo largo de la conversación.
+- **Etiquetas:** Etiquetas de color asignadas a la conversación. Las etiquetas se crean y gestionan desde el panel de detalles del cliente en el [Chat en Vivo](/chat-live/es/panel-conversaciones) y se muestran aquí como chips de solo lectura. Cada chip muestra un punto de color y el nombre de la etiqueta.
+- **Bandera:** Un indicador visual que puedes establecer en una conversación para seguimiento o revisión.
 
 <Tip>
-Usa la insignia de Campaña para auditar rápidamente qué mensajes salientes fueron activados por tus campañas al revisar una conversación.
+  Usa las Etiquetas para categorizar visualmente las conversaciones (ej. "VIP", "Urgente", "Reporte de error"). Las etiquetas se gestionan por conversación en el panel lateral del Chat en Vivo y aparecen automáticamente en esta tabla.
 </Tip>
-
-### Pestaña de Resumen
-
-Proporciona un resumen generado por IA de la conversación, incluyendo:
-
-- **Tema:** El tema auto-clasificado.
-- **Sentimiento:** Sentimiento del usuario (positivo, neutral, negativo).
-- **Éxito de tarea:** Si el agente resolvió la solicitud del usuario.
-- **Puntos clave:** Resumen en viñetas de los puntos destacados de la conversación.
 
 ---
 
-## Acciones Comunes
+## Panel de Conversación
 
-- **Revisar el desempeño del agente** — Abre conversaciones individuales para leer transcripciones y evaluar las respuestas del agente.
-- **Identificar patrones** — Usa los indicadores y filtros de la tabla para detectar tendencias en volumen, duración o distribución por canal.
-- **Auditar uso de herramientas** — Revisa qué herramientas invocó el agente durante una conversación y si se ejecutaron correctamente.
-- **Verificar mensajes de campaña** — Busca la insignia verde de Campaña en las transcripciones para confirmar que los mensajes proactivos se entregaron correctamente.
+Al hacer clic en cualquier fila de conversación se abre el **Panel de Conversación** en el lado derecho de la pantalla. Este panel muestra:
+
+- **Resumen de la conversación:** Un resumen breve del tema y la resolución de la conversación.
+- **Transcripción completa:** Lee todo el intercambio de mensajes entre el usuario y el agente.
+- **Detalles de la conversación:** Metadatos que incluyen canal, marcas de tiempo, ID externo y etiquetas asignadas.
+- **Herramientas utilizadas:** Qué herramientas/skills invocó el agente durante la conversación.
+- **Notas:** Notas internas agregadas por tu equipo.
+
+---
+
+## Flujos de trabajo comunes
+
+- **Verificar conversaciones activas** — filtra por estado *Activa* para ver qué está pasando en este momento.
+- **Revisar conversaciones con bandera** — haz clic en el encabezado de la columna Bandera para ordenar por conversaciones marcadas primero.
+- **Auditar un canal específico** — filtra por canal para ver el rendimiento en WhatsApp, Web u otros.
+- **Identificar conversaciones etiquetadas** — revisa la columna Etiquetas para encontrar conversaciones que tu equipo haya marcado con categorías específicas.
+
+<Note>
+La tabla de Conversaciones soporta **reordenamiento de columnas**. Arrastra los encabezados de columna para reorganizarlos en el orden que mejor se adapte a tu flujo de trabajo.
+</Note>

@@ -46,66 +46,35 @@ Below the KPIs, you will find a table with all recorded conversations. Each row 
 - **External ID:** User ID from the channel.
 - **Number of Messages:** Total messages exchanged (with the AI agent).
 - **First Response Time (FRT):** The time elapsed between the user's first message and the agent's first reply. Displayed in a human-readable format (e.g., `45s`, `2m 30s`, `1h 15m`).
-- **Average Response Time (ART):** The average time the agent takes to respond across all messages in the conversation.
-
-### Table Controls
-
-- **Search:** Filter conversations by keyword across multiple fields.
-- **Date range:** Select a preset (Today, 7D, 30D, Year) or define a custom range.
-- **Columns:** Show or hide columns using the column visibility selector.
-- **Pagination:** Navigate through pages of results.
-
----
-
-## Conversation Panel (right-side detail view)
-
-Clicking any row in the table opens a **right-side panel** with three tabs: **Details**, **Chat**, and **Summary**.
-
-### Details Tab
-
-Displays metadata about the conversation:
-
-- **Started:** Date and time when the conversation began.
-- **Status:** Active, Ended, or Not Started.
-- **Channel:** The channel where the conversation took place.
-- **CSAT:** Customer satisfaction score (if available).
-- **Message Count:** Total number of messages exchanged.
-
-### Chat Tab
-
-Shows the full transcript of the conversation. Messages are displayed in a chat-like layout with:
-
-- **User messages** on one side and **agent messages** on the other.
-- **Human specialist messages** are distinguished when a handoff occurred.
-- **Tool invocations** are shown inline with an expandable section that reveals the tool name, input, and output.
-
-#### Campaign / Proactive messages
-
-Messages sent through **Campaigns** or **proactive messaging** (including WhatsApp templates) are visually distinguished in the chat transcript:
-
-- They appear in a **green-styled bubble** to differentiate them from regular agent replies.
-- A **"Campaign" badge** with a megaphone icon is displayed at the top of the message bubble.
-
-This makes it easy to identify which messages were sent proactively by a campaign rather than as part of an organic conversation flow.
+- **Average Response Time (ART):** The average time the agent takes to reply across the conversation.
+- **Labels:** Color-coded tags assigned to the conversation. Labels are created and managed from the [Live Chat](/chat-live/en/conversations-panel) customer details panel and are displayed here as read-only chips. Each chip shows a colored dot and the label name.
+- **Flag:** A visual indicator you can set on a conversation for follow-up or review.
 
 <Tip>
-Use the Campaign badge to quickly audit which outbound messages were triggered by your campaigns when reviewing a conversation.
+  Use Labels to visually categorize conversations (e.g., "VIP", "Urgent", "Bug Report"). Labels are managed per conversation in the Live Chat sidebar and appear automatically in this table.
 </Tip>
-
-### Summary Tab
-
-Provides an AI-generated summary of the conversation, including:
-
-- **Topic:** The auto-classified topic.
-- **Sentiment:** User sentiment (positive, neutral, negative).
-- **Task success:** Whether the agent resolved the user's request.
-- **Key points:** Bullet-point summary of the conversation highlights.
 
 ---
 
-## Common Actions
+## Conversation Panel
 
-- **Review agent performance** — Open individual conversations to read transcripts and evaluate the agent's responses.
-- **Identify patterns** — Use KPIs and table filters to spot trends in conversation volume, duration, or channel distribution.
-- **Audit tool usage** — Check which tools the agent invoked during a conversation and whether they executed successfully.
-- **Verify campaign messages** — Look for the green Campaign badge in conversation transcripts to confirm that proactive messages were delivered correctly.
+Clicking on any conversation row opens the **Conversation Panel** on the right side of the screen. This panel provides:
+
+- **Conversation Summary:** A short summary of the conversation topic and resolution.
+- **Full Transcript:** Read the entire message exchange between the user and the agent.
+- **Conversation Details:** Metadata including channel, timestamps, external ID, and assigned tags.
+- **Tools Used:** Which tools/skills the agent invoked during the conversation.
+- **Notes:** Internal notes added by your team.
+
+---
+
+## Common workflows
+
+- **Spot-check active conversations** — filter by *Active* status to see what's happening right now.
+- **Review flagged conversations** — click the Flag column header to sort by flagged conversations first.
+- **Audit a specific channel** — filter by channel to see performance on WhatsApp, Web, or others.
+- **Identify labeled conversations** — scan the Labels column to find conversations your team has tagged with specific categories.
+
+<Note>
+The Conversations table supports **column reordering**. Drag column headers to rearrange them in the order that works best for your workflow.
+</Note>

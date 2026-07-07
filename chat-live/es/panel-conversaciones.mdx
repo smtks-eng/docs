@@ -1,69 +1,86 @@
 ---
 title: "Panel de Conversaciones"
 language: es
-icon: "headset"
-description: "Gestiona conversaciones en vivo, toma el control del agente IA, responde a usuarios y reengancha contactos a través del panel de Chat en Vivo."
+description: "Gestiona conversaciones en vivo con clientes, consulta detalles, toma notas y etiqueta conversaciones con etiquetas de color."
 ---
 
-El **Panel de Conversaciones** es el centro de operaciones de chat en vivo de tu equipo. Desde aquí, los miembros del equipo pueden monitorear conversaciones activas, tomar el control del agente IA, responder a usuarios y gestionar interacciones escaladas.
+El **Panel de Conversaciones** es tu espacio central para gestionar las conversaciones en vivo con clientes. Desde aquí puedes ver conversaciones activas y pasadas, leer transcripciones en tiempo real y acceder a un panel lateral con información del cliente y herramientas del agente.
 
-## Resumen del panel
+---
 
-El Panel de Conversaciones se divide en tres áreas:
+## Diseño del panel
+
+La vista de Chat en Vivo se divide en tres áreas principales:
 
 | Área | Descripción |
 |---|---|
-| **Lista de conversaciones** (izquierda) | Muestra todas las conversaciones con filtros de estado, canal y asignación. |
-| **Vista de chat** (centro) | El hilo de conversación activo donde lees mensajes y respondes. |
-| **Detalle de conversación** (derecha) | Información del contacto, metadatos de la conversación y acciones como asignar, transferir o cerrar. |
+| **Lista de conversaciones** | Una barra lateral a la izquierda con todas las conversaciones (activas, en cola, finalizadas). Usa los controles de búsqueda y filtros para encontrar sesiones específicas. |
+| **Transcripción del chat** | El área central muestra el hilo completo de mensajes de la conversación seleccionada en tiempo real. |
+| **Panel de detalles del cliente** | Un panel colapsable a la derecha con información de contacto, metadatos de la conversación, etiquetas, notas internas y más. |
 
 ---
 
-## Tomar una conversación
+## Panel de Detalles del Cliente
 
-Cuando el agente IA escala una conversación o quieres intervenir manualmente, puedes **tomar el control** de la conversación. Esto pone la conversación en modo controlado por humano, lo que significa que el agente IA deja de responder y un miembro del equipo se encarga de las respuestas.
+Haz clic en cualquier conversación para abrir el **Panel de Detalles del Cliente** en el lado derecho. Este panel te brinda contexto sobre el usuario y la sesión actual sin salir de la vista de chat.
 
-- Haz clic en el botón **Tomar conversación** en el panel de detalle de la conversación.
-- Una vez tomada, la conversación se te asigna y puedes empezar a escribir respuestas.
+El panel incluye las siguientes secciones:
+
+### Información de Contacto
+Muestra los detalles disponibles del contacto como el nombre del usuario, número de teléfono, ID externo y el canal de origen de la conversación.
+
+### Actividad
+Muestra las fechas de creación del contacto y su última actividad.
+
+### Etiquetas
+
+La sección de **Etiquetas** te permite adjuntar etiquetas de color a cualquier conversación. Las etiquetas son una forma flexible de categorizar, priorizar o anotar conversaciones para que tu equipo pueda identificar patrones de un vistazo, tanto aquí como en el [panel de Conversaciones](/dashboards/es/conversaciones).
+
+#### Añadir una etiqueta
+
+1. En el Panel de Detalles del Cliente, busca la sección **Etiquetar** (identificada con un ícono de etiqueta).
+2. Haz clic en el botón **+ Añadir**. Se abre un popover con un campo de nombre y un selector de color.
+3. Escribe un nombre corto para la etiqueta (hasta 22 caracteres). Los nombres se muestran en mayúsculas.
+4. Elige un color usando cualquiera de los métodos disponibles:
+   - **Cuadro de color** — haz clic o arrastra en el área de saturación/brillo.
+   - **Barra de tono** — desliza para elegir el tono base.
+   - **Entrada hexadecimal** — escribe un código hex directamente.
+   - **Muestras** — haz clic en un color predefinido.
+   - **Cuentagotas** — elige un color de cualquier parte de tu pantalla (solo navegadores compatibles).
+5. Haz clic en **Añadir** para guardar la etiqueta.
+
+#### Editar una etiqueta
+
+Haz clic en el **ícono de lápiz** en cualquier chip de etiqueta existente. El mismo popover se abre con el nombre y color actuales de la etiqueta para que puedas ajustar cualquiera de los dos. Haz clic en **Guardar** cuando termines.
+
+#### Eliminar una etiqueta
+
+Haz clic en el **ícono ✕** en el chip de la etiqueta para eliminarla inmediatamente.
+
+<Tip>
+  Las etiquetas se guardan por conversación. También aparecen como una columna de solo lectura **Etiquetas** en la tabla del explorador de conversaciones en el panel de Conversaciones.
+</Tip>
+
+### Notas Internas
+Agrega notas de texto libre a la conversación. Estas son visibles solo para tu equipo y nunca se muestran al usuario final.
+
+- Haz clic en **Agregar nota** para crear una nueva nota.
+- Cada nota muestra el autor y la marca de tiempo.
+- Puedes editar o eliminar notas existentes.
+
+### Automatizaciones
+Si alguna automatización se ejecutó durante esta conversación, aparecerá aquí con su estado de ejecución.
 
 ---
 
-## Responder a usuarios
+## Gestión de conversaciones
 
-Solo el miembro del equipo que está **asignado a la conversación** puede escribir respuestas. Los propietarios y administradores también pueden responder a cualquier conversación sin importar la asignación.
+Desde la lista de conversaciones puedes:
 
-Si no eres el miembro asignado y no tienes privilegios de propietario/administrador, el área de respuesta estará deshabilitada.
-
----
-
-## Reenganchar contactos (Iniciar nueva)
-
-Puedes reenganchar a un contacto iniciando una nueva conversación o enviando un mensaje de plantilla de WhatsApp. Esto es útil para dar seguimiento a usuarios después de que una conversación previa haya terminado.
+- **Buscar** por nombre de usuario o ID externo.
+- **Filtrar** por estado (activa, finalizada, en cola) o por canal.
+- **Finalizar** una conversación manualmente cuando la interacción se complete.
 
 <Note>
-La capacidad de iniciar una nueva conversación o reenganchar a un contacto está restringida al **miembro del equipo asignado**, o a usuarios con rol de **propietario** o **administrador**. Si la conversación no está asignada a ti y no eres propietario o administrador, verás un mensaje de advertencia en lugar de los controles de reenganche.
+  Finalizar una conversación la elimina de la cola activa pero mantiene su historial completo accesible en el panel de Conversaciones.
 </Note>
-
----
-
-## Transferir conversaciones
-
-Puedes transferir una conversación a otro miembro del equipo si alguien más está mejor preparado para manejar la solicitud. Usa la opción de **transferir** en el panel de detalle de la conversación.
-
----
-
-## Cerrar conversaciones
-
-Una vez que una conversación está resuelta, puedes cerrarla manualmente. Las conversaciones cerradas salen de la lista activa pero permanecen accesibles en el historial de conversaciones.
-
----
-
-## Permisos clave
-
-| Acción | Quién puede hacerlo |
-|---|---|
-| **Tomar una conversación** | Cualquier miembro del equipo disponible |
-| **Responder** | Miembro asignado, propietario o administrador |
-| **Iniciar nueva / Reenganchar** | Miembro asignado, propietario o administrador |
-| **Transferir** | Miembro asignado, propietario o administrador |
-| **Cerrar** | Miembro asignado, propietario o administrador |
