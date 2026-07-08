@@ -1,53 +1,60 @@
 ---
 title: "Performance"
-description: "Real-time and historical metrics for your Contact Center — agent availability, queue health, escalation KPIs, and more."
+description: "Monitor live contact-center activity and review historical KPIs for your human-support operation."
 ---
 
-The **Contact Center Performance** dashboard gives you a live and historical view of how your human-support operation is running. It combines real-time indicators (who is online, how many customers are waiting) with windowed KPIs (escalation rates, wait times, resolution times) so you can react quickly and plan strategically.
+The **Contact Center Dashboard** gives you a unified view of what is happening right now in your human-support operation and how it has performed over a configurable time window. Use it to balance agent workload in real time and to spot trends that inform staffing and process decisions.
 
-## Live Section
+## Live section
 
-At the top of the dashboard you will find real-time metrics that refresh every 30 seconds:
+The top of the page displays four real-time metric cards that refresh automatically every 30 seconds:
 
-| Metric | Description |
+| Card | What it shows |
 |---|---|
-| **Available agents** | Number of human agents currently online and available to take conversations. |
-| **Customers waiting** | Users currently in the queue waiting for a human agent. |
-| **Active conversations** | Conversations that are actively being handled by a human agent right now. |
-| **Longest wait** | The elapsed time of the oldest conversation still waiting in the queue. |
+| **Available agents** | Number of agents currently online and available to take conversations. Displayed in teal. |
+| **Customers waiting** | Number of customers currently in the queue waiting for a human agent. |
+| **Active conversations** | Number of conversations being handled by human agents right now. |
+| **Longest wait** | The elapsed time of the oldest conversation still waiting in the queue. Displayed in amber. |
 
-### Agent Roster
-
-If your role is **Owner**, **Admin**, or **Member**, the Available agents card expands to show a **roster** of all connected team members. Each member is displayed with:
-
-- A **green dot** and dark name if they are **available** (online and ready to take conversations).
-- A **gray dot** and muted name if they are **connected but unavailable** (online but not accepting new conversations).
-
-The count is displayed as **X of N**, where X is the number of available agents and N is the total number of connected members. The roster scrolls when the list is long, and the backend sorts available members first, then alphabetically.
+A **Live** badge next to the section title confirms the data is being polled continuously.
 
 <Tip>
-Use the roster to quickly see who on your team is ready to handle escalations and who might need to toggle their availability.
+Keep this page open on a shared screen so the team can see queue pressure at a glance and jump in when customers are waiting.
 </Tip>
 
 ## Windowed KPIs
 
-Below the live section, you can select a time window (**Today, 7D, 30D, Year**) to see historical KPIs:
+Below the live cards you will find historical KPIs scoped to a selectable time window (**Today, 7 D, 30 D, Year**, or a custom date range).
 
-| KPI | Description |
-|---|---|
-| **Wait time** | Average time from queue entry to first human response. |
-| **Resolution time** | Average time from escalation to conversation close. |
-| **Escalation rate** | Percentage of total conversations that were escalated to a human agent. |
-| **Total escalated** | Absolute number of escalated conversations in the period. |
-| **Peak day** | The day with the highest number of escalations. |
+### Conversations
 
-## Escalation Conversations & Origin Tables
+- **Escalation rate** — percentage of AI conversations that were escalated to a human agent.
+- **Total escalated** — absolute count of escalated conversations.
+- **Peak day** — the single day with the most escalated conversations and its count.
 
-Two expandable tables provide more detail:
+### Origin breakdown
 
-- **Conversations** — lists individual escalated conversations with status, start time, channel, profile name, and message count.
-- **Origin** — breaks down escalations by channel so you can see which channels generate the most human-support demand.
+A ranked list showing where escalated conversations came from (e.g., WhatsApp, Freshchat Bubble) so you can see which channels generate the most human-support demand.
+
+### Wait-time & duration
+
+- **Avg wait time** — average time customers spent in the queue before a human agent responded.
+- **Avg handle time** — average duration of human-handled conversations.
+- **First-response-time (FRT)** — time from the moment a conversation enters the queue to the first human reply.
+
+<Note>
+KPI cards show a comparison arrow (green ▲ / red ▼) relative to the previous period of the same length so you can tell at a glance whether things are improving.
+</Note>
+
+## Member connection status
+
+To see which team members are currently connected or disconnected, go to **Settings → Organization → Members**. Admins and owners will see a colored dot next to each member's name:
+
+- 🟢 **Green dot** — the member is connected.
+- ⚫ **Gray dot** — the member is disconnected.
+
+The dots update automatically every 30 seconds without requiring a page reload.
 
 <Tip>
-Combine the live roster with the Origin table to understand whether your current staffing matches the channels driving the most escalations.
+Use the member connection indicators alongside the live dashboard to understand whether available capacity matches current queue pressure.
 </Tip>
