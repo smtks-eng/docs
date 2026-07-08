@@ -1,102 +1,53 @@
 ---
 title: "Performance"
-language: en
-description: "Monitor your live chat team's performance with agent leaderboards, throughput charts, shift coverage, and channel mix breakdowns."
+description: "Real-time and historical metrics for your Contact Center — agent availability, queue health, escalation KPIs, and more."
 ---
 
-**Performance** is a dashboard inside the **Contact Center > Live Chat** section that gives you an overview of how your human support team is handling escalated conversations. Track individual agent metrics, monitor daily throughput, check shift coverage, and understand which channels drive the most live-chat volume.
+The **Contact Center Performance** dashboard gives you a live and historical view of how your human-support operation is running. It combines real-time indicators (who is online, how many customers are waiting) with windowed KPIs (escalation rates, wait times, resolution times) so you can react quickly and plan strategically.
 
-<Note>
-The Performance dashboard currently displays **sample data** to preview the upcoming analytics experience. Live data integration is under active development and will be available soon.
-</Note>
+## Live Section
 
----
+At the top of the dashboard you will find real-time metrics that refresh every 30 seconds:
 
-## Accessing Performance
-
-Navigate to **Contact Center > Live Chat > Performance** in the left sidebar.
-
----
-
-## Date range
-
-At the top of the page, a date-range selector lets you choose between:
-
-- **Last 7 days**
-- **Last 30 days**
-- **Last 90 days**
-
-The selected range applies to all KPIs, charts, and tables on the page.
-
----
-
-## KPI tiles
-
-Six headline metrics appear at the top of the dashboard:
-
-| KPI | What it shows |
+| Metric | Description |
 |---|---|
-| **Total Handled** | Total conversations handled by your human support team |
-| **Avg First Response** | Average time for a human agent to send their first reply after an escalation |
-| **Avg Resolution** | Average time to fully resolve an escalated conversation |
-| **Team CSAT** | Average customer satisfaction score across all agents |
-| **Online Agents** | Number of agents currently with "online" status |
-| **Escalation Ratio** | Percentage of total throughput that came from escalations |
+| **Available agents** | Number of human agents currently online and available to take conversations. |
+| **Customers waiting** | Users currently in the queue waiting for a human agent. |
+| **Active conversations** | Conversations that are actively being handled by a human agent right now. |
+| **Longest wait** | The elapsed time of the oldest conversation still waiting in the queue. |
 
-Each KPI tile may include a **trend indicator** showing the percentage change compared to the previous period (green ▲ for improvement, red ▼ for decline).
+### Agent Roster
 
----
+If your role is **Owner**, **Admin**, or **Member**, the Available agents card expands to show a **roster** of all connected team members. Each member is displayed with:
 
-## Agent leaderboard
+- A **green dot** and dark name if they are **available** (online and ready to take conversations).
+- A **gray dot** and muted name if they are **connected but unavailable** (online but not accepting new conversations).
 
-A table listing each human support agent with the following columns:
-
-| Column | Description |
-|---|---|
-| **Agent** | Name and avatar with a colored status dot (green = online, amber = away, gray = offline) |
-| **Handled** | Number of conversations this agent handled |
-| **Avg First Response** | Average first-response time for this agent |
-| **Avg Resolution** | Average resolution time |
-| **CSAT** | This agent's average CSAT score |
-| **Trend** | Performance trend compared to the previous period (▲ or ▼ with percentage) |
-
-Use the leaderboard to identify top performers and agents who may need coaching.
-
----
-
-## Daily throughput
-
-A **stacked bar chart** shows the number of conversations handled vs. escalated per day of the week. This helps you:
-
-- Identify peak days for live-chat volume
-- Understand the ratio of handled-to-escalated conversations
-- Plan staffing around high-volume days
-
----
-
-## Shift coverage
-
-An **area chart** displays the number of agents online by hour of the day (in 2-hour intervals). Use this to:
-
-- Verify that staffing levels match demand patterns
-- Identify coverage gaps during high-traffic hours
-- Optimize shift schedules
-
----
-
-## Channel mix
-
-A **pie chart** breaks down live-chat volume by channel (e.g., WhatsApp, Instagram, Web, Messenger). This shows you where your users prefer to interact and helps you prioritize channel-specific improvements.
-
----
-
-## Common workflows
-
-- **Optimize staffing** — Compare the shift coverage chart with the daily throughput chart to ensure you have enough agents online during peak hours.
-- **Coach agents** — Use the leaderboard to find agents with above-average resolution times or below-average CSAT, and provide targeted training.
-- **Channel strategy** — Review the channel mix to decide where to invest in automation vs. human support.
-- **Track team improvement** — Switch between 7-day, 30-day, and 90-day views to monitor whether KPIs are trending in the right direction.
+The count is displayed as **X of N**, where X is the number of available agents and N is the total number of connected members. The roster scrolls when the list is long, and the backend sorts available members first, then alphabetically.
 
 <Tip>
-Pair this dashboard with **Escalation Insights** for a complete picture: Escalation Insights shows you *why* conversations are being escalated, while Performance shows you *how well* your team handles them.
+Use the roster to quickly see who on your team is ready to handle escalations and who might need to toggle their availability.
+</Tip>
+
+## Windowed KPIs
+
+Below the live section, you can select a time window (**Today, 7D, 30D, Year**) to see historical KPIs:
+
+| KPI | Description |
+|---|---|
+| **Wait time** | Average time from queue entry to first human response. |
+| **Resolution time** | Average time from escalation to conversation close. |
+| **Escalation rate** | Percentage of total conversations that were escalated to a human agent. |
+| **Total escalated** | Absolute number of escalated conversations in the period. |
+| **Peak day** | The day with the highest number of escalations. |
+
+## Escalation Conversations & Origin Tables
+
+Two expandable tables provide more detail:
+
+- **Conversations** — lists individual escalated conversations with status, start time, channel, profile name, and message count.
+- **Origin** — breaks down escalations by channel so you can see which channels generate the most human-support demand.
+
+<Tip>
+Combine the live roster with the Origin table to understand whether your current staffing matches the channels driving the most escalations.
 </Tip>
