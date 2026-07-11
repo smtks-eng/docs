@@ -53,182 +53,163 @@ Manage your AI agent's skills through two types of tools: predefined tools that 
     1. Go to **AI Agent > Design > Skills > Collect Information**.  
     2. Click **New Configuration** to start.  
     3. Enter a **Name** for your configuration (e.g., `registro_interesados`).  
-    4. Add any **Special Instructions** to guide the agent's behavior during the collection.  
-    5. Click on **Add Field** and define the information you want to collect.  
-    6. Set each field's **type** (text, phone, email, number, date, etc.).  
-    7. Save your configuration.  
-    8. Assign the configuration to a **channel** so the agent knows where to apply it.  
+    4. Add any **Special Instructions** to guide the agent (e.g., "always verify spelling of the email").  
+    5. Define the **fields** you want to collect (name, email, phone, etc.).  
+    6. Assign the configuration to one or more **channels** (e.g., WhatsApp, Freshchat).  
+    7. Click **Save** to activate the configuration.  
     </Accordion>  
 
     ---
 
+    ### **Send Notification Email**  
+    - **Description:** Sends the conversation details automatically via email after a conversation concludes.  
+    - **Toggle:** Off by default.  
+    - **Configuration:** Set the recipient email addresses where notifications should be sent.  
+
+    ---
+
     ### **Human Escalation**  
-    - **Description:** Allows the agent to escalate the conversation to a human agent.  
-    - **Toggle:** Available once Freshchat or Zendesk is connected.  
-    - **Configuration:** You must connect and configure **Freshchat** or **Zendesk** integration first. Once enabled, you can set a custom escalation message.  
+    - **Description:** Allows the agent to hand off the conversation to a live human agent when it cannot resolve the user's request.  
+    - **Toggle:** Off by default.  
+    - **Depends on:** A connected integration with **Freshchat** or **Zendesk** is required.  
+    - **Configuration:** Set escalation rules and assign the correct integration and group/queue.  
 
     <Note>  
-    This tool only appears when a compatible integration (Freshchat or Zendesk) has been connected.  
+    This tool only appears when a compatible integration (Freshchat or Zendesk) is connected.  
     </Note>  
-
-    ---
-
-    ### **Schedule Messages**  
-    - **Description:** Allows the agent to schedule messages to be sent to users at a later time.  
-    - **Toggle:** Off by default.  
-    - **Configuration:** No setup required.  
-
-    ---
-
-    ### **Send Emails**  
-    - **Description:** Allows the agent to send emails on behalf of the business.  
-    - **Toggle:** Off by default.  
-    - **Configuration:** Requires email provider configuration.  
 
   </Tab>
 
   <Tab title="Custom Tools">
 
-    The **Custom Tools** tab lets you extend your AI agent's abilities by connecting it to external APIs. Custom tools allow the agent to perform actions such as looking up order statuses, creating support tickets, fetching account details, or any other operation exposed by an API.
+    The **Custom Tools** tab lets you create tools that connect your AI agent to any external API. These tools extend your agent's capabilities beyond the built-in set—you can call CRMs, ERPs, booking systems, proprietary services, or any public API, directly from a conversation.
 
-    The Custom Tools section is organized in three sub-tabs:
+    ## What are Custom Tools?
 
-    - **Custom** — create and manage your custom tool definitions.
-    - **Assigned** — assign tools to your agent and configure them per channel.
-    - **Invocations** — view a log of every time a tool was called, with request/response details.
+    A custom tool is an HTTP request your agent can make during a conversation—based on user input, context, or operator-defined settings. You define:
 
-    ---
+    - **What** the tool does (name, description)
+    - **Where** it calls (URL, HTTP method)
+    - **What data** it sends (inputs/parameters)
+    - **What comes back** (expected response shape)
 
-    ## Creating a Custom Tool with the Skill Builder
-
-    When you click **Create Tool** in the Custom sub-tab, you are taken to the **Skill Builder** — a dedicated full-page, guided experience for defining your tool step by step.
-
-    <Note>
-    The Skill Builder replaces the previous modal-based form. You now have a full page with more space, live previews, and a built-in test panel.
-    </Note>
-
-    ### Getting to the Skill Builder
-
-    <Steps>
-      <Step title="Navigate to Custom Tools">
-        Go to **AI Agent > Design > Skills** and select the **Custom Tools** tab, then the **Custom** sub-tab.
-      </Step>
-      <Step title="Click Create Tool">
-        Click the **Create Tool** button. You will be taken to the Skill Builder page.
-      </Step>
-    </Steps>
-
-    To **edit** an existing tool, click the edit button on its card in the Custom sub-tab. You will be taken to the same Skill Builder page pre-filled with the tool's current configuration.
+    Once saved, the agent decides when to invoke the tool based on the conversation.
 
     ---
 
-    ### Skill Builder Overview
+    ## Creating a Custom Tool
 
-    The Skill Builder walks you through configuring your custom tool with the following sections:
+    Navigate to **AI Agent > Design > Skills > Custom Tools** and click **Create Tool**. This opens the **Skill Builder**, a step-by-step editor.
 
-    #### 1. Name & Description
-    Give your tool a **title** (a human-readable display name) and a **description** that tells the agent when and why to use this tool. The description is critical — it helps the AI decide when to invoke the tool during a conversation.
+    <Tip>
+      When you first open the Skill Builder, it loads a **Brevo example** that shows a realistic API integration. You can switch to a different example or start from a blank template using the example selector at the top.
+    </Tip>
 
-    #### 2. HTTP Method & URL
-    Select the HTTP method (**GET**, **POST**, **PUT**, **PATCH**, or **DELETE**) and enter the endpoint URL your tool will call. If your URL contains path parameters, use curly-brace placeholders (e.g., `https://api.example.com/orders/{order_id}`).
+    ### Step 1 — Name & describe
 
-    #### 3. Inputs (Parameters)
-    Define the data your tool needs to make the API call. For each input you add, configure:
+    Give your tool a clear **Title** and a one-line **Description** explaining when the agent should use it. The description is critical—it's what the AI reads to decide whether to call this tool.
+
+    ### Step 2 — Web link & method
+
+    Enter the **URL** your tool will call. You can include dynamic segments using `{placeholder}` syntax (e.g., `https://api.example.com/users/{user_id}`).
+
+    Select the **HTTP method**: GET, POST, PUT, PATCH, or DELETE.
+
+    ### Step 3 — Inputs
+
+    Inputs are the data your tool needs. Each input has:
 
     | Setting | Description |
     |---|---|
-    | **Name** | The parameter name (used in the API request) |
-    | **Source** | Where the value comes from (see table below) |
-    | **Type** | Data type — text, whole number, decimal, boolean, list, or nested object |
-    | **Required** | Whether the parameter is mandatory |
-    | **Description** | Helps the agent understand what this parameter is for |
-    | **Location** | Where the parameter is placed in the request — query string, path, body, or header. This is auto-inferred but can be set manually. |
+    | **Name** | The parameter name (used in the request) |
+    | **Kind** | Data type: text, integer, decimal, true/false, list, or object |
+    | **Source** | Where the value comes from (see below) |
+    | **Required** | Whether the agent must always provide this value |
+    | **Description** | Helps the agent understand what to fill in |
+    | **Allowed values** | Optional comma-separated list to restrict choices |
+    | **Location** | Where in the HTTP request the value goes: query string, headers, path, or body |
 
-    **Available input sources:**
+    #### Input sources
 
-    | Source | Tag | Description |
-    |---|---|---|
-    | The user says it in the chat | `conversation` | The agent extracts the value from the conversation automatically. |
-    | It's who we're chatting with | `context` | Contextual info about the current user, set when the agent starts (e.g., user ID, session info). |
-    | Always the same value | `fixed` | A constant value you set once; sent identically on every call. The agent and customer never see it. |
-    | A secret kept safe | `env` | A sensitive value (like an API key) stored as an environment variable. Configured once and kept secure. |
+    | Source | Meaning |
+    |---|---|
+    | **Conversation** | The agent extracts the value from the chat with the user |
+    | **Fixed setting** | A constant value the operator sets when configuring the tool (e.g., an API key) |
+    | **End user** | Resolved at runtime from the end-user's identity — either their external user ID or a metadata field |
+    | **State / Store / Config** | Advanced runtime sources for workflows and internal state |
+
+    #### Object inputs and nested fields
+
+    When you set an input's **Kind** to **object**, a nested field editor appears below it. You can add fields inside the object, each with its own name, kind, description, and options. Objects can be nested multiple levels deep.
+
+    **Per-field source selection (conversation objects)**
+
+    When an object input's source is **Conversation**, each nested field inside it can independently specify where its value comes from. A **"Comes from"** dropdown appears on every nested field with three options:
+
+    | Nested source | Behavior |
+    |---|---|
+    | **Conversation** | The agent asks the user for this value during the chat. You can set it as required, add a description for the agent, and restrict it to specific allowed values. |
+    | **Fixed setting** | The value is a constant set by the operator. A text input appears where you enter the value that will always be sent. |
+    | **End user** | The value is resolved at runtime from the end-user's context. You choose between **External user ID** or **A metadata field** (and specify the metadata key). |
 
     <Tip>
-    For parameters that come from the conversation, write a clear **description** so the agent knows what to ask the user for (e.g., "The customer's order number, usually a 6-digit code").
+      Per-field source selection is powerful for API calls that need a mix of user-provided data and system-resolved values in the same object. For example, a `contact` object might have the user's `question` filled by the AI (conversation), a `channel` field always set to `"whatsapp"` (fixed), and a `customer_id` pulled from the end-user's external ID (end user).
     </Tip>
 
     <Note>
-    The Skill Builder also shows additional source options for advanced use cases (state, store, config). These are mapped to the closest supported backend value and surfaced with a warning if the backend doesn't fully support them yet.
+      Only fields with their source set to **Conversation** are shown to the AI model. Fixed and end-user fields are injected automatically at runtime—the agent never asks the user for them.
     </Note>
 
-    #### 4. Output
-    Configure what the tool returns:
-    - **Return type** — choose whether the API response is a bundle of details (dict), a list, a number, or plain text.
-    - **Prompt** — instructions for the agent on how to interpret and present the response to the user.
-    - **Example response** — an optional sample JSON response so the agent understands the response structure.
+    When the parent object source is **Fixed setting**, all nested fields act as constants (you provide a fixed value for each). When the parent source is **End user**, nested fields are descriptive (schema-only).
 
-    #### 5. Error Handling
-    Provide instructions for the agent on what to do when the API call fails (e.g., apologize and offer to retry, escalate to a human agent, etc.).
+    ### Step 4 — Authentication
 
-    #### 6. Timeout
-    Set the maximum number of seconds to wait for the API to respond (default: 30 seconds).
+    If your API requires authentication, add the appropriate headers (e.g., `Authorization: Bearer {token}`) as a fixed-setting input placed in the **headers** location.
 
-    ---
+    ### Step 5 — What comes back
 
-    ### Live Previews
+    Paste an **example JSON response** from your API. The builder uses this to understand the shape of the data that comes back, which helps the agent interpret results for the user.
 
-    As you fill in the Skill Builder, two live previews update in real time:
-
-    - **Python preview** — shows the generated Python/Pydantic code that represents your tool definition. This is useful for developers who want to understand or validate the underlying tool structure.
-    - **cURL preview** — shows the equivalent cURL command for the API call, including all configured parameters, headers, and body data.
-
-    You can copy either preview to your clipboard with one click.
+    Optionally define **output fields** to tell the agent which parts of the response to highlight.
 
     ---
 
-    ### Testing Your Tool
+    ## Saving a Custom Tool
 
-    The Skill Builder includes a built-in **Test** panel. After configuring your tool, you can send a test request directly from the builder to verify that the API responds correctly before saving.
+    The **Save** button is enabled once your skill definition is complete:
 
-    ---
+    - The tool has a **name**
+    - The **URL** is a valid web address (starting with `http`)
+    - All URL placeholders (e.g., `{user_id}`) have a matching input defined
+    - No two inputs share the **same name**
+    - A valid **example response** is provided
 
-    ### Saving
+    If any of these conditions is not met, the Save button is disabled and a message below it tells you exactly what's missing.
 
-    When you're done, click **Save** (or **Update** if editing). You'll be redirected back to the Custom Tools list. From there, you can assign the tool to your agent.
-
-    ---
-
-    ## Assigning a Tool to Your Agent
-
-    After creating a custom tool, you need to assign it to your agent before the agent can use it.
-
-    <Steps>
-      <Step title="Go to the Assigned sub-tab">
-        In **Skills > Custom Tools**, switch to the **Assigned** sub-tab.
-      </Step>
-      <Step title="Click Assign Tool">
-        Click the **Assign Tool** button.
-      </Step>
-      <Step title="Select the tool and agent">
-        Choose the tool you want to assign and confirm.
-      </Step>
-    </Steps>
-
-    Once assigned, you can configure the tool per channel and set any required environment variables.
+    <Note>
+      There is no separate test step — the builder validates your configuration inline. Once all fields are complete and valid, you can save immediately.
+    </Note>
 
     ---
 
-    ## Tool Invocations
+    ## Code Preview
 
-    The **Invocations** sub-tab shows a log of every time any custom tool was called by the agent, including:
-    - Tool name
-    - Execution status (success, error, timeout)
-    - Timestamp
-    - Full request and response data (expandable)
+    The Skill Builder shows a live **Python code preview** on the right side. This is the actual code that will run when the agent invokes your tool. You can use it to verify the request structure, headers, and parameter placement.
 
-    <Tip>
-    Use the Invocations log to debug tool behavior and verify that parameters are being sent correctly. You can also see invocations in the global **Task Log** under Supervise.
-    </Tip>
+    ---
+
+    ## Editing an existing Custom Tool
+
+    From the **Custom Tools** list, click on any tool to re-open it in the Skill Builder. All fields are pre-populated. Make your changes and click **Save changes**.
+
+    ---
+
+    ## Best practices
+
+    - **Be specific in descriptions** — the agent uses your description to decide when to call the tool. Vague descriptions lead to incorrect invocations.
+    - **Use fixed settings for secrets** — never ask the user for API keys. Put them in a fixed-setting input placed in headers.
+    - **Test in the Playground** — after saving your tool, go to the Playground and trigger a conversation that should invoke it. Check the Task Log to verify it ran correctly.
+    - **Use per-field sources in objects** — when your API expects an object that mixes user input with system values (like user IDs or constant flags), use per-field source selection instead of building separate inputs.
 
   </Tab>
 </Tabs>

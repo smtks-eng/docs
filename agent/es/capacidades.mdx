@@ -46,189 +46,170 @@ Administra las habilidades de tu agente de IA a través de dos tipos de herramie
     - **Configuración:** Define los campos que deseas que el agente recopile y dónde se debe almacenar la información.
 
     <Note>
-    Esta herramienta es **tan importante** que una vez habilitada, activa una **pestaña dedicada de Recopilar información** en la sección de Habilidades. Desde ahí puedes crear, editar y gestionar configuraciones de recopilación de información en detalle.
+    Esta herramienta es **tan importante** que una vez habilitada, activa una **pestaña dedicada de Recopilar información** en la sección de Habilidades. Desde allí puedes crear, editar y gestionar configuraciones de recopilación de información en detalle.
     </Note>
 
     <Accordion title="Cómo Configurar Recopilar Información">
     1. Ve a **Agente IA > Diseño > Habilidades > Recopilar Información**.
     2. Haz clic en **Nueva Configuración** para comenzar.
     3. Ingresa un **Nombre** para tu configuración (ej. `registro_interesados`).
-    4. Agrega **Instrucciones Especiales** para guiar el comportamiento del agente durante la recopilación.
-    5. Haz clic en **Agregar Campo** y define la información que deseas recopilar.
-    6. Establece el **tipo** de cada campo (texto, teléfono, email, número, fecha, etc.).
-    7. Guarda tu configuración.
-    8. Asigna la configuración a un **canal** para que el agente sepa dónde aplicarla.
+    4. Agrega **Instrucciones Especiales** para guiar al agente (ej. "siempre verifica la ortografía del correo electrónico").
+    5. Define los **campos** que deseas recopilar (nombre, correo, teléfono, etc.).
+    6. Asigna la configuración a uno o más **canales** (ej. WhatsApp, Freshchat).
+    7. Haz clic en **Guardar** para activar la configuración.
     </Accordion>
 
     ---
 
+    ### **Enviar Correo de Notificación**
+    - **Descripción:** Envía los detalles de la conversación automáticamente por correo electrónico después de que concluye una conversación.
+    - **Interruptor:** Desactivado por defecto.
+    - **Configuración:** Establece las direcciones de correo electrónico destinatarias.
+
+    ---
+
     ### **Escalación Humana**
-    - **Descripción:** Permite al agente escalar la conversación a un agente humano.
-    - **Interruptor:** Disponible cuando Freshchat o Zendesk están conectados.
-    - **Configuración:** Primero debes conectar y configurar la integración de **Freshchat** o **Zendesk**. Una vez habilitado, puedes establecer un mensaje personalizado de escalación.
+    - **Descripción:** Permite al agente transferir la conversación a un agente humano cuando no puede resolver la solicitud del usuario.
+    - **Interruptor:** Desactivado por defecto.
+    - **Depende de:** Se requiere una integración conectada con **Freshchat** o **Zendesk**.
+    - **Configuración:** Establece las reglas de escalación y asigna la integración y grupo/cola correctos.
 
     <Note>
     Esta herramienta solo aparece cuando hay una integración compatible (Freshchat o Zendesk) conectada.
     </Note>
 
-    ---
-
-    ### **Programar Mensajes**
-    - **Descripción:** Permite al agente programar mensajes para enviar a los usuarios más tarde.
-    - **Interruptor:** Desactivado por defecto.
-    - **Configuración:** No requiere configuración.
-
-    ---
-
-    ### **Enviar Correos Electrónicos**
-    - **Descripción:** Permite al agente enviar correos electrónicos en nombre del negocio.
-    - **Interruptor:** Desactivado por defecto.
-    - **Configuración:** Requiere configuración del proveedor de correo.
-
   </Tab>
 
   <Tab title="Herramientas Personalizadas">
 
-    La pestaña **Herramientas Personalizadas** te permite extender las capacidades de tu agente de IA conectándolo a APIs externas. Las herramientas personalizadas permiten al agente realizar acciones como consultar el estado de un pedido, crear tickets de soporte, obtener detalles de cuenta o cualquier otra operación expuesta por una API.
+    La pestaña **Herramientas Personalizadas** te permite crear herramientas que conectan tu agente de IA a cualquier API externa. Estas herramientas extienden las capacidades de tu agente más allá del conjunto integrado—puedes llamar a CRMs, ERPs, sistemas de reservas, servicios propietarios o cualquier API pública, directamente desde una conversación.
 
-    La sección de Herramientas Personalizadas se organiza en tres sub-pestañas:
+    ## ¿Qué son las Herramientas Personalizadas?
 
-    - **Personalizadas** — crea y gestiona las definiciones de tus herramientas personalizadas.
-    - **Asignadas** — asigna herramientas a tu agente y configúralas por canal.
-    - **Invocaciones** — consulta un registro de cada vez que una herramienta fue llamada, con detalles de solicitud y respuesta.
+    Una herramienta personalizada es una solicitud HTTP que tu agente puede realizar durante una conversación—basada en la entrada del usuario, el contexto o configuraciones definidas por el operador. Defines:
 
-    ---
+    - **Qué** hace la herramienta (nombre, descripción)
+    - **A dónde** llama (URL, método HTTP)
+    - **Qué datos** envía (inputs/parámetros)
+    - **Qué regresa** (forma de la respuesta esperada)
 
-    ## Creando una Herramienta Personalizada con el Skill Builder
-
-    Cuando haces clic en **Crear Herramienta** en la sub-pestaña Personalizadas, serás llevado al **Skill Builder** — una experiencia guiada en página completa para definir tu herramienta paso a paso.
-
-    <Note>
-    El Skill Builder reemplaza el formulario anterior basado en diálogos modales. Ahora cuentas con una página completa con más espacio, vistas previas en vivo y un panel de pruebas integrado.
-    </Note>
-
-    ### Cómo llegar al Skill Builder
-
-    <Steps>
-      <Step title="Navega a Herramientas Personalizadas">
-        Ve a **Agente IA > Diseño > Habilidades** y selecciona la pestaña **Herramientas Personalizadas**, luego la sub-pestaña **Personalizadas**.
-      </Step>
-      <Step title="Haz clic en Crear Herramienta">
-        Haz clic en el botón **Crear Herramienta**. Serás llevado a la página del Skill Builder.
-      </Step>
-    </Steps>
-
-    Para **editar** una herramienta existente, haz clic en el botón de editar en su tarjeta en la sub-pestaña Personalizadas. Serás llevado a la misma página del Skill Builder con la configuración actual de la herramienta precargada.
+    Una vez guardada, el agente decide cuándo invocar la herramienta según la conversación.
 
     ---
 
-    ### Descripción general del Skill Builder
+    ## Creando una Herramienta Personalizada
 
-    El Skill Builder te guía a través de la configuración de tu herramienta personalizada con las siguientes secciones:
+    Navega a **Agente IA > Diseño > Habilidades > Herramientas Personalizadas** y haz clic en **Crear Herramienta**. Esto abre el **Skill Builder**, un editor paso a paso.
 
-    #### 1. Nombre y Descripción
-    Dale a tu herramienta un **título** (un nombre legible para humanos) y una **descripción** que le indique al agente cuándo y por qué usar esta herramienta. La descripción es fundamental — ayuda a la IA a decidir cuándo invocar la herramienta durante una conversación.
+    <Tip>
+      Cuando abres el Skill Builder por primera vez, carga un **ejemplo de Brevo** que muestra una integración de API realista. Puedes cambiar a otro ejemplo o comenzar desde una plantilla en blanco usando el selector de ejemplos en la parte superior.
+    </Tip>
 
-    #### 2. Método HTTP y URL
-    Selecciona el método HTTP (**GET**, **POST**, **PUT**, **PATCH** o **DELETE**) e ingresa la URL del endpoint que tu herramienta llamará. Si tu URL contiene parámetros de ruta, usa llaves como marcadores (ej. `https://api.example.com/orders/{order_id}`).
+    ### Paso 1 — Nombre y descripción
 
-    #### 3. Entradas (Parámetros)
-    Define los datos que tu herramienta necesita para hacer la llamada a la API. Para cada entrada que agregues, configura:
+    Dale a tu herramienta un **Título** claro y una **Descripción** de una línea que explique cuándo el agente debe usarla. La descripción es clave—es lo que la IA lee para decidir si debe llamar a esta herramienta.
+
+    ### Paso 2 — Enlace web y método
+
+    Ingresa la **URL** que tu herramienta llamará. Puedes incluir segmentos dinámicos usando la sintaxis `{placeholder}` (ej. `https://api.example.com/users/{user_id}`).
+
+    Selecciona el **método HTTP**: GET, POST, PUT, PATCH o DELETE.
+
+    ### Paso 3 — Inputs
+
+    Los inputs son los datos que tu herramienta necesita. Cada input tiene:
 
     | Configuración | Descripción |
     |---|---|
-    | **Nombre** | El nombre del parámetro (usado en la solicitud de API) |
-    | **Origen** | De dónde viene el valor (ver tabla a continuación) |
-    | **Tipo** | Tipo de dato — texto, número entero, decimal, booleano, lista u objeto anidado |
-    | **Requerido** | Si el parámetro es obligatorio |
-    | **Descripción** | Ayuda al agente a entender para qué es este parámetro |
-    | **Ubicación** | Dónde se coloca el parámetro en la solicitud — cadena de consulta, ruta, cuerpo o encabezado. Se infiere automáticamente pero puede configurarse manualmente. |
+    | **Nombre** | El nombre del parámetro (usado en la solicitud) |
+    | **Tipo** | Tipo de dato: texto, entero, decimal, verdadero/falso, lista u objeto |
+    | **Fuente** | De dónde viene el valor (ver abajo) |
+    | **Requerido** | Si el agente siempre debe proporcionar este valor |
+    | **Descripción** | Ayuda al agente a entender qué debe llenar |
+    | **Valores permitidos** | Lista opcional separada por comas para restringir opciones |
+    | **Ubicación** | Dónde va el valor en la solicitud HTTP: query string, headers, path o body |
 
-    **Orígenes de entrada disponibles:**
+    #### Fuentes de input
 
-    | Origen | Etiqueta | Descripción |
-    |---|---|---|
-    | El usuario lo dice en el chat | `conversation` | El agente extrae el valor de la conversación automáticamente. |
-    | Es con quien estamos chateando | `context` | Información contextual sobre el usuario actual, establecida cuando el agente inicia (ej., ID de usuario, info de sesión). |
-    | Siempre el mismo valor | `fixed` | Un valor constante que estableces una vez; se envía igual en cada llamada. El agente y el cliente nunca lo ven. |
-    | Un secreto guardado de forma segura | `env` | Un valor sensible (como una API key) almacenado como variable de entorno. Se configura una vez y se mantiene seguro. |
+    | Fuente | Significado |
+    |---|---|
+    | **Conversación** | El agente extrae el valor del chat con el usuario |
+    | **Valor fijo** | Un valor constante que el operador configura al crear la herramienta (ej. una API key) |
+    | **Usuario final** | Se resuelve en tiempo de ejecución desde la identidad del usuario final — ya sea su ID de usuario externo o un campo de metadatos |
+    | **Estado / Store / Config** | Fuentes avanzadas de tiempo de ejecución para workflows y estado interno |
+
+    #### Inputs de tipo objeto y campos anidados
+
+    Cuando configuras el **Tipo** de un input como **objeto**, aparece un editor de campos anidados debajo. Puedes agregar campos dentro del objeto, cada uno con su propio nombre, tipo, descripción y opciones. Los objetos pueden anidarse en múltiples niveles.
+
+    **Selección de fuente por campo (objetos de conversación)**
+
+    Cuando la fuente de un input de tipo objeto es **Conversación**, cada campo anidado dentro de él puede especificar independientemente de dónde viene su valor. Un desplegable **"Comes from" (Proviene de)** aparece en cada campo anidado con tres opciones:
+
+    | Fuente anidada | Comportamiento |
+    |---|---|
+    | **Conversación** | El agente le pide al usuario este valor durante el chat. Puedes marcarlo como requerido, agregar una descripción para el agente y restringirlo a valores permitidos específicos. |
+    | **Valor fijo** | El valor es una constante definida por el operador. Aparece un campo de texto donde ingresas el valor que siempre se enviará. |
+    | **Usuario final** | El valor se resuelve en tiempo de ejecución desde el contexto del usuario final. Eliges entre **ID de usuario externo** o **Un campo de metadatos** (y especificas la clave de metadatos). |
 
     <Tip>
-    Para parámetros que vienen de la conversación, escribe una **descripción** clara para que el agente sepa qué preguntarle al usuario (ej., "El número de pedido del cliente, generalmente un código de 6 dígitos").
+      La selección de fuente por campo es poderosa para llamadas API que necesitan una mezcla de datos proporcionados por el usuario y valores resueltos por el sistema en el mismo objeto. Por ejemplo, un objeto `contacto` podría tener la `pregunta` del usuario llenada por la IA (conversación), un campo `canal` siempre configurado como `"whatsapp"` (fijo), y un `customer_id` obtenido del ID externo del usuario final (usuario final).
     </Tip>
 
     <Note>
-    El Skill Builder también muestra opciones de origen adicionales para casos de uso avanzados (state, store, config). Estos se mapean al valor soportado más cercano del backend y se muestran con una advertencia si el backend aún no los soporta completamente.
+      Solo los campos con fuente **Conversación** se muestran al modelo de IA. Los campos fijos y de usuario final se inyectan automáticamente en tiempo de ejecución—el agente nunca le pregunta al usuario por ellos.
     </Note>
 
-    #### 4. Salida
-    Configura lo que la herramienta devuelve:
-    - **Tipo de retorno** — elige si la respuesta de la API es un conjunto de detalles (dict), una lista, un número o texto plano.
-    - **Prompt** — instrucciones para el agente sobre cómo interpretar y presentar la respuesta al usuario.
-    - **Respuesta de ejemplo** — un JSON de respuesta de ejemplo opcional para que el agente entienda la estructura de la respuesta.
+    Cuando la fuente del objeto padre es **Valor fijo**, todos los campos anidados actúan como constantes (proporcionas un valor fijo para cada uno). Cuando la fuente del padre es **Usuario final**, los campos anidados son descriptivos (solo esquema).
 
-    #### 5. Manejo de Errores
-    Proporciona instrucciones para el agente sobre qué hacer cuando la llamada a la API falla (ej., disculparse y ofrecer reintentar, escalar a un agente humano, etc.).
+    ### Paso 4 — Autenticación
 
-    #### 6. Tiempo de Espera
-    Establece el número máximo de segundos para esperar la respuesta de la API (predeterminado: 30 segundos).
+    Si tu API requiere autenticación, agrega los headers apropiados (ej. `Authorization: Bearer {token}`) como un input de valor fijo ubicado en **headers**.
 
-    ---
+    ### Paso 5 — Qué regresa
 
-    ### Vistas Previas en Vivo
+    Pega un **ejemplo de respuesta JSON** de tu API. El constructor usa esto para entender la forma de los datos que regresan, lo que ayuda al agente a interpretar los resultados para el usuario.
 
-    Mientras completas el Skill Builder, dos vistas previas se actualizan en tiempo real:
-
-    - **Vista previa de Python** — muestra el código Python/Pydantic generado que representa la definición de tu herramienta. Esto es útil para desarrolladores que quieren entender o validar la estructura subyacente de la herramienta.
-    - **Vista previa de cURL** — muestra el comando cURL equivalente para la llamada a la API, incluyendo todos los parámetros configurados, encabezados y datos del cuerpo.
-
-    Puedes copiar cualquier vista previa al portapapeles con un solo clic.
+    Opcionalmente define **campos de salida** para indicarle al agente qué partes de la respuesta destacar.
 
     ---
 
-    ### Prueba de tu Herramienta
+    ## Guardando una Herramienta Personalizada
 
-    El Skill Builder incluye un panel de **Prueba** integrado. Después de configurar tu herramienta, puedes enviar una solicitud de prueba directamente desde el constructor para verificar que la API responde correctamente antes de guardar.
+    El botón **Guardar** se habilita una vez que la definición de tu herramienta está completa:
 
-    ---
+    - La herramienta tiene un **nombre**
+    - La **URL** es una dirección web válida (que comienza con `http`)
+    - Todos los placeholders de la URL (ej. `{user_id}`) tienen un input correspondiente definido
+    - No hay dos inputs con el **mismo nombre**
+    - Se proporciona un **ejemplo de respuesta** válido
 
-    ### Guardar
+    Si alguna de estas condiciones no se cumple, el botón Guardar está deshabilitado y un mensaje debajo te indica exactamente qué falta.
 
-    Cuando termines, haz clic en **Guardar** (o **Actualizar** si estás editando). Serás redirigido de vuelta a la lista de Herramientas Personalizadas. Desde ahí puedes asignar la herramienta a tu agente.
-
-    ---
-
-    ## Asignando una Herramienta a tu Agente
-
-    Después de crear una herramienta personalizada, necesitas asignarla a tu agente antes de que pueda usarla.
-
-    <Steps>
-      <Step title="Ve a la sub-pestaña Asignadas">
-        En **Habilidades > Herramientas Personalizadas**, cambia a la sub-pestaña **Asignadas**.
-      </Step>
-      <Step title="Haz clic en Asignar Herramienta">
-        Haz clic en el botón **Asignar Herramienta**.
-      </Step>
-      <Step title="Selecciona la herramienta y el agente">
-        Elige la herramienta que deseas asignar y confirma.
-      </Step>
-    </Steps>
-
-    Una vez asignada, puedes configurar la herramienta por canal y establecer las variables de entorno requeridas.
+    <Note>
+      No hay un paso de prueba separado — el constructor valida tu configuración en línea. Una vez que todos los campos están completos y válidos, puedes guardar inmediatamente.
+    </Note>
 
     ---
 
-    ## Invocaciones de Herramientas
+    ## Vista Previa de Código
 
-    La sub-pestaña **Invocaciones** muestra un registro de cada vez que cualquier herramienta personalizada fue llamada por el agente, incluyendo:
-    - Nombre de la herramienta
-    - Estado de ejecución (éxito, error, tiempo agotado)
-    - Marca de tiempo
-    - Datos completos de solicitud y respuesta (expandible)
+    El Skill Builder muestra una **vista previa del código Python** en vivo en el lado derecho. Este es el código real que se ejecutará cuando el agente invoque tu herramienta. Puedes usarlo para verificar la estructura de la solicitud, los headers y la ubicación de los parámetros.
 
-    <Tip>
-    Usa el registro de Invocaciones para depurar el comportamiento de las herramientas y verificar que los parámetros se envíen correctamente. También puedes ver las invocaciones en el **Registro de Tareas** global en Supervisa.
-    </Tip>
+    ---
+
+    ## Editando una Herramienta Personalizada existente
+
+    Desde la lista de **Herramientas Personalizadas**, haz clic en cualquier herramienta para reabrirla en el Skill Builder. Todos los campos se llenan automáticamente. Realiza tus cambios y haz clic en **Guardar cambios**.
+
+    ---
+
+    ## Mejores prácticas
+
+    - **Sé específico en las descripciones** — el agente usa tu descripción para decidir cuándo llamar a la herramienta. Descripciones vagas llevan a invocaciones incorrectas.
+    - **Usa valores fijos para secretos** — nunca le pidas al usuario las API keys. Colócalas en un input de valor fijo ubicado en headers.
+    - **Prueba en el Playground** — después de guardar tu herramienta, ve al Playground y genera una conversación que debería invocarla. Revisa el Registro de Tareas para verificar que se ejecutó correctamente.
+    - **Usa fuentes por campo en objetos** — cuando tu API espera un objeto que mezcla input del usuario con valores del sistema (como IDs de usuario o flags constantes), usa la selección de fuente por campo en lugar de construir inputs separados.
 
   </Tab>
 </Tabs>
