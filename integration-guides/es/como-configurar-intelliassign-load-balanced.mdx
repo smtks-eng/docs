@@ -1,0 +1,80 @@
+---
+title: "Cómo configurar IntelliAssign con asignación Load Balanced"
+description: "Guía paso a paso para habilitar IntelliAssign de Freshchat y distribuir las conversaciones escaladas según la carga de cada agente."
+icon: "scale-balanced"
+---
+
+<Tip>
+IntelliAssign es el motor de enrutamiento automático de conversaciones de Freshchat. Cuando se habilita con la lógica **Load Balanced**, las conversaciones escaladas se asignan al agente con más capacidad disponible — en lugar de una rotación ciega — de modo que ningún agente termina con la cola llena mientras sus compañeros están libres. Cuando tu agente de Semantiks escala una conversación, la asigna a tu grupo de Freshchat y deja que IntelliAssign elija al mejor agente disponible.
+</Tip>
+
+## Resumen rápido de los pasos
+
+Configurar IntelliAssign con asignación Load Balanced toma solo unos minutos:
+
+1. Habilita **IntelliAssign** en la configuración de administrador de Freshchat y selecciona la lógica **Load Balanced**.
+2. Configura los **Agent Settings** — en especial el límite de conversaciones activas por miembro.
+3. En **Group Settings**, habilita IntelliAssign para el grupo conectado a Semantiks.
+4. Pide a cada agente que active **"Set active on IntelliAssign"** desde su perfil.
+
+¡Listo! A partir de ese momento, cada conversación que tu agente de Semantiks escale será dirigida al agente con menos carga de trabajo.
+
+---
+<Steps>
+  <Step title="Habilitar IntelliAssign y seleccionar la lógica Load Balanced">
+
+   <Info>
+   IntelliAssign tiene dos métodos principales de asignación: **Round Robin** (asigna por turnos, sin considerar qué tan ocupado está cada agente) y **Load Balanced** (asigna al agente con más capacidad libre en ese momento). Recomendamos Load Balanced para equipos de soporte donde las conversaciones varían en duración.
+   </Info>
+
+    **Pasos**
+
+    1. Entra a la consola de Freshchat.
+    2. En el menú lateral izquierdo, haz clic en <strong>Admin Settings</strong>.
+    3. Busca y entra a <strong>IntelliAssign</strong> (dentro de Configuration and Workflows).
+    4. Cambia el interruptor de <strong>Disabled</strong> a <strong>Enabled</strong>.
+        ![IntelliAssign primer paso](/images/integration-guides/intelliassign/intelliassign-first-step.jpg)
+    5. Abre la sección <strong>IntelliAssign Logic</strong> y selecciona <strong>Load Balanced</strong>.
+  </Step>
+  <Step title="Configurar los Agent Settings">
+    <Info>
+    Estos ajustes controlan cuándo un agente deja de recibir conversaciones:
+
+    - **Tiempo de inactividad:** minutos sin actividad antes de que un agente se marque como inactivo para IntelliAssign.
+    - **Active conversations per member:** el número máximo de conversaciones simultáneas por agente. Cuando un agente alcanza este límite, IntelliAssign dirige las conversaciones nuevas a los compañeros con capacidad libre.
+    </Info>
+
+    **Pasos**
+
+    1. En la misma página de IntelliAssign, baja a la sección <strong>Agent Settings</strong>.
+    2. Define <strong>Active conversations per member</strong> según la capacidad de tu equipo (por ejemplo, 8).
+    3. Opcionalmente, usa <strong>Load Level</strong> para sobrescribir el límite de agentes específicos (p. ej., un límite menor para agentes nuevos y uno mayor para expertos).
+    4. Haz clic en <strong>Save</strong>.
+  </Step>
+  <Step title="Habilitar IntelliAssign para tu grupo">
+
+    <Info>
+    Este es el paso que más se olvida. No basta con habilitar IntelliAssign a nivel de cuenta — también debes habilitarlo **para el grupo específico** que recibe los escalamientos desde Semantiks. Sin esto, las conversaciones asignadas al grupo esperarán en la cola del grupo en lugar de dirigirse a un agente.
+    </Info>
+
+    **Pasos**
+
+    1. Baja hasta la sección <strong>Group Settings</strong> en la página de IntelliAssign.
+    2. Encuentra la fila del grupo conectado a Semantiks (por ejemplo, <strong>Support</strong>).
+    3. Activa el interruptor de la columna <strong>Enable/Disable IntelliAssign for</strong>.
+        ![Group settings segundo paso](/images/integration-guides/intelliassign/group-settings-second-step.jpg)
+    4. Opcionalmente, cambia <strong>Reassign conversations when a member is inactive</strong> a <strong>Yes</strong> para que los chats no se queden atorados si un agente se desconecta.
+  </Step>
+  <Step title="Pedir a cada agente que active IntelliAssign">
+
+    <Note>
+    Estar conectado y "Available" **no** es lo mismo que estar activo en IntelliAssign. Cada agente debe activar su interruptor personal — de lo contrario, IntelliAssign no le asignará conversaciones.
+    </Note>
+
+    1. Cada agente inicia sesión en Freshchat.
+    2. Haz clic en el ícono de perfil en la esquina superior derecha.
+    3. Activa <strong>Set active on IntelliAssign</strong>.
+
+    Una vez hecho esto, cada conversación escalada por tu agente de Semantiks se asignará al grupo e IntelliAssign elegirá al agente con más capacidad disponible. Si IntelliAssign no puede asignar a nadie (por ejemplo, si ningún agente está activo), Semantiks recurre automáticamente a su propia rotación entre agentes disponibles, de modo que ninguna conversación se queda esperando.
+  </Step>
+</Steps>

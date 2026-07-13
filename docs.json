@@ -127,6 +127,7 @@
               "integration-guides/en/how-to-integrate-to-whatsapp",
               "integration-guides/en/how-to-manage-message-templates-whatsapp",
               "integration-guides/en/how-to-integrate-to-freshchat",
+              "integration-guides/en/how-to-set-up-intelliassign-load-balanced",
               "integration-guides/en/how-to-integrate-to-zendesk"
             ]
           }
@@ -245,6 +246,7 @@
               "integration-guides/es/como-integrar-whatsapp",
               "integration-guides/es/como-gestionar-plantillas-whatsapp",
               "integration-guides/es/como-integrar-freshchat",
+              "integration-guides/es/como-configurar-intelliassign-load-balanced",
               "integration-guides/es/como-integrar-zendesk"
             ]
           }
