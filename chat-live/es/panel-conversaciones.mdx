@@ -1,86 +1,117 @@
 ---
-title: "Panel de Conversaciones"
+title: 'Panel de Conversaciones'
 language: es
-description: "Gestiona conversaciones en vivo con clientes, consulta detalles, toma notas y etiqueta conversaciones con etiquetas de color."
+description: 'Gestiona conversaciones de chat en vivo, toma el control del agente IA, asigna conversaciones a miembros del equipo, y resuelve o cierra interacciones en tiempo real.'
 ---
 
-El **Panel de Conversaciones** es tu espacio central para gestionar las conversaciones en vivo con clientes. Desde aquí puedes ver conversaciones activas y pasadas, leer transcripciones en tiempo real y acceder a un panel lateral con información del cliente y herramientas del agente.
-
----
-
-## Diseño del panel
-
-La vista de Chat en Vivo se divide en tres áreas principales:
-
-| Área | Descripción |
-|---|---|
-| **Lista de conversaciones** | Una barra lateral a la izquierda con todas las conversaciones (activas, en cola, finalizadas). Usa los controles de búsqueda y filtros para encontrar sesiones específicas. |
-| **Transcripción del chat** | El área central muestra el hilo completo de mensajes de la conversación seleccionada en tiempo real. |
-| **Panel de detalles del cliente** | Un panel colapsable a la derecha con información de contacto, metadatos de la conversación, etiquetas, notas internas y más. |
+El **Panel de Conversaciones** es el centro principal para gestionar conversaciones en vivo entre tu agente de IA y los usuarios finales. Desde aquí, tu equipo puede monitorear chats activos, intervenir cuando sea necesario, asignar conversaciones a miembros específicos y controlar el ciclo de vida de la conversación.
 
 ---
 
-## Panel de Detalles del Cliente
+## Estados de Conversación
 
-Haz clic en cualquier conversación para abrir el **Panel de Detalles del Cliente** en el lado derecho. Este panel te brinda contexto sobre el usuario y la sesión actual sin salir de la vista de chat.
+Cada conversación tiene un **estado** y un **responsable**:
 
-El panel incluye las siguientes secciones:
+| Propiedad | Valores | Descripción |
+|---|---|---|
+| **Estado** | `activa`, `resuelta`, `cerrada` | La etapa actual del ciclo de vida de la conversación |
+| **Responsable** | `agente`, `humano` | Si el agente de IA o un miembro del equipo humano está respondiendo actualmente |
 
-### Información de Contacto
-Muestra los detalles disponibles del contacto como el nombre del usuario, número de teléfono, ID externo y el canal de origen de la conversación.
+### Conversaciones pre-asignadas
 
-### Actividad
-Muestra las fechas de creación del contacto y su última actividad.
+Una conversación puede estar **pre-asignada** a un miembro específico del equipo aunque el agente de IA aún la esté gestionando. Esto se muestra con una insignia ámbar en el encabezado de la conversación que dice **"Asignada · agente respondiendo"** seguido del nombre del asignado (cuando esté disponible). Esta insignia se trunca en pantallas pequeñas y muestra el texto completo al pasar el cursor.
 
-### Etiquetas
-
-La sección de **Etiquetas** te permite adjuntar etiquetas de color a cualquier conversación. Las etiquetas son una forma flexible de categorizar, priorizar o anotar conversaciones para que tu equipo pueda identificar patrones de un vistazo, tanto aquí como en el [panel de Conversaciones](/dashboards/es/conversaciones).
-
-#### Añadir una etiqueta
-
-1. En el Panel de Detalles del Cliente, busca la sección **Etiquetar** (identificada con un ícono de etiqueta).
-2. Haz clic en el botón **+ Añadir**. Se abre un popover con un campo de nombre y un selector de color.
-3. Escribe un nombre corto para la etiqueta (hasta 22 caracteres). Los nombres se muestran en mayúsculas.
-4. Elige un color usando cualquiera de los métodos disponibles:
-   - **Cuadro de color** — haz clic o arrastra en el área de saturación/brillo.
-   - **Barra de tono** — desliza para elegir el tono base.
-   - **Entrada hexadecimal** — escribe un código hex directamente.
-   - **Muestras** — haz clic en un color predefinido.
-   - **Cuentagotas** — elige un color de cualquier parte de tu pantalla (solo navegadores compatibles).
-5. Haz clic en **Añadir** para guardar la etiqueta.
-
-#### Editar una etiqueta
-
-Haz clic en el **ícono de lápiz** en cualquier chip de etiqueta existente. El mismo popover se abre con el nombre y color actuales de la etiqueta para que puedas ajustar cualquiera de los dos. Haz clic en **Guardar** cuando termines.
-
-#### Eliminar una etiqueta
-
-Haz clic en el **ícono ✕** en el chip de la etiqueta para eliminarla inmediatamente.
-
-<Tip>
-  Las etiquetas se guardan por conversación. También aparecen como una columna de solo lectura **Etiquetas** en la tabla del explorador de conversaciones en el panel de Conversaciones.
-</Tip>
-
-### Notas Internas
-Agrega notas de texto libre a la conversación. Estas son visibles solo para tu equipo y nunca se muestran al usuario final.
-
-- Haz clic en **Agregar nota** para crear una nueva nota.
-- Cada nota muestra el autor y la marca de tiempo.
-- Puedes editar o eliminar notas existentes.
-
-### Automatizaciones
-Si alguna automatización se ejecutó durante esta conversación, aparecerá aquí con su estado de ejecución.
+La pre-asignación es útil cuando se espera que una conversación necesite atención humana pronto, por ejemplo, después de una escalación programada o un contacto VIP.
 
 ---
 
-## Gestión de conversaciones
+## Tomar una Conversación
 
-Desde la lista de conversaciones puedes:
+Cuando una conversación está siendo gestionada por el agente de IA y requiere intervención humana, un miembro del equipo puede **tomar** la conversación para obtener el control.
 
-- **Buscar** por nombre de usuario o ID externo.
-- **Filtrar** por estado (activa, finalizada, en cola) o por canal.
-- **Finalizar** una conversación manualmente cuando la interacción se complete.
+- Haz clic en el botón **Tomar** para asumir el control de la conversación.
+- Una vez tomada, el responsable cambia de `agente` a `humano`, y el miembro del equipo puede escribir y enviar respuestas directamente.
+
+### Quién puede tomar una conversación
+
+| Rol | Puede tomar | Detalles |
+|---|---|---|
+| **Propietario / Admin** | ✅ Cualquier conversación | Los propietarios y administradores pueden tomar cualquier conversación activa, sin importar la asignación. |
+| **Miembro** | ✅ Sin asignar o propia | Los miembros pueden tomar conversaciones que estén **sin asignar** o **asignadas a ellos**. **No pueden** tomar conversaciones asignadas a otro miembro. |
+
+---
+
+## Asignar y Pasar Conversaciones
+
+Puedes asignar (o reasignar) una conversación a un miembro específico del equipo usando el **menú desplegable de asignación** en el encabezado de la conversación.
+
+- Haz clic en el botón de asignación (ícono de persona) para abrir la lista de miembros disponibles.
+- Selecciona un miembro para asignarle la conversación.
+
+### Quién puede asignar o pasar conversaciones
 
 <Note>
-  Finalizar una conversación la elimina de la cola activa pero mantiene su historial completo accesible en el panel de Conversaciones.
+El menú de asignar/pasar **solo es visible** para los miembros del equipo que tienen permiso de tomar la conversación. Si eres un usuario con rol de miembro y la conversación está asignada a otra persona, no verás el botón de asignación.
 </Note>
+
+| Rol | Puede asignar/pasar | Detalles |
+|---|---|---|
+| **Propietario / Admin** | ✅ Siempre | Puede asignar o reasignar cualquier conversación a cualquier miembro disponible. |
+| **Miembro** | ✅ Sin asignar o propia | Puede asignar o pasar conversaciones que estén **sin asignar** o **actualmente asignadas a ellos**. No puede reasignar conversaciones asignadas a otros miembros. |
+
+---
+
+## Cambiar el Estado de la Conversación
+
+Las conversaciones activas pueden marcarse como **resueltas** o **cerradas** usando el menú desplegable de estado en el encabezado de la conversación.
+
+### Quién puede cambiar el estado
+
+<Note>
+El menú de estado **solo es visible** cuando la conversación está activa **y** tienes permiso para tomarla. Los miembros que no pueden tomar una conversación (porque está asignada a otra persona) no verán los controles de estado.
+</Note>
+
+| Rol | Puede cambiar estado | Detalles |
+|---|---|---|
+| **Propietario / Admin** | ✅ Siempre | Puede resolver o cerrar cualquier conversación activa. |
+| **Miembro** | ✅ Sin asignar o propia | Puede resolver o cerrar conversaciones que estén **sin asignar** o **asignadas a ellos**. |
+
+Para conversaciones resueltas o cerradas, se muestra un botón de **Reabrir** que permite volver a establecer la conversación como activa.
+
+---
+
+## Responder Conversaciones
+
+Solo los miembros del equipo que han **tomado** la conversación (cambiándola a control humano) pueden escribir respuestas. El campo de respuesta está disponible cuando:
+
+- La conversación está bajo control **humano**, **y**
+- Eres el **miembro asignado**, o tienes un rol de **propietario/admin**.
+
+---
+
+## Iniciar una Nueva Conversación
+
+La acción de **Iniciar nueva** (re-enganchar) te permite enviar un mensaje proactivo a un contacto. Está limitada a:
+
+- El **miembro asignado**, o
+- Roles de **Propietario / Admin**
+
+No está disponible en conversaciones sin asignar.
+
+---
+
+## Resumen de Permisos
+
+La siguiente tabla resume lo que cada rol puede hacer según la asignación de la conversación:
+
+| Acción | Propietario / Admin | Miembro (conv. sin asignar) | Miembro (asignada a ellos) | Miembro (asignada a otro) |
+|---|---|---|---|---|
+| **Tomar** | ✅ | ✅ | ✅ | ❌ |
+| **Asignar / Pasar** | ✅ | ✅ | ✅ | ❌ |
+| **Cambiar estado** | ✅ | ✅ | ✅ | ❌ |
+| **Responder** | ✅ | ✅ (tras tomar) | ✅ (tras tomar) | ❌ |
+| **Iniciar nueva** | ✅ | ❌ | ✅ | ❌ |
+
+<Warning>
+Los miembros no pueden interactuar con conversaciones asignadas a otros miembros. Si necesitas reasignar una conversación que pertenece a otra persona, pide a un propietario o administrador que lo haga.
+</Warning>

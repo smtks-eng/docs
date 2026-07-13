@@ -1,86 +1,117 @@
 ---
-title: "Conversations Panel"
+title: 'Conversations Panel'
 language: en
-description: "Manage live conversations with customers, view details, take notes, and label conversations with color-coded tags."
+description: 'Manage live chat conversations, take control from the AI agent, assign conversations to team members, and resolve or close interactions in real time.'
 ---
 
-The **Conversations Panel** is your central workspace for handling live customer conversations. From here, you can view active and past conversations, read transcripts in real time, and access a detailed sidebar with customer information and agent tools.
-
----
-
-## Panel layout
-
-The Live Chat view is split into three main areas:
-
-| Area | Description |
-|---|---|
-| **Conversation list** | A sidebar on the left showing all conversations (active, queued, ended). Use the search and filter controls to find specific sessions. |
-| **Chat transcript** | The central area displays the full message thread of the selected conversation in real time. |
-| **Customer details panel** | A collapsible panel on the right with contact information, conversation metadata, labels, internal notes, and more. |
+The **Conversations Panel** is the central hub for managing live conversations between your AI agent and end users. From here, your team can monitor ongoing chats, step in when needed, assign conversations to specific members, and control the conversation lifecycle.
 
 ---
 
-## Customer Details Panel
+## Conversation States
 
-Click any conversation to open the **Customer Details Panel** on the right side. This panel gives you context about the user and the current session without leaving the chat view.
+Every conversation has a **status** and a **handler**:
 
-The panel includes the following sections:
+| Property | Values | Description |
+|---|---|---|
+| **Status** | `active`, `resolved`, `closed` | The current lifecycle stage of the conversation |
+| **Handler** | `agent`, `human` | Whether the AI agent or a human team member is currently responding |
 
-### Contact Info
-Displays available contact details such as the user's name, phone number, external ID, and the channel the conversation originated from.
+### Pre-assigned conversations
 
-### Activity
-Shows timestamps for when the contact was created and when they were last active.
+A conversation can be **pre-assigned** to a specific team member even while the AI agent is still handling it. This is shown with an amber badge in the conversation header that reads **"Assigned · agent responding"** followed by the assignee's name (when available). This badge is truncated on smaller screens and displays the full text on hover.
 
-### Labels
-
-The **Labels** section lets you attach color-coded tags to any conversation. Labels are a flexible way to categorize, prioritize, or annotate conversations so your team can spot patterns at a glance—both here and in the [Conversations dashboard](/dashboards/en/conversations).
-
-#### Adding a label
-
-1. In the Customer Details panel, find the **Labels** section (identified by a tag icon).
-2. Click the **+ Add** button. A popover opens with a name field and a color picker.
-3. Type a short name for the label (up to 22 characters). Names are displayed in uppercase.
-4. Choose a color using any of the available methods:
-   - **Color square** — click or drag on the saturation/brightness area.
-   - **Hue slider** — slide to pick the base hue.
-   - **Hex input** — type a hex code directly.
-   - **Swatches** — click a preset color.
-   - **Eye dropper** — pick a color from anywhere on your screen (supported browsers only).
-5. Click **Add** to save the label.
-
-#### Editing a label
-
-Click the **pencil icon** on any existing label chip. The same popover opens pre-filled with the label's current name and color so you can adjust either one. Click **Save** when done.
-
-#### Removing a label
-
-Click the **✕ icon** on the label chip to remove it immediately.
-
-<Tip>
-  Labels are saved per conversation. They also appear as a read-only **Labels** column in the Conversations Explorer table on the Conversations dashboard.
-</Tip>
-
-### Internal Notes
-Add free-text notes to the conversation. These are visible only to your team and are never shown to the end user.
-
-- Click **Add note** to create a new note.
-- Each note shows the author and timestamp.
-- You can edit or delete existing notes.
-
-### Automations
-If any automations ran during this conversation, they appear here with their execution status.
+Pre-assignment is useful when a conversation is expected to need human attention soon—for example, after a scheduled escalation or a VIP contact.
 
 ---
 
-## Managing conversations
+## Taking a Conversation
 
-From the conversation list you can:
+When a conversation is handled by the AI agent and requires human intervention, a team member can **take** the conversation to gain control.
 
-- **Search** by user name or external ID.
-- **Filter** by status (active, ended, queued) or by channel.
-- **End** a conversation manually when the interaction is complete.
+- Click the **Take** button to assume control of the conversation.
+- Once taken, the handler switches from `agent` to `human`, and the team member can type and send replies directly.
+
+### Who can take a conversation
+
+| Role | Can take | Details |
+|---|---|---|
+| **Owner / Admin** | ✅ Any conversation | Owners and admins can take any active conversation, regardless of assignment. |
+| **Member** | ✅ Unassigned or own | Members can take conversations that are **unassigned** or **assigned to them**. They **cannot** take conversations assigned to another member. |
+
+---
+
+## Assigning & Passing Conversations
+
+You can assign (or reassign) a conversation to a specific team member using the **assign dropdown** in the conversation header.
+
+- Click the assign button (person icon) to open the list of available team members.
+- Select a member to assign the conversation to them.
+
+### Who can assign or pass conversations
 
 <Note>
-  Ending a conversation removes it from the active queue but keeps its full history accessible in the Conversations dashboard.
+The assign/pass dropdown is **only visible** to team members who are allowed to take the conversation. If you are a member-role user and the conversation is assigned to someone else, you will not see the assign button.
 </Note>
+
+| Role | Can assign/pass | Details |
+|---|---|---|
+| **Owner / Admin** | ✅ Always | Can assign or reassign any conversation to any available member. |
+| **Member** | ✅ Unassigned or own | Can assign or pass conversations that are **unassigned** or **currently assigned to them**. Cannot reassign conversations assigned to other members. |
+
+---
+
+## Changing Conversation Status
+
+Active conversations can be marked as **resolved** or **closed** using the status dropdown in the conversation header.
+
+### Who can change status
+
+<Note>
+The status dropdown is **only visible** when the conversation is active **and** you have permission to take it. Members who cannot take a conversation (because it is assigned to someone else) will not see the status controls.
+</Note>
+
+| Role | Can change status | Details |
+|---|---|---|
+| **Owner / Admin** | ✅ Always | Can resolve or close any active conversation. |
+| **Member** | ✅ Unassigned or own | Can resolve or close conversations that are **unassigned** or **assigned to them**. |
+
+For resolved or closed conversations, a **Reopen** button is shown instead, allowing the conversation to be set back to active.
+
+---
+
+## Replying to Conversations
+
+Only team members who have **taken** the conversation (switching it to human control) can type replies. The reply input is available when:
+
+- The conversation is in **human** control, **and**
+- You are the **assigned member**, or you have an **owner/admin** role.
+
+---
+
+## Starting a New Conversation
+
+The **Start new** (re-engage) action lets you send a proactive message to a contact. This is limited to:
+
+- The **assigned member**, or
+- **Owner / Admin** roles
+
+It is not available on unassigned (loose) conversations.
+
+---
+
+## Permission Summary
+
+The table below summarizes what each role can do depending on the conversation's assignment:
+
+| Action | Owner / Admin | Member (unassigned conv.) | Member (assigned to them) | Member (assigned to someone else) |
+|---|---|---|---|---|
+| **Take** | ✅ | ✅ | ✅ | ❌ |
+| **Assign / Pass** | ✅ | ✅ | ✅ | ❌ |
+| **Change status** | ✅ | ✅ | ✅ | ❌ |
+| **Reply** | ✅ | ✅ (after taking) | ✅ (after taking) | ❌ |
+| **Start new** | ✅ | ❌ | ✅ | ❌ |
+
+<Warning>
+Members cannot interact with conversations assigned to other members. If you need to reassign a conversation that belongs to someone else, ask an owner or admin to do it.
+</Warning>
