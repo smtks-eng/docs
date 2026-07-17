@@ -46,10 +46,49 @@ Below the KPIs, you will find a table with all recorded conversations. Each row 
 - **External ID:** User ID from the channel.
 - **Number of Messages:** Total messages exchanged (with the AI agent).
 - **First Response Time (FRT):** The time elapsed between the user's first message and the agent's first reply. Displayed in a human-readable format (e.g., `45s`, `2m 30s`, `1h 15m`).
-- **Average Response Time (ART):** The average time the agent takes to respond throughout the conversation.
-- **Tags:** Conversation tags assigned automatically or manually. Up to **3 tags** are shown inline; if a conversation has more than 3 tags, a **+N** badge appears indicating how many additional tags exist. Hover over the badge to see the names of the remaining tags.
-- **Flag:** A flag indicator for the conversation.
+- **Average Response Time (ART):** The average time the agent takes to reply throughout the conversation.
+
+---
+
+## Filters
+
+The filter bar lets you narrow down the conversations shown in the table:
+
+- **Date range** — restrict conversations to a specific period.
+- **Channel** — filter by the communication channel.
+- **Status** — filter by conversation status (Active, Ended, Not Started).
+- **Control** — filter by who handled the conversation:
+  - **AI** — conversations handled entirely by the AI agent.
+  - **Human** — conversations handled by a human specialist.
+  - **Individual specialists** — below a divider, each team member who has handled conversations is listed by name. Select a specialist to see only the conversations they attended.
+- **Tools** — filter by the tools or skills the agent used.
+- **Search** — free-text search across conversation content.
 
 <Tip>
-Use the **Tags** column to quickly spot categorized conversations. The truncated view keeps the table compact while still letting you see overflow tags on hover.
+Use the **Control** filter to quickly audit a specific specialist's conversations—select their name from the list to see only the sessions they handled.
 </Tip>
+
+### Deep-link mode
+
+When you arrive at the Conversations Explorer via a link from another page (for example, from the **Live Chat Performance** leaderboard), the view enters **deep-link mode**:
+
+- Only the linked conversations are shown.
+- A **pinned chip** appears in the filter bar displaying the number of conversations and, if applicable, the specialist's name.
+- Regular filters still work on top of the linked set.
+- Remove the pinned chip to exit deep-link mode and return to the full, unfiltered conversation list.
+
+<Note>
+In deep-link mode, your saved filter preferences are not overwritten. When you exit deep-link mode, your previous filters are restored.
+</Note>
+
+---
+
+## Conversation Detail Panel
+
+Click on any conversation row to open the detail panel on the right side. This panel shows the full conversation transcript and additional metadata without navigating away from the table.
+
+---
+
+## Export
+
+Use the **Export** button to download the currently filtered conversations as a file for offline analysis or reporting.

@@ -1,60 +1,70 @@
 ---
 title: "Performance"
-description: "Monitor live contact-center activity and review historical KPIs for your human-support operation."
+description: "Track your live-chat team's throughput, response times, and CSAT with leaderboards and time-series charts."
 ---
 
-The **Contact Center Dashboard** gives you a unified view of what is happening right now in your human-support operation and how it has performed over a configurable time window. Use it to balance agent workload in real time and to spot trends that inform staffing and process decisions.
+The **Performance** page gives supervisors and managers a data-driven view of how the human support team is performing on escalated conversations. Use it to spot trends, compare specialists, and drill into the conversations behind the numbers.
 
-## Live section
+## Date range & granularity
 
-The top of the page displays four real-time metric cards that refresh automatically every 30 seconds:
+At the top of the page you can choose:
 
-| Card | What it shows |
+- **Preset period** — Last 24 hours, Last 7 days, Last 30 days, or Last 90 days.
+- **Granularity** — Daily, Weekly, or Monthly buckets for the throughput chart.
+
+All cards, charts, and the leaderboard update to reflect the selected period.
+
+## Headline metrics
+
+Four KPI cards summarize the period at a glance:
+
+| Metric | Description |
 |---|---|
-| **Available agents** | Number of agents currently online and available to take conversations. Displayed in teal. |
-| **Customers waiting** | Number of customers currently in the queue waiting for a human agent. |
-| **Active conversations** | Number of conversations being handled by human agents right now. |
-| **Longest wait** | The elapsed time of the oldest conversation still waiting in the queue. Displayed in amber. |
+| **Total handled** | Number of escalated conversations attended by at least one specialist |
+| **Resolved** | Number of those conversations that were closed/resolved |
+| **Avg first response** | Average time from escalation to the specialist's first reply |
+| **Avg CSAT** | Average customer-satisfaction score across rated conversations |
 
-A **Live** badge next to the section title confirms the data is being polled continuously.
+## Throughput chart
 
-<Tip>
-Keep this page open on a shared screen so the team can see queue pressure at a glance and jump in when customers are waiting.
-</Tip>
+A time-series bar chart shows **handled** vs **resolved** conversations per bucket (day, week, or month). Hover over any bar to see exact counts.
 
-## Windowed KPIs
+## Channel mix
 
-Below the live cards you will find historical KPIs scoped to a selectable time window (**Today, 7 D, 30 D, Year**, or a custom date range).
+A breakdown of escalated conversations by channel (e.g., WhatsApp, Freshchat, Web) so you can see where your team's effort is concentrated.
 
-### Conversations
+## Leaderboard
 
-- **Escalation rate** — percentage of AI conversations that were escalated to a human agent.
-- **Total escalated** — absolute count of escalated conversations.
-- **Peak day** — the single day with the most escalated conversations and its count.
+The leaderboard ranks every specialist who handled conversations in the selected period. Columns include:
 
-### Origin breakdown
+| Column | Description |
+|---|---|
+| **#** | Rank |
+| **Specialist** | Name and avatar |
+| **Handled** | Conversations attended |
+| **Avg first response** | Average time to first reply |
+| **Avg resolution** | Average time to close a conversation |
+| **Avg CSAT** | Average satisfaction score |
 
-A ranked list showing where escalated conversations came from (e.g., WhatsApp, Freshchat Bubble) so you can see which channels generate the most human-support demand.
+### Viewing a specialist's conversations
 
-### Wait-time & duration
+Click any row in the leaderboard to open a **side panel** that lists all escalated conversations attended by that specialist during the selected period. Each card in the panel shows:
 
-- **Avg wait time** — average time customers spent in the queue before a human agent responded.
-- **Avg handle time** — average duration of human-handled conversations.
-- **First-response-time (FRT)** — time from the moment a conversation enters the queue to the first human reply.
+- **Topic** — the auto-classified conversation topic (or "No topic" if none was detected).
+- **Status** — **Open** (amber badge) or **Resolved** (green badge).
+- **Date & time** — when the conversation was created.
+- **CSAT** — the satisfaction score if one was collected.
 
-<Note>
-KPI cards show a comparison arrow (green ▲ / red ▼) relative to the previous period of the same length so you can tell at a glance whether things are improving.
-</Note>
-
-## Member connection status
-
-To see which team members are currently connected or disconnected, go to **Settings → Organization → Members**. Admins and owners will see a colored dot next to each member's name:
-
-- 🟢 **Green dot** — the member is connected.
-- ⚫ **Gray dot** — the member is disconnected.
-
-The dots update automatically every 30 seconds without requiring a page reload.
+At the top of the panel you'll see the total conversation count and a **View all on the board** button.
 
 <Tip>
-Use the member connection indicators alongside the live dashboard to understand whether available capacity matches current queue pressure.
+Click any individual conversation card to jump directly to the **Conversations Explorer** filtered to that single conversation. Use the **View all on the board** button to open the Explorer pre-filtered to *all* of that specialist's conversations.
 </Tip>
+
+When you navigate to the Conversations Explorer from this panel, a **pinned chip** appears in the filter bar showing the number of linked conversations and the specialist's name. Remove the chip to return to the normal, unfiltered view of all conversations.
+
+## Common workflows
+
+- **Identify coaching opportunities** — sort the leaderboard by Avg CSAT or Avg first response to find specialists who may benefit from additional training.
+- **Investigate a spike** — if the throughput chart shows an unusual peak, click the corresponding specialists in the leaderboard to read the actual conversations.
+- **Verify resolution quality** — open the side panel for a specialist and review their resolved conversations to ensure they meet quality standards.

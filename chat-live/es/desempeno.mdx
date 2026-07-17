@@ -1,60 +1,70 @@
 ---
 title: "Desempeño"
-description: "Monitorea la actividad en vivo del centro de contacto y revisa los KPIs históricos de tu operación de soporte humano."
+description: "Monitorea el rendimiento, tiempos de respuesta y CSAT de tu equipo de chat en vivo con tablas de clasificación y gráficas de series de tiempo."
 ---
 
-El **Panel del Centro de Contacto** te ofrece una vista unificada de lo que está sucediendo en tiempo real en tu operación de soporte humano y cómo ha rendido en una ventana de tiempo configurable. Úsalo para equilibrar la carga de trabajo de los agentes en tiempo real y para detectar tendencias que informen decisiones de personal y procesos.
+La página de **Desempeño** ofrece a supervisores y gerentes una vista basada en datos sobre cómo se desempeña el equipo de soporte humano en conversaciones escaladas. Úsala para detectar tendencias, comparar especialistas y profundizar en las conversaciones detrás de los números.
 
-## Sección en vivo
+## Rango de fechas y granularidad
 
-La parte superior de la página muestra cuatro tarjetas de métricas en tiempo real que se actualizan automáticamente cada 30 segundos:
+En la parte superior de la página puedes elegir:
 
-| Tarjeta | Qué muestra |
+- **Periodo predefinido** — Últimas 24 horas, Últimos 7 días, Últimos 30 días o Últimos 90 días.
+- **Granularidad** — Buckets diarios, semanales o mensuales para la gráfica de volumen.
+
+Todas las tarjetas, gráficas y la tabla de clasificación se actualizan según el periodo seleccionado.
+
+## Métricas principales
+
+Cuatro tarjetas de indicadores resumen el periodo de un vistazo:
+
+| Métrica | Descripción |
 |---|---|
-| **Agentes disponibles** | Número de agentes actualmente en línea y disponibles para atender conversaciones. Se muestra en color verde azulado. |
-| **Clientes en espera** | Número de clientes actualmente en la cola esperando un agente humano. |
-| **Conversaciones activas** | Número de conversaciones siendo atendidas por agentes humanos en este momento. |
-| **Espera más larga** | El tiempo transcurrido de la conversación más antigua que aún espera en la cola. Se muestra en color ámbar. |
+| **Total atendidas** | Número de conversaciones escaladas atendidas por al menos un especialista |
+| **Resueltas** | Número de esas conversaciones que fueron cerradas/resueltas |
+| **Promedio de primera respuesta** | Tiempo promedio desde la escalación hasta la primera respuesta del especialista |
+| **CSAT promedio** | Puntuación promedio de satisfacción del cliente en conversaciones calificadas |
 
-Una etiqueta **En vivo** junto al título de la sección confirma que los datos se están consultando continuamente.
+## Gráfica de volumen
 
-<Tip>
-Mantén esta página abierta en una pantalla compartida para que el equipo pueda ver la presión de la cola de un vistazo e intervenir cuando haya clientes esperando.
-</Tip>
+Una gráfica de barras de series de tiempo muestra conversaciones **atendidas** vs **resueltas** por periodo (día, semana o mes). Pasa el cursor sobre cualquier barra para ver los conteos exactos.
 
-## KPIs por ventana de tiempo
+## Mezcla de canales
 
-Debajo de las tarjetas en vivo encontrarás KPIs históricos dentro de una ventana de tiempo seleccionable (**Hoy, 7 D, 30 D, Año** o un rango personalizado).
+Un desglose de conversaciones escaladas por canal (ej. WhatsApp, Freshchat, Web) para que veas dónde se concentra el esfuerzo de tu equipo.
 
-### Conversaciones
+## Tabla de clasificación
 
-- **Tasa de escalación** — porcentaje de conversaciones de IA que fueron escaladas a un agente humano.
-- **Total escaladas** — número absoluto de conversaciones escaladas.
-- **Día pico** — el día con más conversaciones escaladas y su conteo.
+La tabla clasifica a cada especialista que atendió conversaciones en el periodo seleccionado. Las columnas incluyen:
 
-### Desglose de origen
+| Columna | Descripción |
+|---|---|
+| **#** | Posición |
+| **Especialista** | Nombre y avatar |
+| **Atendidas** | Conversaciones atendidas |
+| **Promedio primera respuesta** | Tiempo promedio hasta la primera respuesta |
+| **Promedio resolución** | Tiempo promedio para cerrar una conversación |
+| **CSAT promedio** | Puntuación promedio de satisfacción |
 
-Una lista clasificada que muestra de dónde provienen las conversaciones escaladas (ej. WhatsApp, Freshchat Bubble) para que puedas ver qué canales generan mayor demanda de soporte humano.
+### Ver las conversaciones de un especialista
 
-### Tiempo de espera y duración
+Haz clic en cualquier fila de la tabla de clasificación para abrir un **panel lateral** que lista todas las conversaciones escaladas atendidas por ese especialista durante el periodo seleccionado. Cada tarjeta en el panel muestra:
 
-- **Tiempo promedio de espera** — tiempo promedio que los clientes pasaron en la cola antes de que un agente humano respondiera.
-- **Tiempo promedio de atención** — duración promedio de las conversaciones atendidas por humanos.
-- **Tiempo de primera respuesta (FRT)** — tiempo desde que la conversación entra a la cola hasta la primera respuesta humana.
+- **Tema** — el tema auto-clasificado de la conversación (o "Sin tema" si no se detectó ninguno).
+- **Estado** — **Abierta** (badge ámbar) o **Resuelta** (badge verde).
+- **Fecha y hora** — cuándo se creó la conversación.
+- **CSAT** — la puntuación de satisfacción si se recopiló una.
 
-<Note>
-Las tarjetas de KPI muestran una flecha de comparación (verde ▲ / rojo ▼) relativa al período anterior de la misma duración para que puedas ver a simple vista si las cosas están mejorando.
-</Note>
-
-## Estado de conexión de miembros
-
-Para ver qué miembros del equipo están actualmente conectados o desconectados, ve a **Configuración → Organización → Miembros**. Los administradores y dueños verán un punto de color junto al nombre de cada miembro:
-
-- 🟢 **Punto verde** — el miembro está conectado.
-- ⚫ **Punto gris** — el miembro está desconectado.
-
-Los puntos se actualizan automáticamente cada 30 segundos sin necesidad de recargar la página.
+En la parte superior del panel verás el conteo total de conversaciones y un botón **Ver todas en el tablero**.
 
 <Tip>
-Usa los indicadores de conexión de miembros junto con el panel en vivo para entender si la capacidad disponible coincide con la presión actual de la cola.
+Haz clic en cualquier tarjeta de conversación individual para ir directamente al **Explorador de Conversaciones** filtrado a esa sola conversación. Usa el botón **Ver todas en el tablero** para abrir el Explorador pre-filtrado con *todas* las conversaciones de ese especialista.
 </Tip>
+
+Cuando navegas al Explorador de Conversaciones desde este panel, aparece un **chip fijo** en la barra de filtros mostrando la cantidad de conversaciones vinculadas y el nombre del especialista. Elimina el chip para volver a la vista normal y sin filtros de todas las conversaciones.
+
+## Flujos de trabajo comunes
+
+- **Identificar oportunidades de coaching** — ordena la tabla por CSAT promedio o tiempo de primera respuesta para encontrar especialistas que podrían beneficiarse de capacitación adicional.
+- **Investigar un pico** — si la gráfica de volumen muestra un pico inusual, haz clic en los especialistas correspondientes en la tabla para leer las conversaciones reales.
+- **Verificar calidad de resolución** — abre el panel lateral de un especialista y revisa sus conversaciones resueltas para asegurar que cumplan los estándares de calidad.
