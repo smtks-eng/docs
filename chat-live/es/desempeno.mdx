@@ -1,70 +1,95 @@
 ---
 title: "Desempeño"
-description: "Monitorea el rendimiento, tiempos de respuesta y CSAT de tu equipo de chat en vivo con tablas de clasificación y gráficas de series de tiempo."
+description: "Monitorea el rendimiento de tu equipo de chat en vivo: volumen diario, cumplimiento de SLA, distribución por canal y desempeño individual de cada agente."
 ---
 
-La página de **Desempeño** ofrece a supervisores y gerentes una vista basada en datos sobre cómo se desempeña el equipo de soporte humano en conversaciones escaladas. Úsala para detectar tendencias, comparar especialistas y profundizar en las conversaciones detrás de los números.
+El panel de **Desempeño** ofrece a los supervisores de chat en vivo una vista integral de cómo el equipo de soporte humano gestiona las conversaciones escaladas. Úsalo para rastrear el volumen diario, comparar la producción individual de cada agente, revisar los objetivos de SLA y entender la distribución por canal, todo desde una sola página.
 
-## Rango de fechas y granularidad
+## Rango de fechas
 
-En la parte superior de la página puedes elegir:
+En la parte superior de la página puedes seleccionar un período predefinido (**Hoy**, **7 D**, **30 D**, **Año**) o elegir un rango personalizado con el selector de fechas. Todas las gráficas y métricas de la página se actualizan para reflejar la ventana elegida.
 
-- **Periodo predefinido** — Últimas 24 horas, Últimos 7 días, Últimos 30 días o Últimos 90 días.
-- **Granularidad** — Buckets diarios, semanales o mensuales para la gráfica de volumen.
+---
 
-Todas las tarjetas, gráficas y la tabla de clasificación se actualizan según el periodo seleccionado.
+## Indicadores clave
 
-## Métricas principales
+Cuatro tarjetas resumen el rendimiento general del período seleccionado:
 
-Cuatro tarjetas de indicadores resumen el periodo de un vistazo:
-
-| Métrica | Descripción |
+| Tarjeta | Descripción |
 |---|---|
-| **Total atendidas** | Número de conversaciones escaladas atendidas por al menos un especialista |
-| **Resueltas** | Número de esas conversaciones que fueron cerradas/resueltas |
-| **Promedio de primera respuesta** | Tiempo promedio desde la escalación hasta la primera respuesta del especialista |
-| **CSAT promedio** | Puntuación promedio de satisfacción del cliente en conversaciones calificadas |
+| **Atendidas** | Total de conversaciones atendidas por el equipo |
+| **Prom. primera respuesta** | Tiempo promedio desde la asignación hasta la primera respuesta del especialista |
+| **Prom. resolución** | Tiempo promedio desde el primer mensaje hasta el cierre de la conversación |
+| **Prom. CSAT** | Puntuación promedio de satisfacción del cliente (cuando se recopila) |
 
-## Gráfica de volumen
+---
 
-Una gráfica de barras de series de tiempo muestra conversaciones **atendidas** vs **resueltas** por periodo (día, semana o mes). Pasa el cursor sobre cualquier barra para ver los conteos exactos.
+## Volumen diario
+
+Una gráfica de barras que muestra el volumen de conversaciones por día. Un **filtro de especialista** junto al título de la sección te permite elegir qué datos mostrar:
+
+- **Todos los especialistas** (por defecto) — barras apiladas divididas en **Resueltas** (cerradas) y **Abiertas**, con una leyenda de colores en la parte inferior de la gráfica.
+- **Un especialista específico** — una barra de un solo color con el conteo diario de conversaciones atendidas por ese miembro, para evaluar su producción individual sobre una base limpia.
+
+El desplegable lista a todos los especialistas que aparecen en el ranking para el rango de fechas seleccionado.
+
+<Tip>
+Cambia a un especialista específico para ver rápidamente su patrón de carga de trabajo diaria — útil durante revisiones de desempeño individuales.
+</Tip>
+
+---
+
+## Estado de SLA
+
+Barras de progreso que muestran el cumplimiento de los objetivos de SLA:
+
+| Métrica | Qué mide |
+|---|---|
+| **A tiempo** | Porcentaje de conversaciones donde la primera respuesta cumplió el objetivo de SLA |
+| **En riesgo** | Conversaciones que se acercan al umbral de SLA |
+| **Incumplidas** | Conversaciones que superaron el objetivo de SLA |
+
+<Warning>
+Los objetivos de SLA son actualmente **marcadores de posición** — aún no están conectados a datos reales. Los valores mostrados son solo ilustrativos.
+</Warning>
+
+---
 
 ## Mezcla de canales
 
-Un desglose de conversaciones escaladas por canal (ej. WhatsApp, Freshchat, Web) para que veas dónde se concentra el esfuerzo de tu equipo.
+Una gráfica de dona con una leyenda de desglose que muestra cómo se distribuyen las conversaciones entre tus canales conectados. Cada segmento representa un canal y la leyenda muestra el porcentaje de participación.
 
-## Tabla de clasificación
+---
 
-La tabla clasifica a cada especialista que atendió conversaciones en el periodo seleccionado. Las columnas incluyen:
+## Ranking de agentes
+
+Una tabla clasificada de especialistas ordenada por número de conversaciones atendidas (de mayor a menor). Cada fila muestra:
 
 | Columna | Descripción |
 |---|---|
-| **#** | Posición |
-| **Especialista** | Nombre y avatar |
-| **Atendidas** | Conversaciones atendidas |
-| **Promedio primera respuesta** | Tiempo promedio hasta la primera respuesta |
-| **Promedio resolución** | Tiempo promedio para cerrar una conversación |
-| **CSAT promedio** | Puntuación promedio de satisfacción |
+| **Agente** | Nombre del especialista con un avatar de color. El color del avatar coincide con el color usado en la gráfica de volumen diario cuando se selecciona a ese especialista. |
+| **Atendidas** | Total de conversaciones atendidas |
+| **Resueltas** | Total de conversaciones cerradas/resueltas |
+| **Prom. primera respuesta** | Tiempo promedio de primera respuesta |
+| **CSAT** | Puntuación promedio de satisfacción del cliente |
 
-### Ver las conversaciones de un especialista
+Haz clic en cualquier fila para abrir un **panel lateral** con más detalle sobre las conversaciones de ese especialista.
 
-Haz clic en cualquier fila de la tabla de clasificación para abrir un **panel lateral** que lista todas las conversaciones escaladas atendidas por ese especialista durante el periodo seleccionado. Cada tarjeta en el panel muestra:
+### Panel lateral del especialista
 
-- **Tema** — el tema auto-clasificado de la conversación (o "Sin tema" si no se detectó ninguno).
-- **Estado** — **Abierta** (badge ámbar) o **Resuelta** (badge verde).
-- **Fecha y hora** — cuándo se creó la conversación.
-- **CSAT** — la puntuación de satisfacción si se recopiló una.
+El panel muestra:
 
-En la parte superior del panel verás el conteo total de conversaciones y un botón **Ver todas en el tablero**.
+- **Estadísticas resumen** — atendidas, resueltas, tiempo de primera respuesta y CSAT del especialista seleccionado.
+- **Lista de conversaciones** — cada conversación en la que participó el especialista durante el período. Cada tarjeta muestra el tema de la conversación (o "Sin tema" si no está clasificada), un fragmento corto del ID de conversación y el estado (**Resuelta** o **Abierta**). Haz clic en una tarjeta para navegar a la conversación completa en la vista de Conversaciones.
 
 <Tip>
-Haz clic en cualquier tarjeta de conversación individual para ir directamente al **Explorador de Conversaciones** filtrado a esa sola conversación. Usa el botón **Ver todas en el tablero** para abrir el Explorador pre-filtrado con *todas* las conversaciones de ese especialista.
+Usa el panel del especialista para auditar la calidad individual — revisa temas, tasas de resolución y entra a conversaciones específicas que necesiten atención.
 </Tip>
 
-Cuando navegas al Explorador de Conversaciones desde este panel, aparece un **chip fijo** en la barra de filtros mostrando la cantidad de conversaciones vinculadas y el nombre del especialista. Elimina el chip para volver a la vista normal y sin filtros de todas las conversaciones.
+---
 
 ## Flujos de trabajo comunes
 
-- **Identificar oportunidades de coaching** — ordena la tabla por CSAT promedio o tiempo de primera respuesta para encontrar especialistas que podrían beneficiarse de capacitación adicional.
-- **Investigar un pico** — si la gráfica de volumen muestra un pico inusual, haz clic en los especialistas correspondientes en la tabla para leer las conversaciones reales.
-- **Verificar calidad de resolución** — abre el panel lateral de un especialista y revisa sus conversaciones resueltas para asegurar que cumplan los estándares de calidad.
+- **Reunión diaria** — establece el rango en *Hoy* o *7 D* y revisa los indicadores clave junto con el ranking para identificar quién puede necesitar apoyo.
+- **Planificación de capacidad** — usa la gráfica de volumen diario con *Todos los especialistas* para detectar tendencias de volumen, luego cambia a especialistas individuales para ver si la carga de trabajo está distribuida equitativamente.
+- **Estrategia de canales** — revisa la mezcla de canales para entender qué canales generan más volumen de atención humana y asigna recursos en consecuencia.

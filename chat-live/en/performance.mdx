@@ -1,70 +1,95 @@
 ---
 title: "Performance"
-description: "Track your live-chat team's throughput, response times, and CSAT with leaderboards and time-series charts."
+description: "Monitor your live chat team's throughput, SLA compliance, channel distribution, and individual agent performance."
 ---
 
-The **Performance** page gives supervisors and managers a data-driven view of how the human support team is performing on escalated conversations. Use it to spot trends, compare specialists, and drill into the conversations behind the numbers.
+The **Performance** dashboard gives live-chat supervisors a comprehensive view of how the human support team is handling escalated conversations. Use it to track daily volume, compare individual agent output, review SLA targets, and understand channel distribution—all from a single page.
 
-## Date range & granularity
+## Date range
 
-At the top of the page you can choose:
+At the top of the page you can select a preset period (**Today**, **7 D**, **30 D**, **Year**) or pick a custom range with the date picker. Every chart and metric on the page updates to reflect the chosen window.
 
-- **Preset period** — Last 24 hours, Last 7 days, Last 30 days, or Last 90 days.
-- **Granularity** — Daily, Weekly, or Monthly buckets for the throughput chart.
+---
 
-All cards, charts, and the leaderboard update to reflect the selected period.
+## Headline KPIs
 
-## Headline metrics
+Four cards summarize overall performance for the selected period:
 
-Four KPI cards summarize the period at a glance:
-
-| Metric | Description |
+| Card | Description |
 |---|---|
-| **Total handled** | Number of escalated conversations attended by at least one specialist |
-| **Resolved** | Number of those conversations that were closed/resolved |
-| **Avg first response** | Average time from escalation to the specialist's first reply |
-| **Avg CSAT** | Average customer-satisfaction score across rated conversations |
+| **Handled** | Total conversations handled by the team |
+| **Avg first response** | Average time from conversation assignment to the specialist's first reply |
+| **Avg resolution** | Average time from first message to conversation close |
+| **Avg CSAT** | Average customer-satisfaction score (when collected) |
 
-## Throughput chart
+---
 
-A time-series bar chart shows **handled** vs **resolved** conversations per bucket (day, week, or month). Hover over any bar to see exact counts.
+## Throughput per day
+
+A bar chart showing daily conversation volume. A **specialist filter** dropdown next to the section title lets you choose whose data to display:
+
+- **All specialists** (default) — stacked bars split into **Resolved** (closed) and **Open** conversations, with a color legend at the bottom of the chart.
+- **A specific specialist** — a single-color bar showing that member's daily handled count, so you can evaluate individual output against a clean baseline.
+
+The dropdown lists every specialist that appears in the leaderboard for the selected date range.
+
+<Tip>
+Switch to a specific specialist to quickly see their daily workload pattern—useful during 1-on-1 performance reviews.
+</Tip>
+
+---
+
+## SLA status
+
+Progress bars showing compliance against SLA targets:
+
+| Metric | What it measures |
+|---|---|
+| **On time** | Percentage of conversations where first response met the SLA target |
+| **At risk** | Conversations approaching the SLA threshold |
+| **Breached** | Conversations that exceeded the SLA target |
+
+<Warning>
+SLA targets are currently **placeholders** — they are not yet wired to real data. The values shown are illustrative only.
+</Warning>
+
+---
 
 ## Channel mix
 
-A breakdown of escalated conversations by channel (e.g., WhatsApp, Freshchat, Web) so you can see where your team's effort is concentrated.
+A donut chart with a breakdown legend showing how conversations are distributed across your connected channels. Each segment represents a channel, and the legend displays the percentage share.
 
-## Leaderboard
+---
 
-The leaderboard ranks every specialist who handled conversations in the selected period. Columns include:
+## Agent leaderboard
+
+A ranked table of specialists sorted by number of conversations handled (descending). Each row shows:
 
 | Column | Description |
 |---|---|
-| **#** | Rank |
-| **Specialist** | Name and avatar |
-| **Handled** | Conversations attended |
-| **Avg first response** | Average time to first reply |
-| **Avg resolution** | Average time to close a conversation |
-| **Avg CSAT** | Average satisfaction score |
+| **Agent** | Specialist name with a color-coded avatar. The avatar color matches the color used in the throughput chart when that specialist is selected. |
+| **Handled** | Total conversations handled |
+| **Resolved** | Total conversations closed/resolved |
+| **Avg first response** | Average first-response time |
+| **CSAT** | Average customer satisfaction score |
 
-### Viewing a specialist's conversations
+Click any row to open a **side panel** with more detail about that specialist's conversations.
 
-Click any row in the leaderboard to open a **side panel** that lists all escalated conversations attended by that specialist during the selected period. Each card in the panel shows:
+### Specialist side panel
 
-- **Topic** — the auto-classified conversation topic (or "No topic" if none was detected).
-- **Status** — **Open** (amber badge) or **Resolved** (green badge).
-- **Date & time** — when the conversation was created.
-- **CSAT** — the satisfaction score if one was collected.
+The panel displays:
 
-At the top of the panel you'll see the total conversation count and a **View all on the board** button.
+- **Summary stats** — handled, resolved, first-response time, and CSAT for the selected specialist.
+- **Conversation list** — every conversation the specialist participated in during the period. Each card shows the conversation topic (or "No topic" if unclassified), a short conversation ID snippet, and the conversation status (**Resolved** or **Open**). Click a card to navigate to the full conversation in the Conversations view.
 
 <Tip>
-Click any individual conversation card to jump directly to the **Conversations Explorer** filtered to that single conversation. Use the **View all on the board** button to open the Explorer pre-filtered to *all* of that specialist's conversations.
+Use the specialist panel to audit individual agent quality—review topics, resolution rates, and jump into specific conversations that need attention.
 </Tip>
 
-When you navigate to the Conversations Explorer from this panel, a **pinned chip** appears in the filter bar showing the number of linked conversations and the specialist's name. Remove the chip to return to the normal, unfiltered view of all conversations.
+---
 
 ## Common workflows
 
-- **Identify coaching opportunities** — sort the leaderboard by Avg CSAT or Avg first response to find specialists who may benefit from additional training.
-- **Investigate a spike** — if the throughput chart shows an unusual peak, click the corresponding specialists in the leaderboard to read the actual conversations.
-- **Verify resolution quality** — open the side panel for a specialist and review their resolved conversations to ensure they meet quality standards.
+- **Daily standup** — set the range to *Today* or *7 D* and review headline KPIs plus the leaderboard to identify who may need support.
+- **Capacity planning** — use the throughput chart with *All specialists* to spot volume trends, then switch to individual specialists to see if workload is evenly distributed.
+- **Channel strategy** — check the channel mix to understand which channels drive the most human-handled volume and allocate resources accordingly.
