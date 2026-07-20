@@ -83,39 +83,62 @@ The Connect page always displays a **Meta** section with three channel cards:
 
 Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection process at any time.
 
-#### Distribution: Shareable link & Embed bubble
-
-Once a Meta channel is connected, the channel configuration page includes a **Distribution** section titled **"How it works"**. This section lets you share the channel with users in two ways, selectable via a pill toggle at the top:
-
-##### Shareable link
-
-Generate a public URL that opens the same chat flow as the embedded bubble. You can:
-
-- **Add key/value parameters** — use the inline editor on the left to add custom params (e.g. `plan: pro`). Each param is appended to the URL as a query-string parameter and is automatically saved to the end user's `source_params`.
-- **Copy the link** — the live URL updates on the right as you add or remove params. Click **Copy** to copy it to your clipboard.
-- **Open the link** — click **Open** to test the shareable link in a new tab.
-- **Preview source_params** — when you have at least one param, a preview shows exactly what will be stored on the end user record.
-
 <Tip>
-  Use the shareable link in emails, ads, QR codes, or anywhere you want to drive traffic to the chat. Query-string params on the link are captured automatically, so you can tag visitors by campaign, source, or any custom dimension.
+  For a detailed walkthrough of the WhatsApp connection process, see the [How to Integrate to WhatsApp](/integration-guides/en/how-to-integrate-to-whatsapp) guide.
 </Tip>
 
-##### Embed bubble
+#### WhatsApp registration status
 
-Paste a JavaScript snippet into your website to display a floating chat bubble. The snippet is shown in a syntax-highlighted code card on the right. Use the dropdown in the card header to choose between three snippet variants:
+After connecting a WhatsApp channel, a **registration status badge** appears next to the channel name. The badge tells you where the number stands in Meta's registration process:
 
-| Variant | Description |
+| Status | Meaning |
 |---|---|
-| **Static** | Tag every visitor with fixed key/value params you define in the editor on the left. URL query-string params on the host page are also captured automatically. |
-| **From URL** | Forward the host page's `?query=string` params automatically. Use the editor to define example params and see a preview of the resulting page URL and `source_params`. |
-| **From your app** | Pull values from your own application — user object, dataLayer, etc. The snippet includes placeholder comments you can customize. |
+| **Registered** | The number is fully registered and ready to send/receive messages. |
+| **Not registered** | The number has not been registered with Meta yet. |
+| **Verification needed** | The number must complete SMS or voice-call verification with Meta before it can be registered. |
+| Other statuses | Intermediate states reported by Meta (e.g. registration in progress). |
 
-Click **Copy** in the code card header to copy the snippet to your clipboard.
+You can click the **refresh** icon next to the badge at any time to re-check the current status from Meta.
+
+##### Verifying a phone number
+
+When the status is **Verification needed**, a **Verify** button appears next to the status badge. This means Meta requires you to confirm ownership of the phone number before it can be registered.
+
+<Steps>
+  <Step title="Click Verify">
+    Click the **Verify** button (shield icon) next to the registration status. A popover will open.
+  </Step>
+  <Step title="Request a verification code">
+    Choose how you want to receive the code:
+    - **Send SMS** — Meta sends a 6-digit code via text message to the phone number.
+    - **Voice call** — Meta delivers the code through an automated phone call.
+  </Step>
+  <Step title="Enter the code">
+    Once you receive the 6-digit code, type it into the input field in the popover.
+  </Step>
+  <Step title="Submit">
+    Click **Verify** to submit the code. If verification succeeds, the registration status will update automatically.
+  </Step>
+</Steps>
 
 <Note>
-  The embed snippet and shareable link always point to the production host (`https://consola.semantiks.com`), so they work correctly even when you're developing locally.
+  After a successful verification you may still need to **register** the number (using the retry/register flow with your 6-digit PIN). Verification confirms ownership; registration activates the number on the WhatsApp Business API.
 </Note>
 
+##### Registering (or re-registering) a number
+
+When the status is anything other than **Registered** or **Verification needed**, a **Register** button appears. Clicking it opens a popover where you enter the **6-digit PIN** you want to associate with the number, then submit the registration request to Meta.
+
+<Warning>
+  Remember your PIN — you will need it for any future re-registrations of the same number.
+</Warning>
+
+---
+
+## Messaging Behaviour tab
+
+The **Messaging Behaviour** tab lets you fine-tune how your agent processes incoming messages on each channel. Settings here control things like response delay, greeting behavior, and how attachments are handled.
+
 <Tip>
-  Any parameters you attach — whether via the shareable link, static snippet, or URL forwarding — are saved to the end user's `source_params`. Make sure to add the relevant keys to the **allow-list** in the Source Params card below the Distribution section so they are persisted.
+  Start with the defaults and adjust once you see real conversation patterns in the **Conversations** dashboard.
 </Tip>

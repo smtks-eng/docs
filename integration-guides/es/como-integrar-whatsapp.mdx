@@ -1,30 +1,45 @@
 ---
-title: "Cómo integrar con WhatsApp"
-description: "Guía paso a paso para conectar tu agente Semantiks AI con WhatsApp Business."
-icon: "whatsapp"
+title: "Cómo Integrar WhatsApp"
+language: es
+description: "Guía paso a paso para conectar tu agente de IA a WhatsApp Business vía Meta."
 ---
 
-Esta guía te llevará por el proceso de integración de tu agente Semantiks AI con WhatsApp Business Manager.
+Esta guía te lleva paso a paso a conectar tu agente de IA con **WhatsApp Business** usando la integración de Meta (Facebook).
 
-## 1. Crear una app de WhatsApp
-- Inicia sesión en tu [Facebook Business Manager](https://business.facebook.com/).
-- Ve a **Configuración del negocio > Cuentas de WhatsApp**.
-- Haz clic en **Agregar** para crear una nueva app/cuenta de WhatsApp.
+## Requisitos previos
 
-## 2. Obtener las claves API
-- En la configuración de tu app de WhatsApp, navega a **Claves API** o **Tokens de acceso**.
-- Copia las claves necesarias (por ejemplo, `WhatsApp Business API Key`).
+- Una cuenta de **Meta Business**.
+- Un **número de teléfono** que no esté ya registrado con otro proveedor de la API de WhatsApp Business.
+- Acceso de administrador a la Consola de Semantiks.
 
-## 3. Configurar URLs de callback
-- En la configuración de la app, busca la sección **Webhook** o **URL de callback**.
-- Ingresa la URL de callback proporcionada por Semantiks (por ejemplo, `https://tu-endpoint-semantiks.com/webhook/whatsapp`).
-- Guarda los cambios.
+---
 
-## 4. Finalizar integración en Semantiks
-- Ve a la Consola de Semantiks y abre la sección de integración con WhatsApp.
-- Pega tus claves API y confirma la URL de callback.
-- Prueba la conexión para asegurarte de que todo funcione correctamente.
+## Configuración paso a paso
 
-<Note>
-Si necesitas más ayuda, contacta al soporte de Semantiks o consulta la documentación de WhatsApp Business API.
-</Note>
+<Steps>
+  <Step title="Abre la tarjeta del canal WhatsApp">
+    En tu agente, ve a **Conecta > Canales** y haz clic en la tarjeta de **WhatsApp** en la sección de Meta.
+  </Step>
+  <Step title="Inicia el flujo de conexión con Meta">
+    Haz clic en **Conectar** y sigue las indicaciones de autenticación de Meta. Se te pedirá iniciar sesión en tu cuenta de Meta Business y otorgar permisos.
+  </Step>
+  <Step title="Selecciona tu número de teléfono">
+    Elige el número de teléfono que deseas usar para WhatsApp Business. Si tu número es nuevo, Meta te guiará para agregarlo.
+  </Step>
+  <Step title="Completa el registro">
+    Después de conectar, revisa la **insignia de estado de registro** junto al nombre del canal:
+    - Si el estado es **Verificación necesaria**, haz clic en el botón **Verificar** para completar la verificación del número con Meta. Puedes recibir un código de 6 dígitos por **SMS** o **Llamada de voz**, y luego ingresarlo para confirmar la titularidad. Consulta la [documentación de la página Conecta](/agent/es/canales) para los pasos detallados.
+    - Una vez verificado (o si la verificación no es necesaria), haz clic en el botón **Registrar**, ingresa un **PIN de 6 dígitos** y envía la solicitud de registro a Meta.
+  </Step>
+  <Step title="Confirma que el número está registrado">
+    La insignia de estado debería actualizarse a **Registrado**. Tu agente ya está en vivo en WhatsApp.
+  </Step>
+</Steps>
+
+<Warning>
+  Recuerda el PIN de 6 dígitos que configuraste durante el registro — lo necesitarás si alguna vez re-registras el mismo número.
+</Warning>
+
+<Tip>
+  Después de conectar, puedes administrar las plantillas de mensajes para WhatsApp. Consulta [Cómo gestionar plantillas de mensajes de WhatsApp](/integration-guides/es/como-gestionar-plantillas-whatsapp) para más detalles.
+</Tip>

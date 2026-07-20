@@ -81,41 +81,64 @@ La página de Conecta siempre muestra una sección de **Meta** con tres tarjetas
 | **Messenger** | Canal de Facebook Messenger vía Meta |
 | **Instagram** | Canal de mensajería de Instagram vía Meta |
 
-Cada tarjeta muestra un botón **Connect** que abre el flujo de configuración de ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar el proceso de conexión en cualquier momento.
-
-#### Distribución: Enlace para compartir y Burbuja para incrustar
-
-Una vez que un canal de Meta está conectado, la página de configuración del canal incluye una sección de **Distribución** titulada **"Cómo funciona"**. Esta sección te permite compartir el canal con los usuarios de dos formas, seleccionables mediante un botón tipo píldora en la parte superior:
-
-##### Enlace para compartir
-
-Genera una URL pública que abre el mismo flujo de chat que la burbuja embebida. Puedes:
-
-- **Agregar parámetros clave/valor** — usa el editor en el lado izquierdo para agregar parámetros personalizados (ej. `plan: pro`). Cada parámetro se añade a la URL como query string y se guarda automáticamente en el `source_params` del usuario final.
-- **Copiar el enlace** — la URL se actualiza en tiempo real en el lado derecho a medida que agregas o quitas parámetros. Haz clic en **Copiar** para copiarlo al portapapeles.
-- **Abrir el enlace** — haz clic en **Abrir** para probar el enlace en una pestaña nueva.
-- **Vista previa de source_params** — cuando tienes al menos un parámetro, se muestra exactamente qué se guardará en el registro del usuario final.
+Cada tarjeta muestra un botón **Conectar** que abre el flujo de configuración de ese canal específico. No necesitas configurar la integración de Meta primero — las tarjetas siempre están visibles para que puedas iniciar el proceso de conexión en cualquier momento.
 
 <Tip>
-  Usa el enlace para compartir en correos electrónicos, anuncios, códigos QR o cualquier lugar donde quieras dirigir tráfico al chat. Los parámetros del query string se capturan automáticamente, así que puedes etiquetar visitantes por campaña, fuente o cualquier dimensión personalizada.
+  Para un paso a paso detallado del proceso de conexión de WhatsApp, consulta la guía [Cómo integrar WhatsApp](/integration-guides/es/como-integrar-whatsapp).
 </Tip>
 
-##### Burbuja para incrustar
+#### Estado de registro de WhatsApp
 
-Pega un fragmento de JavaScript en tu sitio web para mostrar una burbuja de chat flotante. El fragmento se muestra en una tarjeta de código con resaltado de sintaxis en el lado derecho. Usa el desplegable en el encabezado de la tarjeta para elegir entre tres variantes de fragmento:
+Después de conectar un canal de WhatsApp, aparece una **insignia de estado de registro** junto al nombre del canal. La insignia te indica en qué punto del proceso de registro con Meta se encuentra el número:
 
-| Variante | Descripción |
+| Estado | Significado |
 |---|---|
-| **Estático** | Etiqueta a cada visitante con parámetros clave/valor fijos que defines en el editor del lado izquierdo. Los parámetros del query string de la página también se capturan automáticamente. |
-| **Desde la URL** | Reenvía automáticamente los parámetros `?query=string` de la página. Usa el editor para definir parámetros de ejemplo y ver una vista previa de la URL resultante y los `source_params`. |
-| **Desde tu app** | Toma valores de tu propia aplicación — objeto de usuario, dataLayer, etc. El fragmento incluye comentarios de ejemplo que puedes personalizar. |
+| **Registrado** | El número está completamente registrado y listo para enviar/recibir mensajes. |
+| **No registrado** | El número aún no ha sido registrado con Meta. |
+| **Verificación necesaria** | El número debe completar la verificación por SMS o llamada de voz con Meta antes de poder registrarse. |
+| Otros estados | Estados intermedios reportados por Meta (ej. registro en progreso). |
 
-Haz clic en **Copiar** en el encabezado de la tarjeta de código para copiar el fragmento al portapapeles.
+Puedes hacer clic en el ícono de **refrescar** junto a la insignia en cualquier momento para consultar de nuevo el estado actual desde Meta.
+
+##### Verificar un número de teléfono
+
+Cuando el estado es **Verificación necesaria**, aparece un botón **Verificar** junto a la insignia de estado. Esto significa que Meta requiere que confirmes la titularidad del número antes de que pueda ser registrado.
+
+<Steps>
+  <Step title="Haz clic en Verificar">
+    Haz clic en el botón **Verificar** (ícono de escudo) junto al estado de registro. Se abrirá un popover.
+  </Step>
+  <Step title="Solicita un código de verificación">
+    Elige cómo deseas recibir el código:
+    - **Enviar SMS** — Meta envía un código de 6 dígitos por mensaje de texto al número de teléfono.
+    - **Llamada de voz** — Meta entrega el código a través de una llamada telefónica automatizada.
+  </Step>
+  <Step title="Ingresa el código">
+    Una vez que recibas el código de 6 dígitos, escríbelo en el campo de entrada del popover.
+  </Step>
+  <Step title="Enviar">
+    Haz clic en **Verificar** para enviar el código. Si la verificación es exitosa, el estado de registro se actualizará automáticamente.
+  </Step>
+</Steps>
 
 <Note>
-  El fragmento de inserción y el enlace para compartir siempre apuntan al host de producción (`https://consola.semantiks.com`), por lo que funcionan correctamente incluso cuando estás desarrollando en local.
+  Después de una verificación exitosa, es posible que aún necesites **registrar** el número (usando el flujo de registro/reintento con tu PIN de 6 dígitos). La verificación confirma la titularidad; el registro activa el número en la API de WhatsApp Business.
 </Note>
 
+##### Registrar (o re-registrar) un número
+
+Cuando el estado es diferente a **Registrado** o **Verificación necesaria**, aparece un botón **Registrar**. Al hacer clic se abre un popover donde ingresas el **PIN de 6 dígitos** que deseas asociar con el número, y luego envías la solicitud de registro a Meta.
+
+<Warning>
+  Recuerda tu PIN — lo necesitarás para cualquier re-registro futuro del mismo número.
+</Warning>
+
+---
+
+## Pestaña de Comportamiento de Mensajería
+
+La pestaña **Comportamiento de Mensajería** te permite ajustar cómo tu agente procesa los mensajes entrantes en cada canal. Las configuraciones aquí controlan cosas como el retraso de respuesta, el comportamiento de saludo y cómo se manejan los adjuntos.
+
 <Tip>
-  Cualquier parámetro que adjuntes — ya sea mediante el enlace para compartir, el fragmento estático o el reenvío de URL — se guarda en el `source_params` del usuario final. Asegúrate de agregar las claves relevantes a la **lista de permitidos** en la tarjeta de Source Params debajo de la sección de Distribución para que se persistan.
+  Comienza con los valores predeterminados y ajusta una vez que veas patrones reales de conversación en el panel de **Conversaciones**.
 </Tip>
