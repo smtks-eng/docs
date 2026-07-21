@@ -1,95 +1,69 @@
 ---
 title: "Performance"
-description: "Monitor your live chat team's throughput, SLA compliance, channel distribution, and individual agent performance."
+description: "Track your live-chat team's throughput, response times, and individual agent performance in one consolidated dashboard."
 ---
 
-The **Performance** dashboard gives live-chat supervisors a comprehensive view of how the human support team is handling escalated conversations. Use it to track daily volume, compare individual agent output, review SLA targets, and understand channel distribution—all from a single page.
+The **Performance** dashboard gives contact-center managers a real-time view of how the human support team is handling escalated conversations. Use it to spot bottlenecks, compare agent workloads, and drill into any specialist's conversation history.
 
-## Date range
+## Filters
 
-At the top of the page you can select a preset period (**Today**, **7 D**, **30 D**, **Year**) or pick a custom range with the date picker. Every chart and metric on the page updates to reflect the chosen window.
+All charts and tables on the page respond to a shared filter bar at the top-right:
 
----
-
-## Headline KPIs
-
-Four cards summarize overall performance for the selected period:
-
-| Card | Description |
+| Filter | Description |
 |---|---|
-| **Handled** | Total conversations handled by the team |
-| **Avg first response** | Average time from conversation assignment to the specialist's first reply |
-| **Avg resolution** | Average time from first message to conversation close |
-| **Avg CSAT** | Average customer-satisfaction score (when collected) |
-
----
-
-## Throughput per day
-
-A bar chart showing daily conversation volume. A **specialist filter** dropdown next to the section title lets you choose whose data to display:
-
-- **All specialists** (default) — stacked bars split into **Resolved** (closed) and **Open** conversations, with a color legend at the bottom of the chart.
-- **A specific specialist** — a single-color bar showing that member's daily handled count, so you can evaluate individual output against a clean baseline.
-
-The dropdown lists every specialist that appears in the leaderboard for the selected date range.
+| **Granularity** | Choose how time buckets are grouped: **Day**, **Week**, or **Month**. |
+| **Date range picker** | Pick a custom start and end date for the analysis window. |
+| **Date presets** | Quick-select buttons for **1 d**, **3 d**, **7 d**, **14 d**, or **30 d**. Selecting a preset clears any custom range. |
+| **Agent** | Filter the throughput chart to a single specialist, or choose **All specialists** to see the full stacked view. |
 
 <Tip>
-Switch to a specific specialist to quickly see their daily workload pattern—useful during 1-on-1 performance reviews.
+Combine a custom date range with the **Month** granularity to review an entire quarter at a glance.
 </Tip>
 
 ---
 
-## SLA status
+## Throughput chart
 
-Progress bars showing compliance against SLA targets:
+The main chart occupies the left two-thirds of the page and shows **conversations handled per time bucket**.
 
-| Metric | What it measures |
-|---|---|
-| **On time** | Percentage of conversations where first response met the SLA target |
-| **At risk** | Conversations approaching the SLA threshold |
-| **Breached** | Conversations that exceeded the SLA target |
+### All specialists view
 
-<Warning>
-SLA targets are currently **placeholders** — they are not yet wired to real data. The values shown are illustrative only.
-</Warning>
+When the agent filter is set to **All specialists**, the chart renders a **stacked bar chart** where each colored segment represents a different agent. The agent with the highest volume sits at the bottom of the stack; smaller contributors stack on top.
 
----
+- A **color-coded legend** appears below the chart, mapping each agent's name to their bar color.
+- **Hover** over any bar to see a custom tooltip listing every agent who handled conversations that day, sorted by volume (largest first), plus a **Total handled** line at the bottom.
 
-## Channel mix
+The first seven agents in the leaderboard receive fixed brand colors so they are easy to recognize across both the chart and the ranking table. Agents beyond the top seven receive a stable, automatically generated hue based on their ID.
 
-A donut chart with a breakdown legend showing how conversations are distributed across your connected channels. Each segment represents a channel, and the legend displays the percentage share.
+### Single agent view
+
+When a specific agent is selected, the chart shows only that agent's daily counts as simple bars, colored to match their leaderboard rank.
 
 ---
 
-## Agent leaderboard
+## Leaderboard
 
-A ranked table of specialists sorted by number of conversations handled (descending). Each row shows:
+The right third of the page shows an **agent leaderboard** table, ranked by the number of conversations handled in the selected period. Each row displays:
 
 | Column | Description |
 |---|---|
-| **Agent** | Specialist name with a color-coded avatar. The avatar color matches the color used in the throughput chart when that specialist is selected. |
+| **#** | Rank position |
+| **Agent** | The specialist's name |
 | **Handled** | Total conversations handled |
-| **Resolved** | Total conversations closed/resolved |
-| **Avg first response** | Average first-response time |
-| **CSAT** | Average customer satisfaction score |
+| **Avg First Response** | Average time to the agent's first reply |
+| **Avg Resolution** | Average time to resolve (close) a conversation |
 
-Click any row to open a **side panel** with more detail about that specialist's conversations.
-
-### Specialist side panel
-
-The panel displays:
-
-- **Summary stats** — handled, resolved, first-response time, and CSAT for the selected specialist.
-- **Conversation list** — every conversation the specialist participated in during the period. Each card shows the conversation topic (or "No topic" if unclassified), a short conversation ID snippet, and the conversation status (**Resolved** or **Open**). Click a card to navigate to the full conversation in the Conversations view.
+Click any row to open a **side panel** with that agent's individual conversations for the selected period, so you can read transcripts and review outcomes without leaving the dashboard.
 
 <Tip>
-Use the specialist panel to audit individual agent quality—review topics, resolution rates, and jump into specific conversations that need attention.
+Use the leaderboard to quickly identify top performers and agents who may need coaching — look for outliers in response or resolution times.
 </Tip>
 
 ---
 
 ## Common workflows
 
-- **Daily standup** — set the range to *Today* or *7 D* and review headline KPIs plus the leaderboard to identify who may need support.
-- **Capacity planning** — use the throughput chart with *All specialists* to spot volume trends, then switch to individual specialists to see if workload is evenly distributed.
-- **Channel strategy** — check the channel mix to understand which channels drive the most human-handled volume and allocate resources accordingly.
+- **Daily stand-up** — Set the date preset to **1 d** and granularity to **Day** to review yesterday's workload distribution.
+- **Weekly review** — Use the **7 d** preset to compare agent throughput over the past week.
+- **Deep dive on a specialist** — Select an agent from the filter dropdown, then click their leaderboard row to read individual conversations.
+- **Custom reporting period** — Use the date range picker to select an arbitrary window (e.g., a promotional campaign period) and switch granularity to **Week** or **Month** for a high-level view.

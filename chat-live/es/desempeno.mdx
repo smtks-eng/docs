@@ -1,95 +1,69 @@
 ---
 title: "Desempeño"
-description: "Monitorea el rendimiento de tu equipo de chat en vivo: volumen diario, cumplimiento de SLA, distribución por canal y desempeño individual de cada agente."
+description: "Monitorea el rendimiento de tu equipo de chat en vivo: volumen de conversaciones, tiempos de respuesta y desempeño individual de cada agente en un solo panel."
 ---
 
-El panel de **Desempeño** ofrece a los supervisores de chat en vivo una vista integral de cómo el equipo de soporte humano gestiona las conversaciones escaladas. Úsalo para rastrear el volumen diario, comparar la producción individual de cada agente, revisar los objetivos de SLA y entender la distribución por canal, todo desde una sola página.
+El panel de **Desempeño** ofrece a los gerentes de centro de contacto una vista en tiempo real de cómo el equipo de soporte humano maneja las conversaciones escaladas. Úsalo para detectar cuellos de botella, comparar cargas de trabajo entre agentes y profundizar en el historial de conversaciones de cualquier especialista.
 
-## Rango de fechas
+## Filtros
 
-En la parte superior de la página puedes seleccionar un período predefinido (**Hoy**, **7 D**, **30 D**, **Año**) o elegir un rango personalizado con el selector de fechas. Todas las gráficas y métricas de la página se actualizan para reflejar la ventana elegida.
+Todos los gráficos y tablas de la página responden a una barra de filtros compartida en la esquina superior derecha:
 
----
-
-## Indicadores clave
-
-Cuatro tarjetas resumen el rendimiento general del período seleccionado:
-
-| Tarjeta | Descripción |
+| Filtro | Descripción |
 |---|---|
-| **Atendidas** | Total de conversaciones atendidas por el equipo |
-| **Prom. primera respuesta** | Tiempo promedio desde la asignación hasta la primera respuesta del especialista |
-| **Prom. resolución** | Tiempo promedio desde el primer mensaje hasta el cierre de la conversación |
-| **Prom. CSAT** | Puntuación promedio de satisfacción del cliente (cuando se recopila) |
-
----
-
-## Volumen diario
-
-Una gráfica de barras que muestra el volumen de conversaciones por día. Un **filtro de especialista** junto al título de la sección te permite elegir qué datos mostrar:
-
-- **Todos los especialistas** (por defecto) — barras apiladas divididas en **Resueltas** (cerradas) y **Abiertas**, con una leyenda de colores en la parte inferior de la gráfica.
-- **Un especialista específico** — una barra de un solo color con el conteo diario de conversaciones atendidas por ese miembro, para evaluar su producción individual sobre una base limpia.
-
-El desplegable lista a todos los especialistas que aparecen en el ranking para el rango de fechas seleccionado.
+| **Granularidad** | Elige cómo se agrupan los intervalos de tiempo: **Día**, **Semana** o **Mes**. |
+| **Selector de rango de fechas** | Selecciona una fecha de inicio y fin personalizadas para el período de análisis. |
+| **Presets de fecha** | Botones de selección rápida: **1 d**, **3 d**, **7 d**, **14 d** o **30 d**. Seleccionar un preset limpia cualquier rango personalizado. |
+| **Agente** | Filtra el gráfico de rendimiento a un solo especialista, o elige **Todos los especialistas** para ver la vista apilada completa. |
 
 <Tip>
-Cambia a un especialista específico para ver rápidamente su patrón de carga de trabajo diaria — útil durante revisiones de desempeño individuales.
+Combina un rango de fechas personalizado con la granularidad **Mes** para revisar un trimestre completo de un vistazo.
 </Tip>
 
 ---
 
-## Estado de SLA
+## Gráfico de rendimiento (Throughput)
 
-Barras de progreso que muestran el cumplimiento de los objetivos de SLA:
+El gráfico principal ocupa los dos tercios izquierdos de la página y muestra **conversaciones atendidas por intervalo de tiempo**.
 
-| Métrica | Qué mide |
-|---|---|
-| **A tiempo** | Porcentaje de conversaciones donde la primera respuesta cumplió el objetivo de SLA |
-| **En riesgo** | Conversaciones que se acercan al umbral de SLA |
-| **Incumplidas** | Conversaciones que superaron el objetivo de SLA |
+### Vista de todos los especialistas
 
-<Warning>
-Los objetivos de SLA son actualmente **marcadores de posición** — aún no están conectados a datos reales. Los valores mostrados son solo ilustrativos.
-</Warning>
+Cuando el filtro de agente está configurado en **Todos los especialistas**, el gráfico muestra un **gráfico de barras apiladas** donde cada segmento de color representa a un agente diferente. El agente con mayor volumen se ubica en la base de la pila; los de menor contribución se apilan encima.
 
----
+- Una **leyenda con colores** aparece debajo del gráfico, asociando el nombre de cada agente con su color de barra.
+- **Pasa el cursor** sobre cualquier barra para ver un tooltip personalizado que lista a cada agente que atendió conversaciones ese día, ordenados por volumen (mayor primero), más una línea de **Total atendidas** al final.
 
-## Mezcla de canales
+Los primeros siete agentes en el ranking reciben colores fijos de la paleta de marca para que sean fáciles de reconocer tanto en el gráfico como en la tabla de clasificación. Los agentes fuera del top siete reciben un tono estable generado automáticamente a partir de su ID.
 
-Una gráfica de dona con una leyenda de desglose que muestra cómo se distribuyen las conversaciones entre tus canales conectados. Cada segmento representa un canal y la leyenda muestra el porcentaje de participación.
+### Vista de un solo agente
+
+Cuando se selecciona un agente específico, el gráfico muestra solo los conteos diarios de ese agente como barras simples, coloreadas según su posición en el ranking.
 
 ---
 
-## Ranking de agentes
+## Tabla de clasificación (Leaderboard)
 
-Una tabla clasificada de especialistas ordenada por número de conversaciones atendidas (de mayor a menor). Cada fila muestra:
+El tercio derecho de la página muestra una **tabla de clasificación de agentes**, ordenada por el número de conversaciones atendidas en el período seleccionado. Cada fila muestra:
 
 | Columna | Descripción |
 |---|---|
-| **Agente** | Nombre del especialista con un avatar de color. El color del avatar coincide con el color usado en la gráfica de volumen diario cuando se selecciona a ese especialista. |
+| **#** | Posición en el ranking |
+| **Agente** | Nombre del especialista |
 | **Atendidas** | Total de conversaciones atendidas |
-| **Resueltas** | Total de conversaciones cerradas/resueltas |
-| **Prom. primera respuesta** | Tiempo promedio de primera respuesta |
-| **CSAT** | Puntuación promedio de satisfacción del cliente |
+| **Prom. primera respuesta** | Tiempo promedio hasta la primera respuesta del agente |
+| **Prom. resolución** | Tiempo promedio para resolver (cerrar) una conversación |
 
-Haz clic en cualquier fila para abrir un **panel lateral** con más detalle sobre las conversaciones de ese especialista.
-
-### Panel lateral del especialista
-
-El panel muestra:
-
-- **Estadísticas resumen** — atendidas, resueltas, tiempo de primera respuesta y CSAT del especialista seleccionado.
-- **Lista de conversaciones** — cada conversación en la que participó el especialista durante el período. Cada tarjeta muestra el tema de la conversación (o "Sin tema" si no está clasificada), un fragmento corto del ID de conversación y el estado (**Resuelta** o **Abierta**). Haz clic en una tarjeta para navegar a la conversación completa en la vista de Conversaciones.
+Haz clic en cualquier fila para abrir un **panel lateral** con las conversaciones individuales de ese agente en el período seleccionado. Así puedes leer transcripciones y revisar resultados sin salir del panel.
 
 <Tip>
-Usa el panel del especialista para auditar la calidad individual — revisa temas, tasas de resolución y entra a conversaciones específicas que necesiten atención.
+Usa la tabla de clasificación para identificar rápidamente a los mejores agentes y a quienes podrían necesitar coaching — busca valores atípicos en los tiempos de respuesta o resolución.
 </Tip>
 
 ---
 
 ## Flujos de trabajo comunes
 
-- **Reunión diaria** — establece el rango en *Hoy* o *7 D* y revisa los indicadores clave junto con el ranking para identificar quién puede necesitar apoyo.
-- **Planificación de capacidad** — usa la gráfica de volumen diario con *Todos los especialistas* para detectar tendencias de volumen, luego cambia a especialistas individuales para ver si la carga de trabajo está distribuida equitativamente.
-- **Estrategia de canales** — revisa la mezcla de canales para entender qué canales generan más volumen de atención humana y asigna recursos en consecuencia.
+- **Reunión diaria** — Configura el preset de fecha en **1 d** y la granularidad en **Día** para revisar la distribución de carga de ayer.
+- **Revisión semanal** — Usa el preset de **7 d** para comparar el rendimiento de los agentes durante la última semana.
+- **Análisis profundo de un especialista** — Selecciona un agente en el desplegable de filtros y luego haz clic en su fila del ranking para leer sus conversaciones individuales.
+- **Período de reporte personalizado** — Usa el selector de rango de fechas para elegir un período arbitrario (ej. una campaña promocional) y cambia la granularidad a **Semana** o **Mes** para una vista de alto nivel.
