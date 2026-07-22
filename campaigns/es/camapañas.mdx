@@ -1,86 +1,114 @@
 ---
 title: "Campañas"
+language: es
 description: "Con Campañas puedes programar mensajes de WhatsApp desde la plataforma del Agente de IA en minutos. Selecciona una plantilla aprobada, elige tus destinatarios, define la fecha y hora de envío y deja que el sistema se encargue del resto. En esta sección encontrarás el paso a paso, buenas prácticas y consejos para monitorear tus resultados."
+---
+
+Las Campañas te permiten enviar mensajes proactivos de WhatsApp a una lista de destinatarios usando plantillas de mensaje pre-aprobadas. Puedes enviarlos de inmediato o programarlos para una fecha y hora específicas, todo desde la Consola de Semantiks.
+
+Esto es útil para:
+- Anunciar promociones, eventos o lanzamientos de producto
+- Enviar recordatorios o seguimientos a segmentos de clientes
+- Reenganchar a usuarios que no han interactuado recientemente
 
 ---
 
-El menú de navegación es la lista de enlaces en cada sitio web.
+## Tabla de campañas
 
-Probablemente actualizarás `docs.json` cada vez que agregues una nueva página. Las páginas no aparecen automáticamente.
+Al abrir **IA proactiva > Enganche > Campañas**, verás una tabla con todas las campañas (mensajes proactivos) creadas para el agente actual. Cada fila muestra:
 
-## Sintaxis de navegación
+| Columna | Descripción |
+|---|---|
+| **Plantilla** | La plantilla de mensaje de WhatsApp utilizada |
+| **Canal** | El canal por el que se envió la campaña |
+| **Programado** | La fecha y hora programada para el envío |
+| **Destinatarios** | Cuántos números de teléfono se incluyeron |
+| **Estado** | Estado actual de entrega (ver abajo) |
+| **Acciones** | Opciones para duplicar o eliminar la campaña |
 
-Nuestra sintaxis de navegación es recursiva, lo que significa que puedes crear grupos de navegación anidados. No necesitas incluir `.mdx` en los nombres de las páginas.
+Usa la **barra de búsqueda** para filtrar campañas por nombre de plantilla y el **filtro de estado** para mostrar solo campañas con un estado específico.
 
-<CodeGroup>
+---
 
-```json Navegación Regular
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Primeros Pasos",
-          "pages": ["inicio-rapido"]
-        }
-      ]
-    }
-  ]
-}
-```
+## Estados de campaña
 
+Cada campaña muestra una insignia de estado con código de color:
 
-```json Navegación Anidada
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Primeros Pasos",
-          "pages": [
-            "inicio-rapido",
-            {
-              "group": "Páginas de Referencia Anidadas",
-              "pages": ["pagina-referencia-anidada"]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
+| Estado | Significado |
+|---|---|
+| **Programado** | La campaña está en cola y se enviará en la fecha y hora configuradas |
+| **Enviado** | Los mensajes fueron despachados a la API de Meta |
+| **Entregado** | Todos los mensajes han sido confirmados como entregados o leídos por los destinatarios |
+| **Fallido** | La campaña no pudo ser entregada |
 
-</CodeGroup>
+<Note>
+La plataforma actualiza el estado automáticamente conforme Meta envía webhooks de entrega. Una campaña inicialmente marcada como **Enviado** puede actualizarse a **Entregado** una vez que todos los destinatarios confirmen la recepción.
+</Note>
 
-## Carpetas
+Para campañas que no están en estado **Fallido** y tienen datos de seguimiento de entrega, la insignia también muestra un contador **entregados/total** (ej. `12/15`) para que puedas ver el progreso de un vistazo.
 
-Simplemente coloca tus archivos MDX en carpetas y actualiza las rutas en `docs.json`.
+Cuando una campaña tiene estado **Fallido**, la insignia incluye un ícono de advertencia. Pasa el cursor sobre él para ver un tooltip con la razón del fallo.
 
-Por ejemplo, para tener una página en `https://tusitio.com/tu-carpeta/tu-pagina` crearías una carpeta llamada `tu-carpeta` que contenga un archivo MDX llamado `tu-pagina.mdx`.
+### Errores de entrega comunes
+
+| Error | Descripción |
+|---|---|
+| **Pagos pendientes** | Hay pagos pendientes en Meta — revisa la facturación de tu cuenta de WhatsApp Business |
+| **Ventana de 24 horas expirada** | Han pasado más de 24 horas desde la última respuesta del cliente |
+| **Número no disponible** | El número de teléfono no está disponible en WhatsApp |
+
+---
+
+## Diálogo de detalle de entrega
+
+Haz clic en la **insignia de estado** de cualquier campaña para abrir el diálogo de **Detalle de entrega**. Este diálogo muestra un desglose por destinatario de los resultados de entrega de la campaña.
+
+Para cada destinatario verás:
+
+| Campo | Descripción |
+|---|---|
+| **Número de teléfono** | El número al que se envió el mensaje |
+| **Estado de entrega** | Uno de: **Leído**, **Entregado**, **Fallido** o **Sin confirmación** |
+| **Detalle del error** | Si la entrega falló, se muestra una explicación legible del error debajo del número de teléfono |
+
+<Tip>
+Usa el diálogo de detalle de entrega para identificar rápidamente qué destinatarios específicos tuvieron problemas de entrega y tomar acción—por ejemplo, verificar números de teléfono o revisar el estado de facturación de Meta.
+</Tip>
+
+<Note>
+Para campañas que fueron programadas o enviadas antes de que se habilitara el seguimiento de entregas, el diálogo mostrará un mensaje indicando que no hay registros por destinatario disponibles.
+</Note>
+
+---
+
+## Crear una campaña
+
+<Steps>
+  <Step title="Abre el formulario de campaña">
+    Haz clic en **Crear Campaña** en la parte superior de la página de Campañas.
+  </Step>
+  <Step title="Selecciona una plantilla">
+    Elige una plantilla de mensaje de WhatsApp pre-aprobada. Solo están disponibles las plantillas aprobadas por Meta.
+  </Step>
+  <Step title="Define tus destinatarios">
+    Agrega los números de teléfono a los que deseas enviar el mensaje.
+  </Step>
+  <Step title="Programa o envía de inmediato">
+    Elige una fecha y hora para la entrega, o envía la campaña de inmediato.
+  </Step>
+  <Step title="Confirma y envía">
+    Revisa los detalles de tu campaña y haz clic en **Enviar** para ponerla en cola.
+  </Step>
+</Steps>
+
+---
+
+## Gestionar campañas
+
+Desde la tabla de campañas puedes:
+- **Duplicar** una campaña para crear rápidamente una nueva con la misma plantilla y configuración
+- **Eliminar** una campaña que ya no necesites
 
 <Warning>
-  No puedes usar `api` como nombre de una carpeta a menos que la anides dentro de otra carpeta. Mintlify usa Next.js, que reserva la carpeta `api` de nivel superior para llamadas internas del servidor. Un nombre de carpeta como `api-reference` sería aceptado.
+Eliminar una campaña la borra permanentemente. Las campañas programadas que aún no se han enviado serán canceladas.
 </Warning>
-
-```json Navegación Con Carpeta
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Nombre del Grupo",
-          "pages": ["tu-carpeta/tu-pagina"]
-        }
-      ]
-    }
-  ]
-}
-```
-
-## Páginas Ocultas
-
-Los archivos MDX no incluidos en `docs.json` no aparecerán en la barra lateral pero son accesibles a través de la barra de búsqueda y enlazando directamente a ellos.

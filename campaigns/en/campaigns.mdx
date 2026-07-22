@@ -1,85 +1,114 @@
 ---
 title: "Campaigns"
+language: en
 description: "Use Campaigns to schedule WhatsApp outreach from your AI Agent platform in just a few clicks. Pick a pre-approved message template, define your recipient list, set the exact date and time, and the system delivers every message automatically. This section walks you through the process, highlights best practices, and shows how to track your results."
 ---
 
-The navigation menu is the list of links on every website.
+Campaigns let you send proactive WhatsApp messages to a list of recipients using pre-approved message templates. You can send them immediately or schedule them for a specific date and time—all from within the Semantiks Console.
 
-You will likely update `docs.json` every time you add a new page. Pages do not show up automatically.
+This is useful for:
+- Announcing promotions, events, or product launches
+- Sending reminders or follow-ups to customer segments
+- Re-engaging users who haven't interacted recently
 
-## Navigation syntax
+---
 
-Our navigation syntax is recursive which means you can make nested navigation groups. You don't need to include `.mdx` in page names.
+## Campaigns table
 
-<CodeGroup>
+When you open **Proactive AI > Engagement > Campaigns**, you see a table listing all campaigns (proactive messages) created for the current agent. Each row shows:
 
-```json Regular Navigation
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": ["quickstart"]
-        }
-      ]
-    }
-  ]
-}
-```
+| Column | Description |
+|---|---|
+| **Template** | The WhatsApp message template used |
+| **Channel** | The channel the campaign was sent through |
+| **Scheduled** | The date and time the campaign is scheduled to be sent |
+| **Recipients** | How many phone numbers were included |
+| **Status** | Current delivery status (see below) |
+| **Actions** | Options to duplicate or delete the campaign |
 
+Use the **search bar** to filter campaigns by template name, and the **status filter** to show only campaigns with a specific status.
 
-```json Nested Navigation
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": [
-            "quickstart",
-            {
-              "group": "Nested Reference Pages",
-              "pages": ["nested-reference-page"]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
+---
 
-</CodeGroup>
+## Campaign statuses
 
-## Folders
+Each campaign displays a color-coded status badge:
 
-Simply put your MDX files in folders and update the paths in `docs.json`.
+| Status | Meaning |
+|---|---|
+| **Scheduled** | The campaign is queued and will be sent at the configured date and time |
+| **Sent** | The messages have been dispatched to Meta's API |
+| **Delivered** | All messages have been confirmed as delivered or read by recipients |
+| **Failed** | The campaign could not be delivered |
 
-For example, to have a page at `https://yoursite.com/your-folder/your-page` you would make a folder called `your-folder` containing an MDX file called `your-page.mdx`.
+<Note>
+The platform refines the status automatically as Meta sends delivery webhooks. A campaign initially marked **Sent** may update to **Delivered** once all recipients confirm receipt.
+</Note>
+
+For campaigns that are not in a **Failed** state and have delivery tracking data, the badge also displays a **delivered/total** counter (e.g. `12/15`) so you can see progress at a glance.
+
+When a campaign has **Failed**, the badge includes a warning icon. Hover over it to see a tooltip with the failure reason.
+
+### Common delivery errors
+
+| Error | Description |
+|---|---|
+| **Unsettled payments** | There are pending payments in Meta — check your WhatsApp Business account billing |
+| **24-hour window expired** | More than 24 hours have passed since the customer's last reply |
+| **Undeliverable number** | The phone number is not reachable on WhatsApp |
+
+---
+
+## Delivery detail dialog
+
+Click on any campaign's **status badge** to open the **Delivery detail** dialog. This dialog shows a per-recipient breakdown of the campaign's delivery results.
+
+For each recipient you'll see:
+
+| Field | Description |
+|---|---|
+| **Phone number** | The number the message was sent to |
+| **Delivery status** | One of: **Read**, **Delivered**, **Failed**, or **No confirmation** |
+| **Error detail** | If delivery failed, a human-readable explanation of the error is shown below the phone number |
+
+<Tip>
+Use the delivery detail dialog to quickly identify which specific recipients had delivery issues and take action—for example, verifying phone numbers or checking your Meta billing status.
+</Tip>
+
+<Note>
+For campaigns that were scheduled or sent before delivery tracking was enabled, the dialog will show a message indicating that no per-recipient records are available.
+</Note>
+
+---
+
+## Creating a campaign
+
+<Steps>
+  <Step title="Open the campaign form">
+    Click **Create Campaign** at the top of the Campaigns page.
+  </Step>
+  <Step title="Select a template">
+    Choose a pre-approved WhatsApp message template. Only templates that have been approved by Meta are available.
+  </Step>
+  <Step title="Define your recipients">
+    Add the phone numbers you want to send the message to.
+  </Step>
+  <Step title="Schedule or send immediately">
+    Choose a date and time for delivery, or send the campaign right away.
+  </Step>
+  <Step title="Confirm and send">
+    Review your campaign details and click **Send** to queue it.
+  </Step>
+</Steps>
+
+---
+
+## Managing campaigns
+
+From the campaigns table you can:
+- **Duplicate** a campaign to quickly create a new one with the same template and settings
+- **Delete** a campaign you no longer need
 
 <Warning>
-  You cannot use `api` for the name of a folder unless you nest it inside another folder. Mintlify uses Next.js which reserves the top-level `api` folder for internal server calls. A folder name such as `api-reference` would be accepted.
+Deleting a campaign removes it permanently. Scheduled campaigns that haven't been sent yet will be cancelled.
 </Warning>
-
-```json Navigation With Folder
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Group Name",
-          "pages": ["your-folder/your-page"]
-        }
-      ]
-    }
-  ]
-}
-```
-
-## Hidden Pages
-
-MDX files not included in `docs.json` will not show up in the sidebar but are accessible through the search bar and by linking directly to them.
