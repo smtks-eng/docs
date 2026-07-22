@@ -1,133 +1,91 @@
 ---
 title: "Tablero de Escalaciones"
-language: es
-description: "Monitorea y gestiona conversaciones escaladas en tiempo real desde un tablero operativo único—controla tiempos de espera, asigna agentes y asegúrate de que ningún cliente quede sin atender."
+description: "Monitorea y gestiona conversaciones escaladas en tiempo real—asigna agentes, supervisa tiempos de respuesta y resuelve incidencias desde un solo tablero."
 ---
 
-El **Tablero de Escalaciones** le da a tu equipo una vista operativa en tiempo real de cada conversación que ha sido escalada a un agente humano. En lugar de cambiar entre la bandeja de entrada y reportes separados, supervisores y agentes pueden ver de un vistazo qué clientes están esperando, quién está atendiendo qué, y si se están cumpliendo los objetivos de tiempo de respuesta.
+El **Tablero de Escalaciones** ofrece a los managers una vista tipo Kanban en tiempo real de cada conversación que ha sido escalada del agente de IA a un humano. Úsalo para monitorear casos abiertos, reasignar conversaciones y mantener los tiempos de respuesta bajo control.
 
-Puedes encontrar el Tablero de Escalaciones en **Centro de contacto > Chat en vivo > Escalaciones** en el menú lateral.
+<Note>
+El Tablero de Escalaciones es una función en **Beta**. Algunas capacidades pueden evolucionar a medida que la función madura.
+</Note>
 
----
+## Requisitos de acceso
 
-## Tarjetas de Indicadores
+El Tablero de Escalaciones está restringido a **propietarios y administradores** de la organización. Los miembros con rol regular de "miembro" verán un mensaje de *Acceso restringido* en lugar del tablero. Si necesitas acceso, solicita a un propietario o administrador de la organización que actualice tu rol.
 
-En la parte superior del tablero, cuatro tarjetas resumen el estado actual de las escalaciones (basado en las últimas 24 horas):
+## Filtro de rango de fechas
 
-| Indicador | Qué mide |
+En la parte superior del tablero encontrarás un **filtro de rango de fechas** que controla qué escalaciones se cargan:
+
+- **Pastillas de preselección** — botones de selección rápida para periodos comunes: **1d**, **7d**, **10d**, **15d** y **30d**. El valor por defecto es **7d**.
+- **Selector de rango personalizado** — haz clic en el ícono de calendario para elegir una fecha de inicio y fin arbitrarias.
+
+Cuando seleccionas un preset, cualquier rango personalizado se limpia y viceversa. Las tarjetas de indicadores y la tabla se actualizan automáticamente para reflejar el periodo elegido.
+
+## Tarjetas de indicadores
+
+Cuatro tarjetas en la parte superior resumen el estado actual de las escalaciones dentro del rango de fechas seleccionado:
+
+| Tarjeta | Qué muestra |
 |---|---|
-| **Abiertas** | Número de conversaciones escaladas que aún no se han resuelto |
-| **En espera** | Número de conversaciones escaladas que aún esperan la primera respuesta humana |
-| **Vencidas** | Número de conversaciones en espera que han superado el umbral de tiempo de respuesta configurado |
-| **Mediana de primera respuesta** | El tiempo mediano entre la escalación y el primer mensaje humano, en todas las conversaciones que han recibido respuesta |
+| **Abiertas** | Conversaciones que aún no se han resuelto |
+| **En espera** | Conversaciones esperando una respuesta humana |
+| **Mediana de primera respuesta** | El tiempo mediano desde la escalación hasta la primera respuesta humana |
+| **Vencidas** | Conversaciones que han excedido el umbral de tiempo de respuesta configurado |
 
-<Tip>
-El contador de **Vencidas** se muestra en rojo cuando hay conversaciones que superaron el umbral, ayudándote a detectar incumplimientos de SLA de inmediato.
-</Tip>
+## Filtro de atención
 
----
+Debajo de los indicadores, un conjunto de pastillas de filtro rápido te permite acotar la tabla:
 
-## Tabla de Conversaciones
+- **Todas** — todas las escalaciones en el rango de fechas seleccionado
+- **En espera** — solo conversaciones que aún esperan una respuesta humana
+- **Vencidas** — solo conversaciones que excedieron el umbral de tiempo de respuesta
 
-Debajo de los indicadores encontrarás una tabla con todas las conversaciones escaladas. Cada fila muestra:
+También puedes escribir en la **barra de búsqueda** para encontrar una conversación específica por nombre de cliente o ID de conversación.
+
+## Tabla de escalaciones
+
+La tabla muestra una fila por conversación escalada con las siguientes columnas:
 
 | Columna | Descripción |
 |---|---|
-| **Conversación** | Nombre del cliente y un resumen breve de la conversación |
-| **Canal** | El canal de origen de la conversación (ej. Widget de Chat, WhatsApp) |
-| **Estado** | Estado en el tablero: **En espera** (sin respuesta humana aún), **Atendida** (un humano ha respondido) o **Resuelta** (conversación finalizada) |
-| **Asignado a** | El miembro del equipo asignado a la conversación, o un botón **Asignar** si no está asignada |
-| **Espera** | Tiempo transcurrido entre la escalación y la primera respuesta humana. Se muestra en rojo si supera el umbral |
+| **Conversación** | El nombre (o identificador) del cliente |
+| **Canal** | El canal donde se originó la conversación |
+| **Estado** | Estado actual en el tablero — *En espera*, *Atendida* o *Resuelta* |
+| **Asignado** | El miembro del equipo asignado a la conversación (si aplica) |
+| **Esperando** | Cuánto tiempo lleva la conversación esperando una respuesta |
 
-Haz clic en cualquier fila para abrir el **panel de detalle** de esa conversación.
+### Ordenar columnas
 
-### Búsqueda y Filtros
+Cada encabezado de columna es clickeable. Haz clic una vez para ordenar de forma **ascendente**, otra vez para ordenar de forma **descendente**, y una tercera vez para **quitar el ordenamiento**. Un pequeño ícono de flecha indica la columna activa y la dirección del orden.
 
-- **Barra de búsqueda** — Filtra conversaciones por nombre del cliente o ID de conversación.
-- **Pestañas de filtro de atención** — Cambia rápidamente entre:
-  - **Todas** — todas las conversaciones escaladas
-  - **En espera** — solo conversaciones esperando la primera respuesta humana
-  - **Vencidas** — solo conversaciones que han superado el umbral de tiempo de respuesta
-
-### Umbral de Vencimiento
-
-El umbral de vencimiento determina cuántos minutos pueden pasar antes de que una conversación en espera se marque como vencida. Puedes ajustarlo usando los botones **−** y **+** en la barra de herramientas.
-
-- **Predeterminado:** 15 minutos
-- **Rango:** 5 – 120 minutos (en incrementos de 5 minutos)
-
-Las conversaciones que superan este umbral se etiquetan como **Vencida**. Las conversaciones que eventualmente fueron respondidas pero después del umbral muestran una etiqueta de **Respondida tarde**.
-
----
-
-## Panel de Detalle
-
-Al hacer clic en una fila de conversación se abre un panel lateral con contexto completo:
-
-### Identificación
-
-- **ID de conversación** — Un ID truncado con botón para copiar al portapapeles.
-- **ID del cliente** — El número de teléfono o ID de usuario externo del usuario final.
-- **Canal** — El nombre del canal.
-
-### Asignado a
-
-Muestra el miembro del equipo actualmente asignado (con su avatar y conteo de conversaciones activas) o un indicador de **Sin asignar**. Desde aquí puedes:
-
-- **Asignar / Reasignar** — Abrir el diálogo de asignación para elegir un miembro del equipo.
-- **Devolver a IA** — Desasignar la conversación y devolverla al agente de IA.
-
-<Note>
-Los miembros regulares del equipo solo pueden asignarse conversaciones a sí mismos. Los **Administradores y Propietarios** pueden asignar o reasignar conversaciones a cualquier miembro disponible del equipo.
-</Note>
-
-### Línea de Tiempo
-
-Una línea de tiempo visual traza el ciclo de vida de la escalación:
-
-1. **Conversación iniciada** — Cuándo se creó la conversación y en qué canal.
-2. **Escalada** — Cuándo se escaló la conversación a un humano.
-3. **Primera respuesta humana** — Cuándo un agente humano respondió por primera vez, incluyendo si la respuesta fue dentro o fuera del umbral configurado.
-4. **Resuelta** — Cuándo terminó la conversación (si aplica).
-
-### Abrir Conversación
-
-En la parte inferior del panel, el botón **Abrir conversación** te lleva directamente a la conversación en la bandeja de Chat en vivo para mensajería completa.
-
----
-
-## Asignar Conversaciones
-
-Cuando haces clic en **Asignar** (en una fila sin asignar o desde el panel de detalle), se abre un diálogo que lista todos los miembros del equipo en tu organización:
-
-- Los miembros se ordenan con los **disponibles** primero.
-- Cada entrada muestra el nombre del miembro y su estado de disponibilidad (**Disponible ahora** o **No disponible**).
-- Solo los miembros disponibles muestran un botón de **Asignar**.
-- Los miembros regulares solo se ven a sí mismos en la lista; los administradores y propietarios ven a todos.
-
-Después de asignar, el tablero se actualiza automáticamente para reflejar el cambio.
-
----
-
-## Permisos
-
-| Rol | Puede hacer |
-|---|---|
-| **Propietario / Administrador** | Ver el tablero, asignar o reasignar cualquier conversación a cualquier miembro, devolver conversaciones a IA |
-| **Miembro** | Ver el tablero, asignar conversaciones sin asignar a sí mismo, devolver sus propias conversaciones a IA |
-
----
-
-## Consejos para Usar el Tablero
+- **Conversación** — orden alfabético por nombre de cliente
+- **Canal** — orden alfabético por etiqueta del canal
+- **Estado** — ordenado por urgencia: En espera → Atendida → Resuelta
+- **Asignado** — orden alfabético por nombre del asignado; las filas sin asignar siempre aparecen al final sin importar la dirección del orden
+- **Esperando** — por tiempo de espera en minutos
 
 <Tip>
-Mantén el tablero abierto durante el horario laboral para que tu equipo pueda reaccionar a nuevas escalaciones conforme llegan. Usa el filtro **Vencidas** para priorizar las conversaciones que llevan más tiempo esperando.
+Ordena por **Esperando** descendente para ver primero las conversaciones que llevan más tiempo esperando y que podrían necesitar atención inmediata.
 </Tip>
 
-<Tip>
-Ajusta el umbral de vencimiento para que coincida con tu SLA interno. Por ejemplo, si tu equipo tiene como objetivo una primera respuesta en 10 minutos, configura el umbral a 10 minutos para que las marcas de vencimiento se alineen con tus objetivos reales.
-</Tip>
+## Panel de detalle de conversación
 
-<Tip>
-Usa el indicador **Mediana de primera respuesta** para rastrear la capacidad de respuesta de tu equipo durante el día. Si empieza a subir, considera redistribuir la carga de trabajo o incorporar agentes adicionales.
-</Tip>
+Haz clic en cualquier fila para abrir un panel deslizante con todos los detalles:
+
+- **Línea de tiempo de la conversación** — eventos clave desde la escalación hasta la resolución, incluyendo cuándo se envió el primer mensaje humano y quién lo envió
+- **Asignar / Reasignar** — asigna la conversación a ti mismo o a otro miembro del equipo
+- **Marcar como resuelta** — cierra la escalación una vez que el problema se haya resuelto
+- **Copiar ID de conversación** — para referencia en otras herramientas
+- **Abrir conversación completa** — navega a la conversación en el panel de Chat en Vivo
+
+## Umbral de tiempo de respuesta
+
+Puedes configurar el **umbral de tiempo de respuesta** (en minutos) que define cuándo una conversación se considera *vencida*. Las conversaciones que excedan este umbral se resaltan y se cuentan en el indicador de Vencidas.
+
+## Notas clave
+
+- El tablero se actualiza automáticamente cuando cambias el rango de fechas, pero también puedes activar una actualización manual.
+- Solo se muestran las conversaciones escaladas dentro del rango de fechas seleccionado.
+- Reasignar una conversación notifica al nuevo asignado (si las notificaciones están habilitadas).
+- El tablero es de **solo lectura para conversaciones resueltas** — puedes revisarlas pero no cambiar su estado.
