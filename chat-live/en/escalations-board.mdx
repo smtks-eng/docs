@@ -1,91 +1,63 @@
 ---
 title: "Escalations Board"
-description: "Monitor and manage escalated conversations in real time—assign agents, track response times, and resolve issues from a single board."
+description: "Monitor, triage, and reassign escalated conversations from a single Kanban-style board."
 ---
 
-The **Escalations Board** gives managers a real-time Kanban-style view of every conversation that has been escalated from the AI agent to a human. Use it to monitor open cases, reassign conversations, and keep response times under control.
+The **Escalations Board** gives your team a real-time, visual overview of every conversation that has been escalated from the AI agent to a human operator. Conversations are displayed as cards on a Kanban-style board, grouped by status, so you can quickly see what needs attention.
 
 <Note>
-Escalations Board is a **Beta** feature. Some capabilities may evolve as the feature matures.
+The Escalations Board is a **Beta** feature. Some capabilities may evolve as the feature matures.
 </Note>
 
-## Access requirements
+## Access & permissions
 
-The Escalations Board is restricted to **organization owners and admins**. Members with a regular "member" role will see a *Restricted access* message instead of the board. If you believe you need access, ask an organization owner or admin to update your role.
+Access to the Escalations Board is controlled by your organization's **Roles & Access** settings. An organization owner can grant or revoke access to the board for any role (owner, admin, or member) from **Settings → Roles & Access** using the `contact.escalations_board` permission.
 
-## Date range filter
+If your current role does not have access, you will see a **Restricted access** message:
 
-At the top of the board you will find a **date range filter** that controls which escalations are loaded:
-
-- **Preset pills** — quick-select buttons for common windows: **1d**, **7d**, **10d**, **15d**, and **30d**. The default is **7d**.
-- **Custom range picker** — click the calendar icon to choose an arbitrary start and end date.
-
-When you select a preset, any custom range is cleared and vice versa. The KPI cards and the table below automatically refresh to reflect the chosen period.
-
-## KPI cards
-
-Four cards at the top summarize the current state of escalations within the selected date range:
-
-| Card | What it shows |
-|---|---|
-| **Open** | Conversations that are not yet resolved |
-| **Awaiting** | Conversations waiting for a human to respond |
-| **Median first response** | The median time from escalation to the first human reply |
-| **Overdue** | Conversations that have exceeded the configured response-time threshold |
-
-## Attention filter
-
-Below the KPIs, a set of quick-filter pills lets you narrow the table:
-
-- **All** — every escalation in the selected date range
-- **Awaiting** — only conversations still waiting for a human reply
-- **Overdue** — only conversations past the response-time threshold
-
-You can also type in the **search bar** to find a specific conversation by customer name or conversation ID.
-
-## Escalation table
-
-The table lists one row per escalated conversation with the following columns:
-
-| Column | Description |
-|---|---|
-| **Conversation** | The customer's name (or identifier) |
-| **Channel** | The channel where the conversation originated |
-| **Status** | Current board status — *Awaiting*, *Attended*, or *Resolved* |
-| **Assignee** | The team member assigned to the conversation (if any) |
-| **Waiting** | How long the conversation has been waiting for a response |
-
-### Sorting columns
-
-Every column header is clickable. Click once to sort **ascending**, click again to sort **descending**, and click a third time to **remove the sort**. A small arrow icon indicates the active sort column and direction.
-
-- **Conversation** — alphabetical by customer name
-- **Channel** — alphabetical by channel label
-- **Status** — ordered by urgency: Awaiting → Attended → Resolved
-- **Assignee** — alphabetical by assignee name; unassigned rows always appear last regardless of sort direction
-- **Waiting** — by wait time in minutes
+> *Your role doesn't have access to Escalations. Ask an owner to enable it under Settings → Roles & Access.*
 
 <Tip>
-Sort by **Waiting** descending to surface the conversations that have been waiting the longest and may need immediate attention.
+Organization **owners** always have access. If you are an admin or member and cannot see the board, ask an owner to enable it for your role.
 </Tip>
 
-## Conversation detail panel
+### Who can reassign conversations?
 
-Click any row to open a slide-over panel with full details:
+Even if you can view the board, **reassignment** follows a separate rule:
 
-- **Conversation timeline** — key events from escalation to resolution, including when the first human message was sent and who sent it
-- **Assign / Reassign** — assign the conversation to yourself or another team member
-- **Mark as resolved** — close the escalation once the issue is handled
-- **Copy conversation ID** — for referencing in other tools
-- **Open full conversation** — jump to the conversation in the Live Chat panel
+- **Owners and admins** can reassign any escalated conversation to any team member.
+- **Members** can only claim unassigned conversations or conversations already assigned to themselves.
 
-## Response-time threshold
+This mirrors the backend's role-based assignment logic.
 
-You can configure the **response-time threshold** (in minutes) that defines when a conversation is considered *overdue*. Conversations that exceed this threshold are highlighted and counted in the Overdue KPI.
+## Board layout
 
-## Key notes
+Each card on the board represents an escalated conversation and shows key details such as:
 
-- The board auto-refreshes when you change the date range, but you can also trigger a manual refresh.
-- Only conversations escalated within the selected date range are shown.
-- Reassigning a conversation notifies the new assignee (if notifications are enabled).
-- The board is **read-only for resolved conversations** — you can review them but cannot change their status.
+- **Contact name** and channel
+- **Assigned operator** (or unassigned)
+- **Time since escalation**
+- **Preview** of the last message
+
+Cards are organized into columns by status so you can see the full pipeline at a glance.
+
+## Filters
+
+Use the filters at the top of the board to narrow down what you see:
+
+- **Date range** — choose a preset or custom range
+- **Channel** — filter by communication channel
+- **Assigned to** — filter by team member
+- **Threshold** — set a time threshold to highlight conversations that have been waiting too long
+
+## Actions
+
+From the board you can:
+
+- **Click a card** to open the conversation detail panel on the right, where you can read the full transcript and context
+- **Reassign** a conversation to a different team member (if your role allows it)
+- **View the end-user profile** for context on the contact
+
+<Tip>
+Use the Escalations Board alongside the **Inbox** to get both a high-level triage view and a detailed conversation-by-conversation workflow.
+</Tip>

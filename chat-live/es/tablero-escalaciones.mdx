@@ -1,91 +1,63 @@
 ---
 title: "Tablero de Escalaciones"
-description: "Monitorea y gestiona conversaciones escaladas en tiempo real—asigna agentes, supervisa tiempos de respuesta y resuelve incidencias desde un solo tablero."
+description: "Monitorea, clasifica y reasigna conversaciones escaladas desde un tablero estilo Kanban."
 ---
 
-El **Tablero de Escalaciones** ofrece a los managers una vista tipo Kanban en tiempo real de cada conversación que ha sido escalada del agente de IA a un humano. Úsalo para monitorear casos abiertos, reasignar conversaciones y mantener los tiempos de respuesta bajo control.
+El **Tablero de Escalaciones** le da a tu equipo una vista visual y en tiempo real de cada conversación que ha sido escalada del agente de IA a un operador humano. Las conversaciones se muestran como tarjetas en un tablero estilo Kanban, agrupadas por estado, para que puedas ver rápidamente qué necesita atención.
 
 <Note>
 El Tablero de Escalaciones es una función en **Beta**. Algunas capacidades pueden evolucionar a medida que la función madura.
 </Note>
 
-## Requisitos de acceso
+## Acceso y permisos
 
-El Tablero de Escalaciones está restringido a **propietarios y administradores** de la organización. Los miembros con rol regular de "miembro" verán un mensaje de *Acceso restringido* en lugar del tablero. Si necesitas acceso, solicita a un propietario o administrador de la organización que actualice tu rol.
+El acceso al Tablero de Escalaciones está controlado por la configuración de **Roles & Access** de tu organización. Un propietario de la organización puede otorgar o revocar el acceso al tablero para cualquier rol (propietario, administrador o miembro) desde **Configuración → Roles & Access** usando el permiso `contact.escalations_board`.
 
-## Filtro de rango de fechas
+Si tu rol actual no tiene acceso, verás un mensaje de **Acceso restringido**:
 
-En la parte superior del tablero encontrarás un **filtro de rango de fechas** que controla qué escalaciones se cargan:
-
-- **Pastillas de preselección** — botones de selección rápida para periodos comunes: **1d**, **7d**, **10d**, **15d** y **30d**. El valor por defecto es **7d**.
-- **Selector de rango personalizado** — haz clic en el ícono de calendario para elegir una fecha de inicio y fin arbitrarias.
-
-Cuando seleccionas un preset, cualquier rango personalizado se limpia y viceversa. Las tarjetas de indicadores y la tabla se actualizan automáticamente para reflejar el periodo elegido.
-
-## Tarjetas de indicadores
-
-Cuatro tarjetas en la parte superior resumen el estado actual de las escalaciones dentro del rango de fechas seleccionado:
-
-| Tarjeta | Qué muestra |
-|---|---|
-| **Abiertas** | Conversaciones que aún no se han resuelto |
-| **En espera** | Conversaciones esperando una respuesta humana |
-| **Mediana de primera respuesta** | El tiempo mediano desde la escalación hasta la primera respuesta humana |
-| **Vencidas** | Conversaciones que han excedido el umbral de tiempo de respuesta configurado |
-
-## Filtro de atención
-
-Debajo de los indicadores, un conjunto de pastillas de filtro rápido te permite acotar la tabla:
-
-- **Todas** — todas las escalaciones en el rango de fechas seleccionado
-- **En espera** — solo conversaciones que aún esperan una respuesta humana
-- **Vencidas** — solo conversaciones que excedieron el umbral de tiempo de respuesta
-
-También puedes escribir en la **barra de búsqueda** para encontrar una conversación específica por nombre de cliente o ID de conversación.
-
-## Tabla de escalaciones
-
-La tabla muestra una fila por conversación escalada con las siguientes columnas:
-
-| Columna | Descripción |
-|---|---|
-| **Conversación** | El nombre (o identificador) del cliente |
-| **Canal** | El canal donde se originó la conversación |
-| **Estado** | Estado actual en el tablero — *En espera*, *Atendida* o *Resuelta* |
-| **Asignado** | El miembro del equipo asignado a la conversación (si aplica) |
-| **Esperando** | Cuánto tiempo lleva la conversación esperando una respuesta |
-
-### Ordenar columnas
-
-Cada encabezado de columna es clickeable. Haz clic una vez para ordenar de forma **ascendente**, otra vez para ordenar de forma **descendente**, y una tercera vez para **quitar el ordenamiento**. Un pequeño ícono de flecha indica la columna activa y la dirección del orden.
-
-- **Conversación** — orden alfabético por nombre de cliente
-- **Canal** — orden alfabético por etiqueta del canal
-- **Estado** — ordenado por urgencia: En espera → Atendida → Resuelta
-- **Asignado** — orden alfabético por nombre del asignado; las filas sin asignar siempre aparecen al final sin importar la dirección del orden
-- **Esperando** — por tiempo de espera en minutos
+> *Tu rol no tiene acceso a Escalaciones. Pídele a un propietario que lo habilite en Configuración → Roles & Access.*
 
 <Tip>
-Ordena por **Esperando** descendente para ver primero las conversaciones que llevan más tiempo esperando y que podrían necesitar atención inmediata.
+Los **propietarios** de la organización siempre tienen acceso. Si eres administrador o miembro y no puedes ver el tablero, pídele a un propietario que lo habilite para tu rol.
 </Tip>
 
-## Panel de detalle de conversación
+### ¿Quién puede reasignar conversaciones?
 
-Haz clic en cualquier fila para abrir un panel deslizante con todos los detalles:
+Incluso si puedes ver el tablero, la **reasignación** sigue una regla separada:
 
-- **Línea de tiempo de la conversación** — eventos clave desde la escalación hasta la resolución, incluyendo cuándo se envió el primer mensaje humano y quién lo envió
-- **Asignar / Reasignar** — asigna la conversación a ti mismo o a otro miembro del equipo
-- **Marcar como resuelta** — cierra la escalación una vez que el problema se haya resuelto
-- **Copiar ID de conversación** — para referencia en otras herramientas
-- **Abrir conversación completa** — navega a la conversación en el panel de Chat en Vivo
+- **Propietarios y administradores** pueden reasignar cualquier conversación escalada a cualquier miembro del equipo.
+- **Miembros** solo pueden tomar conversaciones no asignadas o conversaciones que ya les estén asignadas.
 
-## Umbral de tiempo de respuesta
+Esto refleja la lógica de asignación basada en roles del backend.
 
-Puedes configurar el **umbral de tiempo de respuesta** (en minutos) que define cuándo una conversación se considera *vencida*. Las conversaciones que excedan este umbral se resaltan y se cuentan en el indicador de Vencidas.
+## Diseño del tablero
 
-## Notas clave
+Cada tarjeta en el tablero representa una conversación escalada y muestra detalles clave como:
 
-- El tablero se actualiza automáticamente cuando cambias el rango de fechas, pero también puedes activar una actualización manual.
-- Solo se muestran las conversaciones escaladas dentro del rango de fechas seleccionado.
-- Reasignar una conversación notifica al nuevo asignado (si las notificaciones están habilitadas).
-- El tablero es de **solo lectura para conversaciones resueltas** — puedes revisarlas pero no cambiar su estado.
+- **Nombre del contacto** y canal
+- **Operador asignado** (o sin asignar)
+- **Tiempo desde la escalación**
+- **Vista previa** del último mensaje
+
+Las tarjetas se organizan en columnas por estado para que puedas ver todo el flujo de un vistazo.
+
+## Filtros
+
+Usa los filtros en la parte superior del tablero para delimitar lo que ves:
+
+- **Rango de fechas** — elige un preset o un rango personalizado
+- **Canal** — filtra por canal de comunicación
+- **Asignado a** — filtra por miembro del equipo
+- **Umbral** — establece un umbral de tiempo para resaltar conversaciones que llevan demasiado tiempo esperando
+
+## Acciones
+
+Desde el tablero puedes:
+
+- **Hacer clic en una tarjeta** para abrir el panel de detalle de la conversación a la derecha, donde puedes leer la transcripción completa y el contexto
+- **Reasignar** una conversación a un miembro diferente del equipo (si tu rol lo permite)
+- **Ver el perfil del usuario final** para tener contexto sobre el contacto
+
+<Tip>
+Usa el Tablero de Escalaciones junto con la **Bandeja de entrada** para obtener tanto una vista de triaje de alto nivel como un flujo de trabajo detallado conversación por conversación.
+</Tip>
