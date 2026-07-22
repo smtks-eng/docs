@@ -1,69 +1,101 @@
 ---
 title: "Performance"
-description: "Track your live-chat team's throughput, response times, and individual agent performance in one consolidated dashboard."
+description: "Track how your human agents handle escalated conversations with throughput charts, per-agent breakdowns, and conversation details."
 ---
 
-The **Performance** dashboard gives contact-center managers a real-time view of how the human support team is handling escalated conversations. Use it to spot bottlenecks, compare agent workloads, and drill into any specialist's conversation history.
+The **Performance** page gives you a data-driven view of how your human support specialists are handling escalated conversations. Use it to compare agent workloads, spot trends over time, and drill into individual conversations—all without leaving the page.
 
-## Filters
+<Note>
+Performance is a **Beta** feature. Figures and layout may evolve as the feature matures.
+</Note>
 
-All charts and tables on the page respond to a shared filter bar at the top-right:
+---
 
-| Filter | Description |
+## Page layout
+
+The page is divided into two main chart areas arranged side by side:
+
+| Area | Description |
 |---|---|
-| **Granularity** | Choose how time buckets are grouped: **Day**, **Week**, or **Month**. |
-| **Date range picker** | Pick a custom start and end date for the analysis window. |
-| **Date presets** | Quick-select buttons for **1 d**, **3 d**, **7 d**, **14 d**, or **30 d**. Selecting a preset clears any custom range. |
-| **Agent** | Filter the throughput chart to a single specialist, or choose **All specialists** to see the full stacked view. |
+| **Throughput of conversations** (left, 2/3 width) | A stacked bar chart showing the daily volume of conversations handled by each specialist over the selected date range. |
+| **Conversations by agent** (right, 1/3 width) | A horizontal bar chart ranking each specialist by the total number of conversations they handled in the period. |
+
+---
+
+## Date range filters
+
+Above the charts on the right side you will find:
+
+- **Date range picker** — choose a custom start and end date.
+- **Date pills** — quick presets (1 day, 7 days, 10 days, 15 days, 30 days).
+
+Changing the date range refreshes both charts and any associated KPIs.
+
+---
+
+## Throughput of conversations
+
+This stacked bar chart shows how many conversations were handled per day (or per time bucket), broken down by specialist.
+
+### Specialist filter
+
+Use the **All Specialists** dropdown above the chart to:
+- **All** — show a stacked bar for every specialist, each segment colored differently.
+- **A specific specialist** — show only that specialist's daily volume as a single-color bar.
+
+### Interactive legend
+
+When viewing all specialists, a **clickable legend** appears below the chart:
+- **Click** a specialist name to **highlight** their segments across all bars. Every other specialist's segments are dimmed.
+- **Click again** to return to the default (all segments fully visible).
+
+Hovering over a bar displays a tooltip with the per-specialist breakdown for that day.
+
+---
+
+## Conversations by agent
+
+This horizontal bar chart ranks specialists from most to fewest conversations handled.
+
+- Each bar shows the specialist's name on the Y-axis and a count label to the right of the bar.
+- **Hover** over a bar to highlight it and dim the others.
+- **Click** a bar to open the **member conversation panel** (see below) for that specialist.
 
 <Tip>
-Combine a custom date range with the **Month** granularity to review an entire quarter at a glance.
+Use the "Conversations by agent" chart to quickly identify workload imbalances between specialists.
 </Tip>
 
 ---
 
-## Throughput chart
+## Member conversation panel
 
-The main chart occupies the left two-thirds of the page and shows **conversations handled per time bucket**.
+When you click a specialist—either in the "Conversations by agent" chart or elsewhere—a **slide-out panel** opens on the right showing all escalated conversations assigned to that person in the selected period.
 
-### All specialists view
+Each conversation card displays:
 
-When the agent filter is set to **All specialists**, the chart renders a **stacked bar chart** where each colored segment represents a different agent. The agent with the highest volume sits at the bottom of the stack; smaller contributors stack on top.
-
-- A **color-coded legend** appears below the chart, mapping each agent's name to their bar color.
-- **Hover** over any bar to see a custom tooltip listing every agent who handled conversations that day, sorted by volume (largest first), plus a **Total handled** line at the bottom.
-
-The first seven agents in the leaderboard receive fixed brand colors so they are easy to recognize across both the chart and the ranking table. Agents beyond the top seven receive a stable, automatically generated hue based on their ID.
-
-### Single agent view
-
-When a specific agent is selected, the chart shows only that agent's daily counts as simple bars, colored to match their leaderboard rank.
-
----
-
-## Leaderboard
-
-The right third of the page shows an **agent leaderboard** table, ranked by the number of conversations handled in the selected period. Each row displays:
-
-| Column | Description |
+| Field | Description |
 |---|---|
-| **#** | Rank position |
-| **Agent** | The specialist's name |
-| **Handled** | Total conversations handled |
-| **Avg First Response** | Average time to the agent's first reply |
-| **Avg Resolution** | Average time to resolve (close) a conversation |
+| **Topic** | The auto-classified topic of the conversation (or "No topic") |
+| **Status** | One of four badges: **Not started**, **Active**, **Escalated**, or **Resolved** |
+| **User name** | The external user's name (or "Unknown user" if not available) |
+| **Escalated at** | When the conversation was escalated to a human specialist |
+| **First human reply** | When the specialist sent their first message (or "None yet") |
+| **Created** | When the conversation was originally created |
+| **Messages** | Total number of messages in the conversation |
 
-Click any row to open a **side panel** with that agent's individual conversations for the selected period, so you can read transcripts and review outcomes without leaving the dashboard.
+### Opening a conversation
 
-<Tip>
-Use the leaderboard to quickly identify top performers and agents who may need coaching — look for outliers in response or resolution times.
-</Tip>
+Click any conversation card to open a **conversation drawer** directly on the Performance page. This shows the full conversation transcript and details—the same viewer used on the Conversations board—without navigating away.
+
+### Going to the board
+
+At the top of the panel you'll find a **"Go to board"** button that takes you to the Conversations board filtered to that specialist's conversations.
 
 ---
 
-## Common workflows
+## Common use cases
 
-- **Daily stand-up** — Set the date preset to **1 d** and granularity to **Day** to review yesterday's workload distribution.
-- **Weekly review** — Use the **7 d** preset to compare agent throughput over the past week.
-- **Deep dive on a specialist** — Select an agent from the filter dropdown, then click their leaderboard row to read individual conversations.
-- **Custom reporting period** — Use the date range picker to select an arbitrary window (e.g., a promotional campaign period) and switch granularity to **Week** or **Month** for a high-level view.
+- **Compare specialist workloads** — use the "Conversations by agent" chart to see who is handling the most escalations and whether the load is balanced.
+- **Spot daily trends** — the throughput chart reveals busy days and quiet periods, helping you plan staffing.
+- **Review individual performance** — click into a specialist's panel, then open specific conversations to read transcripts and evaluate quality.
+- **Track first-response times** — the "First human reply" field on each conversation card tells you how quickly a specialist engaged after escalation.

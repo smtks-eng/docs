@@ -1,69 +1,101 @@
 ---
-title: "Desempeño"
-description: "Monitorea el rendimiento de tu equipo de chat en vivo: volumen de conversaciones, tiempos de respuesta y desempeño individual de cada agente en un solo panel."
+title: "Rendimiento"
+description: "Monitorea cómo tus agentes humanos atienden las conversaciones escaladas con gráficas de volumen, desgloses por agente y detalles de conversación."
 ---
 
-El panel de **Desempeño** ofrece a los gerentes de centro de contacto una vista en tiempo real de cómo el equipo de soporte humano maneja las conversaciones escaladas. Úsalo para detectar cuellos de botella, comparar cargas de trabajo entre agentes y profundizar en el historial de conversaciones de cualquier especialista.
+La página de **Rendimiento** te ofrece una vista basada en datos de cómo tus especialistas humanos de soporte están atendiendo las conversaciones escaladas. Úsala para comparar cargas de trabajo entre agentes, detectar tendencias en el tiempo y profundizar en conversaciones individuales, todo sin salir de la página.
 
-## Filtros
+<Note>
+Rendimiento es una función en **Beta**. Las cifras y el diseño pueden evolucionar a medida que la función madura.
+</Note>
 
-Todos los gráficos y tablas de la página responden a una barra de filtros compartida en la esquina superior derecha:
+---
 
-| Filtro | Descripción |
+## Diseño de la página
+
+La página se divide en dos áreas de gráficas principales dispuestas lado a lado:
+
+| Área | Descripción |
 |---|---|
-| **Granularidad** | Elige cómo se agrupan los intervalos de tiempo: **Día**, **Semana** o **Mes**. |
-| **Selector de rango de fechas** | Selecciona una fecha de inicio y fin personalizadas para el período de análisis. |
-| **Presets de fecha** | Botones de selección rápida: **1 d**, **3 d**, **7 d**, **14 d** o **30 d**. Seleccionar un preset limpia cualquier rango personalizado. |
-| **Agente** | Filtra el gráfico de rendimiento a un solo especialista, o elige **Todos los especialistas** para ver la vista apilada completa. |
+| **Rendimiento de conversaciones** (izquierda, 2/3 del ancho) | Una gráfica de barras apiladas que muestra el volumen diario de conversaciones atendidas por cada especialista en el rango de fechas seleccionado. |
+| **Conversaciones por agente** (derecha, 1/3 del ancho) | Una gráfica de barras horizontales que clasifica a cada especialista por el número total de conversaciones atendidas en el período. |
+
+---
+
+## Filtros de rango de fechas
+
+Encima de las gráficas, en el lado derecho, encontrarás:
+
+- **Selector de rango de fechas** — elige una fecha de inicio y fin personalizada.
+- **Pastillas de fecha** — presets rápidos (1 día, 7 días, 10 días, 15 días, 30 días).
+
+Cambiar el rango de fechas actualiza ambas gráficas y cualquier indicador asociado.
+
+---
+
+## Rendimiento de conversaciones
+
+Esta gráfica de barras apiladas muestra cuántas conversaciones se atendieron por día (o por intervalo de tiempo), desglosadas por especialista.
+
+### Filtro de especialista
+
+Usa el desplegable **Todos los especialistas** encima de la gráfica para:
+- **Todos** — mostrar una barra apilada para todos los especialistas, cada segmento con un color diferente.
+- **Un especialista específico** — mostrar solo el volumen diario de ese especialista como una barra de un solo color.
+
+### Leyenda interactiva
+
+Cuando ves a todos los especialistas, una **leyenda clicable** aparece debajo de la gráfica:
+- **Haz clic** en el nombre de un especialista para **resaltar** sus segmentos en todas las barras. Los segmentos de los demás especialistas se atenúan.
+- **Haz clic de nuevo** para volver a la vista predeterminada (todos los segmentos completamente visibles).
+
+Al pasar el cursor sobre una barra, un tooltip muestra el desglose por especialista para ese día.
+
+---
+
+## Conversaciones por agente
+
+Esta gráfica de barras horizontales clasifica a los especialistas de mayor a menor número de conversaciones atendidas.
+
+- Cada barra muestra el nombre del especialista en el eje Y y una etiqueta con el conteo a la derecha de la barra.
+- **Pasa el cursor** sobre una barra para resaltarla y atenuar las demás.
+- **Haz clic** en una barra para abrir el **panel de conversaciones del miembro** (ver abajo) para ese especialista.
 
 <Tip>
-Combina un rango de fechas personalizado con la granularidad **Mes** para revisar un trimestre completo de un vistazo.
+Usa la gráfica "Conversaciones por agente" para identificar rápidamente desequilibrios de carga de trabajo entre especialistas.
 </Tip>
 
 ---
 
-## Gráfico de rendimiento (Throughput)
+## Panel de conversaciones del miembro
 
-El gráfico principal ocupa los dos tercios izquierdos de la página y muestra **conversaciones atendidas por intervalo de tiempo**.
+Cuando haces clic en un especialista—ya sea en la gráfica "Conversaciones por agente" o en otro lugar—se abre un **panel deslizante** a la derecha que muestra todas las conversaciones escaladas asignadas a esa persona en el período seleccionado.
 
-### Vista de todos los especialistas
+Cada tarjeta de conversación muestra:
 
-Cuando el filtro de agente está configurado en **Todos los especialistas**, el gráfico muestra un **gráfico de barras apiladas** donde cada segmento de color representa a un agente diferente. El agente con mayor volumen se ubica en la base de la pila; los de menor contribución se apilan encima.
-
-- Una **leyenda con colores** aparece debajo del gráfico, asociando el nombre de cada agente con su color de barra.
-- **Pasa el cursor** sobre cualquier barra para ver un tooltip personalizado que lista a cada agente que atendió conversaciones ese día, ordenados por volumen (mayor primero), más una línea de **Total atendidas** al final.
-
-Los primeros siete agentes en el ranking reciben colores fijos de la paleta de marca para que sean fáciles de reconocer tanto en el gráfico como en la tabla de clasificación. Los agentes fuera del top siete reciben un tono estable generado automáticamente a partir de su ID.
-
-### Vista de un solo agente
-
-Cuando se selecciona un agente específico, el gráfico muestra solo los conteos diarios de ese agente como barras simples, coloreadas según su posición en el ranking.
-
----
-
-## Tabla de clasificación (Leaderboard)
-
-El tercio derecho de la página muestra una **tabla de clasificación de agentes**, ordenada por el número de conversaciones atendidas en el período seleccionado. Cada fila muestra:
-
-| Columna | Descripción |
+| Campo | Descripción |
 |---|---|
-| **#** | Posición en el ranking |
-| **Agente** | Nombre del especialista |
-| **Atendidas** | Total de conversaciones atendidas |
-| **Prom. primera respuesta** | Tiempo promedio hasta la primera respuesta del agente |
-| **Prom. resolución** | Tiempo promedio para resolver (cerrar) una conversación |
+| **Tema** | El tema auto-clasificado de la conversación (o "Sin tema") |
+| **Estado** | Una de cuatro etiquetas: **Sin iniciar**, **Activa**, **Escalada** o **Resuelta** |
+| **Nombre del usuario** | El nombre del usuario externo (o "Usuario desconocido" si no está disponible) |
+| **Escalada** | Cuándo la conversación fue escalada a un especialista humano |
+| **Primera respuesta humana** | Cuándo el especialista envió su primer mensaje (o "Aún ninguna") |
+| **Creada** | Cuándo se creó originalmente la conversación |
+| **Mensajes** | Número total de mensajes en la conversación |
 
-Haz clic en cualquier fila para abrir un **panel lateral** con las conversaciones individuales de ese agente en el período seleccionado. Así puedes leer transcripciones y revisar resultados sin salir del panel.
+### Abrir una conversación
 
-<Tip>
-Usa la tabla de clasificación para identificar rápidamente a los mejores agentes y a quienes podrían necesitar coaching — busca valores atípicos en los tiempos de respuesta o resolución.
-</Tip>
+Haz clic en cualquier tarjeta de conversación para abrir un **cajón de conversación** directamente en la página de Rendimiento. Esto muestra la transcripción completa y los detalles de la conversación—el mismo visor que se usa en el tablero de Conversaciones—sin navegar fuera de la página.
+
+### Ir al tablero
+
+En la parte superior del panel encontrarás un botón **"Ir al tablero"** que te lleva al tablero de Conversaciones filtrado por las conversaciones de ese especialista.
 
 ---
 
-## Flujos de trabajo comunes
+## Casos de uso comunes
 
-- **Reunión diaria** — Configura el preset de fecha en **1 d** y la granularidad en **Día** para revisar la distribución de carga de ayer.
-- **Revisión semanal** — Usa el preset de **7 d** para comparar el rendimiento de los agentes durante la última semana.
-- **Análisis profundo de un especialista** — Selecciona un agente en el desplegable de filtros y luego haz clic en su fila del ranking para leer sus conversaciones individuales.
-- **Período de reporte personalizado** — Usa el selector de rango de fechas para elegir un período arbitrario (ej. una campaña promocional) y cambia la granularidad a **Semana** o **Mes** para una vista de alto nivel.
+- **Comparar cargas de trabajo** — usa la gráfica "Conversaciones por agente" para ver quién está manejando más escalaciones y si la carga está equilibrada.
+- **Detectar tendencias diarias** — la gráfica de rendimiento revela días ocupados y períodos tranquilos, ayudándote a planificar la dotación de personal.
+- **Revisar el desempeño individual** — haz clic en el panel de un especialista, luego abre conversaciones específicas para leer transcripciones y evaluar la calidad.
+- **Monitorear tiempos de primera respuesta** — el campo "Primera respuesta humana" en cada tarjeta de conversación te indica qué tan rápido un especialista respondió tras la escalación.
