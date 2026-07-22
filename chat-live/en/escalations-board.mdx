@@ -1,0 +1,133 @@
+---
+title: "Escalations Board"
+language: en
+description: "Monitor and manage escalated conversations in real time from a single operational board—track wait times, assign agents, and ensure no customer is left waiting."
+---
+
+The **Escalations Board** gives your team a real-time operational view of every conversation that has been escalated to a human agent. Instead of switching between the inbox and separate reports, supervisors and agents can see at a glance which customers are waiting, who is handling what, and whether response-time targets are being met.
+
+You can find the Escalations Board under **Contact Center > Live Chat > Escalations Board** in the left sidebar.
+
+---
+
+## KPI Cards
+
+At the top of the board, four cards summarize the current state of escalations (based on the last 24 hours):
+
+| KPI | What it measures |
+|---|---|
+| **Open** | Number of escalated conversations that have not yet been resolved |
+| **Awaiting** | Number of escalated conversations still waiting for the first human reply |
+| **Overdue** | Number of awaiting conversations that have exceeded the configured response-time threshold |
+| **Median First Response** | The median time between escalation and the first human message, across all conversations that have received a reply |
+
+<Tip>
+The **Overdue** count turns red when there are conversations past the threshold, helping you spot SLA breaches immediately.
+</Tip>
+
+---
+
+## Conversations Table
+
+Below the KPIs you'll find a table listing all escalated conversations. Each row shows:
+
+| Column | Description |
+|---|---|
+| **Conversation** | Customer name and a short summary of the conversation |
+| **Channel** | The channel the conversation originated from (e.g., Chat Widget, WhatsApp) |
+| **Status** | Current board status: **Awaiting** (no human reply yet), **Attended** (human has replied), or **Resolved** (conversation ended) |
+| **Assignee** | The team member assigned to the conversation, or an **Assign** button if unassigned |
+| **Waiting** | Time elapsed between escalation and first human reply. Displays in red if it exceeds the threshold |
+
+Click any row to open the **detail drawer** for that conversation.
+
+### Searching and Filtering
+
+- **Search bar** — Filter conversations by customer name or conversation ID.
+- **Attention filter tabs** — Quickly switch between:
+  - **All** — every escalated conversation
+  - **Awaiting** — only conversations waiting for a first human reply
+  - **Overdue** — only conversations that have exceeded the response-time threshold
+
+### Overdue Threshold
+
+The overdue threshold determines how many minutes can pass before an awaiting conversation is flagged as overdue. You can adjust it using the **−** and **+** buttons in the toolbar.
+
+- **Default:** 15 minutes
+- **Range:** 5 – 120 minutes (in 5-minute increments)
+
+Conversations that exceed this threshold are tagged with an **Overdue** label. Conversations that were eventually replied to but after the threshold show an **Answered late** label instead.
+
+---
+
+## Detail Drawer
+
+Clicking a conversation row opens a side panel with full context:
+
+### Identification
+
+- **Conversation ID** — A truncated ID with a copy-to-clipboard button.
+- **Customer ID** — The end user's phone number or external user ID.
+- **Channel** — The channel name.
+
+### Assignee
+
+Shows the currently assigned team member (with their avatar and active conversation count) or an **Unassigned** indicator. From here you can:
+
+- **Assign / Reassign** — Open the assignment dialog to pick a team member.
+- **Return to AI** — Unassign the conversation and hand it back to the AI agent.
+
+<Note>
+Regular team members can only assign conversations to themselves. **Admins and Owners** can assign or reassign conversations to any available team member.
+</Note>
+
+### Timeline
+
+A visual timeline traces the lifecycle of the escalation:
+
+1. **Conversation started** — When the conversation was created, and on which channel.
+2. **Escalated** — When the conversation was escalated to a human.
+3. **First human reply** — When a human agent first responded, including whether the reply was within or over the configured threshold.
+4. **Resolved** — When the conversation ended (if applicable).
+
+### Open Conversation
+
+At the bottom of the drawer, the **Open conversation** button takes you directly to the conversation in the Live Chat inbox for full messaging.
+
+---
+
+## Assigning Conversations
+
+When you click **Assign** (on an unassigned row or from the detail drawer), a dialog lists all team members in your organization:
+
+- Members are sorted with **available** members first.
+- Each entry shows the member's name and availability status (**Available now** or **Unavailable**).
+- Only available members display an **Assign** button.
+- Regular members only see themselves in the list; admins and owners see everyone.
+
+After assigning, the board refreshes automatically to reflect the change.
+
+---
+
+## Permissions
+
+| Role | Can do |
+|---|---|
+| **Owner / Admin** | View the board, assign or reassign any conversation to any member, return conversations to AI |
+| **Member** | View the board, assign unassigned conversations to themselves, return their own conversations to AI |
+
+---
+
+## Tips for Using the Board
+
+<Tip>
+Keep the board open during business hours so your team can react to new escalations as they arrive. Use the **Overdue** filter to prioritize conversations that have been waiting the longest.
+</Tip>
+
+<Tip>
+Adjust the overdue threshold to match your internal SLA. For example, if your team targets a 10-minute first response, set the threshold to 10 minutes so overdue flags align with your actual targets.
+</Tip>
+
+<Tip>
+Use the **Median First Response** KPI to track your team's responsiveness over the day. If it starts climbing, consider redistributing workload or bringing in additional agents.
+</Tip>

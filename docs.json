@@ -95,6 +95,7 @@
                 "icon": "headset",
                 "pages": [
                   "chat-live/en/conversations-panel",
+                  "chat-live/en/escalations-board",
                   "chat-live/en/performance",
                   "chat-live/en/escalation-insights"
                 ]
@@ -214,6 +215,7 @@
                 "icon": "headset",
                 "pages": [
                   "chat-live/es/panel-conversaciones",
+                  "chat-live/es/tablero-escalaciones",
                   "chat-live/es/desempeno",
                   "chat-live/es/perspectivas-escalacion"
                 ]
