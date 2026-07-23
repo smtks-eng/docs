@@ -46,49 +46,22 @@ Debajo de los indicadores encontrarás una tabla con todas las conversaciones re
 - **ID externo:** ID del usuario del canal.
 - **Número de mensajes:** Total de mensajes intercambiados (con el agente de IA).
 - **Tiempo de primera respuesta (FRT):** El tiempo transcurrido entre el primer mensaje del usuario y la primera respuesta del agente. Se muestra en formato legible (ej. `45s`, `2m 30s`, `1h 15m`).
-- **Tiempo promedio de respuesta (ART):** El tiempo promedio que tarda el agente en responder a lo largo de la conversación.
+- **Tiempo promedio de respuesta (ART):** El tiempo promedio que tarda el agente en responder a lo largo de todos los intercambios de la conversación.
 
 ---
 
-## Filtros
+## Panel de Conversación
 
-La barra de filtros te permite acotar las conversaciones mostradas en la tabla:
+Haz clic en cualquier fila de conversación para abrir el panel de detalle en el lado derecho. El panel muestra la transcripción completa del chat entre el usuario y el agente, incluyendo marcas de tiempo para cada mensaje.
 
-- **Rango de fechas** — restringe las conversaciones a un periodo específico.
-- **Canal** — filtra por canal de comunicación.
-- **Estado** — filtra por estado de la conversación (Activa, Terminada, Sin iniciar).
-- **Control** — filtra por quién gestionó la conversación:
-  - **IA** — conversaciones manejadas completamente por el agente de IA.
-  - **Humano** — conversaciones atendidas por un especialista humano.
-  - **Especialistas individuales** — debajo de un separador, se lista cada miembro del equipo que ha atendido conversaciones, por nombre. Selecciona un especialista para ver solo las conversaciones que atendió.
-- **Herramientas** — filtra por las herramientas o skills que usó el agente.
-- **Búsqueda** — búsqueda de texto libre en el contenido de las conversaciones.
+### Indicador de conversación finalizada
+
+Cuando una conversación tiene el estado **Terminada**, se muestra un mensaje de sistema al final de la transcripción del chat:
+
+> *"Esta conversación finalizó el \<fecha y hora\>"*
+
+Esto facilita ver de un vistazo que la conversación está cerrada y exactamente cuándo concluyó.
 
 <Tip>
-Usa el filtro de **Control** para auditar rápidamente las conversaciones de un especialista específico—selecciona su nombre de la lista para ver solo las sesiones que atendió.
+Usa el indicador de conversación finalizada para confirmar rápidamente cuándo terminó una sesión—especialmente útil al revisar cronologías de escalación o verificar que las conversaciones se cerraron correctamente.
 </Tip>
-
-### Modo de enlace directo
-
-Cuando llegas al Explorador de Conversaciones a través de un enlace desde otra página (por ejemplo, desde la tabla de clasificación de **Desempeño de Chat en Vivo**), la vista entra en **modo de enlace directo**:
-
-- Solo se muestran las conversaciones vinculadas.
-- Aparece un **chip fijo** en la barra de filtros mostrando la cantidad de conversaciones y, si aplica, el nombre del especialista.
-- Los filtros regulares siguen funcionando sobre el conjunto vinculado.
-- Elimina el chip fijo para salir del modo de enlace directo y volver a la lista completa de conversaciones sin filtrar.
-
-<Note>
-En modo de enlace directo, tus preferencias de filtros guardadas no se sobrescriben. Cuando sales del modo de enlace directo, se restauran tus filtros anteriores.
-</Note>
-
----
-
-## Panel de Detalle de Conversación
-
-Haz clic en cualquier fila de conversación para abrir el panel de detalle en el lado derecho. Este panel muestra la transcripción completa de la conversación y metadatos adicionales sin salir de la tabla.
-
----
-
-## Exportar
-
-Usa el botón **Exportar** para descargar las conversaciones filtradas actualmente como un archivo para análisis offline o generación de reportes.
