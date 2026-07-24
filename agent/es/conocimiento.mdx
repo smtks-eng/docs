@@ -41,6 +41,65 @@ Si tus FAQs incluyen entradas configuradas para **escalar a un agente humano**, 
 
 ---
 
+## Archivos — Generar FAQs desde documentos
+
+La pestaña **Archivos** te permite subir documentos (PDF, DOCX, TXT, etc.) y generar FAQs automáticamente a partir de su contenido. Una vez generadas, puedes revisarlas, editarlas, seleccionarlas y guardarlas en tu base de conocimientos.
+
+### Detección de similitud
+
+Cuando se generan FAQs desde un archivo, la plataforma las compara automáticamente con tu **base de conocimientos existente** — incluyendo FAQs, entradas de glosario y documentos — y muestra el contenido similar que encuentre. Esto te ayuda a evitar duplicados y mantener limpia tu base de conocimientos.
+
+#### Cómo funciona
+
+Cada FAQ generada se compara con las entradas existentes mediante similitud semántica. Si se encuentra una coincidencia por encima del umbral de relevancia, aparece una **insignia de color** junto a la pregunta de la FAQ generada:
+
+| Color de insignia | Similitud | Significado |
+|---|---|---|
+| **Verde** | 70 % o más | Muy similar — probablemente un duplicado o casi duplicado |
+| **Ámbar** | 45 % – 69 % | Moderadamente similar — vale la pena revisarlo |
+
+Las coincidencias por debajo del 45 % no se muestran.
+
+La insignia indica cuántas entradas similares se encontraron (por ejemplo, **"2 similares"**). Haz clic en la insignia para abrir un **panel emergente** con los detalles de cada coincidencia, incluyendo:
+
+- El **tipo** de contenido existente (FAQ, Glosario o Documento)
+- El **puntaje de similitud** como porcentaje
+- El **título** y la **vista previa del contenido** de la entrada existente
+
+#### Acciones sobre coincidencias similares
+
+Desde el panel emergente de similitud puedes actuar sobre cada coincidencia:
+
+<Tabs>
+  <Tab title="Reemplazar">
+    Haz clic en **Reemplazar** en una coincidencia de FAQ existente para marcar la FAQ generada como reemplazo. Al guardar, la FAQ generada **sobrescribirá** la existente en lugar de crear una nueva entrada.
+
+    - Solo una FAQ generada puede reemplazar una FAQ existente a la vez.
+    - Cuando un reemplazo está activo, la fila se resalta en azul y la insignia muestra un indicador de **reemplazo**.
+    - Haz clic en **Se reemplazará** de nuevo para deshacer.
+  </Tab>
+  <Tab title="Eliminar">
+    Haz clic en **Eliminar** en una coincidencia de FAQ existente para marcarla para su eliminación. Al guardar, esa FAQ existente será **eliminada** de tu base de conocimientos.
+
+    - Puedes marcar múltiples entradas existentes para eliminación.
+    - Cuando está marcada, aparece un indicador rojo de **eliminación** en la insignia.
+    - Haz clic en **Se eliminará** de nuevo para deshacer.
+  </Tab>
+  <Tab title="Descartar">
+    Haz clic en **Descartar este FAQ generado** en la parte inferior del panel emergente para eliminar la FAQ generada de la tabla de revisión — útil cuando la entrada existente ya es suficientemente buena.
+  </Tab>
+</Tabs>
+
+<Note>
+  **Reemplazar** y **Eliminar** son mutuamente excluyentes para la misma entrada existente. Seleccionar uno deselecciona automáticamente el otro.
+</Note>
+
+<Tip>
+  Usa la detección de similitud para mantener tu base de conocimientos optimizada: reemplaza respuestas desactualizadas con las recién generadas, elimina entradas que ya no son relevantes, o descarta FAQs generadas que duplican contenido que ya tienes.
+</Tip>
+
+---
+
 ## Revisión de Conocimiento
 
 La **Revisión de Conocimiento** es una herramienta de auditoría impulsada por IA que analiza toda la base de conocimientos de tu agente—preguntas frecuentes, entradas de glosario, instrucciones de comunicación e instrucciones especiales—y devuelve sugerencias accionables para mejorar la calidad y consistencia.
@@ -50,25 +109,39 @@ La **Revisión de Conocimiento** es una herramienta de auditoría impulsada por 
 Haz clic en el **ícono ✨ (destello)** en la esquina superior derecha de la barra de encabezado. El ícono aparece siempre que tengas un agente seleccionado. Un panel lateral se desliza abierto en el lado derecho de la pantalla.
 
 <Tip>
-  El botón de revisión está disponible desde **cualquier página** dentro de la sección del agente—no solo desde la página de Conocimiento—para que puedas ejecutar una auditoría en cualquier momento.
+  El botón de revisión está disponible desde **cualquier página** dentro de la sección del agente—no solo la de Conocimiento—para que puedas iniciar una auditoría en cualquier momento.
 </Tip>
 
 ### Cómo funciona
 
-1. **Ejecuta la revisión** — Cuando abres el panel por primera vez (o haces clic en **Ejecutar revisión de nuevo**), la plataforma envía el conocimiento de tu agente a un modelo de IA que lo analiza en busca de duplicados, contradicciones, contenido desactualizado y vacíos.
-2. **Lee el resumen** — En la parte superior del panel verás un breve resumen generado por IA sobre el estado general de tu base de conocimientos.
-3. **Explora las sugerencias** — Debajo del resumen, cada tarjeta de sugerencia muestra:
-   - Un **ícono** que indica el área objetivo (FAQ, glosario, instrucción de comunicación o instrucciones especiales).
-   - Un **título** que describe la sugerencia.
-   - Una **etiqueta de acción** (`editar`, `fusionar`, `eliminar` o `revisar`) para saber qué tipo de limpieza se recomienda.
-   - Una **razón** que explica por qué se sugiere el cambio.
-4. **Ir al elemento** — Haz clic en el enlace en la parte inferior de una tarjeta de sugerencia expandida para navegar directamente a la entrada afectada. La plataforma **resaltará** los elementos relevantes en la página de destino para que los encuentres al instante.
+1. **Ejecuta la revisión** — Cuando abres el panel lateral por primera vez (o haces clic en **Ejecutar revisión de nuevo**), la plataforma envía el conocimiento de tu agente a un modelo de IA que lo analiza en busca de problemas.
+2. **Revisa las sugerencias** — La IA devuelve una lista de sugerencias. Cada sugerencia incluye:
+   - Un **título** que resume el problema
+   - Una **descripción** explicando qué está mal y por qué importa
+   - Un **enlace de acción** que te lleva al lugar exacto en la consola donde puedes corregirlo
+3. **Aplica las correcciones** — Haz clic en el enlace de acción de una sugerencia para navegar directamente a la página y campo relevantes.
 
-### Objetivos de las sugerencias
+### Categorías de sugerencias
 
-| Objetivo | A dónde enlaza |
+Las sugerencias se organizan por el área de la base de conocimientos que afectan:
+
+| Categoría | Qué cubre |
 |---|---|
-| **FAQ** | Conocimiento → pestaña FAQs — la fila de FAQ referenciada se resalta |
-| **Glosario** | Página de Glosarios — la entrada correspondiente se resalta |
-| **Instrucción de comunicación** | Página de Identidad → sección Instrucciones de Comunicación — la fila correspondiente se resalta |
-| **Instrucciones especiales** | Página de Identidad → área de texto de Instrucciones Especiales — el campo se abre, se desplaza a la vista y se resalta |
+| **FAQs** | Preguntas duplicadas, respuestas vagas, temas faltantes, inconsistencias entre pares de P&R |
+| **Glosario** | Términos indefinidos usados en FAQs, definiciones conflictivas, términos que deberían agregarse |
+| **Instrucciones de Comunicación** | Instrucciones contradictorias, instrucciones demasiado vagas o directrices faltantes |
+| **Instrucciones Especiales** | Problemas con el campo de instrucciones especiales en la página de Identidad |
+
+### Consejos para aprovechar al máximo la Revisión de Conocimiento
+
+<Tip>
+  Ejecuta una revisión **después de importar FAQs masivamente** o hacer cambios significativos en tu glosario. La IA es especialmente buena detectando inconsistencias introducidas por ediciones grandes.
+</Tip>
+
+<Tip>
+  No necesitas corregir todas las sugerencias de una vez. Usa la revisión como una lista de verificación y trabaja los elementos con el tiempo.
+</Tip>
+
+<Note>
+  La Revisión de Conocimiento analiza una instantánea de tu conocimiento al momento de ejecutarla. Si haces cambios después de ejecutar una revisión, haz clic en **Ejecutar revisión de nuevo** para obtener sugerencias actualizadas.
+</Note>

@@ -41,6 +41,65 @@ If your FAQs include entries that are configured to **escalate to a human agent*
 
 ---
 
+## Files — Generating FAQs from documents
+
+The **Files** tab lets you upload documents (PDF, DOCX, TXT, etc.) and automatically generate FAQs from their content. Once generated, you can review, edit, select, and save the FAQs into your knowledge base.
+
+### Similarity detection
+
+When FAQs are generated from a file, the platform automatically checks them against your **existing knowledge base** — including FAQs, glossary entries, and documents — and surfaces any similar content it finds. This helps you avoid duplicates and keep your knowledge base clean.
+
+#### How it works
+
+Each generated FAQ is compared to existing entries using semantic similarity. If a match is found above the relevance threshold, a **colored badge** appears next to the generated FAQ's question:
+
+| Badge color | Similarity | Meaning |
+|---|---|---|
+| **Green** | 70 % or higher | Very similar — likely a duplicate or near-duplicate |
+| **Amber** | 45 % – 69 % | Moderately similar — worth reviewing |
+
+Matches below 45 % are not surfaced.
+
+The badge shows how many similar existing entries were found (e.g., **"2 similar"**). Click the badge to open a **popover panel** with full details about each match, including:
+
+- The **type** of existing content (FAQ, Glossary, or Document)
+- The **similarity score** as a percentage
+- The **title** and **content preview** of the existing entry
+
+#### Actions on similar matches
+
+From the similarity popover you can take action on each match:
+
+<Tabs>
+  <Tab title="Replace">
+    Click **Replace** on an existing FAQ match to mark the generated FAQ as a replacement. When you save, the generated FAQ will **overwrite** the existing one instead of creating a new entry.
+
+    - Only one generated FAQ can replace a given existing FAQ at a time.
+    - When a replace is active, the row is highlighted in blue and the badge shows a **replace** indicator.
+    - Click **Will replace** again to undo.
+  </Tab>
+  <Tab title="Delete old">
+    Click **Delete old** on an existing FAQ match to mark it for removal. When you save, that existing FAQ will be **deleted** from your knowledge base.
+
+    - You can mark multiple existing entries for deletion.
+    - When marked, a red **delete** indicator appears on the badge.
+    - Click **Will delete** again to undo.
+  </Tab>
+  <Tab title="Discard">
+    Click **Discard this generated FAQ** at the bottom of the popover to remove the generated FAQ from the review table entirely — useful when the existing entry is already good enough.
+  </Tab>
+</Tabs>
+
+<Note>
+  **Replace** and **Delete old** are mutually exclusive for the same existing entry. Selecting one automatically deselects the other.
+</Note>
+
+<Tip>
+  Use similarity detection to keep your knowledge base lean: replace outdated answers with freshly generated ones, delete entries that are no longer relevant, or discard generated FAQs that duplicate content you already have.
+</Tip>
+
+---
+
 ## Knowledge Review
 
 The **Knowledge Review** is an AI-powered audit tool that scans your agent's entire knowledge base—FAQs, glossary entries, communication instructions, and special instructions—and returns actionable suggestions to improve quality and consistency.
@@ -55,20 +114,34 @@ Click the **✨ (sparkle) icon** in the top-right area of the header bar. The ic
 
 ### How it works
 
-1. **Run the review** — When you open the sidebar for the first time (or click **Run review again**), the platform sends your agent's knowledge to an AI model that analyzes it for issues like duplicates, contradictions, outdated content, and gaps.
-2. **Read the summary** — At the top of the sidebar you'll see a brief AI-generated summary of your knowledge base's overall health.
-3. **Browse suggestions** — Below the summary, each suggestion card shows:
-   - An **icon** indicating the target area (FAQ, glossary, communication instruction, or special instructions).
-   - A **title** describing the suggestion.
-   - An **action badge** (`edit`, `merge`, `delete`, or `review`) so you know what kind of cleanup is recommended.
-   - A **reason** explaining why the change is suggested.
-4. **Jump to the item** — Click the link at the bottom of an expanded suggestion card to navigate directly to the affected entry. The platform will **highlight** the relevant items on the destination page so you can find them instantly.
+1. **Run the review** — When you open the sidebar for the first time (or click **Run review again**), the platform sends your agent's knowledge to an AI model that analyzes it for issues.
+2. **Review suggestions** — The AI returns a list of suggestions. Each suggestion includes:
+   - A **title** summarizing the issue
+   - A **description** explaining what's wrong and why it matters
+   - An **action link** that takes you to the exact place in the console where you can fix it
+3. **Apply fixes** — Click a suggestion's action link to navigate directly to the relevant page and field. Some links deep-link into specific sections (e.g., a particular communication instruction).
 
-### Suggestion targets
+### Suggestion categories
 
-| Target | Where it links |
+Suggestions are organized by the area of the knowledge base they affect:
+
+| Category | What it covers |
 |---|---|
-| **FAQ** | Knowledge → FAQs tab — the referenced FAQ row is highlighted |
-| **Glossary** | Glossaries page — the matching glossary entry is highlighted |
-| **Communication Instruction** | Identity page → Communication Instructions section — the matching row is highlighted |
-| **Special Instructions** | Identity page → Special Instructions text area — the field opens, scrolls into view, and is highlighted |
+| **FAQs** | Duplicate questions, vague answers, missing topics, inconsistencies between Q&A pairs |
+| **Glossary** | Undefined terms used in FAQs, conflicting definitions, terms that should be added |
+| **Communication Instructions** | Contradictory instructions, instructions that are too vague, or missing guidelines |
+| **Special Instructions** | Issues with the free-text special instructions field on the Identity page |
+
+### Tips for getting the most out of Knowledge Review
+
+<Tip>
+  Run a review **after bulk-importing FAQs** or making significant changes to your glossary. The AI is especially good at catching inconsistencies introduced by large edits.
+</Tip>
+
+<Tip>
+  You don't need to fix every suggestion at once. Use the review as a checklist and work through items over time.
+</Tip>
+
+<Note>
+  The Knowledge Review analyzes a snapshot of your knowledge at the time you run it. If you make changes after running a review, click **Run review again** to get updated suggestions.
+</Note>
