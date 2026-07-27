@@ -1,185 +1,158 @@
 ---
 title: "Escalations Board"
-language: en
-description: "Monitor, triage, and manage escalated conversations in real time across three specialized views: Queue, Assignment, and Specialists."
+description: "Monitor, triage, and manage escalated conversations in real time from the Escalations Board — your live command center for human handoffs."
 ---
 
-The **Escalations Board** is the command center for managing conversations that have been escalated from your AI agent to human specialists. It provides real-time visibility into open escalations, assignment flow, and specialist workload—all in one place.
+The **Escalations Board** is the real-time operations hub for every conversation that has been escalated from the AI agent to a human specialist. It gives managers and team leads full visibility into open cases, assignment patterns, and specialist performance — all in one place.
+
+## Accessing the Escalations Board
+
+Navigate to **Contact Center > Live Chat > Escalations Board** in the left sidebar. You need the appropriate role permissions to view this page.
 
 <Note>
-  The Escalations Board requires the **Semantiks Contact Center** tool (`pass_control_semantiks_cc`) to be enabled on your agent. If it is not enabled, the board will display a prompt with a button to navigate to **Skills > Tools** where you can activate it.
+If you don't have permission, the board displays a shield icon and a message indicating that access is restricted.
 </Note>
 
 ---
 
-## Accessing the Escalations Board
+## Page layout
 
-Navigate to **Contact Center > Live Chat > Escalations Board** in the left sidebar. The board is gated by the `contact.escalations_board` permission on your organization—if you don't have access, you'll see a restricted-access message.
+At the top of the page you'll find:
 
----
-
-## Board Tabs
-
-The Escalations Board is organized into three tabs at the top of the page:
-
-| Tab | Purpose |
-|---|---|
-| **Queue** | View and manage all escalated conversations, filter by status, search, and assign specialists |
-| **Assignment** | See a timeline of recent assignments, routing logic, distribution stats, and response metrics |
-| **Specialists** | Review per-specialist workload, performance, availability, and conversation history |
-
-Switch between tabs using the tab bar at the top-right of the board.
+- **Title and subtitle** describing the board's purpose.
+- **View tabs** — switch between **Queue**, **Assignment**, and **Specialists** views directly from the header area.
+- **Date controls** — a date range picker and quick-select pills (Today, 7D, 30D, 90D) that appear above the Queue and Assignment views.
 
 ---
 
-## Date Range
+## Queue view
 
-All three tabs share a date range selector that controls the data window. You can:
+The Queue is the default view and shows every escalated conversation in a sortable, searchable table.
 
-- Pick a **preset** period: **24h**, **7d**, **30d**, or **90d**
-- Select a **custom date range** using the date picker
+### KPI cards
 
-The date range pills and custom picker appear above the content area in the Queue and Assignment tabs.
+Four color-coded summary cards sit above the table:
 
----
+| Card | Color | Description |
+|---|---|---|
+| **Open** | Bugambilia (pink) | Total open escalations |
+| **Awaiting** | Yellow | Escalations with no human reply yet |
+| **Overdue** | Orange | Escalations that have exceeded the response-time threshold |
+| **Median 1st Response** | Blue | Median time to the first human reply |
 
-## Queue Tab
+<Tip>
+Click the **Open**, **Awaiting**, or **Overdue** cards to instantly filter the table to that subset.
+</Tip>
 
-The Queue tab is the primary triage view. It displays all escalated conversations in a searchable, sortable table.
+### Table columns
 
-### KPI Cards
-
-Four summary cards appear at the top:
-
-| KPI | Description |
-|---|---|
-| **Open** | Total number of currently open escalated conversations |
-| **Awaiting** | Conversations waiting for a specialist to respond |
-| **Overdue** | Conversations that have exceeded the response threshold (highlighted in red when > 0) |
-| **Median First Response** | Median time to first human reply across escalations |
-
-### Filtering and Searching
-
-Below the KPIs, the conversation table provides:
-
-- **Search bar** — filter conversations by customer name, conversation ID, or other details
-- **Status filter tabs** — quickly toggle between:
-  - **Overdue** (default) — only conversations past the response threshold
-  - **Awaiting** — conversations still waiting for a first reply
-  - **All** — every open escalation regardless of status
-- **Threshold selector** — set the overdue threshold in minutes (e.g., 15 min)
-
-### Conversation Table
-
-Each row shows:
+The table displays one row per escalated conversation:
 
 | Column | Description |
 |---|---|
-| **Customer** | Name (or external ID) and conversation ID |
+| **Customer** | Contact name or external ID |
 | **Channel** | The channel the conversation came from |
-| **Status** | Badge showing Awaiting, Attended, or Resolved |
-| **Assignee** | The specialist assigned (or "Unassigned") |
-| **Waiting** | Time elapsed, shown with a color-coded progress bar — green if within threshold, red if overdue |
+| **Status** | *Awaiting*, *Attended*, or *Resolved* |
+| **Assigned to** | The specialist currently assigned |
+| **Wait time** | How long the customer has been waiting |
+| **Escalated at** | Timestamp of the escalation |
 
-Click any row to open the **conversation detail panel** on the right side.
+Use the **search bar** to find conversations by customer name or ID. Click any row to open the **conversation detail panel** on the right.
 
-### Conversation Detail Panel
+### Conversation detail panel
 
-When you click a conversation row, a side panel slides open with:
+The slide-out panel shows:
 
-- **Customer info** — name, external ID, channel
-- **Conversation ID** — with a copy button
-- **Status badge** and escalation timestamp
-- **Timeline** — escalated at, first human message (if any), and waiting time
-- **Actions**:
-  - **Open conversation** — navigate to the full conversation view
-  - **Unassign** — remove the current specialist assignment
-  - **Assign / Reassign** — open the reassignment dialog to pick a specialist
-
-<Tip>
-  Managers see a highlighted "Reassign" button when a conversation already has an assignee, making it easy to redistribute workload.
-</Tip>
-
-### Reassigning a Conversation
-
-The reassignment dialog shows all organization members. You can:
-
-- Search by name
-- See who is currently assigned (highlighted)
-- Select a new specialist and confirm
+- Customer name, status badge, and channel.
+- Key timestamps — escalated at, first human reply, assigned to.
+- Escalation reason (the AI agent's stated reason for handing off).
+- **Reassign** button (managers only) to move the conversation to a different specialist.
+- **Open Conversation** button to jump into the full live-chat view.
 
 ---
 
-## Assignment Tab
+## Assignment view
 
-The Assignment tab gives you visibility into **how** escalations are being routed and **who** is receiving them.
+The Assignment view visualizes how escalations are being distributed across the team over time.
 
 ### Assignment Timeline
 
-A horizontally scrollable timeline shows recent escalation assignments in chronological order (oldest on the left, newest on the right). Each card displays:
+A horizontal rail of cards representing past and upcoming assignments:
 
-- **When** the escalation happened
-- **Specialist** assigned (with avatar)
-- **Conversation ID** (with copy button)
-- **Assigned by** — whether the AI agent or a human manager made the assignment
-- **First reply** — timestamp of the specialist's first response, or a "No reply yet" indicator
+- **Past cards** (left of the NOW divider) — each card shows the specialist's avatar, name, the customer, assigned-by info, and when the assignment happened.
+- **NOW divider** — a vertical pink rule with a pulsing dot marking the current moment.
+- **Up Next cards** (right of the NOW divider) — show specialists in queue order. In **priority routing**, cards include the specialist's configured rank (e.g. *Rank #1*). The next specialist to receive an escalation is highlighted with a green border.
 
-A pulsing **NOW** marker separates past assignments from upcoming ones.
+#### Specialist avatars
 
-#### Up-Next Cards
+Each specialist is represented by a **notched-square avatar** (rounded with a squared top-right corner) showing their initials. A small status dot in the top-right corner indicates:
 
-To the right of the NOW marker, the timeline shows **who will receive the next escalations** based on the current routing configuration:
+- 🟢 **Green** — online / available
+- ⚫ **Grey** — offline / unavailable
 
-- If **priority routing** is enabled, cards appear in priority order with rank labels ("Next up", "+2", "+3", etc.). Unavailable or excluded specialists appear grayed out with a reason.
-- If priority routing is not enabled, available specialists are shown without rank labels.
+Skipped or excluded specialists appear with dashed borders and muted styling.
 
-### Distribution & Response Metrics
+#### Scrolling the timeline
 
-Below the timeline, two cards show aggregated stats with their own time window selector (**24h**, **7d**, **30d**):
+Three controls sit in the top-right corner of the timeline card:
 
-| Card | What it shows |
+| Control | Action |
 |---|---|
-| **Assignment Distribution** | How escalations are distributed across specialists — bar chart showing each specialist's share |
-| **Response Metrics** | Aggregated response time statistics — median first response, average response time, and SLA compliance rate |
+| **← (Back)** | Scroll left to see earlier assignments |
+| **Now** | Re-center the rail on the current moment |
+| **→ (Forward)** | Scroll right to see upcoming assignments |
+
+The back and forward buttons disable automatically when you reach the beginning or end of the rail.
+
+### Assignment Overview
+
+Below the timeline, a unified **Assignment Overview** card presents two side-by-side columns with a dropdown to select the analysis window (**24 h**, **7 d**, or **30 d**):
+
+| Column | What it shows |
+|---|---|
+| **Distribution** (left) | Total assignments and a per-specialist bar chart showing how many escalations each specialist received. Each specialist has a consistent color across all surfaces. |
+| **Response Times** (right) | Median first-response time (or average response time — toggle between them) and a per-specialist bar chart of response speed. |
+
+<Tip>
+Use the **First / Avg** toggle in the Response column to switch between median first-reply time and average response time per specialist.
+</Tip>
 
 ---
 
-## Specialists Tab
+## Specialists view
 
-The Specialists tab provides a per-specialist breakdown of workload and performance.
+The Specialists view provides a per-member performance rollup over a selectable rolling window (**24 h**, **7 d**, or **30 d**).
 
-### Specialist List
+For each specialist you can see:
 
-A scrollable list on the left shows all specialists with:
+- Number of escalations handled
+- Median first-reply time
+- Average handle time
+- Current availability status
 
-- **Name** and avatar
-- **Availability status** (online/offline)
-- **Conversation count** in the selected period
-- **Performance summary** — response times and resolution rate
-
-Click any specialist to see their detailed view on the right.
-
-### Specialist Detail View
-
-When a specialist is selected, the right panel shows:
-
-- **Conversation history** — recent escalated conversations handled by this specialist
-- **Performance metrics** — first response time, resolution time, and customer satisfaction
-- **Availability** — current online/offline status
-
-The Specialists tab has its own time window selector (**24h**, **7d**, **30d**) and respects the overdue threshold configured in the Queue tab.
+Managers can click a specialist row to view more detail or take actions such as reassignment.
 
 ---
 
-## Loading States
+## Specialist name display
 
-The Escalations Board uses skeleton loading states throughout — KPI cards, table rows, timeline cards, and specialist lists all display animated placeholders while data is being fetched, giving you immediate visual feedback.
+Names are automatically normalized for readability:
+
+- Names stored in ALL CAPS are converted to title case (e.g. *JUAN PÉREZ* → *Juan Pérez*).
+- Extra whitespace is collapsed.
+- In narrow columns, only the first name is shown.
 
 ---
 
-## Key Notes
+## Color-coded specialists
 
-- The board requires the **Semantiks Contact Center** tool to be enabled. If it's not active, you'll see a prompt to enable it from **Skills > Tools**.
-- Access is controlled by the `contact.escalations_board` organization permission.
-- The overdue threshold (default: 15 minutes) applies across all tabs.
-- Data refreshes automatically when you change date ranges, filters, or tab views.
+Each specialist is assigned a consistent color from the platform's design palette. The same specialist will always appear in the same color across the timeline, distribution chart, and specialists tab — regardless of sort order.
+
+---
+
+## Key notes
+
+- The Escalations Board requires the **escalation tool** to be enabled on your agent.
+- The board refreshes data automatically; you can also change the date range or view to reload.
+- Only users with the **manager** or equivalent role can reassign conversations.
+- The response-time threshold (used to determine "overdue" status) is configured in your escalation tool settings.

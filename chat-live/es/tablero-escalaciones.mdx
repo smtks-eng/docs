@@ -1,185 +1,158 @@
 ---
 title: "Tablero de Escalaciones"
-language: es
-description: "Monitorea, clasifica y gestiona conversaciones escaladas en tiempo real a través de tres vistas especializadas: Cola, Asignación y Especialistas."
+description: "Monitorea, clasifica y gestiona las conversaciones escaladas en tiempo real desde el Tablero de Escalaciones — tu centro de mando en vivo para transferencias a humanos."
 ---
 
-El **Tablero de Escalaciones** es el centro de mando para gestionar conversaciones que han sido escaladas de tu agente de IA a especialistas humanos. Proporciona visibilidad en tiempo real sobre escalaciones abiertas, flujo de asignación y carga de trabajo de los especialistas, todo en un solo lugar.
+El **Tablero de Escalaciones** es el centro de operaciones en tiempo real para cada conversación que ha sido escalada del agente de IA a un especialista humano. Ofrece a gerentes y líderes de equipo visibilidad completa sobre los casos abiertos, los patrones de asignación y el desempeño de los especialistas — todo en un solo lugar.
+
+## Acceder al Tablero de Escalaciones
+
+Navega a **Centro de contacto > Chat en vivo > Tablero de Escalaciones** en el menú lateral. Necesitas los permisos de rol adecuados para ver esta página.
 
 <Note>
-  El Tablero de Escalaciones requiere que la herramienta **Semantiks Contact Center** (`pass_control_semantiks_cc`) esté habilitada en tu agente. Si no está habilitada, el tablero mostrará un mensaje con un botón para navegar a **Habilidades > Herramientas** donde puedes activarla.
+Si no tienes permisos, el tablero muestra un ícono de escudo y un mensaje indicando que el acceso está restringido.
 </Note>
 
 ---
 
-## Accediendo al Tablero de Escalaciones
+## Diseño de la página
 
-Navega a **Centro de contacto > Chat en vivo > Tablero de Escalaciones** en el menú lateral. El tablero está condicionado por el permiso `contact.escalations_board` de tu organización — si no tienes acceso, verás un mensaje de acceso restringido.
+En la parte superior de la página encontrarás:
 
----
-
-## Pestañas del Tablero
-
-El Tablero de Escalaciones se organiza en tres pestañas en la parte superior de la página:
-
-| Pestaña | Propósito |
-|---|---|
-| **Cola** | Ver y gestionar todas las conversaciones escaladas, filtrar por estado, buscar y asignar especialistas |
-| **Asignación** | Ver una línea de tiempo de asignaciones recientes, lógica de enrutamiento, estadísticas de distribución y métricas de respuesta |
-| **Especialistas** | Revisar la carga de trabajo, rendimiento, disponibilidad e historial de conversaciones por especialista |
-
-Cambia entre pestañas usando la barra de pestañas en la parte superior derecha del tablero.
+- **Título y subtítulo** describiendo el propósito del tablero.
+- **Pestañas de vista** — cambia entre las vistas **Cola**, **Asignación** y **Especialistas** directamente desde el encabezado.
+- **Controles de fecha** — un selector de rango de fechas y pastillas de selección rápida (Hoy, 7D, 30D, 90D) que aparecen sobre las vistas de Cola y Asignación.
 
 ---
 
-## Rango de Fechas
+## Vista de Cola
 
-Las tres pestañas comparten un selector de rango de fechas que controla la ventana de datos. Puedes:
+La Cola es la vista predeterminada y muestra cada conversación escalada en una tabla ordenable y con búsqueda.
 
-- Elegir un período **predefinido**: **24h**, **7d**, **30d** o **90d**
-- Seleccionar un **rango personalizado** usando el selector de fechas
+### Tarjetas de indicadores
 
-Las pastillas de rango de fechas y el selector personalizado aparecen encima del área de contenido en las pestañas de Cola y Asignación.
+Cuatro tarjetas con código de color resumen la situación sobre la tabla:
 
----
+| Tarjeta | Color | Descripción |
+|---|---|---|
+| **Abiertas** | Bugambilia (rosa) | Total de escalaciones abiertas |
+| **En espera** | Amarillo | Escalaciones sin respuesta humana aún |
+| **Vencidas** | Naranja | Escalaciones que excedieron el umbral de tiempo de respuesta |
+| **Mediana 1ª Respuesta** | Azul | Tiempo mediano hasta la primera respuesta humana |
 
-## Pestaña de Cola
+<Tip>
+Haz clic en las tarjetas **Abiertas**, **En espera** o **Vencidas** para filtrar instantáneamente la tabla a ese subconjunto.
+</Tip>
 
-La pestaña de Cola es la vista principal de triaje. Muestra todas las conversaciones escaladas en una tabla con búsqueda y ordenamiento.
+### Columnas de la tabla
 
-### Tarjetas de KPIs
-
-Cuatro tarjetas resumen aparecen en la parte superior:
-
-| KPI | Descripción |
-|---|---|
-| **Abiertas** | Número total de conversaciones escaladas actualmente abiertas |
-| **En espera** | Conversaciones esperando que un especialista responda |
-| **Vencidas** | Conversaciones que han excedido el umbral de respuesta (resaltadas en rojo cuando > 0) |
-| **Mediana de Primera Respuesta** | Tiempo mediano hasta la primera respuesta humana en las escalaciones |
-
-### Filtrado y Búsqueda
-
-Debajo de los KPIs, la tabla de conversaciones proporciona:
-
-- **Barra de búsqueda** — filtra conversaciones por nombre del cliente, ID de conversación u otros detalles
-- **Pestañas de filtro por estado** — alterna rápidamente entre:
-  - **Vencidas** (predeterminado) — solo conversaciones que excedieron el umbral de respuesta
-  - **En espera** — conversaciones aún esperando una primera respuesta
-  - **Todas** — todas las escalaciones abiertas sin importar el estado
-- **Selector de umbral** — establece el umbral de vencimiento en minutos (ej., 15 min)
-
-### Tabla de Conversaciones
-
-Cada fila muestra:
+La tabla muestra una fila por conversación escalada:
 
 | Columna | Descripción |
 |---|---|
-| **Cliente** | Nombre (o ID externo) e ID de conversación |
-| **Canal** | El canal del cual proviene la conversación |
-| **Estado** | Badge mostrando En espera, Atendida o Resuelta |
-| **Asignado a** | El especialista asignado (o "Sin asignar") |
-| **Tiempo de espera** | Tiempo transcurrido, mostrado con una barra de progreso con código de colores — verde si está dentro del umbral, roja si está vencida |
+| **Cliente** | Nombre del contacto o ID externo |
+| **Canal** | El canal de donde proviene la conversación |
+| **Estado** | *En espera*, *Atendida* o *Resuelta* |
+| **Asignado a** | El especialista actualmente asignado |
+| **Tiempo de espera** | Cuánto tiempo lleva esperando el cliente |
+| **Escalada a las** | Marca de tiempo de la escalación |
 
-Haz clic en cualquier fila para abrir el **panel de detalle de conversación** en el lado derecho.
+Usa la **barra de búsqueda** para encontrar conversaciones por nombre o ID del cliente. Haz clic en cualquier fila para abrir el **panel de detalle** a la derecha.
 
-### Panel de Detalle de Conversación
+### Panel de detalle de conversación
 
-Cuando haces clic en una fila de conversación, un panel lateral se desliza con:
+El panel deslizable muestra:
 
-- **Info del cliente** — nombre, ID externo, canal
-- **ID de conversación** — con botón de copiar
-- **Badge de estado** y marca de tiempo de escalación
-- **Línea de tiempo** — escalada en, primer mensaje humano (si existe) y tiempo de espera
-- **Acciones**:
-  - **Abrir conversación** — navegar a la vista completa de la conversación
-  - **Desasignar** — remover la asignación actual del especialista
-  - **Asignar / Reasignar** — abrir el diálogo de reasignación para elegir un especialista
+- Nombre del cliente, insignia de estado y canal.
+- Marcas de tiempo clave — escalada a las, primera respuesta humana, asignado a.
+- Razón de escalación (la razón declarada por el agente de IA para la transferencia).
+- Botón **Reasignar** (solo gerentes) para mover la conversación a otro especialista.
+- Botón **Abrir Conversación** para ir a la vista completa del chat en vivo.
+
+---
+
+## Vista de Asignación
+
+La vista de Asignación visualiza cómo se distribuyen las escalaciones en el equipo a lo largo del tiempo.
+
+### Línea de tiempo de asignación
+
+Un riel horizontal de tarjetas que representa las asignaciones pasadas y futuras:
+
+- **Tarjetas pasadas** (a la izquierda del divisor AHORA) — cada tarjeta muestra el avatar del especialista, nombre, el cliente, quién asignó y cuándo ocurrió la asignación.
+- **Divisor AHORA** — una línea vertical rosa con un punto pulsante que marca el momento actual.
+- **Tarjetas Siguiente** (a la derecha del divisor AHORA) — muestran los especialistas en orden de cola. En **enrutamiento por prioridad**, las tarjetas incluyen el rango configurado del especialista (ej. *Rank #1*). El siguiente especialista en recibir una escalación se resalta con un borde verde.
+
+#### Avatares de especialistas
+
+Cada especialista se representa con un **avatar cuadrado con muesca** (redondeado con la esquina superior derecha cuadrada) mostrando sus iniciales. Un pequeño punto de estado en la esquina superior derecha indica:
+
+- 🟢 **Verde** — en línea / disponible
+- ⚫ **Gris** — fuera de línea / no disponible
+
+Los especialistas omitidos o excluidos aparecen con bordes discontinuos y estilo atenuado.
+
+#### Navegación de la línea de tiempo
+
+Tres controles se ubican en la esquina superior derecha de la tarjeta de línea de tiempo:
+
+| Control | Acción |
+|---|---|
+| **← (Atrás)** | Desplazarse a la izquierda para ver asignaciones anteriores |
+| **Ahora** | Re-centrar el riel en el momento actual |
+| **→ (Adelante)** | Desplazarse a la derecha para ver próximas asignaciones |
+
+Los botones de atrás y adelante se deshabilitan automáticamente cuando llegas al inicio o al final del riel.
+
+### Resumen de Asignación
+
+Debajo de la línea de tiempo, una tarjeta unificada de **Resumen de Asignación** presenta dos columnas lado a lado con un desplegable para seleccionar la ventana de análisis (**24 h**, **7 d** o **30 d**):
+
+| Columna | Qué muestra |
+|---|---|
+| **Distribución** (izquierda) | Total de asignaciones y un gráfico de barras por especialista mostrando cuántas escalaciones recibió cada uno. Cada especialista tiene un color consistente en todas las superficies. |
+| **Tiempos de Respuesta** (derecha) | Tiempo mediano de primera respuesta (o tiempo promedio de respuesta — alterna entre ellos) y un gráfico de barras por especialista de velocidad de respuesta. |
 
 <Tip>
-  Los managers ven un botón "Reasignar" resaltado cuando una conversación ya tiene un asignado, facilitando redistribuir la carga de trabajo.
+Usa el alternador **Primera / Prom** en la columna de Respuesta para cambiar entre el tiempo mediano de primera respuesta y el tiempo promedio de respuesta por especialista.
 </Tip>
 
-### Reasignar una Conversación
+---
 
-El diálogo de reasignación muestra todos los miembros de la organización. Puedes:
+## Vista de Especialistas
 
-- Buscar por nombre
-- Ver quién está actualmente asignado (resaltado)
-- Seleccionar un nuevo especialista y confirmar
+La vista de Especialistas ofrece un resumen de desempeño por miembro sobre una ventana deslizante seleccionable (**24 h**, **7 d** o **30 d**).
+
+Para cada especialista puedes ver:
+
+- Número de escalaciones atendidas
+- Tiempo mediano de primera respuesta
+- Tiempo promedio de atención
+- Estado de disponibilidad actual
+
+Los gerentes pueden hacer clic en la fila de un especialista para ver más detalles o tomar acciones como reasignación.
 
 ---
 
-## Pestaña de Asignación
+## Visualización de nombres de especialistas
 
-La pestaña de Asignación te da visibilidad sobre **cómo** se están enrutando las escalaciones y **quién** las está recibiendo.
+Los nombres se normalizan automáticamente para mejorar la legibilidad:
 
-### Línea de Tiempo de Asignación
-
-Una línea de tiempo con desplazamiento horizontal muestra las asignaciones recientes de escalaciones en orden cronológico (las más antiguas a la izquierda, las más recientes a la derecha). Cada tarjeta muestra:
-
-- **Cuándo** ocurrió la escalación
-- **Especialista** asignado (con avatar)
-- **ID de conversación** (con botón de copiar)
-- **Asignado por** — si el agente de IA o un manager humano hizo la asignación
-- **Primera respuesta** — marca de tiempo de la primera respuesta del especialista, o un indicador de "Sin respuesta aún"
-
-Un marcador **AHORA** pulsante separa las asignaciones pasadas de las próximas.
-
-#### Tarjetas de Próximos
-
-A la derecha del marcador AHORA, la línea de tiempo muestra **quién recibirá las próximas escalaciones** según la configuración de enrutamiento actual:
-
-- Si el **enrutamiento por prioridad** está habilitado, las tarjetas aparecen en orden de prioridad con etiquetas de rango ("Siguiente", "+2", "+3", etc.). Los especialistas no disponibles o excluidos aparecen atenuados con una razón.
-- Si el enrutamiento por prioridad no está habilitado, los especialistas disponibles se muestran sin etiquetas de rango.
-
-### Métricas de Distribución y Respuesta
-
-Debajo de la línea de tiempo, dos tarjetas muestran estadísticas agregadas con su propio selector de ventana de tiempo (**24h**, **7d**, **30d**):
-
-| Tarjeta | Qué muestra |
-|---|---|
-| **Distribución de Asignación** | Cómo se distribuyen las escalaciones entre especialistas — gráfico de barras mostrando la participación de cada especialista |
-| **Métricas de Respuesta** | Estadísticas agregadas de tiempo de respuesta — mediana de primera respuesta, tiempo promedio de respuesta y tasa de cumplimiento de SLA |
+- Los nombres almacenados en MAYÚSCULAS se convierten a formato título (ej. *JUAN PÉREZ* → *Juan Pérez*).
+- Los espacios extra se colapsan.
+- En columnas estrechas, solo se muestra el primer nombre.
 
 ---
 
-## Pestaña de Especialistas
+## Colores de especialistas
 
-La pestaña de Especialistas proporciona un desglose por especialista de carga de trabajo y rendimiento.
-
-### Lista de Especialistas
-
-Una lista con desplazamiento en el lado izquierdo muestra todos los especialistas con:
-
-- **Nombre** y avatar
-- **Estado de disponibilidad** (en línea/fuera de línea)
-- **Conteo de conversaciones** en el período seleccionado
-- **Resumen de rendimiento** — tiempos de respuesta y tasa de resolución
-
-Haz clic en cualquier especialista para ver su vista detallada a la derecha.
-
-### Vista de Detalle del Especialista
-
-Cuando un especialista está seleccionado, el panel derecho muestra:
-
-- **Historial de conversaciones** — conversaciones escaladas recientes manejadas por este especialista
-- **Métricas de rendimiento** — tiempo de primera respuesta, tiempo de resolución y satisfacción del cliente
-- **Disponibilidad** — estado actual en línea/fuera de línea
-
-La pestaña de Especialistas tiene su propio selector de ventana de tiempo (**24h**, **7d**, **30d**) y respeta el umbral de vencimiento configurado en la pestaña de Cola.
+Cada especialista tiene asignado un color consistente de la paleta de diseño de la plataforma. El mismo especialista siempre aparecerá con el mismo color en la línea de tiempo, el gráfico de distribución y la pestaña de especialistas — independientemente del orden de clasificación.
 
 ---
 
-## Estados de Carga
+## Notas clave
 
-El Tablero de Escalaciones usa estados de carga tipo esqueleto en todo momento — tarjetas de KPIs, filas de tabla, tarjetas de línea de tiempo y listas de especialistas muestran marcadores de posición animados mientras se obtienen los datos, dándote retroalimentación visual inmediata.
-
----
-
-## Notas Clave
-
-- El tablero requiere que la herramienta **Semantiks Contact Center** esté habilitada. Si no está activa, verás un mensaje para habilitarla desde **Habilidades > Herramientas**.
-- El acceso está controlado por el permiso `contact.escalations_board` de la organización.
-- El umbral de vencimiento (predeterminado: 15 minutos) aplica en todas las pestañas.
-- Los datos se actualizan automáticamente cuando cambias rangos de fechas, filtros o vistas de pestañas.
+- El Tablero de Escalaciones requiere que la **herramienta de escalación** esté habilitada en tu agente.
+- El tablero actualiza los datos automáticamente; también puedes cambiar el rango de fechas o la vista para recargar.
+- Solo los usuarios con rol de **gerente** o equivalente pueden reasignar conversaciones.
+- El umbral de tiempo de respuesta (usado para determinar el estado "vencida") se configura en los ajustes de tu herramienta de escalación.
