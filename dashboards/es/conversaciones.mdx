@@ -46,22 +46,58 @@ Debajo de los indicadores encontrarás una tabla con todas las conversaciones re
 - **ID externo:** ID del usuario del canal.
 - **Número de mensajes:** Total de mensajes intercambiados (con el agente de IA).
 - **Tiempo de primera respuesta (FRT):** El tiempo transcurrido entre el primer mensaje del usuario y la primera respuesta del agente. Se muestra en formato legible (ej. `45s`, `2m 30s`, `1h 15m`).
-- **Tiempo promedio de respuesta (ART):** El tiempo promedio que tarda el agente en responder a lo largo de todos los intercambios de la conversación.
+- **Tiempo promedio de respuesta (ART):** El tiempo promedio que tarda el agente en responder a lo largo de la conversación.
 
 ---
 
 ## Panel de Conversación
 
-Haz clic en cualquier fila de conversación para abrir el panel de detalle en el lado derecho. El panel muestra la transcripción completa del chat entre el usuario y el agente, incluyendo marcas de tiempo para cada mensaje.
+Al hacer clic en una conversación de la tabla, el **Panel de Conversación** se abre en el lado derecho de la pantalla. Proporciona una vista completa de la conversación seleccionada.
 
-### Indicador de conversación finalizada
+### Transcripción del chat
 
-Cuando una conversación tiene el estado **Terminada**, se muestra un mensaje de sistema al final de la transcripción del chat:
+La transcripción muestra cada mensaje intercambiado entre el usuario y el agente (y cualquier operador humano que haya tomado el control). Los mensajes se muestran en formato de burbuja de chat, con marcas de tiempo y etiquetas del remitente.
 
-> *"Esta conversación finalizó el \<fecha y hora\>"*
+#### Mensajes de campaña
 
-Esto facilita ver de un vistazo que la conversación está cerrada y exactamente cuándo concluyó.
+Los mensajes enviados proactivamente como parte de una **Campaña** (incluyendo plantillas de WhatsApp) se distinguen visualmente con un fondo verde y una insignia de **Campaña** en la parte superior de la burbuja. Esto te ayuda a identificar rápidamente los envíos de campaña salientes dentro de una conversación.
+
+#### Mensajes de WhatsApp Flow
+
+Cuando tu agente envía un **WhatsApp Flow** (formulario) a un usuario, el mensaje aparece en la transcripción con un estilo distintivo:
+
+- Un fondo verde (igual que los mensajes de campaña).
+- Una insignia de **Formulario** con un ícono de portapapeles en la parte superior de la burbuja, que facilita identificar los envíos de flujos de un vistazo.
+- Una línea de metadatos debajo de la insignia que muestra el **idioma** y las **categorías** del flujo (ej. `ES · ENCUESTA · SOPORTE_CLIENTE`), para que puedas confirmar rápidamente qué flujo se envió sin salir de la vista de conversación.
 
 <Tip>
-Usa el indicador de conversación finalizada para confirmar rápidamente cuándo terminó una sesión—especialmente útil al revisar cronologías de escalación o verificar que las conversaciones se cerraron correctamente.
+Usa la insignia de Formulario para auditar rápidamente qué WhatsApp Flows ha enviado tu agente durante una conversación. La línea de metadatos te permite confirmar que se usó la variante correcta del flujo.
+</Tip>
+
+#### Invocaciones de herramientas
+
+Cuando el agente ejecuta una herramienta durante la conversación, aparece una **tarjeta de herramienta** colapsable en la transcripción. Muestra:
+
+- El nombre de la herramienta
+- Una etiqueta breve indicando que la herramienta se ejecutó
+- Una sección expandible con los detalles completos de solicitud y respuesta
+
+Puedes expandir o colapsar estas tarjetas usando los enlaces **Mostrar más** / **Mostrar menos**.
+
+### Buscar dentro de una conversación
+
+Usa la barra de búsqueda en la parte superior del panel de conversación para encontrar texto específico dentro de la transcripción. Los términos coincidentes se resaltan en los mensajes.
+
+---
+
+## Filtros
+
+Usa la barra de filtros encima de la tabla de conversaciones para acotar los resultados:
+
+- **Rango de fechas** — selecciona un período (Hoy, 7D, 30D, Año o personalizado)
+- **Canal** — filtra por canal de comunicación
+- **Estado** — filtra por estado de la conversación
+
+<Tip>
+Combina filtros de rango de fechas y canal para enfocarte en ventanas operativas específicas—por ejemplo, todas las conversaciones de WhatsApp de los últimos 7 días.
 </Tip>

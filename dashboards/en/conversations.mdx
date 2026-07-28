@@ -46,22 +46,58 @@ Below the KPIs, you will find a table with all recorded conversations. Each row 
 - **External ID:** User ID from the channel.
 - **Number of Messages:** Total messages exchanged (with the AI agent).
 - **First Response Time (FRT):** The time elapsed between the user's first message and the agent's first reply. Displayed in a human-readable format (e.g., `45s`, `2m 30s`, `1h 15m`).
-- **Average Response Time (ART):** The average time the agent takes to respond across all exchanges in the conversation.
+- **Average Response Time (ART):** The average time the agent takes to respond throughout the conversation.
 
 ---
 
 ## Conversation Panel
 
-Click on any conversation row to open the detail panel on the right side. The panel shows the full chat transcript between the user and the agent, including timestamps for each message.
+When you click on a conversation from the table, the **Conversation Panel** opens on the right side of the screen. It provides a complete view of the selected conversation.
 
-### Ended conversation indicator
+### Chat transcript
 
-When a conversation has the status **Ended**, a system message is displayed at the bottom of the chat transcript:
+The transcript displays every message exchanged between the user and the agent (and any human operator who took over). Messages are shown in a chat-bubble format, with timestamps and sender labels.
 
-> *"This conversation has ended at \<date and time\>"*
+#### Campaign messages
 
-This makes it easy to see at a glance that the conversation is closed and exactly when it was concluded.
+Messages sent proactively as part of a **Campaign** (including WhatsApp template messages) are visually distinguished with a green background and a **Campaign** badge at the top of the bubble. This helps you quickly identify outbound campaign touches within a conversation.
+
+#### WhatsApp Flow messages
+
+When your agent sends a **WhatsApp Flow** (form) to a user, the message appears in the transcript with a distinctive style:
+
+- A green background (same as campaign messages).
+- A **Form** badge with a clipboard icon at the top of the bubble, making it easy to spot flow sends at a glance.
+- A metadata line below the badge showing the flow's **language** and **categories** (e.g., `EN · SURVEY · CUSTOMER_SUPPORT`), so you can quickly identify which flow was sent without leaving the conversation view.
 
 <Tip>
-Use the ended-conversation indicator to quickly confirm when a session wrapped up—especially useful when reviewing escalation timelines or verifying that conversations were properly closed.
+Use the Form badge to quickly audit which WhatsApp Flows your agent has sent during a conversation. The metadata line lets you confirm the correct flow variant was used.
+</Tip>
+
+#### Tool invocations
+
+When the agent executes a tool during the conversation, a collapsible **tool card** appears in the transcript. It shows:
+
+- The tool name
+- A brief label indicating the tool was executed
+- An expandable section with the full request and response details
+
+You can expand or collapse these cards using the **Show more** / **Show less** links.
+
+### Search within a conversation
+
+Use the search bar at the top of the conversation panel to find specific text within the transcript. Matching terms are highlighted in the messages.
+
+---
+
+## Filters
+
+Use the filter bar above the conversations table to narrow results:
+
+- **Date range** — select a period (Today, 7D, 30D, Year, or custom)
+- **Channel** — filter by communication channel
+- **Status** — filter by conversation status
+
+<Tip>
+Combine date range and channel filters to focus on specific operational windows—for example, all WhatsApp conversations from the last 7 days.
 </Tip>
