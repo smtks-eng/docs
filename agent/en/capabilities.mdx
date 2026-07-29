@@ -53,105 +53,69 @@ Manage your AI agent's skills through two types of tools: predefined tools that 
     1. Go to **AI Agent > Design > Skills > Collect Information**.  
     2. Click **New Configuration** to start.  
     3. Enter a **Name** for your configuration (e.g., `registro_interesados`).  
-    4. Add any **Special Instructions** to guide the agent during information collection.  
-    5. Add one or more **Fields** — each with a name, type, description, and validation rules.  
-    6. Click **Save** to activate the configuration.  
+    4. Add any **Special Instructions** to guide the agent's behavior.  
+    5. Add the **fields** you want to collect (name, email, phone, etc.) with their types and extraction rules.  
+    6. Assign the **channels** where this configuration should be active.  
+    7. Click **Save**.  
     </Accordion>  
 
     ---
 
-    ### **Send WhatsApp Flows**  
-    - **Description:** Allows the agent to send interactive WhatsApp Flows (structured forms, surveys, booking flows, etc.) to users on the WhatsApp channel.  
+    ### **Escalate to Human Agent**  
+    - **Description:** Lets the agent hand off the conversation to a live human agent when needed.  
     - **Toggle:** Off by default.  
-    - **Channel requirement:** Requires a connected Meta WhatsApp channel.  
-    - **Configuration:** Select which Flows to link, define when the agent should trigger each one, and choose the approved template to use.  
+    - **Configuration:** Requires a compatible integration (Freshchat or Zendesk) to be connected.  
 
-    <Accordion title="How to Configure WhatsApp Flows">
+    ---
 
-    When you open the configuration panel for the **Send WhatsApp Flows** tool, the platform loads the WhatsApp Flows and message templates available in your connected WhatsApp Business Account (WABA).
-
-    #### Linking a Flow
-
-    1. Each available Flow is listed with its **name**, **ID**, and current **status** (Published, Draft, Deprecated, etc.).  
-    2. Use the **toggle** next to a Flow to link or unlink it.  
-    3. You can search Flows by name or ID using the search bar.  
-    4. The counter at the top-right shows how many Flows are currently linked (e.g., *1/3 linked*).
-
-    #### Configuring a linked Flow
-
-    Once a Flow is linked, an expandable configuration section appears with the following fields:
-
-    | Field | Required | Description |
-    |---|---|---|
-    | **When should the agent send this Flow?** | Yes | Describe the scenario in which the agent should trigger this Flow. For example: *"When the user asks to book an appointment and has already shared their name."* |
-    | **Template** | Yes | Select (or type) the name of an approved WhatsApp message template that contains a FLOW button pointing to this Flow. |
-    | **Language** | Yes | Select (or type) the exact Meta language code of the template (e.g., `en`, `es_MX`). Each language corresponds to a separate template on Meta's side — the code must match exactly. |
-    | **What should the agent say after sending?** | No | Optional instructions for what the agent should tell the user right after the Flow is sent successfully. For example: *"Tell them you sent a form and to tap the button to open it."* Leave empty to use the default completion message. |
+    ### **WhatsApp Flows**  
+    - **Description:** Enables the agent to trigger WhatsApp Flows — interactive, structured forms and screens built in Meta's Flow Builder — during a conversation on WhatsApp.  
+    - **Toggle:** Off by default.  
+    - **Channel support:** WhatsApp only.  
+    - **Configuration:** Link each Flow to a compatible WhatsApp message template and select the template language.  
 
     <Note>
-    The **"What should the agent say after sending?"** field only takes effect after the Flow has been sent successfully. The agent will never say this message on a turn where the Flow was not sent.
+    Only templates whose **first button** is a **FLOW button** pointing to the selected Flow are shown in the template dropdown. This ensures the template you pick will actually deliver the correct Flow at runtime. If no compatible template exists for a Flow, the template and language fields will be disabled.
     </Note>
 
-    <Tip>
-    If your templates are loaded from Meta, you'll see dropdowns for **Template** and **Language**. If they cannot be fetched, you can type the values manually.
-    </Tip>
+    <Accordion title="How to Configure WhatsApp Flows">
+    1. Go to **AI Agent > Design > Skills** and enable **WhatsApp Flows**.  
+    2. Click **Configuration** to open the Flows panel.  
+    3. For each Flow listed, toggle it **on** to link it to the agent.  
+    4. Select a **Template** from the dropdown — only templates compatible with that specific Flow are listed. A template is compatible when its first button is a FLOW-type button targeting the selected Flow and the template is approved by Meta.  
+    5. Choose the **Language** for the selected template. If only one language exists, it is auto-filled.  
+    6. Click **Save**.  
 
-    #### Flow statuses
-
-    - **Published** Flows can be sent to users.  
-    - **Draft** Flows must be published in WhatsApp Manager before they can be sent in production.  
-    - Flows in other statuses (e.g., Deprecated, Blocked) cannot be sent.
-
-    #### Orphaned use cases
-
-    If a linked Flow is deleted from your WABA, a warning banner appears listing the orphaned use cases. You can remove them from the configuration or restore the Flow in WhatsApp Manager.
-
+    <Warning>
+    Templates with statuses **DEPRECATED** or **BLOCKED** cannot be used and their Flows will show a warning badge.
+    </Warning>
     </Accordion>
 
     ---
 
-    ### **Escalate to Human**  
-    - **Description:** Allows the agent to transfer the conversation to a human agent when it cannot resolve the issue.  
-    - **Toggle:** Off by default.  
-    - **Channel requirement:** Requires an integration with Freshchat or Zendesk.  
-    - **Configuration:** Define escalation rules, target inboxes, and agent groups.  
-
-    ---
-
-    ### **HubSpot**  
-    - **Description:** Enables the agent to collect and sync contact properties with HubSpot CRM.  
-    - **Toggle:** Off by default.  
-    - **Configuration:** Connect your HubSpot account, then declare which properties the agent should collect.  
-
   </Tab>
 
-  <Tab title="Custom Tools">
-    The **Custom Tools** tab lets you create your own tools to extend what the AI agent can do. Custom tools connect the agent to your internal APIs and systems, enabling it to perform actions like looking up order status, checking availability, or triggering workflows in your backend.
+  <Tab title="Tools (Custom)">
+    The **Tools (Custom)** tab lets you create your own tools by defining API integrations that your agent can call during conversations.  
+
+    Custom tools extend your agent's functionality beyond the built-in capabilities. For example, you can create a tool that looks up order status from your backend, checks inventory, books appointments, or performs any action available through an API.  
 
     ---
 
-    ## How Custom Tools Work
+    ## How to Create a Custom Tool
 
-    Each custom tool defines:
-    - **What the tool does** — A natural-language description that helps the agent understand when and how to use the tool.  
-    - **API endpoint** — The URL and method the agent calls when it decides to use the tool.  
-    - **Parameters** — The inputs the agent needs to collect from the user before making the API call.  
-    - **Headers & authentication** — Any API keys or tokens required to authenticate the request.  
-
-    When a user's message matches the tool's described use case, the agent automatically collects the required parameters, makes the API call, and uses the response to continue the conversation.
-
-    ---
-
-    ## Creating a Custom Tool
-
-    1. Go to **AI Agent > Design > Skills > Custom Tools**.  
+    1. Go to **AI Agent > Design > Skills > Tools (Custom)**.  
     2. Click **New Tool**.  
-    3. Fill in the tool name, description, API endpoint, method, headers, and parameters.  
-    4. Test the tool using the built-in test panel.  
-    5. Save and enable the tool.  
+    3. Fill in the tool configuration:  
+       - **Name** — A descriptive name for the tool.  
+       - **Description** — What the tool does (this helps the AI decide when to use it).  
+       - **API Endpoint** — The URL the tool will call.  
+       - **Method** — GET, POST, PUT, DELETE, etc.  
+       - **Headers** — Any required headers (e.g., Authorization).  
+       - **Parameters** — Define the input parameters the agent needs to collect from the user.  
+    4. Click **Save**.  
 
-    <Tip>  
-    Write clear, specific descriptions for your tools. The agent relies on the description to decide when to use each tool.  
-    </Tip>  
+    ---
+
   </Tab>
 </Tabs>
