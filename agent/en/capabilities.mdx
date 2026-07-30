@@ -53,130 +53,62 @@ Manage your AI agent's skills through two types of tools: predefined tools that 
     1. Go to **AI Agent > Design > Skills > Collect Information**.  
     2. Click **New Configuration** to start.  
     3. Enter a **Name** for your configuration (e.g., `registro_interesados`).  
-    4. Add any **Special Instructions** to guide the agent on how to collect data.  
-    5. Define your **fields** (see next section).  
-    6. Assign the configuration to one or more **channels**.  
-    7. Click **Save** when done.  
-    </Accordion>  
-
-    ---
-
-    ### **Escalate to Human Agent**  
-    - **Description:** Lets the agent transfer the conversation to a live human agent when it detects it can't resolve the request.  
-    - **Toggle:** Off by default.  
-    - **Configuration:** Requires a supported integration (Freshchat or Zendesk) to be connected.  
-
-    ---
-
-    ### **Send WhatsApp Flows**
-    - **Description:** Enables the agent to send interactive WhatsApp Flows to users during conversations on the WhatsApp channel.  
-    - **Toggle:** Off by default.  
-    - **Availability:** Only available when a WhatsApp channel is connected through the Meta integration.  
-    - **Configuration:** Link one or more WhatsApp Flows from your WABA (WhatsApp Business Account) and configure when and how the agent should send each one.  
-
-    <Accordion title="How to Configure WhatsApp Flows">
-    1. Go to **AI Agent > Design > Skills** and enable the **Send WhatsApp Flows** tool.  
-    2. Click **Configuration** to open the Flows panel.  
-    3. You will see a list of Flows available in your WABA. Linked flows appear at the top, separated from unlinked ones by a divider.  
-    4. **Link a Flow** by toggling it on. Once linked, you can configure the following fields:
-       - **When should the agent send this Flow?** — Describe the scenario (e.g., *When the user asks to book an appointment and has already shared their name*).
-       - **Choose template where it is used** — Select the WhatsApp message template that contains this Flow.
-       - **Language** — Choose the template language.
-       - **After-send instructions** — Optional instructions delivered to the agent only after the Flow is sent. Leave empty to use the default.
-       - **Agent instructions (Response handling)** — Control how the agent processes the user's response after they complete the Flow. See below for details.
-    5. Click **Save** when done.
+    4. Add any **Special Instructions** to guide the agent's behavior while collecting information.  
+    5. Define the **fields** you want the agent to collect:  
+       - **Field name**: What the field is called (e.g., `email`, `phone`).  
+       - **Data type**: text, number, date, or boolean.  
+       - **Required**: Whether this field must be collected before the form is considered complete.  
+    6. Select the **channels** where this configuration should be active.  
+    7. Click **Save** to activate the configuration.  
     </Accordion>
 
-    #### Response handling mode
+    ---
 
-    When a user completes a WhatsApp Flow, their response is sent back to the agent. The **Agent instructions** setting lets you choose how much of that response the agent sees and how it should react. The raw response data is always saved in full regardless of this setting.
+    ### **Send WhatsApp Flows**  
+    - **Description:** Allows the agent to send interactive WhatsApp Flows to users.  
+    - **Toggle:** Off by default.  
+    - **Configuration:** Select an approved WhatsApp template with a FLOW button pointing to the Flow you want to send.  
 
-    | Mode | Description |
-    |---|---|
-    | **Send everything** *(default)* | The agent receives all of the user's responses and can reference them in the conversation. |
-    | **Send only keys** | The agent receives only the field keys (not the values) and acknowledges receipt. Useful when you want confirmation without exposing sensitive data to the agent. |
-    | **Acknowledgement only** | The agent does not receive any response content. Instead, it replies with a **customized message** that you define. |
+    <Warning>
+    Templates with **media headers** (image, video, or document) are **not supported** for WhatsApp Flow delivery. Only templates with text headers or no header can be used. If your template has a media header, it will not appear in the template selector.
+    </Warning>
 
-    <Note>
-    When you select **Acknowledgement only**, a required **Customized message** text field appears. Enter the message the agent should send to the user (e.g., *Thanks, we received your information.*). This field is mandatory.
-    </Note>
-
-    <Tip>
-    Choose the response handling mode based on your privacy and UX needs. If the Flow collects sensitive information that the agent doesn't need to reference, **Send only keys** or **Acknowledgement only** are good choices.
-    </Tip>
+    <Accordion title="How to Configure Send WhatsApp Flows">  
+    1. Go to **AI Agent > Design > Skills** and enable the **Send WhatsApp Flows** tool.  
+    2. Click **Configuration** to open the setup panel.  
+    3. Select the Flow you want to send.  
+    4. Choose an approved WhatsApp template with a FLOW button pointing to this Flow.  
+    5. Optionally, configure what the agent should say after sending the Flow.  
+    6. Click **Save** to activate.  
+    </Accordion>
 
     ---
+
+    ### **Escalate to Human**  
+    - **Description:** Allows the agent to transfer the conversation to a human agent when needed.  
+    - **Toggle:** Off by default.  
+    - **Configuration:** Requires a compatible integration (Freshchat or Zendesk) to be connected.  
 
   </Tab>
 
   <Tab title="Tools (Custom)">
-    The **Tools (Custom)** tab lets you create your own tools — custom actions that extend your agent's capabilities beyond the built-in options. Custom tools are powered by **HTTP requests** to external APIs, allowing your agent to fetch data, trigger actions, or integrate with any system that exposes an API.
+    The **Tools (Custom)** tab lets you create your own tools to extend your agent's capabilities beyond what the predefined tools offer. Custom tools use HTTP requests to connect your agent to external APIs and services.
 
-    ---
+    ### Creating a Custom Tool
 
-    ## How Custom Tools Work
+    1. Go to **AI Agent > Design > Skills > Tools (Custom)**.  
+    2. Click **New Tool** to create a new custom tool.  
+    3. Fill in the required fields:  
+       - **Name**: A descriptive name for the tool.  
+       - **Description**: Explain what the tool does — this helps the agent decide when to use it.  
+       - **HTTP Method**: GET, POST, PUT, PATCH, or DELETE.  
+       - **URL**: The endpoint your tool calls.  
+       - **Headers**: Any required HTTP headers (e.g., authorization tokens).  
+       - **Parameters**: Define the parameters the agent should extract from the conversation.  
+    4. Click **Save** to activate the tool.  
 
-    A custom tool is essentially an API call that the agent can trigger during a conversation when certain conditions are met. You define:
-    - **When** the tool should be used (instructions to the agent)
-    - **What** API endpoint to call (URL, method, headers, body)
-    - **What parameters** the agent needs to collect from the user before making the call
-
-    When a user's request matches the tool's trigger conditions, the agent collects the required parameters, makes the API call, and uses the response to continue the conversation.
-
-    ---
-
-    ## Creating a Custom Tool
-
-    <Steps>
-      <Step title="Go to Custom Tools">
-        Navigate to **AI Agent > Design > Skills > Tools (Custom)**.
-      </Step>
-      <Step title="Create a new tool">
-        Click **New Tool** to open the tool editor.
-      </Step>
-      <Step title="Configure the tool">
-        Fill in the required fields (see configuration details below).
-      </Step>
-      <Step title="Test the tool">
-        Use the **Test** button to verify the API call works correctly.
-      </Step>
-      <Step title="Save and enable">
-        Click **Save** and make sure the tool toggle is turned on.
-      </Step>
-    </Steps>
-
-    ---
-
-    ## Tool Configuration
-
-    ### General Settings
-
-    | Field | Description |
-    |---|---|
-    | **Tool name** | A descriptive name for the tool (e.g., `Check Order Status`). |
-    | **When to use** | Instructions that tell the agent when to trigger this tool (e.g., *When the user asks about their order status*). |
-    | **After-use instructions** | Optional. Instructions for the agent after the tool runs (e.g., *Summarize the order details for the user*). |
-    | **Channels** | Select which channels this tool is available on. |
-
-    ### API Configuration
-
-    | Field | Description |
-    |---|---|
-    | **HTTP Method** | GET, POST, PUT, PATCH, or DELETE. |
-    | **URL** | The full endpoint URL (e.g., `https://api.example.com/orders/{order_id}`). |
-    | **Headers** | Key-value pairs for request headers (e.g., `Authorization: Bearer {{token}}`). |
-    | **Body** | Request body template (for POST/PUT/PATCH). Supports parameter placeholders. |
-
-    ### Parameters
-
-    Parameters are the data points the agent needs to collect from the user before it can make the API call.
-
-    | Field | Description |
-    |---|---|
-    | **Parameter name** | The variable name used in the URL or body template (e.g., `order_id`). |
-    | **Type** | Text, Number, or Boolean. |
-    | **Description** | Tells the agent what this parameter is and how to ask for it. |
-    | **Required** | Whether the agent must collect this before calling the API. |
-
+    <Tip>
+    Write clear, specific descriptions for your custom tools. The agent uses the description to decide when a tool is relevant to the user's request.
+    </Tip>
   </Tab>
 </Tabs>
