@@ -46,76 +46,137 @@ Administra las habilidades de tu agente de IA a través de dos tipos de herramie
     - **Configuración:** Define los campos que deseas que el agente recopile y dónde se debe almacenar la información.
 
     <Note>
-    Esta herramienta es **tan importante** que una vez habilitada, activa una **pestaña dedicada de Recopilar información** en la sección de Habilidades. Desde ahí puedes crear, editar y gestionar configuraciones de recopilación de información en detalle.
+    Esta herramienta es **tan importante** que una vez habilitada, activa una **pestaña dedicada de Recopilar información** en la sección de Habilidades. Desde allí puedes crear, editar y gestionar configuraciones de recopilación de información en detalle.
     </Note>
 
     <Accordion title="Cómo Configurar Recopilar Información">
-    1. Ve a **Agente IA > Diseño > Habilidades > Recopilar información**.
-    2. Haz clic en **Nueva Configuración** para empezar.
-    3. Ingresa un **Nombre** para tu configuración (ej. `registro_interesados`).
-    4. Agrega **Instrucciones Especiales** para guiar el comportamiento del agente.
-    5. Agrega los **campos** que deseas recopilar (nombre, correo, teléfono, etc.) con sus tipos y reglas de extracción.
-    6. Asigna los **canales** donde esta configuración debe estar activa.
-    7. Haz clic en **Guardar**.
+    1. Ve a **Agente IA > Diseño > Habilidades > Recopilar Información**.
+    2. Haz clic en **Nueva Configuración** para comenzar.
+    3. Ingresa un **Nombre** para tu configuración (ej., `registro_interesados`).
+    4. Agrega cualquier **Instrucción Especial** para guiar al agente sobre cómo recopilar datos.
+    5. Define tus **campos** (ver siguiente sección).
+    6. Asigna la configuración a uno o más **canales**.
+    7. Haz clic en **Guardar** cuando termines.
     </Accordion>
 
     ---
 
     ### **Escalar a Agente Humano**
-    - **Descripción:** Permite al agente transferir la conversación a un agente humano en vivo cuando sea necesario.
+    - **Descripción:** Permite al agente transferir la conversación a un agente humano cuando detecta que no puede resolver la solicitud.
     - **Interruptor:** Desactivado por defecto.
     - **Configuración:** Requiere una integración compatible (Freshchat o Zendesk) conectada.
 
     ---
 
-    ### **WhatsApp Flows**
-    - **Descripción:** Permite al agente activar WhatsApp Flows — formularios y pantallas interactivas y estructuradas creados en el Flow Builder de Meta — durante una conversación en WhatsApp.
+    ### **Enviar Flows de WhatsApp**
+    - **Descripción:** Permite al agente enviar Flows interactivos de WhatsApp a los usuarios durante conversaciones en el canal de WhatsApp.
     - **Interruptor:** Desactivado por defecto.
-    - **Canal soportado:** Solo WhatsApp.
-    - **Configuración:** Vincula cada Flow a una plantilla de mensaje de WhatsApp compatible y selecciona el idioma de la plantilla.
+    - **Disponibilidad:** Solo disponible cuando un canal de WhatsApp está conectado a través de la integración de Meta.
+    - **Configuración:** Vincula uno o más Flows de WhatsApp desde tu WABA (cuenta de WhatsApp Business) y configura cuándo y cómo el agente debe enviar cada uno.
+
+    <Accordion title="Cómo Configurar Flows de WhatsApp">
+    1. Ve a **Agente IA > Diseño > Habilidades** y habilita la herramienta **Enviar Flows de WhatsApp**.
+    2. Haz clic en **Configuración** para abrir el panel de Flows.
+    3. Verás una lista de Flows disponibles en tu WABA. Los flows vinculados aparecen primero, separados de los no vinculados por un divisor.
+    4. **Vincula un Flow** activando su interruptor. Una vez vinculado, puedes configurar los siguientes campos:
+       - **¿Cuándo debe el agente enviar este Flow?** — Describe el escenario (ej., *Cuando el usuario pide agendar una cita y ya compartió su nombre*).
+       - **Elige la plantilla donde se usa** — Selecciona la plantilla de mensaje de WhatsApp que contiene este Flow.
+       - **Idioma** — Elige el idioma de la plantilla.
+       - **Instrucciones post-envío** — Instrucciones opcionales entregadas al agente solo después de enviar el Flow. Déjalo vacío para usar el mensaje por defecto.
+       - **Instrucciones del agente (Manejo de respuesta)** — Controla cómo el agente procesa la respuesta del usuario después de completar el Flow. Ver detalles a continuación.
+    5. Haz clic en **Guardar** cuando termines.
+    </Accordion>
+
+    #### Modo de manejo de respuesta
+
+    Cuando un usuario completa un Flow de WhatsApp, su respuesta se envía de vuelta al agente. La configuración de **Instrucciones del agente** te permite elegir cuánta información de esa respuesta ve el agente y cómo debe reaccionar. Los datos crudos de la respuesta siempre se guardan completos independientemente de esta configuración.
+
+    | Modo | Descripción |
+    |---|---|
+    | **Enviar todo** *(predeterminado)* | El agente recibe todas las respuestas del usuario y puede referenciarlas en la conversación. |
+    | **Enviar solo las claves** | El agente recibe solo las claves de los campos (no los valores) y confirma la recepción. Útil cuando deseas confirmación sin exponer datos sensibles al agente. |
+    | **Solo confirmación** | El agente no recibe ningún contenido de la respuesta. En su lugar, responde con un **mensaje personalizado** que tú defines. |
 
     <Note>
-    Solo se muestran en el menú desplegable las plantillas cuyo **primer botón** sea un **botón de tipo FLOW** que apunte al Flow seleccionado. Esto garantiza que la plantilla elegida entregue el Flow correcto en tiempo de ejecución. Si no existe ninguna plantilla compatible para un Flow, los campos de plantilla e idioma se mostrarán deshabilitados.
+    Cuando seleccionas **Solo confirmación**, aparece un campo obligatorio de **Mensaje personalizado**. Ingresa el mensaje que el agente debe enviar al usuario (ej., *Gracias, recibimos tu información.*). Este campo es obligatorio.
     </Note>
 
-    <Accordion title="Cómo Configurar WhatsApp Flows">
-    1. Ve a **Agente IA > Diseño > Habilidades** y habilita **WhatsApp Flows**.
-    2. Haz clic en **Configuración** para abrir el panel de Flows.
-    3. Para cada Flow listado, actívalo para vincularlo al agente.
-    4. Selecciona una **Plantilla** del menú desplegable — solo se listan plantillas compatibles con ese Flow específico. Una plantilla es compatible cuando su primer botón es de tipo FLOW apuntando al Flow seleccionado y la plantilla está aprobada por Meta.
-    5. Elige el **Idioma** de la plantilla seleccionada. Si solo existe un idioma, se completa automáticamente.
-    6. Haz clic en **Guardar**.
-
-    <Warning>
-    Las plantillas con estado **DEPRECATED** o **BLOCKED** no se pueden usar y sus Flows mostrarán una advertencia.
-    </Warning>
-    </Accordion>
+    <Tip>
+    Elige el modo de manejo de respuesta según tus necesidades de privacidad y experiencia de usuario. Si el Flow recopila información sensible que el agente no necesita referenciar, **Enviar solo las claves** o **Solo confirmación** son buenas opciones.
+    </Tip>
 
     ---
 
   </Tab>
 
   <Tab title="Herramientas (Personalizadas)">
-    La pestaña **Herramientas (Personalizadas)** te permite crear tus propias herramientas definiendo integraciones de API que tu agente puede llamar durante las conversaciones.
-
-    Las herramientas personalizadas extienden la funcionalidad de tu agente más allá de las capacidades integradas. Por ejemplo, puedes crear una herramienta que consulte el estado de un pedido desde tu backend, verifique inventario, agende citas o realice cualquier acción disponible a través de una API.
+    La pestaña **Herramientas (Personalizadas)** te permite crear tus propias herramientas — acciones personalizadas que extienden las capacidades de tu agente más allá de las opciones integradas. Las herramientas personalizadas funcionan mediante **solicitudes HTTP** a APIs externas, permitiendo que tu agente obtenga datos, active acciones o se integre con cualquier sistema que exponga una API.
 
     ---
 
-    ## Cómo Crear una Herramienta Personalizada
+    ## Cómo Funcionan las Herramientas Personalizadas
 
-    1. Ve a **Agente IA > Diseño > Habilidades > Herramientas (Personalizadas)**.
-    2. Haz clic en **Nueva Herramienta**.
-    3. Completa la configuración de la herramienta:
-       - **Nombre** — Un nombre descriptivo para la herramienta.
-       - **Descripción** — Qué hace la herramienta (esto ayuda a la IA a decidir cuándo usarla).
-       - **Endpoint de API** — La URL a la que la herramienta llamará.
-       - **Método** — GET, POST, PUT, DELETE, etc.
-       - **Headers** — Cualquier encabezado requerido (ej. Authorization).
-       - **Parámetros** — Define los parámetros de entrada que el agente necesita recopilar del usuario.
-    4. Haz clic en **Guardar**.
+    Una herramienta personalizada es esencialmente una llamada API que el agente puede activar durante una conversación cuando se cumplen ciertas condiciones. Tú defines:
+    - **Cuándo** debe usarse la herramienta (instrucciones para el agente)
+    - **Qué** endpoint de API llamar (URL, método, headers, body)
+    - **Qué parámetros** necesita recopilar el agente del usuario antes de hacer la llamada
+
+    Cuando la solicitud de un usuario coincide con las condiciones de activación de la herramienta, el agente recopila los parámetros necesarios, hace la llamada API y usa la respuesta para continuar la conversación.
 
     ---
+
+    ## Creando una Herramienta Personalizada
+
+    <Steps>
+      <Step title="Ve a Herramientas Personalizadas">
+        Navega a **Agente IA > Diseño > Habilidades > Herramientas (Personalizadas)**.
+      </Step>
+      <Step title="Crea una nueva herramienta">
+        Haz clic en **Nueva Herramienta** para abrir el editor.
+      </Step>
+      <Step title="Configura la herramienta">
+        Completa los campos requeridos (ver detalles de configuración abajo).
+      </Step>
+      <Step title="Prueba la herramienta">
+        Usa el botón **Probar** para verificar que la llamada API funciona correctamente.
+      </Step>
+      <Step title="Guarda y habilita">
+        Haz clic en **Guardar** y asegúrate de que el interruptor de la herramienta esté activado.
+      </Step>
+    </Steps>
+
+    ---
+
+    ## Configuración de la Herramienta
+
+    ### Configuración General
+
+    | Campo | Descripción |
+    |---|---|
+    | **Nombre de la herramienta** | Un nombre descriptivo para la herramienta (ej., `Consultar Estado de Pedido`). |
+    | **Cuándo usar** | Instrucciones que le dicen al agente cuándo activar esta herramienta (ej., *Cuando el usuario pregunta sobre el estado de su pedido*). |
+    | **Instrucciones post-uso** | Opcional. Instrucciones para el agente después de ejecutar la herramienta (ej., *Resume los detalles del pedido para el usuario*). |
+    | **Canales** | Selecciona en qué canales está disponible esta herramienta. |
+
+    ### Configuración de API
+
+    | Campo | Descripción |
+    |---|---|
+    | **Método HTTP** | GET, POST, PUT, PATCH o DELETE. |
+    | **URL** | La URL completa del endpoint (ej., `https://api.example.com/orders/{order_id}`). |
+    | **Headers** | Pares clave-valor para los headers de la solicitud (ej., `Authorization: Bearer {{token}}`). |
+    | **Body** | Plantilla del cuerpo de la solicitud (para POST/PUT/PATCH). Soporta placeholders de parámetros. |
+
+    ### Parámetros
+
+    Los parámetros son los datos que el agente necesita recopilar del usuario antes de hacer la llamada API.
+
+    | Campo | Descripción |
+    |---|---|
+    | **Nombre del parámetro** | El nombre de la variable usada en la URL o plantilla del body (ej., `order_id`). |
+    | **Tipo** | Texto, Número o Booleano. |
+    | **Descripción** | Le dice al agente qué es este parámetro y cómo solicitarlo. |
+    | **Requerido** | Si el agente debe recopilar esto antes de llamar a la API. |
 
   </Tab>
 </Tabs>
