@@ -1,0 +1,163 @@
+---
+title: "External Login"
+language: en
+description: "Create a customizable public login page that authenticates your users against your own endpoint and stores the result on their profile."
+---
+
+**External Login** lets you build a branded, public-facing login page for your AI agent. When an end user submits the form, the platform proxies the credentials to your own authentication endpoint and—if successful—encrypts the response and stores it in the user's metadata. This is useful when your agent needs to verify a user's identity or retrieve account-level data before (or during) a conversation.
+
+<Note>
+External Login is configured per agent. You'll find it in **AI Agent > Connect > Channels**, in the dedicated **External Login** card.
+</Note>
+
+---
+
+## How it works
+
+1. You design a login form (fields, branding, colors) from the **External Login builder** inside the Console.
+2. You configure the authentication endpoint the form should call (URL, method, headers, payload template).
+3. The platform generates a **shareable URL** you can distribute to your users.
+4. When a user opens the link and submits the form, the backend proxies the request to your endpoint.
+5. If authentication succeeds, the response is **encrypted** with your secret and saved in the user's metadata under a key you choose.
+
+---
+
+## Accessing the External Login builder
+
+<Steps>
+  <Step title="Go to Connect > Channels">
+    Open your agent and navigate to the **Connect** page.
+  </Step>
+  <Step title="Open External Login">
+    In the Channels section, find the **External Login** card and click **Manage**.
+  </Step>
+  <Step title="Configure and save">
+    Use the builder to set up branding, form fields, auth endpoint, and encryption. Click **Save configuration** when you're done.
+  </Step>
+</Steps>
+
+---
+
+## Builder sections
+
+The External Login builder is split into a left-side editor and a right-side **live preview** that updates in real time as you make changes.
+
+### Enable / disable
+
+At the top of the editor you'll find a toggle to **enable or disable** the public login page. When disabled, the shareable URL returns an "unavailable" message.
+
+Below the toggle, a read-only field shows the **shareable URL** in the format:
+
+```
+https://<your-console-origin>/external-login?agent_id=<agent_id>&external_user_id=YOUR_USER_ID
+```
+
+Replace `YOUR_USER_ID` with the actual external user ID when distributing the link. Click the copy button to copy it to your clipboard.
+
+<Tip>
+  The `external_user_id` query parameter ties the login to a specific end user. Make sure you pass the correct ID so that the authenticated metadata is stored on the right user profile.
+</Tip>
+
+---
+
+### Branding
+
+Customize the look and feel of the login page:
+
+| Setting | Description |
+|---|---|
+| **Logo** | Upload an image (PNG, JPG, SVG) displayed at the top of the login card. You can remove it at any time. |
+| **Description** | A short text shown below the logo (e.g. "Log in to link your account with our assistant"). Supports line breaks. |
+| **Background color** | The page background color. Use the color picker or type a hex value. |
+
+---
+
+### Form fields
+
+Define the fields your users will fill in. Each field has:
+
+| Property | Description |
+|---|---|
+| **Label** | The text shown above the input (e.g. "Email"). |
+| **Identifier** | A lowercase, underscore-separated key auto-derived from the label (e.g. `email`). Used in the payload template. |
+| **Type** | The input type: `text`, `email`, `phone`, `password`, `otp`, or `number`. |
+| **Required** | Whether the field must be filled before submission. |
+
+Click **Add field** to add more fields, or the trash icon to remove one.
+
+<Warning>
+Every field must have a valid identifier (lowercase letters, numbers, and underscores only). The configuration cannot be saved if any field has an empty or invalid identifier.
+</Warning>
+
+---
+
+### Auth endpoint
+
+Configure how the platform calls your authentication service when the user submits the form:
+
+| Setting | Description |
+|---|---|
+| **Method** | HTTP method: `GET`, `POST`, `PUT`, `PATCH`, or `DELETE`. |
+| **URL** | The full URL of your authentication endpoint (e.g. `https://api.yourcompany.com/login`). |
+| **Headers** | Optional HTTP headers sent with the request. Mark a header as **Secret** to mask its value in the UI; secret values are stored encrypted and won't be displayed again after saving. |
+
+---
+
+### Request payload
+
+Write a JSON template for the request body (used with POST, PUT, and PATCH methods). Reference form field values using mustache-style variables:
+
+```json
+{
+  "user_email": "{{form.email}}",
+  "user_password": "{{form.password}}"
+}
+```
+
+Clickable **variable badges** appear above the text area for every field that has an identifier—click one to insert it at the cursor position.
+
+---
+
+### Encryption
+
+Protect the authentication response before it is stored in user metadata:
+
+| Setting | Description |
+|---|---|
+| **Encryption secret** | A secret key used to encrypt the auth response. Keep a copy—you need it to decrypt the data on your side. Once saved, the secret is masked; leave the field blank to keep the existing secret. |
+| **Metadata key** | The key inside `user_metadata` where the encrypted response is stored. Defaults to `external_login`. |
+
+<Tip>
+  Use a strong, unique secret. If you lose it, you won't be able to decrypt the stored authentication responses.
+</Tip>
+
+---
+
+## Live preview
+
+On desktop screens, the right side of the builder shows a live preview of your login page inside an iframe. Changes to branding, fields, and colors are reflected instantly—no need to save first.
+
+---
+
+## End-user experience
+
+When an end user opens the shareable URL:
+
+1. The login page loads with your branding and form fields.
+2. The user fills in the required information and clicks **Log in**.
+3. If authentication succeeds, a confirmation message is displayed.
+4. If authentication fails (invalid credentials, rate limit, server error), an error message is shown and the user can retry.
+
+<Note>
+If the `external_user_id` parameter is missing from the URL, the form is displayed but cannot be submitted. A warning message is shown to the user.
+</Note>
+
+---
+
+## Key notes
+
+- External Login is **per agent**—each agent can have its own login page configuration.
+- The login page is a **public URL** (no Semantiks account required for end users).
+- Authentication responses are **encrypted at rest** using your provided secret before being stored in user metadata.
+- Secret header values and the encryption secret are **never exposed** in plain text after saving.
+- You can disable the login page at any time without deleting the configuration.

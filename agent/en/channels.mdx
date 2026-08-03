@@ -83,62 +83,51 @@ The Connect page always displays a **Meta** section with three channel cards:
 
 Each card shows a **Connect** button that opens the setup flow for that specific channel. You do not need to configure the Meta integration first — the cards are always visible so you can start the connection process at any time.
 
-<Tip>
-  For a detailed walkthrough of the WhatsApp connection process, see the [How to Integrate to WhatsApp](/integration-guides/en/how-to-integrate-to-whatsapp) guide.
-</Tip>
+For a detailed walkthrough of the WhatsApp setup, see the [How to integrate to WhatsApp](/integration-guides/en/how-to-integrate-to-whatsapp) guide.
 
-#### WhatsApp registration status
+### External Login
 
-After connecting a WhatsApp channel, a **registration status badge** appears next to the channel name. The badge tells you where the number stands in Meta's registration process:
+**External Login** lets you create a customizable public login page that authenticates your end users against your own endpoint. This is useful when your agent needs to verify a user's identity or access account-level data.
+
+The card is located in the Channels section. Click **Manage** to open the External Login builder, where you can:
+
+- Design the login form (fields, logo, description, background color)
+- Configure your authentication endpoint (URL, method, headers, payload)
+- Set up encryption for the stored auth response
+- Enable or disable the public page
+
+For full details, see the dedicated [External Login](/agent/en/external-login) page.
+
+### Integrations
+
+Below the channel cards you'll find the **Integrations** section. This is where you connect your agent to third-party platforms like **Freshchat** and **Zendesk**.
+
+Each integration card shows its current status:
 
 | Status | Meaning |
 |---|---|
-| **Registered** | The number is fully registered and ready to send/receive messages. |
-| **Not registered** | The number has not been registered with Meta yet. |
-| **Verification needed** | The number must complete SMS or voice-call verification with Meta before it can be registered. |
-| Other statuses | Intermediate states reported by Meta (e.g. registration in progress). |
+| **Connected** | Integration is active and ready |
+| **Not connected** | Needs setup |
 
-You can click the **refresh** icon next to the badge at any time to re-check the current status from Meta.
+Click the card to configure the integration. For step-by-step guides, see:
 
-##### Verifying a phone number
+- [How to integrate to Freshchat](/integration-guides/en/how-to-integrate-to-freshchat)
+- [How to integrate to Zendesk](/integration-guides/en/how-to-integrate-to-zendesk)
 
-When the status is **Verification needed**, a **Verify** button appears next to the status badge. This means Meta requires you to confirm ownership of the phone number before it can be registered.
+### API
 
-<Steps>
-  <Step title="Click Verify">
-    Click the **Verify** button (shield icon) next to the registration status. A popover will open.
-  </Step>
-  <Step title="Request a verification code">
-    Choose how you want to receive the code:
-    - **Send SMS** — Meta sends a 6-digit code via text message to the phone number.
-    - **Voice call** — Meta delivers the code through an automated phone call.
-  </Step>
-  <Step title="Enter the code">
-    Once you receive the 6-digit code, type it into the input field in the popover.
-  </Step>
-  <Step title="Submit">
-    Click **Verify** to submit the code. If verification succeeds, the registration status will update automatically.
-  </Step>
-</Steps>
-
-<Note>
-  After a successful verification you may still need to **register** the number (using the retry/register flow with your 6-digit PIN). Verification confirms ownership; registration activates the number on the WhatsApp Business API.
-</Note>
-
-##### Registering (or re-registering) a number
-
-When the status is anything other than **Registered** or **Verification needed**, a **Register** button appears. Clicking it opens a popover where you enter the **6-digit PIN** you want to associate with the number, then submit the registration request to Meta.
-
-<Warning>
-  Remember your PIN — you will need it for any future re-registrations of the same number.
-</Warning>
+The **API** section gives you the credentials and endpoint information needed to integrate your agent programmatically. Use this when you want to send and receive messages from your own backend systems.
 
 ---
 
 ## Messaging Behaviour tab
 
-The **Messaging Behaviour** tab lets you fine-tune how your agent processes incoming messages on each channel. Settings here control things like response delay, greeting behavior, and how attachments are handled.
+The **Messaging Behaviour** tab lets you control how your agent processes and responds to messages on each connected channel. Settings here include:
+
+- **Response timing** — configure delays or typing indicators
+- **Message handling** — define how the agent treats different message types
+- **Channel-specific behavior** — apply rules that only affect certain channels
 
 <Tip>
-  Start with the defaults and adjust once you see real conversation patterns in the **Conversations** dashboard.
+  Review Messaging Behaviour after connecting a new channel to make sure the agent's response style fits that platform's conventions.
 </Tip>

@@ -1,0 +1,163 @@
+---
+title: "Login Externo"
+language: es
+description: "Crea una página de login pública y personalizable que autentica a tus usuarios contra tu propio endpoint y almacena el resultado en su perfil."
+---
+
+**Login Externo** te permite construir una página de inicio de sesión pública y con tu marca para tu agente de IA. Cuando un usuario final envía el formulario, la plataforma reenvía las credenciales a tu propio endpoint de autenticación y, si la autenticación es exitosa, cifra la respuesta y la almacena en los metadatos del usuario. Esto es útil cuando tu agente necesita verificar la identidad de un usuario o recuperar datos a nivel de cuenta antes (o durante) una conversación.
+
+<Note>
+El Login Externo se configura por agente. Lo encontrarás en **Agente IA > Conecta > Canales**, en la tarjeta dedicada de **Login Externo**.
+</Note>
+
+---
+
+## Cómo funciona
+
+1. Diseñas un formulario de login (campos, marca, colores) desde el **constructor de Login Externo** dentro de la consola.
+2. Configuras el endpoint de autenticación que el formulario debe llamar (URL, método, headers, plantilla de payload).
+3. La plataforma genera una **URL compartible** que puedes distribuir a tus usuarios.
+4. Cuando un usuario abre el enlace y envía el formulario, el backend reenvía la solicitud a tu endpoint.
+5. Si la autenticación es exitosa, la respuesta se **cifra** con tu secreto y se guarda en los metadatos del usuario bajo una clave que tú eliges.
+
+---
+
+## Acceder al constructor de Login Externo
+
+<Steps>
+  <Step title="Ve a Conecta > Canales">
+    Abre tu agente y navega a la página **Conecta**.
+  </Step>
+  <Step title="Abre Login Externo">
+    En la sección de Canales, busca la tarjeta **Login Externo** y haz clic en **Gestionar**.
+  </Step>
+  <Step title="Configura y guarda">
+    Usa el constructor para definir marca, campos del formulario, endpoint de autenticación y cifrado. Haz clic en **Guardar configuración** cuando termines.
+  </Step>
+</Steps>
+
+---
+
+## Secciones del constructor
+
+El constructor de Login Externo se divide en un editor a la izquierda y una **vista previa en vivo** a la derecha que se actualiza en tiempo real conforme haces cambios.
+
+### Activar / desactivar
+
+En la parte superior del editor encontrarás un interruptor para **activar o desactivar** la página de login pública. Cuando está desactivada, la URL compartible muestra un mensaje de "no disponible".
+
+Debajo del interruptor, un campo de solo lectura muestra la **URL compartible** con el formato:
+
+```
+https://<origen-de-consola>/external-login?agent_id=<agent_id>&external_user_id=TU_ID_DE_USUARIO
+```
+
+Reemplaza `TU_ID_DE_USUARIO` con el ID de usuario externo real al distribuir el enlace. Haz clic en el botón de copiar para copiarlo al portapapeles.
+
+<Tip>
+  El parámetro `external_user_id` vincula el login a un usuario final específico. Asegúrate de pasar el ID correcto para que los metadatos autenticados se almacenen en el perfil de usuario correcto.
+</Tip>
+
+---
+
+### Marca
+
+Personaliza la apariencia de la página de login:
+
+| Configuración | Descripción |
+|---|---|
+| **Logo** | Sube una imagen (PNG, JPG, SVG) que se muestra en la parte superior de la tarjeta de login. Puedes eliminarla en cualquier momento. |
+| **Descripción** | Un texto corto que se muestra debajo del logo (ej. "Inicia sesión para vincular tu cuenta con nuestro asistente"). Soporta saltos de línea. |
+| **Color de fondo** | El color de fondo de la página. Usa el selector de color o escribe un valor hexadecimal. |
+
+---
+
+### Campos del formulario
+
+Define los campos que tus usuarios llenarán. Cada campo tiene:
+
+| Propiedad | Descripción |
+|---|---|
+| **Etiqueta** | El texto que se muestra sobre el campo (ej. "Correo electrónico"). |
+| **Identificador** | Una clave en minúsculas separada por guiones bajos, auto-derivada de la etiqueta (ej. `correo_electronico`). Se usa en la plantilla de payload. |
+| **Tipo** | El tipo de entrada: `text`, `email`, `phone`, `password`, `otp` o `number`. |
+| **Requerido** | Si el campo debe llenarse antes de enviar el formulario. |
+
+Haz clic en **Agregar campo** para añadir más campos, o en el ícono de papelera para eliminar uno.
+
+<Warning>
+Cada campo debe tener un identificador válido (solo letras minúsculas, números y guiones bajos). La configuración no se puede guardar si algún campo tiene un identificador vacío o inválido.
+</Warning>
+
+---
+
+### Endpoint de autenticación
+
+Configura cómo la plataforma llama a tu servicio de autenticación cuando el usuario envía el formulario:
+
+| Configuración | Descripción |
+|---|---|
+| **Método** | Método HTTP: `GET`, `POST`, `PUT`, `PATCH` o `DELETE`. |
+| **URL** | La URL completa de tu endpoint de autenticación (ej. `https://api.tuempresa.com/login`). |
+| **Headers** | Headers HTTP opcionales enviados con la solicitud. Marca un header como **Secreto** para ocultar su valor en la interfaz; los valores secretos se almacenan cifrados y no se mostrarán de nuevo después de guardar. |
+
+---
+
+### Payload de la solicitud
+
+Escribe una plantilla JSON para el cuerpo de la solicitud (usado con métodos POST, PUT y PATCH). Referencia los valores de los campos del formulario usando variables tipo mustache:
+
+```json
+{
+  "user_email": "{{form.email}}",
+  "user_password": "{{form.password}}"
+}
+```
+
+Sobre el área de texto aparecen **badges de variables** clicables para cada campo que tiene un identificador—haz clic en uno para insertarlo en la posición del cursor.
+
+---
+
+### Cifrado
+
+Protege la respuesta de autenticación antes de que se almacene en los metadatos del usuario:
+
+| Configuración | Descripción |
+|---|---|
+| **Secreto de cifrado** | Una clave secreta usada para cifrar la respuesta de autenticación. Guarda una copia—la necesitas para descifrar los datos de tu lado. Una vez guardado, el secreto se oculta; deja el campo en blanco para mantener el secreto existente. |
+| **Clave de metadatos** | La clave dentro de `user_metadata` donde se almacena la respuesta cifrada. Por defecto es `external_login`. |
+
+<Tip>
+  Usa un secreto fuerte y único. Si lo pierdes, no podrás descifrar las respuestas de autenticación almacenadas.
+</Tip>
+
+---
+
+## Vista previa en vivo
+
+En pantallas de escritorio, el lado derecho del constructor muestra una vista previa en vivo de tu página de login dentro de un iframe. Los cambios en marca, campos y colores se reflejan instantáneamente, sin necesidad de guardar primero.
+
+---
+
+## Experiencia del usuario final
+
+Cuando un usuario final abre la URL compartible:
+
+1. La página de login se carga con tu marca y campos del formulario.
+2. El usuario llena la información requerida y hace clic en **Log in**.
+3. Si la autenticación es exitosa, se muestra un mensaje de confirmación.
+4. Si la autenticación falla (credenciales inválidas, límite de tasa, error del servidor), se muestra un mensaje de error y el usuario puede reintentar.
+
+<Note>
+Si el parámetro `external_user_id` no está en la URL, el formulario se muestra pero no se puede enviar. Se muestra un mensaje de advertencia al usuario.
+</Note>
+
+---
+
+## Notas clave
+
+- El Login Externo es **por agente**—cada agente puede tener su propia configuración de página de login.
+- La página de login es una **URL pública** (los usuarios finales no necesitan una cuenta de Semantiks).
+- Las respuestas de autenticación se **cifran en reposo** usando el secreto que proporcionas antes de almacenarse en los metadatos del usuario.
+- Los valores secretos de headers y el secreto de cifrado **nunca se exponen** en texto plano después de guardar.
+- Puedes desactivar la página de login en cualquier momento sin eliminar la configuración.
