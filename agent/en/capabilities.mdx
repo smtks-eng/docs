@@ -53,62 +53,73 @@ Manage your AI agent's skills through two types of tools: predefined tools that 
     1. Go to **AI Agent > Design > Skills > Collect Information**.  
     2. Click **New Configuration** to start.  
     3. Enter a **Name** for your configuration (e.g., `registro_interesados`).  
-    4. Add any **Special Instructions** to guide the agent's behavior while collecting information.  
-    5. Define the **fields** you want the agent to collect:  
-       - **Field name**: What the field is called (e.g., `email`, `phone`).  
-       - **Data type**: text, number, date, or boolean.  
-       - **Required**: Whether this field must be collected before the form is considered complete.  
-    6. Select the **channels** where this configuration should be active.  
-    7. Click **Save** to activate the configuration.  
-    </Accordion>
-
-    ---
-
-    ### **Send WhatsApp Flows**  
-    - **Description:** Allows the agent to send interactive WhatsApp Flows to users.  
-    - **Toggle:** Off by default.  
-    - **Configuration:** Select an approved WhatsApp template with a FLOW button pointing to the Flow you want to send.  
-
-    <Warning>
-    Templates with **media headers** (image, video, or document) are **not supported** for WhatsApp Flow delivery. Only templates with text headers or no header can be used. If your template has a media header, it will not appear in the template selector.
-    </Warning>
-
-    <Accordion title="How to Configure Send WhatsApp Flows">  
-    1. Go to **AI Agent > Design > Skills** and enable the **Send WhatsApp Flows** tool.  
-    2. Click **Configuration** to open the setup panel.  
-    3. Select the Flow you want to send.  
-    4. Choose an approved WhatsApp template with a FLOW button pointing to this Flow.  
-    5. Optionally, configure what the agent should say after sending the Flow.  
-    6. Click **Save** to activate.  
+    4. Add any **Special Instructions** to guide the agent on how to collect the information.
+    5. Add the fields you want to collect, specifying the name, type, and any validation rules.
+    6. Assign the configuration to one or more **channels**.
+    7. Click **Save** to activate.
     </Accordion>
 
     ---
 
     ### **Escalate to Human**  
-    - **Description:** Allows the agent to transfer the conversation to a human agent when needed.  
+    - **Description:** Enables the agent to transfer the conversation to a human agent when needed.  
     - **Toggle:** Off by default.  
     - **Configuration:** Requires a compatible integration (Freshchat or Zendesk) to be connected.  
 
   </Tab>
 
   <Tab title="Tools (Custom)">
-    The **Tools (Custom)** tab lets you create your own tools to extend your agent's capabilities beyond what the predefined tools offer. Custom tools use HTTP requests to connect your agent to external APIs and services.
+    The **Tools (Custom)** tab lets you create your own tools—called **Skills**—that connect your AI agent to external APIs and services. This is the **Skill Builder**.
 
-    ### Creating a Custom Tool
+    A custom skill defines an HTTP request that the agent can trigger during a conversation. You configure the endpoint URL, HTTP method, input parameters, and the expected response format.
 
-    1. Go to **AI Agent > Design > Skills > Tools (Custom)**.  
-    2. Click **New Tool** to create a new custom tool.  
-    3. Fill in the required fields:  
-       - **Name**: A descriptive name for the tool.  
-       - **Description**: Explain what the tool does — this helps the agent decide when to use it.  
-       - **HTTP Method**: GET, POST, PUT, PATCH, or DELETE.  
-       - **URL**: The endpoint your tool calls.  
-       - **Headers**: Any required HTTP headers (e.g., authorization tokens).  
-       - **Parameters**: Define the parameters the agent should extract from the conversation.  
-    4. Click **Save** to activate the tool.  
+    ---
+
+    ## Creating a Custom Skill
+
+    1. Navigate to **AI Agent > Design > Skills**.  
+    2. Switch to the **Tools (Custom)** tab.  
+    3. Click **New Skill** to open the Skill Builder.  
+    4. Fill in the skill details: name, description, URL, HTTP method, parameters, and return type.  
+    5. Click **Save** to make the skill available to your agent.
+
+    ---
+
+    ## Skill Builder: Input Parameters
+
+    Each input parameter you add to a custom skill requires:
+
+    - **Name** — the parameter key.
+    - **Kind** — the data type: `string`, `int`, `float`, `bool`, `list`, or `object`.
+    - **Source** — where the value comes from: `conversation`, `end_user`, `state`, `store`, `config`, `fixed`, or `configuration` (for secrets like API keys).
+    - **Location** — where the parameter is placed in the HTTP request.
+
+    ### Parameter locations
+
+    | Location | Label | Description |
+    |---|---|---|
+    | **query** | As a web-link extra | Added as a query string parameter in the URL |
+    | **path** | Inside the web link | Fills a `{placeholder}` in the URL path |
+    | **body** | In the message data | Sent in the JSON request body |
+    | **header** | In the header | Sent as a custom HTTP header (common for API keys) |
+    | **header_auth_bearer** | As a Bearer token | Sent as the `Authorization: Bearer <value>` header |
 
     <Tip>
-    Write clear, specific descriptions for your custom tools. The agent uses the description to decide when a tool is relevant to the user's request.
+      Use **As a Bearer token** when the external API expects an OAuth or JWT token in the standard `Authorization` header. This is especially useful when combined with the **end_user** source to forward tokens obtained through [External Login](/agent/en/external-login), since those tokens are stored encrypted and automatically decrypted before the request is sent.
     </Tip>
+
+    ---
+
+    ## Return Types
+
+    Define what shape of data the external API returns so the agent can interpret it:
+
+    | Return type | Description |
+    |---|---|
+    | **dict** | A bundle of details (JSON object) the agent can read fields from |
+    | **list** | A list of items |
+    | **number** | A single numeric value |
+    | **str** | A plain text string |
+
   </Tab>
 </Tabs>
